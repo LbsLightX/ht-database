@@ -1,0 +1,19861 @@
+/**
+ * ====================================================================
+ * HELLOTALK DATABASE (V1.0.0) - MASTER ARCHITECTURAL APPLICATION ENGINE
+ * Dedicated Series Master Catalog // Collected-Only Wall // Backpack Stock
+ * Red Collection // Purple Luxury & Limited // Blue Featured // Indigo Collected
+ * ====================================================================
+ */
+
+(() => {
+  'use strict';
+
+  const STORAGE_KEY = 'hellotalk_database_v3';
+  const BATCH_SIZE = 60;
+
+  const DEFAULT_SEED = {
+  "version": "1.0.0",
+  "lastExported": 1729000000000,
+  "categories": [
+    {
+      "id": "cat-basic",
+      "name": "Basic",
+      "order": 1,
+      "description": ""
+    },
+    {
+      "id": "cat-emotion",
+      "name": "Emotion",
+      "order": 2,
+      "description": ""
+    },
+    {
+      "id": "cat-modern",
+      "name": "Modern",
+      "order": 3,
+      "description": ""
+    },
+    {
+      "id": "cat-art",
+      "name": "Art",
+      "order": 4,
+      "description": ""
+    },
+    {
+      "id": "cat-fantasy",
+      "name": "Fantasy",
+      "order": 5,
+      "description": ""
+    },
+    {
+      "id": "cat-apparel",
+      "name": "Apparel",
+      "order": 6,
+      "description": ""
+    },
+    {
+      "id": "cat-lives",
+      "name": "Lives",
+      "order": 7,
+      "description": ""
+    },
+    {
+      "id": "cat-home",
+      "name": "Home",
+      "order": 8,
+      "description": ""
+    },
+    {
+      "id": "cat-delicious",
+      "name": "Delicious",
+      "order": 9,
+      "description": ""
+    },
+    {
+      "id": "cat-celebration",
+      "name": "Celebration",
+      "order": 10,
+      "description": ""
+    }
+  ],
+  "series": [
+    {
+      "id": "ser-basic-echoes-of-youth",
+      "categoryId": "cat-basic",
+      "name": "Echoes of Youth",
+      "badge": "Collection",
+      "description": "Echoes of Youth collection series under Basic.",
+      "displayOrder": 1
+    },
+    {
+      "id": "ser-basic-live-streamer-s-trilogy",
+      "categoryId": "cat-basic",
+      "name": "Live Streamer's Trilogy",
+      "badge": "Collection",
+      "description": "Live Streamer's Trilogy collection series under Basic.",
+      "displayOrder": 2
+    },
+    {
+      "id": "ser-basic-gummy-party",
+      "categoryId": "cat-basic",
+      "name": "Gummy Party",
+      "badge": "Collection",
+      "description": "Gummy Party collection series under Basic.",
+      "displayOrder": 3
+    },
+    {
+      "id": "ser-basic-creator-s-gifts",
+      "categoryId": "cat-basic",
+      "name": "Creator's gifts",
+      "badge": "Collection",
+      "description": "Creator's gifts collection series under Basic.",
+      "displayOrder": 4
+    },
+    {
+      "id": "ser-basic-happy-anniversary",
+      "categoryId": "cat-basic",
+      "name": "HAPPY ANNIVERSARY",
+      "badge": "Special",
+      "description": "HAPPY ANNIVERSARY collection series under Basic.",
+      "displayOrder": 5
+    },
+    {
+      "id": "ser-basic-happy-birthday",
+      "categoryId": "cat-basic",
+      "name": "HAPPY BIRTHDAY!",
+      "badge": "Special",
+      "description": "HAPPY BIRTHDAY! collection series under Basic.",
+      "displayOrder": 6
+    },
+    {
+      "id": "ser-emotion-luminous-heart-s-melody",
+      "categoryId": "cat-emotion",
+      "name": "Luminous Heart's Melody",
+      "badge": "Romance",
+      "description": "Luminous Heart's Melody collection series under Emotion.",
+      "displayOrder": 7
+    },
+    {
+      "id": "ser-emotion-romantic-vow",
+      "categoryId": "cat-emotion",
+      "name": "Romantic Vow",
+      "badge": "Collection",
+      "description": "Romantic Vow collection series under Emotion.",
+      "displayOrder": 8
+    },
+    {
+      "id": "ser-emotion-collections-of-hearts",
+      "categoryId": "cat-emotion",
+      "name": "Collections of Hearts",
+      "badge": "Romance",
+      "description": "Collections of Hearts collection series under Emotion.",
+      "displayOrder": 9
+    },
+    {
+      "id": "ser-emotion-echoes-of-love",
+      "categoryId": "cat-emotion",
+      "name": "Echoes of Love",
+      "badge": "Romance",
+      "description": "Echoes of Love collection series under Emotion.",
+      "displayOrder": 10
+    },
+    {
+      "id": "ser-modern-back-to-the-millennium",
+      "categoryId": "cat-modern",
+      "name": "Back to the Millennium",
+      "badge": "Collection",
+      "description": "Back to the Millennium collection series under Modern.",
+      "displayOrder": 11
+    },
+    {
+      "id": "ser-modern-roaring-engine",
+      "categoryId": "cat-modern",
+      "name": "Roaring engine",
+      "badge": "Collection",
+      "description": "Roaring engine collection series under Modern.",
+      "displayOrder": 12
+    },
+    {
+      "id": "ser-modern-ready-to-go",
+      "categoryId": "cat-modern",
+      "name": "Ready to Go",
+      "badge": "Collection",
+      "description": "Ready to Go collection series under Modern.",
+      "displayOrder": 13
+    },
+    {
+      "id": "ser-modern-the-road-to-fame",
+      "categoryId": "cat-modern",
+      "name": "The Road to Fame",
+      "badge": "Apex",
+      "description": "The Road to Fame collection series under Modern.",
+      "displayOrder": 14
+    },
+    {
+      "id": "ser-art-wonderland-dream",
+      "categoryId": "cat-art",
+      "name": "Wonderland Dream",
+      "badge": "Collection",
+      "description": "Wonderland Dream collection series under Art.",
+      "displayOrder": 15
+    },
+    {
+      "id": "ser-art-global-story-club",
+      "categoryId": "cat-art",
+      "name": "Global Story Club",
+      "badge": "Collection",
+      "description": "Global Story Club collection series under Art.",
+      "displayOrder": 16
+    },
+    {
+      "id": "ser-art-a-little-square-board",
+      "categoryId": "cat-art",
+      "name": "A Little Square Board",
+      "badge": "Collection",
+      "description": "A Little Square Board collection series under Art.",
+      "displayOrder": 17
+    },
+    {
+      "id": "ser-art-world-famous-paintings",
+      "categoryId": "cat-art",
+      "name": "World-famous paintings",
+      "badge": "Collection",
+      "description": "World-famous paintings collection series under Art.",
+      "displayOrder": 18
+    },
+    {
+      "id": "ser-art-eastern-musical-instrument",
+      "categoryId": "cat-art",
+      "name": "Eastern musical instrument",
+      "badge": "Art",
+      "description": "Eastern musical instrument collection series under Art.",
+      "displayOrder": 19
+    },
+    {
+      "id": "ser-fantasy-glimmering-hidden-paradise",
+      "categoryId": "cat-fantasy",
+      "name": "Glimmering Hidden Paradise",
+      "badge": "Collection",
+      "description": "Glimmering Hidden Paradise collection series under Fantasy.",
+      "displayOrder": 20
+    },
+    {
+      "id": "ser-fantasy-starry-river-journey",
+      "categoryId": "cat-fantasy",
+      "name": "Starry River Journey",
+      "badge": "Collection",
+      "description": "Starry River Journey collection series under Fantasy.",
+      "displayOrder": 21
+    },
+    {
+      "id": "ser-fantasy-wandering-in-wonderland",
+      "categoryId": "cat-fantasy",
+      "name": "Wandering in Wonderland",
+      "badge": "Collection",
+      "description": "Wandering in Wonderland collection series under Fantasy.",
+      "displayOrder": 22
+    },
+    {
+      "id": "ser-fantasy-cyber-frenzy-ii",
+      "categoryId": "cat-fantasy",
+      "name": "Cyber Frenzy II",
+      "badge": "Cyber",
+      "description": "Cyber Frenzy II collection series under Fantasy.",
+      "displayOrder": 23
+    },
+    {
+      "id": "ser-fantasy-cyber-frenzy-i",
+      "categoryId": "cat-fantasy",
+      "name": "Cyber Frenzy I",
+      "badge": "Cyber",
+      "description": "Cyber Frenzy I collection series under Fantasy.",
+      "displayOrder": 24
+    },
+    {
+      "id": "ser-apparel-select-world-war",
+      "categoryId": "cat-apparel",
+      "name": "Select World War...",
+      "badge": "Collection",
+      "description": "Select World War... collection series under Apparel.",
+      "displayOrder": 25
+    },
+    {
+      "id": "ser-apparel-mysterious-europe",
+      "categoryId": "cat-apparel",
+      "name": "Mysterious Europe...",
+      "badge": "Collection",
+      "description": "Mysterious Europe... collection series under Apparel.",
+      "displayOrder": 26
+    },
+    {
+      "id": "ser-lives-doggo-squad",
+      "categoryId": "cat-lives",
+      "name": "Doggo Squad",
+      "badge": "Event",
+      "description": "Doggo Squad collection series under Lives.",
+      "displayOrder": 27
+    },
+    {
+      "id": "ser-lives-butterfly-series",
+      "categoryId": "cat-lives",
+      "name": "Butterfly Series",
+      "badge": "Collection",
+      "description": "Butterfly Series collection series under Lives.",
+      "displayOrder": 28
+    },
+    {
+      "id": "ser-lives-four-seasons-in-bloom",
+      "categoryId": "cat-lives",
+      "name": "Four Seasons in Bloom",
+      "badge": "Collection",
+      "description": "Four Seasons in Bloom collection series under Lives.",
+      "displayOrder": 29
+    },
+    {
+      "id": "ser-lives-humanity-s-adorable",
+      "categoryId": "cat-lives",
+      "name": "Humanity's Adorable",
+      "badge": "Collection",
+      "description": "Humanity's Adorable collection series under Lives.",
+      "displayOrder": 30
+    },
+    {
+      "id": "ser-lives-paws-of-attraction",
+      "categoryId": "cat-lives",
+      "name": "Paws of Attraction",
+      "badge": "Collection",
+      "description": "Paws of Attraction collection series under Lives.",
+      "displayOrder": 31
+    },
+    {
+      "id": "ser-lives-springtime-wishes",
+      "categoryId": "cat-lives",
+      "name": "Springtime Wishes",
+      "badge": "Collection",
+      "description": "Springtime Wishes collection series under Lives.",
+      "displayOrder": 32
+    },
+    {
+      "id": "ser-lives-spring-wildflowers",
+      "categoryId": "cat-lives",
+      "name": "Spring Wildflowers",
+      "badge": "Collection",
+      "description": "Spring Wildflowers collection series under Lives.",
+      "displayOrder": 33
+    },
+    {
+      "id": "ser-lives-star-wish-cat-land",
+      "categoryId": "cat-lives",
+      "name": "Star Wish Cat Land",
+      "badge": "Collection",
+      "description": "Star Wish Cat Land collection series under Lives.",
+      "displayOrder": 34
+    },
+    {
+      "id": "ser-lives-a-heart-full-of-felicity",
+      "categoryId": "cat-lives",
+      "name": "A heart full of felicity",
+      "badge": "Romance",
+      "description": "A heart full of felicity collection series under Lives.",
+      "displayOrder": 35
+    },
+    {
+      "id": "ser-lives-starry-flowers",
+      "categoryId": "cat-lives",
+      "name": "Starry Flowers",
+      "badge": "Collection",
+      "description": "Starry Flowers collection series under Lives.",
+      "displayOrder": 36
+    },
+    {
+      "id": "ser-lives-panda",
+      "categoryId": "cat-lives",
+      "name": "Panda",
+      "badge": "Collection",
+      "description": "Panda collection series under Lives.",
+      "displayOrder": 37
+    },
+    {
+      "id": "ser-home-autumn-delights",
+      "categoryId": "cat-home",
+      "name": "Autumn Delights",
+      "badge": "Collection",
+      "description": "Autumn Delights collection series under Home.",
+      "displayOrder": 38
+    },
+    {
+      "id": "ser-home-cosmic-galaxy",
+      "categoryId": "cat-home",
+      "name": "Cosmic Galaxy",
+      "badge": "Collection",
+      "description": "Cosmic Galaxy collection series under Home.",
+      "displayOrder": 39
+    },
+    {
+      "id": "ser-home-ticket-to-the-wonderland",
+      "categoryId": "cat-home",
+      "name": "Ticket to the Wonderland",
+      "badge": "Collection",
+      "description": "Ticket to the Wonderland collection series under Home.",
+      "displayOrder": 40
+    },
+    {
+      "id": "ser-home-world-garden-stamp",
+      "categoryId": "cat-home",
+      "name": "World Garden Stamp",
+      "badge": "Collection",
+      "description": "World Garden Stamp collection series under Home.",
+      "displayOrder": 41
+    },
+    {
+      "id": "ser-home-beautiful-earth",
+      "categoryId": "cat-home",
+      "name": "Beautiful Earth",
+      "badge": "Collection",
+      "description": "Beautiful Earth collection series under Home.",
+      "displayOrder": 42
+    },
+    {
+      "id": "ser-home-travel-tickets",
+      "categoryId": "cat-home",
+      "name": "Travel tickets",
+      "badge": "Collection",
+      "description": "Travel tickets collection series under Home.",
+      "displayOrder": 43
+    },
+    {
+      "id": "ser-home-world-cultural-heritage",
+      "categoryId": "cat-home",
+      "name": "World Cultural Heritage",
+      "badge": "Collection",
+      "description": "World Cultural Heritage collection series under Home.",
+      "displayOrder": 44
+    },
+    {
+      "id": "ser-home-cherry-blossom",
+      "categoryId": "cat-home",
+      "name": "Cherry Blossom",
+      "badge": "Collection",
+      "description": "Cherry Blossom collection series under Home.",
+      "displayOrder": 45
+    },
+    {
+      "id": "ser-home-lotus-dreamscape",
+      "categoryId": "cat-home",
+      "name": "Lotus Dreamscape",
+      "badge": "Collection",
+      "description": "Lotus Dreamscape collection series under Home.",
+      "displayOrder": 46
+    },
+    {
+      "id": "ser-home-four-seasons",
+      "categoryId": "cat-home",
+      "name": "Four seasons",
+      "badge": "Collection",
+      "description": "Four seasons collection series under Home.",
+      "displayOrder": 47
+    },
+    {
+      "id": "ser-delicious-chocolate-feast",
+      "categoryId": "cat-delicious",
+      "name": "Chocolate Feast",
+      "badge": "Collection",
+      "description": "Chocolate Feast collection series under Delicious.",
+      "displayOrder": 48
+    },
+    {
+      "id": "ser-delicious-pixel-ice-cream",
+      "categoryId": "cat-delicious",
+      "name": "Pixel Ice Cream",
+      "badge": "Collection",
+      "description": "Pixel Ice Cream collection series under Delicious.",
+      "displayOrder": 49
+    },
+    {
+      "id": "ser-delicious-global-ice-cream-festival",
+      "categoryId": "cat-delicious",
+      "name": "Global Ice Cream Festival",
+      "badge": "Special",
+      "description": "Global Ice Cream Festival collection series under Delicious.",
+      "displayOrder": 50
+    },
+    {
+      "id": "ser-delicious-afternoon-tea-time",
+      "categoryId": "cat-delicious",
+      "name": "Afternoon tea time",
+      "badge": "Collection",
+      "description": "Afternoon tea time collection series under Delicious.",
+      "displayOrder": 51
+    },
+    {
+      "id": "ser-delicious-desserts",
+      "categoryId": "cat-delicious",
+      "name": "Desserts",
+      "badge": "Collection",
+      "description": "Desserts collection series under Delicious.",
+      "displayOrder": 52
+    },
+    {
+      "id": "ser-delicious-alcoholic-beverages",
+      "categoryId": "cat-delicious",
+      "name": "Alcoholic beverages",
+      "badge": "Collection",
+      "description": "Alcoholic beverages collection series under Delicious.",
+      "displayOrder": 53
+    },
+    {
+      "id": "ser-delicious-cocktail-journey",
+      "categoryId": "cat-delicious",
+      "name": "Cocktail Journey",
+      "badge": "Collection",
+      "description": "Cocktail Journey collection series under Delicious.",
+      "displayOrder": 54
+    },
+    {
+      "id": "ser-delicious-flavors-of-the-american-continent",
+      "categoryId": "cat-delicious",
+      "name": "Flavors of the American Continent",
+      "badge": "Collection",
+      "description": "Flavors of the American Continent collection series under Delicious.",
+      "displayOrder": 55
+    },
+    {
+      "id": "ser-delicious-chinese-flavor-i",
+      "categoryId": "cat-delicious",
+      "name": "Chinese Flavor I",
+      "badge": "Collection",
+      "description": "Chinese Flavor I collection series under Delicious.",
+      "displayOrder": 56
+    },
+    {
+      "id": "ser-celebration-go-germany",
+      "categoryId": "cat-celebration",
+      "name": "Go Germany!",
+      "badge": "Event",
+      "description": "Go Germany! collection series under Celebration.",
+      "displayOrder": 57
+    },
+    {
+      "id": "ser-celebration-oktoberfest",
+      "categoryId": "cat-celebration",
+      "name": "Oktoberfest",
+      "badge": "Special",
+      "description": "Oktoberfest collection series under Celebration.",
+      "displayOrder": 58
+    },
+    {
+      "id": "ser-celebration-happy-film-festival",
+      "categoryId": "cat-celebration",
+      "name": "Happy Film Festival",
+      "badge": "Special",
+      "description": "Happy Film Festival collection series under Celebration.",
+      "displayOrder": 59
+    },
+    {
+      "id": "ser-celebration-childhood-dreamland",
+      "categoryId": "cat-celebration",
+      "name": "Childhood Dreamland",
+      "badge": "Collection",
+      "description": "Childhood Dreamland collection series under Celebration.",
+      "displayOrder": 60
+    },
+    {
+      "id": "ser-celebration-mid-autumn-festival",
+      "categoryId": "cat-celebration",
+      "name": "Mid-Autumn Festival",
+      "badge": "Special",
+      "description": "Mid-Autumn Festival collection series under Celebration.",
+      "displayOrder": 61
+    },
+    {
+      "id": "ser-celebration-qixi-festival",
+      "categoryId": "cat-celebration",
+      "name": "Qixi Festival",
+      "badge": "Special",
+      "description": "Qixi Festival collection series under Celebration.",
+      "displayOrder": 62
+    },
+    {
+      "id": "ser-celebration-new-year-greetings",
+      "categoryId": "cat-celebration",
+      "name": "New Year Greetings",
+      "badge": "Collection",
+      "description": "New Year Greetings collection series under Celebration.",
+      "displayOrder": 63
+    },
+    {
+      "id": "ser-celebration-glory-commemoration",
+      "categoryId": "cat-celebration",
+      "name": "Glory Commemoration",
+      "badge": "Apex",
+      "description": "Glory Commemoration collection series under Celebration.",
+      "displayOrder": 64
+    },
+    {
+      "id": "ser-celebration-8-legendary-goals",
+      "categoryId": "cat-celebration",
+      "name": "8 Legendary Goals",
+      "badge": "Collection",
+      "description": "8 Legendary Goals collection series under Celebration.",
+      "displayOrder": 65
+    },
+    {
+      "id": "ser-celebration-dragon-boat-festival",
+      "categoryId": "cat-celebration",
+      "name": "Dragon Boat Festival",
+      "badge": "Special",
+      "description": "Dragon Boat Festival collection series under Celebration.",
+      "displayOrder": 66
+    },
+    {
+      "id": "ser-celebration-football-match-iv",
+      "categoryId": "cat-celebration",
+      "name": "Football match IV",
+      "badge": "Event",
+      "description": "Football match IV collection series under Celebration.",
+      "displayOrder": 67
+    },
+    {
+      "id": "ser-celebration-football-match-iii",
+      "categoryId": "cat-celebration",
+      "name": "Football match III",
+      "badge": "Event",
+      "description": "Football match III collection series under Celebration.",
+      "displayOrder": 68
+    },
+    {
+      "id": "ser-celebration-go-netherlands",
+      "categoryId": "cat-celebration",
+      "name": "Go Netherlands!",
+      "badge": "Event",
+      "description": "Go Netherlands! collection series under Celebration.",
+      "displayOrder": 69
+    },
+    {
+      "id": "ser-celebration-go-usa",
+      "categoryId": "cat-celebration",
+      "name": "Go USA!",
+      "badge": "Event",
+      "description": "Go USA! collection series under Celebration.",
+      "displayOrder": 70
+    },
+    {
+      "id": "ser-celebration-go-france",
+      "categoryId": "cat-celebration",
+      "name": "Go France!",
+      "badge": "Event",
+      "description": "Go France! collection series under Celebration.",
+      "displayOrder": 71
+    },
+    {
+      "id": "ser-celebration-go-england",
+      "categoryId": "cat-celebration",
+      "name": "Go England!",
+      "badge": "Event",
+      "description": "Go England! collection series under Celebration.",
+      "displayOrder": 72
+    },
+    {
+      "id": "ser-celebration-go-brazil",
+      "categoryId": "cat-celebration",
+      "name": "Go Brazil!",
+      "badge": "Event",
+      "description": "Go Brazil! collection series under Celebration.",
+      "displayOrder": 73
+    },
+    {
+      "id": "ser-celebration-go-argentina",
+      "categoryId": "cat-celebration",
+      "name": "Go Argentina!",
+      "badge": "Event",
+      "description": "Go Argentina! collection series under Celebration.",
+      "displayOrder": 74
+    },
+    {
+      "id": "ser-celebration-love-of-the-champions",
+      "categoryId": "cat-celebration",
+      "name": "Love of the champions",
+      "badge": "Romance",
+      "description": "Love of the champions collection series under Celebration.",
+      "displayOrder": 75
+    },
+    {
+      "id": "ser-celebration-football-keychain-ii",
+      "categoryId": "cat-celebration",
+      "name": "Football Keychain II",
+      "badge": "Event",
+      "description": "Football Keychain II collection series under Celebration.",
+      "displayOrder": 76
+    },
+    {
+      "id": "ser-celebration-football-keychain-i",
+      "categoryId": "cat-celebration",
+      "name": "Football Keychain I",
+      "badge": "Event",
+      "description": "Football Keychain I collection series under Celebration.",
+      "displayOrder": 77
+    },
+    {
+      "id": "ser-celebration-football-match",
+      "categoryId": "cat-celebration",
+      "name": "Football match",
+      "badge": "Event",
+      "description": "Football match collection series under Celebration.",
+      "displayOrder": 78
+    },
+    {
+      "id": "ser-celebration-football-match-ii",
+      "categoryId": "cat-celebration",
+      "name": "Football match II",
+      "badge": "Event",
+      "description": "Football match II collection series under Celebration.",
+      "displayOrder": 79
+    },
+    {
+      "id": "ser-celebration-songkran-festival",
+      "categoryId": "cat-celebration",
+      "name": "Songkran Festival",
+      "badge": "Special",
+      "description": "Songkran Festival collection series under Celebration.",
+      "displayOrder": 80
+    },
+    {
+      "id": "ser-celebration-venice-carnival",
+      "categoryId": "cat-celebration",
+      "name": "Venice Carnival",
+      "badge": "Carnival",
+      "description": "Venice Carnival collection series under Celebration.",
+      "displayOrder": 81
+    },
+    {
+      "id": "ser-celebration-easter",
+      "categoryId": "cat-celebration",
+      "name": "Easter",
+      "badge": "Collection",
+      "description": "Easter collection series under Celebration.",
+      "displayOrder": 82
+    },
+    {
+      "id": "ser-celebration-rare-zodiac-set",
+      "categoryId": "cat-celebration",
+      "name": "Rare Zodiac Set",
+      "badge": "Zodiac",
+      "description": "Rare Zodiac Set collection series under Celebration.",
+      "displayOrder": 83
+    },
+    {
+      "id": "ser-celebration-eid-al-fitr",
+      "categoryId": "cat-celebration",
+      "name": "Eid al-Fitr",
+      "badge": "Special",
+      "description": "Eid al-Fitr collection series under Celebration.",
+      "displayOrder": 84
+    },
+    {
+      "id": "ser-celebration-holi",
+      "categoryId": "cat-celebration",
+      "name": "Holi",
+      "badge": "Collection",
+      "description": "Holi collection series under Celebration.",
+      "displayOrder": 85
+    },
+    {
+      "id": "ser-celebration-st-patrick-s-day",
+      "categoryId": "cat-celebration",
+      "name": "St. Patrick's Day",
+      "badge": "Collection",
+      "description": "St. Patrick's Day collection series under Celebration.",
+      "displayOrder": 86
+    },
+    {
+      "id": "ser-celebration-april-fools-day",
+      "categoryId": "cat-celebration",
+      "name": "April Fools' Day",
+      "badge": "Collection",
+      "description": "April Fools' Day collection series under Celebration.",
+      "displayOrder": 87
+    },
+    {
+      "id": "ser-celebration-winter-reunion-festival",
+      "categoryId": "cat-celebration",
+      "name": "Winter Reunion Festival",
+      "badge": "Special",
+      "description": "Winter Reunion Festival collection series under Celebration.",
+      "displayOrder": 88
+    },
+    {
+      "id": "ser-celebration-epiphany",
+      "categoryId": "cat-celebration",
+      "name": "Epiphany",
+      "badge": "Collection",
+      "description": "Epiphany collection series under Celebration.",
+      "displayOrder": 89
+    },
+    {
+      "id": "ser-celebration-constellation-gifts",
+      "categoryId": "cat-celebration",
+      "name": "Constellation Gifts",
+      "badge": "Collection",
+      "description": "Constellation Gifts collection series under Celebration.",
+      "displayOrder": 90
+    },
+    {
+      "id": "ser-celebration-christmas",
+      "categoryId": "cat-celebration",
+      "name": "Christmas",
+      "badge": "Collection",
+      "description": "Christmas collection series under Celebration.",
+      "displayOrder": 91
+    }
+  ],
+  "items": [
+    {
+      "id": "item-echoes-of-youth-proud-of-you-1",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Proud of You",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-perfect-2",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Perfect",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-much-better-3",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Much Better",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-you-did-it-4",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "You Did It",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-keep-it-up-5",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Keep It Up",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-good-job-6",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Good Job",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-mystery-gift-7",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-youth-best-teacher-8",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-echoes-of-youth",
+      "name": "Best Teacher",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "echoes-of-youth",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-celebration-rocket-9",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Celebration Rocket",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-celebration-hat-10",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Celebration Hat",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-heart-paper-plane-11",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Heart Paper Plane",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-rubik-s-cube-12",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Rubik's Cube",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-celebration-key-13",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Celebration Key",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-symphony-salute-14",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Symphony Salute",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-live-streamer-s-trilogy-celebration-balloon-15",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-live-streamer-s-trilogy",
+      "name": "Celebration Balloon",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "live-streamer-s-trilogy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-treasure-hunter-16",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Treasure Hunter",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-super-lucky-17",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Super Lucky",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-happy-4-u-18",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Happy 4 U",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-get-well-soon-19",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Get Well Soon",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-i-m-here-4-u-20",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "I'm Here 4 U",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-thought-of-u-21",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Thought of U",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-nice-post-22",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Nice post!",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-flutter-23",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Flutter",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-bear-hug-24",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Bear Hug",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-gummy-party-thank-you-feedback-25",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-gummy-party",
+      "name": "Thank You Feedback",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "gummy-party",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-flower-language-fan-26",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Flower-language fan",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-film-camera-27",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Film camera",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-pearl-gift-box-28",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Pearl gift box",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-white-rose-29",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "White Rose",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-feather-notebook-30",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Feather Notebook",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-thank-you-letter-31",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Thank-You Letter",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-creator-s-gifts-blossoms-books-32",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-creator-s-gifts",
+      "name": "Blossoms & Books",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "creator-s-gifts",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-double-salute-cannon-33",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Double Salute Cannon",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-party-card-34",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Party Card",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-to-the-celebration-35",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "To the Celebration",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-ht-trophy-36",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "HT Trophy",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-anniversary-37",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Anniversary",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-golden-piano-38",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Golden Piano",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-fairy-tale-bear-39",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Fairy Tale Bear",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-magic-bun-40",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Magic Bun",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-anniversary-cat-magician-41",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-anniversary",
+      "name": "Cat Magician",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "happy-anniversary",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-magic-wand-42",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Magic Wand",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-balloon-43",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Balloon",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-gift-box-44",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Gift Box",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-bouquet-45",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Bouquet",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-dinner-46",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Dinner",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-jewel-47",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Jewel",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-birthday-birthday-party-hall-48",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-basic-happy-birthday",
+      "name": "Birthday Party Hall",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "basic",
+        "happy-birthday",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-crystal-shell-49",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Crystal Shell",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-crystallove-50",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "CrystalLove",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-gem-hearts-51",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Gem Hearts",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-dream-bottle-52",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Dream Bottle",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-lilyperfume-53",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "LilyPerfume",
+      "baseValue": 100,
+      "marketWorth": 115,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-mylove-54",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "MyLove",
+      "baseValue": 9999,
+      "marketWorth": 19998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-crystal-flower-55",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Crystal Flower",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-feather-56",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Feather",
+      "baseValue": 120,
+      "marketWorth": 138,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-star-wish-57",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Star Wish",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-luminous-heart-s-melody-floral-path-58",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-luminous-heart-s-melody",
+      "name": "Floral Path",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "emotion",
+        "luminous-heart-s-melody",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-rose-orb-59",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Rose Orb",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-heartspark-60",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "HeartSpark",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-wish-gift-61",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Wish Gift",
+      "baseValue": 200,
+      "marketWorth": 270,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-flowers-for-you-62",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Flowers for You",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-fancy-boat-63",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Fancy Boat",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-heart-garden-64",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Heart Garden",
+      "baseValue": 5999,
+      "marketWorth": 11998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-romantic-vow-heart-castle-65",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-romantic-vow",
+      "name": "Heart Castle",
+      "baseValue": 5999,
+      "marketWorth": 11998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "emotion",
+        "romantic-vow",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-cute-bag-66",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Cute Bag",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-lipstick-67",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Lipstick",
+      "baseValue": 25,
+      "marketWorth": 25,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-heartspark-68",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "HeartSpark",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-gilded-ruby-heart-69",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Gilded Ruby Heart",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-mystery-gift-70",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-cute-cam-71",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Cute Cam",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-love-card-72",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Love Card",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-diamond-heart-73",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "Diamond Heart",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-collections-of-hearts-heartmatch-74",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-collections-of-hearts",
+      "name": "HeartMatch",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "collections-of-hearts",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-bear-hug-75",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "Bear Hug",
+      "baseValue": 100,
+      "marketWorth": 115,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-ballrose-76",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "BallRose",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-cutevow-77",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "CuteVow",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-mistsweet-78",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "MistSweet",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-heart-crit-79",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "Heart Crit",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-flower-bear-80",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "Flower Bear",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-music-cake-81",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "Music Cake",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-echoes-of-love-love-plane-82",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-emotion-echoes-of-love",
+      "name": "Love Plane",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "emotion",
+        "echoes-of-love",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-photo-booth-83",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "photo booth",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-tape-deck-84",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "tape deck",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-flip-phone-85",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "flip phone",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-retro-pc-86",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "retro PC",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-disco-87",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "disco",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-skateware-88",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "skateware",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-gachapon-89",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "gachapon",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-karaoke-90",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "karaoke",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-back-to-the-millennium-cute-pixel-pet-91",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-back-to-the-millennium",
+      "name": "Cute Pixel Pet",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "modern",
+        "back-to-the-millennium",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-sunset-ride-92",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Sunset Ride",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-star-sports-car-93",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Star Sports Car",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-f1-car-94",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "F1 Car",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-lux-ride-95",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Lux Ride",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-coin-racer-96",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Coin Racer",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-mystery-gift-97",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-thunder-racing-98",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Thunder Racing",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-fire-tiger-99",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Fire Tiger",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-convertible-100",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Convertible",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-tech-car-101",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Tech Car",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-pink-car-102",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Pink Car",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-luxgarage-103",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "LuxGarage",
+      "baseValue": 9999,
+      "marketWorth": 19998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-goldwing-racer-104",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Goldwing Racer",
+      "baseValue": 189,
+      "marketWorth": 255,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-roaring-engine-luxury-sports-car-105",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-roaring-engine",
+      "name": "Luxury Sports Car",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "roaring-engine",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-starbearcase-106",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "StarBearCase",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-travel-holiday-107",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Travel Holiday",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-holiday-dove-108",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Holiday Dove",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-golden-plane-109",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "golden plane",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-airplane-110",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Airplane",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-minicruise-111",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "MiniCruise",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-playful-parade-112",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Playful Parade",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-laser-backpack-113",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Laser Backpack",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-travel-bus-114",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Travel Bus",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-go-travel-115",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Go Travel",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-globecase-116",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "GlobeCase",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-lazy-holiday-117",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Lazy Holiday",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ready-to-go-good-holiday-118",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-ready-to-go",
+      "name": "Good Holiday",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "ready-to-go",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-flycrown-119",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "FlyCrown",
+      "baseValue": 60,
+      "marketWorth": 69,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-gold-crown-120",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Gold Crown",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-mystery-gift-121",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-star-gala-122",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Star Gala",
+      "baseValue": 9999,
+      "marketWorth": 19998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-award-123",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Award",
+      "baseValue": 5999,
+      "marketWorth": 11998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-dragon-throne-124",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Dragon Throne",
+      "baseValue": 16999,
+      "marketWorth": 33998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-glory-crystal-125",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Glory Crystal",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-the-road-to-fame-golden-piano-126",
+      "categoryId": "cat-modern",
+      "seriesId": "ser-modern-the-road-to-fame",
+      "name": "Golden Piano",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "modern",
+        "the-road-to-fame",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-wonderland-127",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Wonderland",
+      "baseValue": 529,
+      "marketWorth": 846,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-time-seal-128",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Time Seal",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-ruby-necklace-129",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Ruby Necklace",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-heart-gem-130",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Heart Gem",
+      "baseValue": 79,
+      "marketWorth": 91,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-mystery-gift-131",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-magic-hat-132",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Magic Hat",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-sweet-treats-133",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Sweet Treats",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wonderland-dream-poker-hat-134",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-wonderland-dream",
+      "name": "Poker Hat",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "wonderland-dream",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-aladdin-s-lamp-135",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Aladdin's Lamp",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-anansi-the-spider-136",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Anansi the Spider",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-paul-bunyan-137",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Paul Bunyan",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-peter-and-the-wolf-138",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Peter and the Wolf",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-the-little-mermaid-139",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "The Little Mermaid",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-jack-and-the-beanstalk-140",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Jack and the Beanstalk",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-robin-hood-141",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Robin Hood",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-maui-lifting-the-land-142",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Maui Lifting the Land",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-the-cowherd-and-the-weaver-girl-143",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "The Cowherd and the Weaver Girl",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-urashima-tar-144",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Urashima Tarō",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-little-red-riding-hood-145",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Little Red Riding Hood",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-momotaro-146",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Momotaro",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-story-club-sun-wukong-147",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-global-story-club",
+      "name": "Sun Wukong",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "global-story-club",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-poker-148",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Poker",
+      "baseValue": 239,
+      "marketWorth": 323,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-monopoly-149",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Monopoly",
+      "baseValue": 159,
+      "marketWorth": 215,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-mancala-150",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Mancala",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-checkers-151",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Checkers",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-go-152",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Go",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-uno-153",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "UNO",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-xiangqi-154",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Xiangqi",
+      "baseValue": 159,
+      "marketWorth": 215,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-mahjong-155",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Mahjong",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-wings-of-chess-156",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Wings of Chess",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-loter-a-157",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Lotería",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-little-square-board-shogi-158",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-a-little-square-board",
+      "name": "Shogi",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "a-little-square-board",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-girl-with-a-pearl-earring-159",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Girl with a Pearl Earring",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-dwelling-in-the-fuchun-mountains-160",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Dwelling in the Fuchun Mountains",
+      "baseValue": 5999,
+      "marketWorth": 11998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-the-starry-night-161",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "The Starry Night",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-the-great-wave-off-kanagawa-162",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "The Great Wave off Kanagawa",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-american-gothic-163",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "American Gothic",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-impression-sunrise-164",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Impression, Sunrise",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-portrait-with-thorn-necklace-and-hummingbird-165",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Portrait with Thorn Necklace and Hummingbird",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-mona-lisa-166",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Mona Lisa",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-famous-paintings-guernica-167",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-world-famous-paintings",
+      "name": "Guernica",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "art",
+        "world-famous-paintings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-lotus-pipa-168",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Lotus Pipa",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-floraflute-169",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "FloraFlute",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-guzheng-170",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Guzheng",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-bianzhong-171",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Bianzhong",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-floralflute-172",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "FloralFlute",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-suona-173",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Suona",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-sheng-174",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Sheng",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-erhu-175",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Erhu",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-drum-176",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Drum",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eastern-musical-instrument-xun-177",
+      "categoryId": "cat-art",
+      "seriesId": "ser-art-eastern-musical-instrument",
+      "name": "Xun",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "art",
+        "eastern-musical-instrument",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-magicconch-178",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "MagicConch",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-fairy-boat-179",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Fairy Boat",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-cloudfeather-180",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Cloudfeather",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-moon-butterfly-crown-181",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Moon Butterfly Crown",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-magic-gate-182",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Magic Gate",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-butterfly-bloom-183",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Butterfly Bloom",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-dreamcatcher-184",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Dreamcatcher",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-hourglass-185",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Hourglass",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-celebration-in-the-clouds-186",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Celebration in the Clouds",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glimmering-hidden-paradise-ice-castle-187",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-glimmering-hidden-paradise",
+      "name": "Ice Castle",
+      "baseValue": 6999,
+      "marketWorth": 13998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "glimmering-hidden-paradise",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-starmoon-bottle-188",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Starmoon Bottle",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-timepiece-189",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Timepiece",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-chronowing-190",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "ChronoWing",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-spellbook-191",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Spellbook",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-magic-hat-192",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Magic Hat",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-star-train-193",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Star Train",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-starry-garden-194",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Starry Garden",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-galaxy-rose-195",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Galaxy Rose",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-stellar-mirage-196",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Stellar Mirage",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-galaxy-drink-197",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Galaxy Drink",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-galaxy-book-198",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Galaxy Book",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-river-journey-star-phonograph-199",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-starry-river-journey",
+      "name": "Star Phonograph",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "starry-river-journey",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-lumibutterfly-200",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "LumiButterfly",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-phantom-feather-201",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Phantom Feather",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-time-watch-202",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Time Watch",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-galaxy-gift-203",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Galaxy Gift",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-swan-teacup-204",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Swan Teacup",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-bottle-summer-205",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Bottle Summer",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-gilded-aviary-206",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "Gilded Aviary",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-wandering-in-wonderland-dreamstarcar-207",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-wandering-in-wonderland",
+      "name": "DreamStarCar",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "wandering-in-wonderland",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-blue-gun-208",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Blue Gun",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyberbike-209",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "CyberBike",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-star-sports-car-210",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Star Sports Car",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyber-guitar-211",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Cyber Guitar",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-fantasy-box-212",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Fantasy Box",
+      "baseValue": 109,
+      "marketWorth": 125,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyber-wand-213",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Cyber Wand",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-supernova-helmet-214",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Supernova Helmet",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-starship-anthem-215",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Starship Anthem",
+      "baseValue": 16999,
+      "marketWorth": 33998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyber-moto-216",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Cyber Moto",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyber-backpack-217",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Cyber Backpack",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-cyberrush-218",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "CyberRush",
+      "baseValue": 4900,
+      "marketWorth": 9800,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-ii-thunder-racing-219",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-ii",
+      "name": "Thunder Racing",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-ii",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-disc-220",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Disc",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-microphone-221",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Microphone",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-dagger-222",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Dagger",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-supernova-armor-223",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Supernova Armor",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-space-rocket-224",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Space Rocket",
+      "baseValue": 10000,
+      "marketWorth": 20000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-racer-225",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Racer",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-storm-226",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Storm",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-warrior-227",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Warrior",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-love-228",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Love",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cool-shades-229",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cool Shades",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-time-train-230",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Time Train",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cyber-frenzy-i-cyber-bear-231",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-fantasy-cyber-frenzy-i",
+      "name": "Cyber Bear",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "fantasy",
+        "cyber-frenzy-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-select-world-war-flamenco-dress-232",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Flamenco dress",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "select-world-war",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-select-world-war-swedish-folk-costume-233",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Swedish folk costume",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "select-world-war",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-select-world-war-egyptian-pharaoh-outfit-234",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Egyptian Pharaoh Outfit",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "select-world-war",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-select-world-war-court-dress-235",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Court Dress",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "select-world-war",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-white-bridal-veil-236",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "White Bridal Veil",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-lion-ring-237",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "Lion Ring",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-rose-scepter-238",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "Rose Scepter",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-court-dress-239",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "Court Dress",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-white-suit-240",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "White Suit",
+      "baseValue": 899,
+      "marketWorth": 1438,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-amulet-241",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "Amulet",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mysterious-europe-star-crown-242",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-mysterious-europe",
+      "name": "Star Crown",
+      "baseValue": 10000,
+      "marketWorth": 20000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "apparel",
+        "mysterious-europe",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-alaskan-malamute-243",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Alaskan Malamute",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-chow-chow-244",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Chow Chow",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-pekingese-245",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Pekingese",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-samoyed-246",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Samoyed",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-corgi-247",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Corgi",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-german-shepherd-248",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "German Shepherd",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-beagle-249",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Beagle",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-shiba-inu-250",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Shiba Inu",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-poodle-251",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Poodle",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-bernese-mountain-dog-252",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Bernese Mountain Dog",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-doggo-squad-tibetan-mastiff-253",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-doggo-squad",
+      "name": "Tibetan Mastiff",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "doggo-squad",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-butterfly-series-pink-butterfly-254",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-butterfly-series",
+      "name": "Pink Butterfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "butterfly-series",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-butterfly-series-blue-butterfly-255",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-butterfly-series",
+      "name": "blue butterfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "butterfly-series",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-butterfly-series-black-butterfly-256",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-butterfly-series",
+      "name": "Black Butterfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "butterfly-series",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-butterfly-series-yellow-butterfly-257",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-butterfly-series",
+      "name": "Yellow Butterfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "butterfly-series",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-butterfly-series-purple-butterfly-258",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-butterfly-series",
+      "name": "Purple Butterfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "butterfly-series",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-pomegranate-bloom-259",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Pomegranate Bloom",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-narcissus-260",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Narcissus",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-peach-blossom-261",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Peach Blossom",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-morningglory-262",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "MorningGlory",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-lavender-263",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Lavender",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-osmanthus-264",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Osmanthus",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-lotus-265",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Lotus",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-chrysanthemum-266",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Chrysanthemum",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-wintersweet-267",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Wintersweet",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-camellia-268",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Camellia",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-peony-269",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Peony",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-in-bloom-hibiscus-270",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-four-seasons-in-bloom",
+      "name": "Hibiscus",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "four-seasons-in-bloom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-adorable-tortoise-271",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Adorable Tortoise",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-energetic-hamster-272",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Energetic Hamster",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-lop-eared-bunny-273",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Lop-Eared Bunny",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-cuddly-ragdoll-cat-274",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Cuddly Ragdoll Cat",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-playful-parrot-275",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Playful Parrot",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-humanity-s-adorable-energetic-golden-retriever-276",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-humanity-s-adorable",
+      "name": "Energetic Golden Retriever",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "humanity-s-adorable",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-doggy-coins-277",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Doggy Coins",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-toast-xc-278",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Toast XC",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-puppy-279",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Puppy",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-bee-puppy-280",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Bee Puppy",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-mystery-gift-281",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-hot-dog-282",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "HOT dog",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-shibaframe-283",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "ShibaFrame",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-dog-king-284",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Dog King",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-energetic-golden-retriever-285",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Energetic Golden Retriever",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-paws-of-attraction-sweet-dreams-puppy-286",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-paws-of-attraction",
+      "name": "Sweet Dreams Puppy",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "paws-of-attraction",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-fateflower-287",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "FateFlower",
+      "baseValue": 50,
+      "marketWorth": 57,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-spring-blessing-288",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "Spring Blessing",
+      "baseValue": 79,
+      "marketWorth": 91,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-mystery-gift-289",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-flower-gift-box-290",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "Flower gift box",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-floral-cradle-291",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "Floral Cradle",
+      "baseValue": 4999,
+      "marketWorth": 9998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-springtime-wishes-butterfly-blossoms-292",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-springtime-wishes",
+      "name": "Butterfly Blossoms",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "springtime-wishes",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-spring-flower-bushes-293",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Spring flower bushes",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-spring-bag-294",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Spring Bag",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-holiday-travel-295",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Holiday travel",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-mystery-gift-296",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-bloom-bee-297",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Bloom Bee",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-spring-wildflowers-terrarium-298",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-spring-wildflowers",
+      "name": "Terrarium",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "spring-wildflowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-stargaze-cat-299",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Stargaze Cat",
+      "baseValue": 2000,
+      "marketWorth": 4000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-mystery-gift-300",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-cat-melody-301",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Cat Melody",
+      "baseValue": 6999,
+      "marketWorth": 13998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-teacup-cat-302",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Teacup Cat",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-wish-cat-303",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Wish Cat",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-star-wish-cat-land-autumn-love-304",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-star-wish-cat-land",
+      "name": "Autumn Love",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "star-wish-cat-land",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-heart-full-of-felicity-heart-cat-305",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-a-heart-full-of-felicity",
+      "name": "Heart Cat",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "a-heart-full-of-felicity",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-heart-full-of-felicity-creamy-cat-306",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-a-heart-full-of-felicity",
+      "name": "Creamy Cat",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "lives",
+        "a-heart-full-of-felicity",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-heart-full-of-felicity-mystery-gift-307",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-a-heart-full-of-felicity",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "a-heart-full-of-felicity",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-heart-full-of-felicity-snuggling-sweetie-308",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-a-heart-full-of-felicity",
+      "name": "Snuggling Sweetie",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "a-heart-full-of-felicity",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-a-heart-full-of-felicity-fish-cat-309",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-a-heart-full-of-felicity",
+      "name": "Fish Cat",
+      "baseValue": 109,
+      "marketWorth": 125,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "a-heart-full-of-felicity",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-tulip-310",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Tulip",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-rose-311",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Rose",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-daisy-312",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Daisy",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-gypsophila-313",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Gypsophila",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-iris-314",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Iris",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-starry-flowers-starry-narcissus-315",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-starry-flowers",
+      "name": "Starry Narcissus",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "lives",
+        "starry-flowers",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-panda-brew-316",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Panda Brew",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "panda",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-panda-bamboo-317",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Panda Bamboo",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "lives",
+        "panda",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-meltypanda-318",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "MeltyPanda",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "panda",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-lazy-panda-319",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Lazy Panda",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "panda",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-panda-bath-320",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Panda Bath",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "panda",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-swing-panda-321",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Swing Panda",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "lives",
+        "panda",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-panda-tea-322",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Panda Tea",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "panda",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-panda-panda-pack-323",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-lives-panda",
+      "name": "Panda Pack",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "lives",
+        "panda",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-autumn-scarf-324",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Autumn Scarf",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-small-ginkgo-umbrella-325",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Small Ginkgo Umbrella",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-corn-bouquet-326",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Corn Bouquet",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-grape-basket-327",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Grape Basket",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-lucky-conker-328",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Lucky Conker",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-chestnut-pal-329",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Chestnut Pal",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-halfmoon-pancake-330",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Halfmoon Pancake",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-fall-wreath-331",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Fall Wreath",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-autumn-delights-moon-reed-332",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-autumn-delights",
+      "name": "Moon Reed",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "autumn-delights",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-galaxy-333",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Galaxy",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-sun-334",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Sun",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-earth-335",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Earth",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-saturn-336",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Saturn",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-mercury-337",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Mercury",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-nepture-338",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Nepture",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-venus-339",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Venus",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-jupiter-340",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Jupiter",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-mars-341",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Mars",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cosmic-galaxy-uranus-342",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cosmic-galaxy",
+      "name": "Uranus",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cosmic-galaxy",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-vinicunca-343",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Vinicunca",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-tianshan-mountains-344",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Tianshan Mountains",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-barcelona-345",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Barcelona",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-nice-346",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Nice",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-florence-347",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Florence",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-great-barrier-reef-348",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Great Barrier Reef",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-uyuni-salt-flats-349",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Uyuni Salt Flats",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-kyoto-maple-350",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Kyoto Maple",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-ticket-to-the-wonderland-finnish-aurora-351",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-ticket-to-the-wonderland",
+      "name": "Finnish Aurora",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "ticket-to-the-wonderland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-monet-s-garden-352",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Monet's Garden",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-villa-d-este-garden-353",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Villa d'Este Garden",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-the-butchart-gardens-354",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "The Butchart Gardens",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-kirstenbosch-national-botanical-garden-355",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Kirstenbosch National Botanical Garden",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-royal-botanic-garden-sydney-356",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Royal Botanic Garden Sydney",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-versailles-gardens-357",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Versailles Gardens",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-sch-nbrunn-palace-garden-358",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Schönbrunn Palace Garden",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-humble-administrator-s-garden-359",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Humble Administrator's Garden",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-yanggu-temple-360",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Yanggu Temple",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-singapore-botanic-gardens-361",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Singapore Botanic Gardens",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-longwood-gardens-362",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Longwood Gardens",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-garden-stamp-rio-de-janeiro-botanical-garden-363",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-garden-stamp",
+      "name": "Rio de Janeiro Botanical Garden",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "world-garden-stamp",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-sahara-desert-364",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Sahara Desert",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-iguazu-falls-365",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Iguazu Falls",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-mountain-at-sunrise-366",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Mountain at Sunrise",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-blue-ice-cave-367",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Blue Ice Cave",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-uluru-368",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Uluru",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-li-river-369",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Li River",
+      "baseValue": 2399,
+      "marketWorth": 4798,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-grand-canyon-370",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Grand Canyon",
+      "baseValue": 2399,
+      "marketWorth": 4798,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-white-cliffs-371",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "White Cliffs",
+      "baseValue": 2399,
+      "marketWorth": 4798,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-mount-kilimanjaro-372",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Mount Kilimanjaro",
+      "baseValue": 2399,
+      "marketWorth": 4798,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-beautiful-earth-maldives-atolls-373",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-beautiful-earth",
+      "name": "Maldives Atolls",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "beautiful-earth",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-travel-tickets-paris-trip-374",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-travel-tickets",
+      "name": "Paris Trip",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "travel-tickets",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-travel-tickets-shanghai-trip-375",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-travel-tickets",
+      "name": "Shanghai Trip",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "travel-tickets",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-travel-tickets-new-york-trip-376",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-travel-tickets",
+      "name": "New York Trip",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "travel-tickets",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-travel-tickets-egypt-trip-377",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-travel-tickets",
+      "name": "Egypt Trip",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "travel-tickets",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-travel-tickets-tokyo-trip-378",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-travel-tickets",
+      "name": "Tokyo Trip",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "travel-tickets",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-the-great-wall-379",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "The Great Wall",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-chich-n-itz-380",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "Chichén Itzá",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-machu-picchu-381",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "Machu Picchu",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-colosseum-382",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "Colosseum",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-embrace-rio-383",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "Embrace Rio",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-world-cultural-heritage-taj-mahal-384",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-world-cultural-heritage",
+      "name": "Taj Mahal",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "world-cultural-heritage",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-petal-spin-385",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Petal Spin",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakurabell-386",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "SakuraBell",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-fuji-sakura-387",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Fuji Sakura",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-cherry-fall-388",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Cherry Fall",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-blossom-omamori-389",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Blossom Omamori",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-japanese-flower-tea-390",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Japanese Flower Tea",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakura-ice-cream-391",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Sakura ice cream",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakura-tea-392",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Sakura Tea",
+      "baseValue": 109,
+      "marketWorth": 125,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakurafall-393",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "SakuraFall",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakura-view-394",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Sakura View",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sakura-drink-395",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Sakura Drink",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cherry-blossom-sunny-doll-396",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-cherry-blossom",
+      "name": "Sunny Doll",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "cherry-blossom",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-water-nest-397",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Water Nest",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-lotus-lamp-398",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Lotus Lamp",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-circle-fan-399",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Circle Fan",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-lotus-pipa-400",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Lotus Pipa",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-pavilion-401",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Pavilion",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-lotus-dreamscape-floral-fan-402",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-lotus-dreamscape",
+      "name": "Floral Fan",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "home",
+        "lotus-dreamscape",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-spring-403",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-four-seasons",
+      "name": "Spring",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "four-seasons",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-summer-lotus-404",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-four-seasons",
+      "name": "Summer Lotus",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "four-seasons",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-autumn-405",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-four-seasons",
+      "name": "Autumn",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "home",
+        "four-seasons",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-four-seasons-snowglobe-406",
+      "categoryId": "cat-home",
+      "seriesId": "ser-home-four-seasons",
+      "name": "Snowglobe",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "home",
+        "four-seasons",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-choco-box-407",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Choco Box",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-chocostick-408",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "ChocoStick",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-candy-chocolate-409",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Candy Chocolate",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-chocoheart-410",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "ChocoHeart",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-hot-cocoa-411",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Hot Cocoa",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-mystery-gift-412",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-sweetchoco-413",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "SweetChoco",
+      "baseValue": 9999,
+      "marketWorth": 19998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-luckychoco-414",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "LuckyChoco",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-chocolate-415",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Chocolate",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-chocolate-gelato-416",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Chocolate Gelato",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chocolate-feast-dessert-zodiac-417",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chocolate-feast",
+      "name": "Dessert Zodiac",
+      "baseValue": 109,
+      "marketWorth": 125,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chocolate-feast",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-dondurma-418",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Dondurma",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-kulfi-popsicle-419",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Kulfi Popsicle",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-gelato-420",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Gelato",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-waffle-ice-cream-421",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Waffle Ice Cream",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-banana-split-422",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Banana Split",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-shaved-ice-423",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Shaved Ice",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-puluoda-ice-cream-424",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Puluoda Ice Cream",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-guizhou-bingjiang-425",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Guizhou Bingjiang",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-maple-syrup-ice-cream-426",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Maple Syrup Ice Cream",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-a-a-ice-cream-427",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Açaí Ice Cream",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-mango-ice-cream-428",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Mango Ice Cream",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-pixel-ice-cream-croissant-ice-cream-429",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-pixel-ice-cream",
+      "name": "Croissant Ice Cream",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "pixel-ice-cream",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-coconut-ice-cream-430",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Coconut Ice Cream",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-gelato-431",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Gelato",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-chinese-style-ice-dessert-432",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Chinese-style ice dessert",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-cream-soda-433",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Cream Soda",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-sundae-434",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Sundae",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-affogato-435",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Affogato",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-frozen-yogurt-ice-cream-436",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Frozen Yogurt Ice Cream",
+      "baseValue": 79,
+      "marketWorth": 91,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-bread-ice-cream-437",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Bread Ice Cream",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-durian-ice-cream-438",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Durian Ice Cream",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-chinese-ice-pop-439",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Chinese Ice Pop",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-99-flake-440",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "99 Flake",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-french-parfait-441",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "French parfait",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-fruitpop-442",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Fruitpop",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-global-ice-cream-festival-chocolate-gelato-443",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-global-ice-cream-festival",
+      "name": "Chocolate Gelato",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "global-ice-cream-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-americano-444",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "Americano",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-coffeepour-445",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "CoffeePour",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-coffeelove-446",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "CoffeeLove",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-green-tea-447",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "Green Tea",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-hot-cocoa-448",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "Hot Cocoa",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-afternoon-tea-time-rose-latte-449",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-afternoon-tea-time",
+      "name": "Rose Latte",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "afternoon-tea-time",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-choco-box-450",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Choco Box",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "desserts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-donut-451",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Donut",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "desserts",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-cookie-452",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Cookie",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "desserts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-afternoon-tea-453",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Afternoon Tea",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "desserts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-strawberry-pudding-454",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Strawberry Pudding",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "desserts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-swissroll-455",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "SwissRoll",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "desserts",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-sweetcake-456",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "SweetCake",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "desserts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-baguette-457",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Baguette",
+      "baseValue": 12,
+      "marketWorth": 12,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "desserts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-pumpkin-pie-458",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Pumpkin Pie",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "desserts",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-spring-tea-459",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Spring Tea",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "desserts",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-dessert-table-460",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Dessert Table",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "desserts",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-desserts-rose-ice-cream-461",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-desserts",
+      "name": "Rose Ice Cream",
+      "baseValue": 79,
+      "marketWorth": 91,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "desserts",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-luxury-wine-box-462",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Luxury Wine Box",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-cheers-463",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Cheers",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-cocktail-464",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Cocktail",
+      "baseValue": 119,
+      "marketWorth": 137,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-icy-golden-goblet-465",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Icy Golden Goblet",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-red-wine-466",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Red Wine",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-champagne-467",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Champagne",
+      "baseValue": 29999,
+      "marketWorth": 59998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-colorful-glass-468",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Colorful Glass",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-alcoholic-beverages-astro-champagne-469",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-alcoholic-beverages",
+      "name": "Astro Champagne",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "alcoholic-beverages",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-margarita-470",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Margarita",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-mai-tai-471",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Mai Tai",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-pina-colada-472",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Pina Colada",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-aperol-spritz-473",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Aperol Spritz",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-mojito-474",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Mojito",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-old-fashioned-475",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Old Fashioned",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-lemon-drop-martini-476",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Lemon Drop Martini",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-singapore-sling-477",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Singapore Sling",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-zombie-cocktail-478",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Zombie Cocktail",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-godfather-479",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Godfather",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-sunset-stars-480",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Sunset Stars",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-cocktail-journey-negroni-481",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-cocktail-journey",
+      "name": "Negroni",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "cocktail-journey",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-friedchicken-482",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "FriedChicken",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-taco-483",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Taco",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-burger-484",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Burger",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-big-burger-485",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Big Burger",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-cola-486",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Cola",
+      "baseValue": 35,
+      "marketWorth": 35,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-fries-487",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Fries",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-hot-dog-488",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Hot dog",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-eggs-benedict-489",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Eggs Benedict",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-lobster-roll-490",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Lobster Roll",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-best-friend-491",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Best Friend",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-flavors-of-the-american-continent-lunch-492",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-flavors-of-the-american-continent",
+      "name": "Lunch",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "flavors-of-the-american-continent",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-cantonese-sweet-soup-493",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Cantonese sweet soup",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-tangyuan-494",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Tangyuan",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-sunflower-seeds-495",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Sunflower Seeds",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-qiegao-496",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Qiegao",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-stinky-tofu-497",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Stinky Tofu",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-chinese-xiaolongbao-498",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Chinese Xiaolongbao",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-grilled-oysters-499",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Grilled Oysters",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-hot-pot-lamb-500",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Hot Pot Lamb",
+      "baseValue": 899,
+      "marketWorth": 1438,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-luosifen-501",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Luosifen",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-rock-sugar-pear-502",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Rock Sugar Pear",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-spring-roll-503",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Spring Roll",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-chinese-flavor-i-jiaozi-504",
+      "categoryId": "cat-delicious",
+      "seriesId": "ser-delicious-chinese-flavor-i",
+      "name": "Jiaozi",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "delicious",
+        "chinese-flavor-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-germany-triumphant-return-505",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-germany",
+      "name": "Triumphant Return",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-germany",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-germany-germany-golden-cup-506",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-germany",
+      "name": "Germany Golden Cup",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-germany",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-germany-munich-beer-507",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-germany",
+      "name": "Munich Beer",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-germany",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-german-sausage-platter-508",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "German Sausage Platter",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-aromatic-apple-pie-509",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Aromatic Apple Pie",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-golden-roast-whole-chicken-510",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Golden Roast Whole Chicken",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-crispy-roasted-pork-knuckle-511",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Crispy Roasted Pork Knuckle",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-munich-beer-512",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Munich Beer",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-munich-carnival-night-513",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Munich Carnival Night",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-golden-cup-celebration-514",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Golden Cup Celebration",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-oktoberfest-beer-barrel-515",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-oktoberfest",
+      "name": "Beer Barrel",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "oktoberfest",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-popcorn-516",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Popcorn",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-cat-popcorn-517",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Cat Popcorn",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-entry-ticket-518",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Entry Ticket",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-movie-corn-519",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Movie corn",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-glasses-520",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Glasses",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-love-record-521",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Love Record",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-film-projector-522",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Film projector",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-film-projector-523",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Film projector ",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-happy-film-festival-love-memories-524",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-happy-film-festival",
+      "name": "Love Memories",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "happy-film-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-bubblemaker-525",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "BubbleMaker",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-star-unicorn-526",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Star Unicorn",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-book-of-childhood-wonder-527",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Book of Childhood Wonder",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-balloonpals-528",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "BalloonPals",
+      "baseValue": 610,
+      "marketWorth": 976,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-gachapon-529",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Gachapon",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-fun-park-530",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Fun Park",
+      "baseValue": 6999,
+      "marketWorth": 13998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-love-city-531",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Love City",
+      "baseValue": 6999,
+      "marketWorth": 13998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-dream-park-532",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Dream Park",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-carousel-533",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Carousel",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-childhood-dreamland-garden-spy-534",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-childhood-dreamland",
+      "name": "Garden Spy",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "childhood-dreamland",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-rabbit-lantern-535",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Rabbit Lantern",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-jaderabbit-536",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "JadeRabbit",
+      "baseValue": 100,
+      "marketWorth": 115,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-basket-cake-537",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Basket Cake",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-mooncake-538",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Mooncake",
+      "baseValue": 66,
+      "marketWorth": 76,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-osmanthus-tea-539",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Osmanthus tea",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-moonglow-540",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Moonglow",
+      "baseValue": 7999,
+      "marketWorth": 15998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-bunny-moon-541",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Bunny Moon",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-moonlight-542",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "Moonlight",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-mid-autumn-festival-moonbunny-543",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-mid-autumn-festival",
+      "name": "MoonBunny",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "mid-autumn-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-flying-together-544",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Flying Together",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-magpie-545",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Magpie",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-qixi-sachet-546",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Qixi Sachet",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-qixi-jade-ring-547",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Qixi Jade Ring",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-love-drum-548",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Love Drum",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-love-lantern-549",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Love Lantern",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-bird-lamp-550",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Bird Lamp",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-jadeyearn-551",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "JadeYearn",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-kitty-love-552",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Kitty Love",
+      "baseValue": 9998,
+      "marketWorth": 19996,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-qixi-wish-553",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Qixi Wish",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-qixi-festival-person-in-book-554",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-qixi-festival",
+      "name": "Person in Book",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "qixi-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-lion-dance-555",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Lion Dance",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-blast-556",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Blast",
+      "baseValue": 88,
+      "marketWorth": 101,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-koi-lantern-557",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Koi lantern",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-mystery-gift-558",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-lionspirit-559",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "LionSpirit",
+      "baseValue": 888,
+      "marketWorth": 1421,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-lucky-koi-560",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Lucky Koi",
+      "baseValue": 1088,
+      "marketWorth": 2176,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-luckypanda-561",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "LuckyPanda",
+      "baseValue": 188,
+      "marketWorth": 254,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-luckyfeast-562",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "LuckyFeast",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-lucky-bag-563",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Lucky Bag",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-lunarsnack-564",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "LunarSnack",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-glowfest-565",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "Glowfest",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-new-year-greetings-luckycoins-566",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-new-year-greetings",
+      "name": "LuckyCoins",
+      "baseValue": 600,
+      "marketWorth": 960,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "new-year-greetings",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-egypt-567",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Egypt",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-switzerland-568",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Switzerland",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-belgium-569",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Belgium",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-spain-570",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Spain",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-brazil-571",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Brazil",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-england-572",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of England",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-morocco-573",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Morocco",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-france-574",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of France",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-argentina-575",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Argentina",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-norway-576",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Norway",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-glory-commemoration-glory-of-cape-verde-577",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-glory-commemoration",
+      "name": "Glory of Cape Verde",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "glory-commemoration",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-golden-header-578",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Golden Header",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-blue-miracle-579",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Blue Miracle",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-last-minute-580",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Last Minute",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-flying-strike-581",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Flying Strike",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-last-gasp-equalizer-582",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Last-Gasp Equalizer",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-solo-run-583",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Solo Run",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-samba-storm-584",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Samba Storm",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-8-legendary-goals-century-run-585",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-8-legendary-goals",
+      "name": "Century Run",
+      "baseValue": 1199,
+      "marketWorth": 2398,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "8-legendary-goals",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-multicolored-cord-586",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Multicolored Cord",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-cute-rice-587",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Cute Rice",
+      "baseValue": 159,
+      "marketWorth": 215,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-rice-ride-588",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Rice Ride",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-rice-boat-589",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Rice Boat",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-zongzi-590",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Zongzi",
+      "baseValue": 129,
+      "marketWorth": 148,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-zongzi-aroma-dream-591",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Zongzi Aroma Dream",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-summer-with-kitty-592",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Summer with Kitty",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-dragon-boat-festival-rabbit-boat-593",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-dragon-boat-festival",
+      "name": "Rabbit Boat",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "dragon-boat-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-bronze-medal-594",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Bronze medal",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-silver-medal-595",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Silver medal",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-football-golden-cup-596",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Football Golden Cup",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-beer-cheers-597",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Beer & Cheers",
+      "baseValue": 40,
+      "marketWorth": 40,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-foul-598",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Foul",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-gold-medal-599",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Gold Medal",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-i-m-champion-600",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "I'm Champion!",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-snack-bucket-601",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Snack Bucket",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-champions-night-602",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Champions' Night",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-thunderbolt-shot-603",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Thunderbolt Shot",
+      "baseValue": 2999,
+      "marketWorth": 5998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iv-cat-cheer-team-604",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iv",
+      "name": "Cat Cheer Team",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-iv",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-color-fizz-605",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Color Fizz",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-successful-save-606",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Successful save",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-shot-607",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Shot",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-goal-moment-608",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Goal moment",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-goal-609",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Goal",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-defensive-master-610",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Defensive Master",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-trophy-pendant-611",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Trophy pendant",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-kick-off-612",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "Kick-off",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-we-are-the-champions-613",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "We are the champions!",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-iii-world-cup-night-614",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-iii",
+      "name": "World Cup Night",
+      "baseValue": 3999,
+      "marketWorth": 7998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match-iii",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-netherlands-football-flower-shop-615",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-netherlands",
+      "name": "Football Flower Shop",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-netherlands",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-netherlands-netherlands-gold-cup-616",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-netherlands",
+      "name": "Netherlands Gold Cup",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-netherlands",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-netherlands-orange-lion-617",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-netherlands",
+      "name": "Orange Lion",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-netherlands",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-usa-freedom-torch-618",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-usa",
+      "name": "Freedom Torch",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-usa",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-usa-victory-619",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-usa",
+      "name": "Victory",
+      "baseValue": 79,
+      "marketWorth": 91,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-usa",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-usa-star-fondant-cookies-620",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-usa",
+      "name": "Star Fondant Cookies",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-usa",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-usa-fierce-eagle-621",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-usa",
+      "name": "Fierce Eagle",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-usa",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-usa-championship-trophy-622",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-usa",
+      "name": "Championship Trophy",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-usa",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-france-france-gold-cup-623",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-france",
+      "name": "France Gold Cup",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-france",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-france-gallic-rooster-624",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-france",
+      "name": "Gallic Rooster",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-france",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-france-iron-tower-football-625",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-france",
+      "name": "Iron Tower Football",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-france",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-england-bells-of-celebration-626",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-england",
+      "name": "Bells of Celebration",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-england",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-england-victory-crown-627",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-england",
+      "name": "Victory Crown",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-england",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-england-england-gold-cup-628",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-england",
+      "name": "England Gold Cup",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-england",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-england-football-cheers-629",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-england",
+      "name": "Football Cheers",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-england",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-england-lion-of-england-630",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-england",
+      "name": "Lion of England",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-england",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-brazil-football-stage-631",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-brazil",
+      "name": "Football Stage",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-brazil",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-brazil-golden-sun-632",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-brazil",
+      "name": "Golden Sun",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-brazil",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-brazil-we-can-win-633",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-brazil",
+      "name": "We can win",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-brazil",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-brazil-eternal-blaze-634",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-brazil",
+      "name": "Eternal Blaze",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-brazil",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-brazil-crown-of-the-setting-sun-635",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-brazil",
+      "name": "Crown of the Setting Sun",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-brazil",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-argentina-tango-636",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-argentina",
+      "name": "Tango",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-argentina",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-argentina-argentina-golden-cup-637",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-argentina",
+      "name": "Argentina Golden Cup",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-argentina",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-argentina-football-star-638",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-argentina",
+      "name": "Football Star",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "go-argentina",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-argentina-gauchos-639",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-argentina",
+      "name": "Gauchos",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "go-argentina",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-go-argentina-tierra-del-fuego-640",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-go-argentina",
+      "name": "Tierra del Fuego",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "go-argentina",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-love-of-the-champions-champion-football-641",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-love-of-the-champions",
+      "name": "Champion Football",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "love-of-the-champions",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-love-of-the-champions-champion-wish-ball-642",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-love-of-the-champions",
+      "name": "Champion Wish Ball",
+      "baseValue": 599,
+      "marketWorth": 958,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "love-of-the-champions",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-love-of-the-champions-champion-necklace-643",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-love-of-the-champions",
+      "name": "Champion necklace",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "love-of-the-champions",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-love-of-the-champions-champion-basket-644",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-love-of-the-champions",
+      "name": "Champion Basket",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "love-of-the-champions",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-love-of-the-champions-championship-crystal-cup-645",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-love-of-the-champions",
+      "name": "Championship Crystal Cup",
+      "baseValue": 899,
+      "marketWorth": 1438,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "love-of-the-champions",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-korean-pendant-646",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Korean Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-egypt-pendant-647",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Egypt Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-france-pendant-648",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "France Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-morocco-pendant-649",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Morocco Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-belgium-pendant-650",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Belgium Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-mexico-pendant-651",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Mexico Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-argentina-pendant-652",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Argentina Pendant",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-brazil-pendant-653",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "Brazil Pendant",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-german-football-654",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "German Football",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-ii-american-pendant-655",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-ii",
+      "name": "American Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-japan-pendant-656",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Japan Pendant",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-colombian-pendant-657",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Colombian Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-netherlands-pendant-658",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Netherlands Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-spain-pendant-659",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Spain Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-iran-pendant-660",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Iran Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-croatia-pendant-661",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Croatia Pendant",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-australia-pendant-662",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Australia Pendant",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-england-pendant-663",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "England Pendant",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-canada-pendant-664",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Canada Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-keychain-i-portugal-pendant-665",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-keychain-i",
+      "name": "Portugal Pendant",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-keychain-i",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-dribble-past-666",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Dribble past",
+      "baseValue": 48,
+      "marketWorth": 48,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-no-1-balloon-667",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "No.1 Balloon",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ball-confetti-cannon-668",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "ball confetti cannon",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-football-match-669",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Football match",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-pass-670",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Pass",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-tackle-671",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Tackle",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-football-fireworks-672",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Football fireworks",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-winning-moment-673",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Winning moment",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-forward-scores-674",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Forward scores",
+      "baseValue": 1299,
+      "marketWorth": 2598,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-bicycle-kick-675",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Bicycle Kick",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "football-match",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-goal-676",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Goal!",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-wonder-goal-677",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match",
+      "name": "Wonder Goal!",
+      "baseValue": 1999,
+      "marketWorth": 3998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "football-match",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-go-go-goal-678",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "GO GO GOAL",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-2-yellow-cards-679",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "2 Yellow cards",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-little-horn-680",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Little Horn",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-sliding-celebration-681",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Sliding celebration",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-chill-beer-joy-682",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Chill Beer Joy",
+      "baseValue": 40,
+      "marketWorth": 40,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-soccer-683",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Soccer",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-football-gift-box-684",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Football Gift Box",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-football-coronation-685",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "Football coronation",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-football-match-ii-1-yellow-card-686",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-football-match-ii",
+      "name": "1 Yellow Card",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "football-match-ii",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-songkran-festival-songkran-687",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-songkran-festival",
+      "name": "Songkran",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "songkran-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-songkran-festival-water-gun-party-688",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-songkran-festival",
+      "name": "Water Gun Party",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "songkran-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-songkran-festival-songkran-festival-girl-689",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-songkran-festival",
+      "name": "Songkran Festival Girl",
+      "baseValue": 1599,
+      "marketWorth": 3198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "songkran-festival",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-songkran-festival-throwing-water-bowl-690",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-songkran-festival",
+      "name": "Throwing Water Bowl",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "songkran-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-venice-carnival-night-of-the-canal-691",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-venice-carnival",
+      "name": "Night of the Canal",
+      "baseValue": 899,
+      "marketWorth": 1438,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "venice-carnival",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-venice-carnival-snack-basket-692",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-venice-carnival",
+      "name": "Snack basket",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "venice-carnival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-venice-carnival-mask-693",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-venice-carnival",
+      "name": "Mask",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "venice-carnival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-venice-carnival-queen-mask-694",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-venice-carnival",
+      "name": "Queen Mask",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "venice-carnival",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-venice-carnival-volta-carnival-mask-695",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-venice-carnival",
+      "name": "Volta Carnival Mask",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "venice-carnival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-easter-happy-easter-696",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-easter",
+      "name": "Happy Easter",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "easter",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-easter-easter-bunny-697",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-easter",
+      "name": "Easter Bunny",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "easter",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-easter-newborn-bunny-698",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-easter",
+      "name": "Newborn Bunny",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "easter",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-easter-bunny-violinist-699",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-easter",
+      "name": "Bunny Violinist",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "easter",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-taurus-700",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Taurus",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-pisces-701",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Pisces",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-virgo-702",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Virgo",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-leo-703",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Leo",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-libra-704",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Libra",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-cancer-705",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Cancer",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-aries-706",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Aries",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-gemini-707",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Gemini",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-aquarius-708",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Aquarius",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-capricorn-709",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Capricorn",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-scorpio-710",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Scorpio",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-rare-zodiac-set-sagittarius-711",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-rare-zodiac-set",
+      "name": "Sagittarius",
+      "baseValue": 500,
+      "marketWorth": 800,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "rare-zodiac-set",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-ketupat-712",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Ketupat",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-eid-feast-713",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Eid Feast",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-star-moon-lantern-714",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Star Moon Lantern",
+      "baseValue": 89,
+      "marketWorth": 102,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-ramadan-lantern-715",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Ramadan lantern",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-glazed-glass-lantern-716",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Glazed glass lantern",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-shawarma-717",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Shawarma",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-moonboat-718",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Moonboat",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-ramadanlight-719",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "RamadanLight",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-iftar-720",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Iftar",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-gilded-decor-721",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Gilded Decor",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-eid-al-fitr-starry-dream-722",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-eid-al-fitr",
+      "name": "Starry Dream",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "eid-al-fitr",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-holi-gulal-723",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-holi",
+      "name": "Gulal",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "holi",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-holi-elephant-724",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-holi",
+      "name": "Elephant",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "holi",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-holi-happy-holi-725",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-holi",
+      "name": "Happy Holi",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "holi",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-holi-holi-726",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-holi",
+      "name": "Holi",
+      "baseValue": 399,
+      "marketWorth": 539,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "holi",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-holi-holi-girl-727",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-holi",
+      "name": "Holi Girl",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "holi",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-st-patrick-s-day-shamrock-badge-728",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-st-patrick-s-day",
+      "name": "Shamrock badge",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "st-patrick-s-day",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-st-patrick-s-day-leprechaun-729",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-st-patrick-s-day",
+      "name": "Leprechaun",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "st-patrick-s-day",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-st-patrick-s-day-emerald-festival-730",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-st-patrick-s-day",
+      "name": "Emerald Festival",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "st-patrick-s-day",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-april-fools-day-april-fool-731",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-april-fools-day",
+      "name": "April Fool",
+      "baseValue": 799,
+      "marketWorth": 1278,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "april-fools-day",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-april-fools-day-jokerballoon-732",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-april-fools-day",
+      "name": "JokerBalloon",
+      "baseValue": 699,
+      "marketWorth": 1118,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "april-fools-day",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-april-fools-day-prank-hammer-733",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-april-fools-day",
+      "name": "Prank Hammer",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "april-fools-day",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-april-fools-day-pirate-barrel-734",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-april-fools-day",
+      "name": "Pirate Barrel",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "april-fools-day",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-winter-reunion-festival-tangyuan-735",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-winter-reunion-festival",
+      "name": "Tangyuan",
+      "baseValue": 99,
+      "marketWorth": 114,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "winter-reunion-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-winter-reunion-festival-warm-warm-lantern-736",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-winter-reunion-festival",
+      "name": "Warm & Warm Lantern",
+      "baseValue": 119,
+      "marketWorth": 137,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "winter-reunion-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-winter-reunion-festival-winter-solstice-737",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-winter-reunion-festival",
+      "name": "Winter Solstice",
+      "baseValue": 69,
+      "marketWorth": 79,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "winter-reunion-festival",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-winter-reunion-festival-jiaozi-738",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-winter-reunion-festival",
+      "name": "Jiaozi",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "winter-reunion-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-winter-reunion-festival-laba-festival-739",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-winter-reunion-festival",
+      "name": "Laba Festival",
+      "baseValue": 499,
+      "marketWorth": 674,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "winter-reunion-festival",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-epiphany-king-cake-740",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-epiphany",
+      "name": "King cake",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "tier": "Standard",
+      "tags": [
+        "celebration",
+        "epiphany",
+        "standard"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-epiphany-gilt-pile-741",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-epiphany",
+      "name": "Gilt Pile",
+      "baseValue": 999,
+      "marketWorth": 1598,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "epiphany",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-epiphany-the-three-kings-gifts-742",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-epiphany",
+      "name": "The Three Kings' Gifts",
+      "baseValue": 299,
+      "marketWorth": 404,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "epiphany",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-leo-743",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Leo",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-sagittarius-744",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Sagittarius",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-scorpio-745",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Scorpio",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-libra-746",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Libra",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-virgo-747",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Virgo",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-aquarius-748",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Aquarius",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-pisces-749",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Pisces",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-cancer-750",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Cancer",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-aries-751",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Aries",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-capricorn-752",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Capricorn",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-taurus-753",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Taurus",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-constellation-gifts-star-whisper-gemini-754",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-constellation-gifts",
+      "name": "Star Whisper · Gemini",
+      "baseValue": 1099,
+      "marketWorth": 2198,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "constellation-gifts",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-christmas-xmaswreath-755",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-christmas",
+      "name": "XmasWreath",
+      "baseValue": 59,
+      "marketWorth": 68,
+      "quantity": 0,
+      "tier": "Featured",
+      "tags": [
+        "celebration",
+        "christmas",
+        "featured"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-christmas-xmasbell-756",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-christmas",
+      "name": "XmasBell",
+      "baseValue": 199,
+      "marketWorth": 269,
+      "quantity": 0,
+      "tier": "Limited",
+      "tags": [
+        "celebration",
+        "christmas",
+        "limited"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-christmas-sleigh-757",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-christmas",
+      "name": "Sleigh",
+      "baseValue": 1000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "christmas",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-christmas-xmas-globe-758",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-christmas",
+      "name": "Xmas Globe",
+      "baseValue": 6999,
+      "marketWorth": 13998,
+      "quantity": 0,
+      "tier": "Collection",
+      "tags": [
+        "celebration",
+        "christmas",
+        "collection"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    },
+    {
+      "id": "item-christmas-xmas-eve-759",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-celebration-christmas",
+      "name": "Xmas Eve",
+      "baseValue": 899,
+      "marketWorth": 1438,
+      "quantity": 0,
+      "tier": "Luxury",
+      "tags": [
+        "celebration",
+        "christmas",
+        "luxury"
+      ],
+      "notes": "",
+      "updatedAt": 1729000000000,
+      "wallOwned": false,
+      "starred": false
+    }
+  ],
+  "tiers": [
+    {
+      "id": "tier-standard",
+      "name": "Standard",
+      "color": "#e2e8f0",
+      "bg": "#1e293b",
+      "border": "rgba(226, 232, 240, 0.25)",
+      "rank": 10,
+      "displayOrder": 1,
+      "description": "Standard default tier"
+    },
+    {
+      "id": "tier-featured",
+      "name": "Featured",
+      "color": "#38bdf8",
+      "bg": "#0c4a6e",
+      "border": "rgba(56, 189, 248, 0.35)",
+      "rank": 40,
+      "displayOrder": 2,
+      "description": "Featured blue highlighted tier"
+    },
+    {
+      "id": "tier-limited",
+      "name": "Limited",
+      "color": "#c084fc",
+      "bg": "#3b0764",
+      "border": "rgba(192, 132, 252, 0.35)",
+      "rank": 60,
+      "displayOrder": 3,
+      "description": "Limited purple exclusive tier"
+    },
+    {
+      "id": "tier-luxury",
+      "name": "Luxury",
+      "color": "#facc15",
+      "bg": "#422006",
+      "border": "rgba(250, 204, 21, 0.35)",
+      "rank": 80,
+      "displayOrder": 4,
+      "description": "Luxury yellow prestige tier"
+    },
+    {
+      "id": "tier-collection",
+      "name": "Collection",
+      "color": "#ef4444",
+      "bg": "#450a0a",
+      "border": "rgba(239, 68, 68, 0.35)",
+      "rank": 100,
+      "displayOrder": 5,
+      "description": "Collection red apex tier"
+    }
+  ]
+};
+
+  const DEFAULT_TAGS = [
+    { key: 'wall', name: 'Wall', color: '#10b981', displayOrder: 1 },
+    { key: 'series', name: 'Series', color: '#06b6d4', displayOrder: 2 },
+    { key: 'backpack', name: 'Backpack', color: '#f43f5e', displayOrder: 3 }
+  ];
+
+  // ------------------------------------------------------------------
+  // 1. STATE MANAGER (UNIFIED MASTER REPOSITORY)
+  // ------------------------------------------------------------------
+  class VaultState {
+    constructor() {
+      this.data = this.loadState();
+      this.listeners = [];
+    }
+
+    loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (parsed && typeof parsed === 'object' && Array.isArray(parsed.items)) {
+            const safeItems = parsed.items.map(item => {
+              if (!item || typeof item !== 'object') return null;
+              let notesVal = String(item.notes ?? '').trim();
+              if (notesVal.includes(' > ') || notesVal.includes('coins).')) notesVal = '';
+              const catId = String(item.categoryId ?? '').trim();
+              const serId = String(item.seriesId ?? '').trim();
+              const isWallOwned = typeof item.wallOwned === 'boolean' ? item.wallOwned : false;
+              const rawQty = Math.max(0, Math.floor(Number(item.quantity) || 0));
+
+              let itemTabs = Array.isArray(item.tabs) ? item.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [];
+              if (catId && serId && !itemTabs.includes('series')) {
+                itemTabs.push('series');
+              }
+              if (isWallOwned && !itemTabs.includes('wall')) {
+                itemTabs.push('wall');
+              }
+              if (rawQty > 0 && !itemTabs.includes('backpack')) {
+                itemTabs.push('backpack');
+              }
+              itemTabs = [...new Set(itemTabs)];
+
+              const finalWallOwned = isWallOwned || itemTabs.includes('wall');
+              let finalQty = rawQty;
+              if (itemTabs.includes('backpack') && finalQty === 0) {
+                finalQty = 1;
+              } else if (!itemTabs.includes('backpack') && finalQty > 0) {
+                itemTabs.push('backpack');
+              }
+
+              return {
+                id: String(item.id || '').trim(),
+                categoryId: catId,
+                seriesId: serId,
+                name: String(item.name ?? '').trim(),
+                baseValue: Math.max(0, Number(item.baseValue) || 0),
+                marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+                quantity: finalQty,
+                wallOwned: finalWallOwned,
+                starred: typeof item.starred === 'boolean' ? item.starred : false,
+                tier: String(item.tier || 'Standard').trim(),
+                tabs: itemTabs,
+                tags: Array.isArray(item.tags) ? item.tags.map(t => String(t).trim()).filter(Boolean) : [],
+                notes: notesVal,
+                updatedAt: Number(item.updatedAt) || Date.now()
+              };
+            }).filter(Boolean);
+
+              const safeCategories = (Array.isArray(parsed.categories) ? parsed.categories : DEFAULT_SEED.categories).map(cat => {
+                if (!cat || typeof cat !== 'object') return null;
+                return {
+                  id: String(cat.id || '').trim(),
+                  name: String(cat.name || '').trim(),
+                  order: Number(cat.order) || 1,
+                  description: String(cat.description || '').trim()
+                };
+              }).filter(Boolean);
+
+              const safeSeries = (Array.isArray(parsed.series) ? parsed.series : DEFAULT_SEED.series).map(ser => {
+                if (!ser || typeof ser !== 'object') return null;
+                return {
+                  id: String(ser.id || '').trim(),
+                  categoryId: String(ser.categoryId || '').trim(),
+                  name: String(ser.name || '').trim(),
+                  badge: String(ser.badge || '').trim(),
+                  description: String(ser.description || '').trim(),
+                  displayOrder: Number(ser.displayOrder ?? ser.order) || 1
+                };
+              }).filter(Boolean);
+
+              const safeTiers = (Array.isArray(parsed.tiers) ? parsed.tiers : DEFAULT_SEED.tiers).map(t => {
+                if (!t || typeof t !== 'object') return null;
+                return {
+                  id: String(t.id || '').trim(),
+                  name: String(t.name || '').trim(),
+                  color: String(t.color || '#e2e8f0').trim(),
+                  bg: String(t.bg || 'rgba(226, 232, 240, 0.16)').trim(),
+                  border: String(t.border || 'rgba(226, 232, 240, 0.35)').trim(),
+                  rank: Number(t.rank) || 10,
+                  displayOrder: Number(t.displayOrder ?? t.order) || 1,
+                  description: String(t.description || '').trim()
+                };
+              }).filter(Boolean);
+
+              let tags = DEFAULT_TAGS.map(t => ({ ...t }));
+              if (parsed.themeConfig && typeof parsed.themeConfig === 'object') {
+                if (Array.isArray(parsed.themeConfig.tags) && parsed.themeConfig.tags.length > 0) {
+                  tags = DEFAULT_TAGS.map(def => {
+                    const found = parsed.themeConfig.tags.find(t => t && t.key === def.key);
+                    if (found) {
+                      return {
+                        key: def.key,
+                        name: String(found.name || def.name).trim(),
+                        color: String(found.color || def.color).trim(),
+                        displayOrder: Number(found.displayOrder) || def.displayOrder
+                      };
+                    }
+                    return { ...def };
+                  }).sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+                } else if (parsed.themeConfig.tagColors) {
+                  tags.forEach(t => {
+                    if (parsed.themeConfig.tagColors[t.key]) t.color = parsed.themeConfig.tagColors[t.key];
+                  });
+                }
+              }
+              const tagColors = {
+                wall: tags.find(t => t.key === 'wall')?.color || '#10b981',
+                series: tags.find(t => t.key === 'series')?.color || '#06b6d4',
+                backpack: tags.find(t => t.key === 'backpack')?.color || '#f43f5e'
+              };
+              const themeConfig = { tags, tagColors };
+
+              return {
+                version: "1.0.0",
+                lastExported: Number(parsed.lastExported) || Date.now(),
+                categories: safeCategories,
+                series: safeSeries,
+                items: safeItems,
+                tiers: safeTiers,
+                themeConfig
+              };
+          }
+        }
+      } catch (err) {
+        console.warn('HelloTalk Database: Error parsing localStorage, loading official seed.', err);
+      }
+      const seedCopy = JSON.parse(JSON.stringify(DEFAULT_SEED));
+      if (!seedCopy.themeConfig) {
+        seedCopy.themeConfig = {
+          tags: DEFAULT_TAGS.map(t => ({ ...t })),
+          tagColors: { wall: '#10b981', series: '#06b6d4', backpack: '#f43f5e' }
+        };
+      }
+      return seedCopy;
+    }
+
+    getTags() {
+      if (!this.data.themeConfig || !Array.isArray(this.data.themeConfig.tags)) {
+        return DEFAULT_TAGS.map(t => ({ ...t }));
+      }
+      return [...this.data.themeConfig.tags].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+    }
+
+    getTag(key) {
+      const tags = this.getTags();
+      return tags.find(t => t.key === key) || DEFAULT_TAGS.find(t => t.key === key) || null;
+    }
+
+    getTagName(key) {
+      const tag = this.getTag(key);
+      return tag ? tag.name : (key.charAt(0).toUpperCase() + key.slice(1));
+    }
+
+    updateTag(key, updates = {}) {
+      if (!this.data.themeConfig) this.data.themeConfig = {};
+      if (!Array.isArray(this.data.themeConfig.tags)) {
+        this.data.themeConfig.tags = DEFAULT_TAGS.map(t => ({ ...t }));
+      }
+      const tag = this.data.themeConfig.tags.find(t => t.key === key);
+      if (tag) {
+        if (updates.name !== undefined) tag.name = String(updates.name).trim();
+        if (updates.color !== undefined) tag.color = String(updates.color).trim();
+        if (updates.displayOrder !== undefined) tag.displayOrder = Number(updates.displayOrder);
+      }
+      if (!this.data.themeConfig.tagColors) this.data.themeConfig.tagColors = {};
+      this.data.themeConfig.tags.forEach(t => {
+        this.data.themeConfig.tagColors[t.key] = t.color;
+      });
+      this.saveState();
+    }
+
+    updateTagOrder(key, newOrder) {
+      this.updateTag(key, { displayOrder: newOrder });
+    }
+
+    resetTags() {
+      if (!this.data.themeConfig) this.data.themeConfig = {};
+      this.data.themeConfig.tags = DEFAULT_TAGS.map(t => ({ ...t }));
+      this.data.themeConfig.tagColors = {
+        wall: '#10b981',
+        series: '#06b6d4',
+        backpack: '#f43f5e'
+      };
+      this.saveState();
+    }
+
+    getTagColors() {
+      const defaults = { wall: '#10b981', series: '#06b6d4', backpack: '#f43f5e' };
+      if (!this.data.themeConfig) return defaults;
+      if (this.data.themeConfig.tagColors) {
+        return {
+          wall: this.data.themeConfig.tagColors.wall || defaults.wall,
+          series: this.data.themeConfig.tagColors.series || defaults.series,
+          backpack: this.data.themeConfig.tagColors.backpack || defaults.backpack
+        };
+      }
+      return defaults;
+    }
+
+    setTagColor(tagKey, hexColor) {
+      this.updateTag(tagKey, { color: hexColor });
+    }
+
+    resetTagColors() {
+      this.resetTags();
+    }
+
+    saveState() {
+      this.data.lastExported = Date.now();
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+      this.notify();
+    }
+
+    save() {
+      this.saveState();
+    }
+
+    notify() {
+      this.listeners.forEach(fn => fn(this.data));
+    }
+
+    subscribe(fn) {
+      this.listeners.push(fn);
+    }
+
+    uid(prefix = 'id') {
+      return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 6)}`;
+    }
+
+    // Item Operations
+    getItem(id) {
+      return this.data.items.find(i => i.id === id);
+    }
+
+    addItem(itemData) {
+      const id = this.uid('item');
+      const catId = (itemData.categoryId || '').trim();
+      const serId = (itemData.seriesId || '').trim();
+      let itemTabs = Array.isArray(itemData.tabs) ? itemData.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [];
+      if (catId && serId && !itemTabs.includes('series')) {
+        itemTabs.push('series');
+      }
+      if (itemData.wallOwned && !itemTabs.includes('wall')) {
+        itemTabs.push('wall');
+      }
+      if ((Number(itemData.quantity) || 0) > 0 && !itemTabs.includes('backpack')) {
+        itemTabs.push('backpack');
+      }
+      if (itemTabs.length === 0) {
+        if (catId && serId) itemTabs.push('series');
+        else itemTabs.push('backpack');
+      }
+      itemTabs = [...new Set(itemTabs)];
+      const wallOwned = itemTabs.includes('wall') || !!itemData.wallOwned;
+      let qty = 0;
+      if (itemTabs.includes('backpack')) {
+        qty = Math.max(1, Math.floor(Number(itemData.quantity) || 0));
+      }
+
+      const newItem = {
+        id,
+        categoryId: catId,
+        seriesId: serId,
+        name: (itemData.name || '').trim(),
+        baseValue: Math.max(0, Number(itemData.baseValue) || 0),
+        marketWorth: Math.max(0, Number(itemData.marketWorth) || 0),
+        quantity: qty,
+        wallOwned,
+        starred: !!itemData.starred,
+        tier: (itemData.tier || 'Standard').trim(),
+        tabs: itemTabs,
+        tags: Array.isArray(itemData.tags) ? itemData.tags : [],
+        notes: (itemData.notes || '').trim(),
+        updatedAt: Date.now()
+      };
+      // Prepend to top of master items array
+      this.data.items.unshift(newItem);
+      this.saveState();
+      return newItem;
+    }
+
+    updateItem(id, itemData) {
+      const idx = this.data.items.findIndex(i => i.id === id);
+      if (idx !== -1) {
+        const cur = this.data.items[idx];
+        const catId = (itemData.categoryId !== undefined ? itemData.categoryId : cur.categoryId).trim();
+        const serId = (itemData.seriesId !== undefined ? itemData.seriesId : cur.seriesId).trim();
+        let itemTabs = Array.isArray(itemData.tabs) ? itemData.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [...(cur.tabs || [])];
+        if (catId && serId && !itemTabs.includes('series')) {
+          itemTabs.push('series');
+        }
+        itemTabs = [...new Set(itemTabs)];
+
+        const wallOwned = itemTabs.includes('wall') || (itemData.wallOwned !== undefined ? !!itemData.wallOwned : !!cur.wallOwned);
+        let qty = 0;
+        if (itemTabs.includes('backpack')) {
+          const reqQty = Number(itemData.quantity !== undefined ? itemData.quantity : cur.quantity);
+          qty = reqQty > 0 ? Math.floor(reqQty) : 1;
+        }
+
+        this.data.items[idx] = {
+          ...cur,
+          categoryId: catId,
+          seriesId: serId,
+          name: (itemData.name !== undefined ? itemData.name : cur.name).trim(),
+          baseValue: Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0),
+          marketWorth: Math.max(0, Number(itemData.marketWorth !== undefined ? itemData.marketWorth : cur.marketWorth) || 0),
+          quantity: qty,
+          wallOwned,
+          starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
+          tier: (itemData.tier || cur.tier || 'Standard').trim(),
+          tabs: itemTabs,
+          tags: Array.isArray(itemData.tags) ? itemData.tags : cur.tags,
+          notes: (itemData.notes !== undefined ? itemData.notes : cur.notes || '').trim(),
+          updatedAt: Date.now()
+        };
+        this.saveState();
+        return this.data.items[idx];
+      }
+      return null;
+    }
+
+    deleteItem(id) {
+      const idx = this.data.items.findIndex(i => i.id === id);
+      if (idx !== -1) {
+        const removed = this.data.items.splice(idx, 1)[0];
+        this.saveState();
+        return removed;
+      }
+      return null;
+    }
+
+    toggleWallOwned(id) {
+      const item = this.getItem(id);
+      if (item) {
+        if (!Array.isArray(item.tabs)) item.tabs = [];
+        item.wallOwned = !item.wallOwned;
+        if (item.wallOwned) {
+          if (!item.tabs.includes('wall')) item.tabs.push('wall');
+        } else {
+          item.tabs = item.tabs.filter(t => t !== 'wall');
+        }
+        item.updatedAt = Date.now();
+        this.saveState();
+        return item.wallOwned;
+      }
+      return false;
+    }
+
+    incrementQuantity(id, delta) {
+      const item = this.getItem(id);
+      if (item) {
+        if (!Array.isArray(item.tabs)) item.tabs = [];
+        item.quantity = Math.max(0, (item.quantity || 0) + delta);
+        if (item.quantity === 0) {
+          item.tabs = item.tabs.filter(t => t !== 'backpack');
+        } else {
+          if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
+        }
+        item.updatedAt = Date.now();
+        this.saveState();
+      }
+    }
+
+    toggleStarred(id) {
+      const item = this.getItem(id);
+      if (item) {
+        item.starred = !item.starred;
+        item.updatedAt = Date.now();
+        this.saveState();
+        return item.starred;
+      }
+      return false;
+    }
+
+    toggleItemTab(id, tabName) {
+      const item = this.getItem(id);
+      if (!item) return { success: false, reason: 'Gift not found' };
+      if (!Array.isArray(item.tabs)) {
+        item.tabs = [];
+        if (item.categoryId && item.seriesId) item.tabs.push('series');
+        if (item.wallOwned) item.tabs.push('wall');
+        if ((Number(item.quantity) || 0) > 0) item.tabs.push('backpack');
+      }
+      const t = String(tabName || '').toLowerCase().trim();
+      const hasTab = item.tabs.includes(t);
+      if (hasTab) {
+        item.tabs = item.tabs.filter(x => x !== t);
+        if (t === 'wall') item.wallOwned = false;
+        if (t === 'backpack') item.quantity = 0;
+      } else {
+        if (t === 'series') {
+          if (!item.categoryId || !item.seriesId || !this.getSeries(item.seriesId)) {
+            return { success: false, reason: 'Series tab requires a valid Category and Series. Assign them in Edit Gift.' };
+          }
+        }
+        item.tabs.push(t);
+        if (t === 'wall') item.wallOwned = true;
+        if (t === 'backpack') {
+          item.quantity = Math.max(1, item.quantity || 1);
+        }
+      }
+      item.updatedAt = Date.now();
+      this.saveState();
+      return { success: true, added: !hasTab };
+    }
+
+    // Category Operations
+    getCategory(id) {
+      if (!id) return null;
+      return this.data.categories.find(c => c.id === id);
+    }
+
+    addCategory(catData) {
+      const id = this.uid('cat');
+      const order = Number(catData.order) || (this.data.categories.length + 1);
+      const newCat = {
+        id,
+        name: catData.name.trim(),
+        order,
+        description: (catData.description || '').trim()
+      };
+      this.data.categories.push(newCat);
+      this.saveState();
+      return newCat;
+    }
+
+    updateCategory(id, catData) {
+      const cat = this.getCategory(id);
+      if (cat) {
+        cat.name = catData.name.trim();
+        if (catData.order !== undefined) cat.order = Number(catData.order);
+        if (catData.description !== undefined) cat.description = (catData.description || '').trim();
+        this.saveState();
+      }
+    }
+
+    deleteCategory(id) {
+      this.data.categories = this.data.categories.filter(c => c.id !== id);
+      this.data.series.forEach(s => {
+        if (s.categoryId === id) s.categoryId = '';
+      });
+      this.data.items.forEach(i => {
+        if (i.categoryId === id) {
+          i.categoryId = '';
+          i.seriesId = '';
+        }
+      });
+      this.saveState();
+    }
+
+    // Series Operations
+    getSeries(id) {
+      if (!id) return null;
+      return this.data.series.find(s => s.id === id);
+    }
+
+    addSeries(seriesData) {
+      const id = this.uid('ser');
+      const displayOrder = Number(seriesData.displayOrder) || (this.data.series.length + 1);
+      const newSeries = {
+        id,
+        categoryId: seriesData.categoryId || '',
+        name: seriesData.name.trim(),
+        badge: (seriesData.badge || '').trim(),
+        description: (seriesData.description || '').trim(),
+        displayOrder
+      };
+      this.data.series.push(newSeries);
+      this.saveState();
+      return newSeries;
+    }
+
+    updateSeries(id, seriesData) {
+      const ser = this.getSeries(id);
+      if (ser) {
+        ser.categoryId = seriesData.categoryId || '';
+        ser.name = seriesData.name.trim();
+        ser.badge = (seriesData.badge || '').trim();
+        ser.description = (seriesData.description || '').trim();
+        if (seriesData.displayOrder !== undefined) ser.displayOrder = Number(seriesData.displayOrder);
+        this.saveState();
+      }
+    }
+
+    deleteSeries(id) {
+      this.data.series = this.data.series.filter(s => s.id !== id);
+      this.data.items.forEach(i => {
+        if (i.seriesId === id) i.seriesId = '';
+      });
+      this.saveState();
+    }
+
+    // Tier Operations (CRUD & Color Management)
+    getTier(idOrName) {
+      if (!idOrName || !this.data.tiers) return null;
+      const clean = String(idOrName).toLowerCase().trim();
+      return this.data.tiers.find(t => (t.id && t.id.toLowerCase() === clean) || (t.name && t.name.toLowerCase() === clean));
+    }
+
+    addTier(tierData) {
+      const id = this.uid('tier');
+      const rank = Number(tierData.rank) || 10;
+      const displayOrder = Number(tierData.displayOrder) || (this.data.tiers ? this.data.tiers.length + 1 : 1);
+      const description = (tierData.description || '').trim();
+      const color = (tierData.color || '#e2e8f0').trim();
+      const rgb = this.hexToRgb(color);
+      const newTier = {
+        id,
+        name: tierData.name.trim(),
+        color,
+        bg: tierData.bg || `rgba(${rgb}, 0.16)`,
+        border: tierData.border || `rgba(${rgb}, 0.35)`,
+        rank,
+        displayOrder,
+        description
+      };
+      if (!this.data.tiers) this.data.tiers = [];
+      this.data.tiers.push(newTier);
+      this.saveState();
+      return newTier;
+    }
+
+    updateTier(id, tierData) {
+      const tier = this.getTier(id);
+      if (tier) {
+        tier.name = tierData.name.trim();
+        if (tierData.color) {
+          tier.color = tierData.color.trim();
+          const rgb = this.hexToRgb(tier.color);
+          tier.bg = tierData.bg || `rgba(${rgb}, 0.16)`;
+          tier.border = tierData.border || `rgba(${rgb}, 0.35)`;
+        }
+        if (tierData.rank !== undefined) tier.rank = Number(tierData.rank);
+        if (tierData.displayOrder !== undefined) tier.displayOrder = Number(tierData.displayOrder);
+        if (tierData.description !== undefined) tier.description = (tierData.description || '').trim();
+        this.saveState();
+        return tier;
+      }
+      return null;
+    }
+
+    deleteTier(id) {
+      const tier = this.getTier(id);
+      if (!tier) return;
+      const deletedName = tier.name;
+      this.data.tiers = this.data.tiers.filter(t => t.id !== tier.id);
+      // Revert items with this deleted tier to Standard
+      this.data.items.forEach(i => {
+        if (i.tier && i.tier.toLowerCase() === deletedName.toLowerCase()) {
+          i.tier = 'Standard';
+        }
+      });
+      this.saveState();
+    }
+
+    hexToRgb(hex) {
+      const clean = (hex || '').replace('#', '');
+      if (clean.length === 3) {
+        const r = parseInt(clean[0] + clean[0], 16) || 226;
+        const g = parseInt(clean[1] + clean[1], 16) || 232;
+        const b = parseInt(clean[2] + clean[2], 16) || 240;
+        return `${r}, ${g}, ${b}`;
+      }
+      if (clean.length === 6) {
+        const r = parseInt(clean.substring(0, 2), 16) || 226;
+        const g = parseInt(clean.substring(2, 4), 16) || 232;
+        const b = parseInt(clean.substring(4, 6), 16) || 240;
+        return `${r}, ${g}, ${b}`;
+      }
+      return '226, 232, 240';
+    }
+
+    wipeAll() {
+      const savedTheme = this.data.themeConfig;
+      this.data = JSON.parse(JSON.stringify(DEFAULT_SEED));
+      this.data.version = "1.0.0";
+      if (savedTheme) {
+        this.data.themeConfig = savedTheme;
+      }
+      this.saveState();
+    }
+
+    importData(importedData) {
+      if (!importedData || typeof importedData !== 'object' || !Array.isArray(importedData.items)) {
+        throw new Error('Invalid JSON structure. Missing items array.');
+      }
+      const safeItems = importedData.items.map(item => {
+        if (!item || typeof item !== 'object') return null;
+        let notesVal = String(item.notes ?? '').trim();
+        if (notesVal.includes(' > ') || notesVal.includes('coins).')) notesVal = '';
+        const catId = String(item.categoryId ?? '').trim();
+        const serId = String(item.seriesId ?? '').trim();
+        const isWallOwned = typeof item.wallOwned === 'boolean' ? item.wallOwned : false;
+        const rawQty = Math.max(0, Math.floor(Number(item.quantity) || 0));
+
+        let itemTabs = Array.isArray(item.tabs) ? item.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [];
+        if (catId && serId && !itemTabs.includes('series')) {
+          itemTabs.push('series');
+        }
+        if (isWallOwned && !itemTabs.includes('wall')) {
+          itemTabs.push('wall');
+        }
+        if (rawQty > 0 && !itemTabs.includes('backpack')) {
+          itemTabs.push('backpack');
+        }
+        itemTabs = [...new Set(itemTabs)];
+
+        const finalWallOwned = isWallOwned || itemTabs.includes('wall');
+        let finalQty = rawQty;
+        if (itemTabs.includes('backpack') && finalQty === 0) {
+          finalQty = 1;
+        } else if (!itemTabs.includes('backpack') && finalQty > 0) {
+          itemTabs.push('backpack');
+        }
+
+        return {
+          id: String(item.id || this.uid('item')).trim(),
+          categoryId: catId,
+          seriesId: serId,
+          name: String(item.name ?? '').trim(),
+          baseValue: Math.max(0, Number(item.baseValue) || 0),
+          marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+          quantity: finalQty,
+          wallOwned: finalWallOwned,
+          starred: typeof item.starred === 'boolean' ? item.starred : false,
+          tier: String(item.tier || 'Standard').trim(),
+          tabs: itemTabs,
+          tags: Array.isArray(item.tags) ? item.tags.map(t => String(t).trim()).filter(Boolean) : [],
+          notes: notesVal,
+          updatedAt: Number(item.updatedAt) || Date.now()
+        };
+      }).filter(Boolean);
+
+      const safeCategories = (Array.isArray(importedData.categories) ? importedData.categories : this.data.categories).map(cat => {
+        if (!cat || typeof cat !== 'object') return null;
+        return {
+          id: String(cat.id || this.uid('cat')).trim(),
+          name: String(cat.name || '').trim(),
+          order: Number(cat.order) || 1,
+          description: String(cat.description || '').trim()
+        };
+      }).filter(Boolean);
+
+      const safeSeries = (Array.isArray(importedData.series) ? importedData.series : this.data.series).map(ser => {
+        if (!ser || typeof ser !== 'object') return null;
+        return {
+          id: String(ser.id || this.uid('ser')).trim(),
+          categoryId: String(ser.categoryId || '').trim(),
+          name: String(ser.name || '').trim(),
+          badge: String(ser.badge || '').trim(),
+          description: String(ser.description || '').trim(),
+          displayOrder: Number(ser.displayOrder ?? ser.order) || 1
+        };
+      }).filter(Boolean);
+
+      const safeTiers = (Array.isArray(importedData.tiers) ? importedData.tiers : this.data.tiers).map(t => {
+        if (!t || typeof t !== 'object') return null;
+        const color = String(t.color || '#e2e8f0').trim();
+        const rgb = this.hexToRgb(color);
+        return {
+          id: String(t.id || this.uid('tier')).trim(),
+          name: String(t.name || '').trim(),
+          color,
+          bg: String(t.bg || `rgba(${rgb}, 0.16)`).trim(),
+          border: String(t.border || `rgba(${rgb}, 0.35)`).trim(),
+          rank: Number(t.rank) || 10,
+          displayOrder: Number(t.displayOrder ?? t.order) || 1,
+          description: String(t.description || '').trim()
+        };
+      }).filter(Boolean);
+
+      let themeConfig = {
+        tags: DEFAULT_TAGS.map(t => ({ ...t })),
+        tagColors: { wall: '#10b981', series: '#06b6d4', backpack: '#f43f5e' }
+      };
+      if (importedData.themeConfig && typeof importedData.themeConfig === 'object') {
+        if (Array.isArray(importedData.themeConfig.tags)) {
+          themeConfig.tags = importedData.themeConfig.tags;
+        }
+        if (importedData.themeConfig.tagColors) {
+          themeConfig.tagColors = importedData.themeConfig.tagColors;
+        }
+      } else if (this.data.themeConfig) {
+        themeConfig = this.data.themeConfig;
+      }
+
+      this.data = {
+        version: "1.0.0",
+        lastExported: Date.now(),
+        categories: safeCategories,
+        series: safeSeries,
+        items: safeItems,
+        tiers: safeTiers,
+        themeConfig
+      };
+      this.saveState();
+    }
+  }
+
+  // ------------------------------------------------------------------
+  // 2. CONTROLLER & PRESENTATION LAYER
+  // ------------------------------------------------------------------
+  class HelloTalkApp {
+    constructor() {
+      this.state = new VaultState();
+
+      // Active Navigation Tab: Persisted in localStorage
+      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio'];
+      let savedTab = null;
+      try {
+        savedTab = localStorage.getItem('hellotalk_active_tab');
+      } catch (e) {}
+      this.currentTab = (savedTab && validTabs.includes(savedTab)) ? savedTab : 'tab-backpack';
+
+      // Unified Global Search (Synchronized across all tabs)
+      this.globalSearchQuery = '';
+
+      // Tab 1: Backpack Inventory Filter State (Default Active Tab)
+      this.bpStatusFilter = 'all'; // all, in-stock, exchange-needed, starred, extras
+      this.bpSelectedCategory = '';
+      this.bpSelectedSeries = '';
+      this.bpSelectedTier = '';
+      this.bpSortMethod = 'worth-desc';
+      this.bpRenderedCount = BATCH_SIZE;
+
+      // Tab 2: Series Master Catalog Filter State
+      this.seriesStatusFilter = 'all'; // all, collected, missing, in-stock
+      this.seriesSelectedCategory = '';
+      this.seriesSelectedSeries = '';
+      this.seriesSelectedTier = '';
+      this.seriesSortMethod = 'coins-desc';
+      this.seriesRenderedCount = BATCH_SIZE;
+      this.focusedSeriesId = null;
+
+      // Tab 3: Wall Collected Gallery Filter State
+      this.wallStatusFilter = 'all'; // all, starred
+      this.wallSelectedCategory = '';
+      this.wallSelectedSeries = '';
+      this.wallSelectedTier = '';
+      this.wallSortMethod = 'coins-desc';
+      this.wallRenderedCount = BATCH_SIZE;
+
+      this.pendingConfirmAction = null;
+
+      this.initDomReferences();
+      this.applyThemeColors();
+      this.bindEvents();
+
+      // Synchronize active tab state from storage
+      this.switchTab(this.currentTab, false);
+
+      this.state.subscribe(() => {
+        this.renderAll();
+        this.applyThemeColors();
+      });
+
+      this.renderAll();
+      this.setupBatchObservers();
+    }
+
+    initDomReferences() {
+      // Global Search
+      this.globalSearchInput = document.getElementById('globalSearchInput');
+      this.globalClearSearchBtn = document.getElementById('globalClearSearchBtn');
+
+      // Navigation Dock
+      this.navTabButtons = document.querySelectorAll('.dock-item');
+      this.tabPanes = document.querySelectorAll('.tab-pane');
+
+      // ----------------------------------------------------------------
+      // Tab 1: Backpack Inventory References
+      // ----------------------------------------------------------------
+      this.bpTotalUnits = document.getElementById('bpTotalUnits');
+      this.bpUniqueItems = document.getElementById('bpUniqueItems');
+      this.bpMarketWorth = document.getElementById('bpMarketWorth');
+      this.bpBaseWorth = document.getElementById('bpBaseWorth');
+      this.bpProfitSpread = document.getElementById('bpProfitSpread');
+      this.bpExchangeMarkerCount = document.getElementById('bpExchangeMarkerCount');
+
+      this.bpStatusPills = document.getElementById('bpStatusPills');
+      this.bpCountAll = document.getElementById('bpCountAll');
+      this.bpCountInStock = document.getElementById('bpCountInStock');
+      this.bpCountExchange = document.getElementById('bpCountExchange');
+      this.bpCountStarred = document.getElementById('bpCountStarred');
+      this.bpCountExtras = document.getElementById('bpCountExtras');
+      this.bpTierPills = document.getElementById('bpTierPills');
+
+      this.bpFilterCategory = document.getElementById('bpFilterCategory');
+      this.bpFilterSeries = document.getElementById('bpFilterSeries');
+      this.bpFilterTier = document.getElementById('bpFilterTier');
+      this.bpSortBy = document.getElementById('bpSortBy');
+      this.bpResetFiltersBtn = document.getElementById('bpResetFiltersBtn');
+      this.bpResultsCount = document.getElementById('bpResultsCount');
+      this.bpResultsAggregate = document.getElementById('bpResultsAggregate');
+      this.backpackGrid = document.getElementById('backpackGrid');
+      this.bpScrollSentinel = document.getElementById('bpScrollSentinel');
+
+      // ----------------------------------------------------------------
+      // Tab 2: Series Master Catalog References
+      // ----------------------------------------------------------------
+      this.seriesTotalGifts = document.getElementById('seriesTotalGifts');
+      this.seriesTotalCount = document.getElementById('seriesTotalCount');
+      this.seriesWallProgressRatio = document.getElementById('seriesWallProgressRatio');
+      this.seriesWallProgressBar = document.getElementById('seriesWallProgressBar');
+      this.seriesWallProgressPercent = document.getElementById('seriesWallProgressPercent');
+      this.seriesCompleteRatio = document.getElementById('seriesCompleteRatio');
+      this.seriesCompleteBar = document.getElementById('seriesCompleteBar');
+      this.seriesCompletePercent = document.getElementById('seriesCompletePercent');
+
+      this.seriesFilterHub = document.getElementById('seriesFilterHub');
+      this.seriesStatusPills = document.getElementById('seriesStatusPills');
+      this.seriesCountAll = document.getElementById('seriesCountAll');
+      this.seriesCountCollected = document.getElementById('seriesCountCollected');
+      this.seriesCountMissing = document.getElementById('seriesCountMissing');
+      this.seriesCountInStock = document.getElementById('seriesCountInStock');
+      this.seriesTierPills = document.getElementById('seriesTierPills');
+
+      this.seriesFilterCategory = document.getElementById('seriesFilterCategory');
+      this.seriesFilterSeries = document.getElementById('seriesFilterSeries');
+      this.seriesFilterTier = document.getElementById('seriesFilterTier');
+      this.seriesSortBy = document.getElementById('seriesSortBy');
+      this.seriesResetFiltersBtn = document.getElementById('seriesResetFiltersBtn');
+      this.seriesResultsCount = document.getElementById('seriesResultsCount');
+      this.seriesResultsAggregate = document.getElementById('seriesResultsAggregate');
+
+      this.seriesGiftsContainer = document.getElementById('seriesGiftsContainer');
+      this.seriesGiftsGrid = document.getElementById('seriesGiftsGrid');
+      this.seriesScrollSentinel = document.getElementById('seriesScrollSentinel');
+
+      this.seriesDrillDownView = document.getElementById('seriesDrillDownView');
+      this.backToSeriesListBtn = document.getElementById('backToSeriesListBtn');
+      this.drillCategoryCrumb = document.getElementById('drillCategoryCrumb');
+      this.drillSeriesTitle = document.getElementById('drillSeriesTitle');
+      this.drillSeriesDesc = document.getElementById('drillSeriesDesc');
+      this.drillSeriesBadge = document.getElementById('drillSeriesBadge');
+      this.drillProgressText = document.getElementById('drillProgressText');
+      this.drillUnitsText = document.getElementById('drillUnitsText');
+      this.drillProgressBar = document.getElementById('drillProgressBar');
+      this.drillGiftsCountTitle = document.getElementById('drillGiftsCountTitle');
+      this.drillGiftsGrid = document.getElementById('drillGiftsGrid');
+
+      // ----------------------------------------------------------------
+      // Tab 3: Wall Collected Gallery References
+      // ----------------------------------------------------------------
+      this.wallCollectedTotal = document.getElementById('wallCollectedTotal');
+      this.wallBaseTotal = document.getElementById('wallBaseTotal');
+      this.wallMarketTotal = document.getElementById('wallMarketTotal');
+
+      this.wallStatusPills = document.getElementById('wallStatusPills');
+      this.wallCountCollectedOnly = document.getElementById('wallCountCollectedOnly');
+      this.wallCountStarredOnly = document.getElementById('wallCountStarredOnly');
+      this.wallTierPills = document.getElementById('wallTierPills');
+
+      this.wallFilterCategory = document.getElementById('wallFilterCategory');
+      this.wallFilterSeries = document.getElementById('wallFilterSeries');
+      this.wallFilterTier = document.getElementById('wallFilterTier');
+      this.wallSortBy = document.getElementById('wallSortBy');
+      this.wallResetFiltersBtn = document.getElementById('wallResetFiltersBtn');
+      this.wallResultsCount = document.getElementById('wallResultsCount');
+      this.wallResultsAggregate = document.getElementById('wallResultsAggregate');
+      this.wallGrid = document.getElementById('wallGrid');
+      this.wallScrollSentinel = document.getElementById('wallScrollSentinel');
+
+      // ----------------------------------------------------------------
+      // Tab 4: Portfolio & Studio References
+      // ----------------------------------------------------------------
+      this.ledgerTierTableBody = document.getElementById('ledgerTierTableBody');
+      this.ledgerSeriesTableBody = document.getElementById('ledgerSeriesTableBody');
+      this.catTotalCount = document.getElementById('catTotalCount');
+      this.serTotalCount = document.getElementById('serTotalCount');
+      this.categoryManagerList = document.getElementById('categoryManagerList');
+      this.seriesManagerList = document.getElementById('seriesManagerList');
+      this.addCategoryBtn = document.getElementById('addCategoryBtn');
+      this.addSeriesBtn = document.getElementById('addSeriesBtn');
+      this.addTierBtn = document.getElementById('addTierBtn');
+      this.tierTotalCount = document.getElementById('tierTotalCount');
+      this.tierManagerList = document.getElementById('tierManagerList');
+      this.exportDataBtn = document.getElementById('exportDataBtn');
+      this.importFileInput = document.getElementById('importFileInput');
+      this.wipeDataBtn = document.getElementById('wipeDataBtn');
+
+      // Duplicate Detection and Integrity Tools
+      this.editItemDuplicateAlert = document.getElementById('editItemDuplicateAlert');
+      this.duplicateWarningText = document.getElementById('duplicateWarningText');
+      this.duplicateLoadExistingBtn = document.getElementById('duplicateLoadExistingBtn');
+      this.scanDuplicatesBtn = document.getElementById('scanDuplicatesBtn');
+      this.duplicateAuditResults = document.getElementById('duplicateAuditResults');
+
+      // GitHub Cloud Synchronization
+      this.ghSyncStatusBadge = document.getElementById('ghSyncStatusBadge');
+      this.ghLastSyncTime = document.getElementById('ghLastSyncTime');
+      this.ghPatInput = document.getElementById('ghPatInput');
+      this.ghSaveTokenBtn = document.getElementById('ghSaveTokenBtn');
+      this.ghClearTokenBtn = document.getElementById('ghClearTokenBtn');
+      this.ghPushBtn = document.getElementById('ghPushBtn');
+      this.ghPullBtn = document.getElementById('ghPullBtn');
+
+      // ----------------------------------------------------------------
+      // Modals
+      // ----------------------------------------------------------------
+      this.itemModal = document.getElementById('itemModal');
+      this.itemModalTitle = document.getElementById('itemModalTitle');
+      this.editItemForm = document.getElementById('editItemForm');
+      this.editItemId = document.getElementById('editItemId');
+      this.editItemCategory = document.getElementById('editItemCategory');
+      this.editItemSeries = document.getElementById('editItemSeries');
+      this.editItemName = document.getElementById('editItemName');
+      this.editItemBaseValue = document.getElementById('editItemBaseValue');
+      this.editItemMarketWorth = document.getElementById('editItemMarketWorth');
+      this.editItemQuantity = document.getElementById('editItemQuantity');
+      this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
+      this.editItemStarred = document.getElementById('editItemStarred');
+      this.editItemTier = document.getElementById('editItemTier');
+      this.editItemTierPresets = document.getElementById('editItemTierPresets');
+      this.modalDeleteBtn = document.getElementById('modalDeleteBtn');
+
+      this.categoryModal = document.getElementById('categoryModal');
+      this.catModalTitle = document.getElementById('catModalTitle');
+      this.categoryForm = document.getElementById('categoryForm');
+      this.catModalId = document.getElementById('catModalId');
+      this.catModalName = document.getElementById('catModalName');
+      this.catModalOrder = document.getElementById('catModalOrder');
+      this.catModalDesc = document.getElementById('catModalDesc');
+      this.catModalDeleteBtn = document.getElementById('catModalDeleteBtn');
+
+      this.seriesModal = document.getElementById('seriesModal');
+      this.serModalTitle = document.getElementById('serModalTitle');
+      this.seriesForm = document.getElementById('seriesForm');
+      this.serModalId = document.getElementById('serModalId');
+      this.serModalCategory = document.getElementById('serModalCategory');
+      this.serModalName = document.getElementById('serModalName');
+      this.serModalOrder = document.getElementById('serModalOrder');
+      this.serModalBadge = document.getElementById('serModalBadge');
+      this.serModalDesc = document.getElementById('serModalDesc');
+      this.serModalDeleteBtn = document.getElementById('serModalDeleteBtn');
+
+      this.tierModal = document.getElementById('tierModal');
+      this.tierModalTitle = document.getElementById('tierModalTitle');
+      this.tierForm = document.getElementById('tierForm');
+      this.tierModalId = document.getElementById('tierModalId');
+      this.tierModalName = document.getElementById('tierModalName');
+      this.tierModalRank = document.getElementById('tierModalRank');
+      this.tierModalOrder = document.getElementById('tierModalOrder');
+      this.tierModalDesc = document.getElementById('tierModalDesc');
+      this.tierColorPalettePresets = document.getElementById('tierColorPalettePresets');
+      this.tierModalColorPicker = document.getElementById('tierModalColorPicker');
+      this.tierModalColorHex = document.getElementById('tierModalColorHex');
+      this.tierModalPreviewBadge = document.getElementById('tierModalPreviewBadge');
+      this.tierModalDeleteBtn = document.getElementById('tierModalDeleteBtn');
+
+      this.confirmModal = document.getElementById('confirmModal');
+      this.confirmModalTitle = document.getElementById('confirmModalTitle');
+      this.confirmModalMessage = document.getElementById('confirmModalMessage');
+      this.confirmAcceptBtn = document.getElementById('confirmAcceptBtn');
+      this.confirmCancelBtn = document.getElementById('confirmCancelBtn');
+
+      this.toastContainer = document.getElementById('toastContainer');
+
+      // Tag and Series Management
+      this.tagTotalCount = document.getElementById('tagTotalCount');
+      this.tagManagerList = document.getElementById('tagManagerList');
+      this.resetTagManagerBtn = document.getElementById('resetTagManagerBtn');
+
+      // Tag Modal
+      this.tagModal = document.getElementById('tagModal');
+      this.tagModalTitle = document.getElementById('tagModalTitle');
+      this.tagForm = document.getElementById('tagForm');
+      this.tagModalKey = document.getElementById('tagModalKey');
+      this.tagModalName = document.getElementById('tagModalName');
+      this.tagColorPalettePresets = document.getElementById('tagColorPalettePresets');
+      this.tagModalColorPicker = document.getElementById('tagModalColorPicker');
+      this.tagModalColorHex = document.getElementById('tagModalColorHex');
+      this.tagModalPreviewBadge = document.getElementById('tagModalPreviewBadge');
+    }
+
+    applyThemeColors() {
+      const colors = this.state.getTagColors();
+      const wallColor = colors.wall || '#10b981';
+      const seriesColor = colors.series || '#06b6d4';
+      const backpackColor = colors.backpack || '#f43f5e';
+
+      document.documentElement.style.setProperty('--tag-wall-color', wallColor);
+      document.documentElement.style.setProperty('--tag-series-color', seriesColor);
+      document.documentElement.style.setProperty('--tag-backpack-color', backpackColor);
+    }
+
+    bindEvents() {
+      // Bottom Dock Navigation
+      this.navTabButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          if (btn.dataset.tab) {
+            this.switchTab(btn.dataset.tab);
+          }
+        });
+      });
+
+      // Primary Navigation Row Add Gift Action (+ New Gift next to search bar)
+      const addGiftBtn = document.getElementById('navAddGiftBtn');
+      if (addGiftBtn) {
+        addGiftBtn.addEventListener('click', () => {
+          this.openNewItemModal();
+        });
+      }
+
+      // Universal Modal Delete Handlers (Destructive actions moved exclusively inside modals)
+      if (this.modalDeleteBtn) {
+        this.modalDeleteBtn.addEventListener('click', () => {
+          this.handleDeleteItem();
+        });
+      }
+
+      if (this.catModalDeleteBtn) {
+        this.catModalDeleteBtn.addEventListener('click', () => {
+          const id = this.catModalId.value;
+          if (!id) return;
+          const cat = this.state.getCategory(id);
+          const name = cat ? cat.name : 'this category';
+          this.confirmAction(
+            'Confirm Delete Category',
+            `Are you sure you want to delete category "${name}"? Series inside will become standalone.`,
+            () => {
+              this.state.deleteCategory(id);
+              this.closeModal('categoryModal');
+              this.showToast(`Deleted category "${name}"`);
+            }
+          );
+        });
+      }
+
+      if (this.serModalDeleteBtn) {
+        this.serModalDeleteBtn.addEventListener('click', () => {
+          const id = this.serModalId.value;
+          if (!id) return;
+          const ser = this.state.getSeries(id);
+          const name = ser ? ser.name : 'this series';
+          this.confirmAction(
+            'Confirm Delete Series',
+            `Are you sure you want to delete series "${name}"? Gifts inside will become standalone.`,
+            () => {
+              this.state.deleteSeries(id);
+              this.closeModal('seriesModal');
+              this.showToast(`Deleted series "${name}"`);
+            }
+          );
+        });
+      }
+
+      if (this.tierModalDeleteBtn) {
+        this.tierModalDeleteBtn.addEventListener('click', () => {
+          this.handleDeleteTier();
+        });
+      }
+
+      if (this.tierForm) {
+        this.tierForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          this.handleSaveTier();
+        });
+      }
+
+      if (this.tierModalColorPicker && this.tierModalColorHex) {
+        this.tierModalColorPicker.addEventListener('input', (e) => {
+          this.tierModalColorHex.value = e.target.value;
+          this.updateTierModalPreview();
+        });
+        this.tierModalColorHex.addEventListener('input', (e) => {
+          const val = e.target.value.trim();
+          if (/^#[0-9A-Fa-f]{6}$/.test(val)) {
+            this.tierModalColorPicker.value = val;
+            this.updateTierModalPreview();
+          }
+        });
+      }
+
+      if (this.tierModalName) {
+        this.tierModalName.addEventListener('input', () => {
+          this.updateTierModalPreview();
+        });
+      }
+
+      // Unified Global Search across all tabs
+      let searchDebounceTimer;
+      this.globalSearchInput.addEventListener('input', (e) => {
+        clearTimeout(searchDebounceTimer);
+        searchDebounceTimer = setTimeout(() => {
+          this.globalSearchQuery = e.target.value.trim().toLowerCase();
+          this.globalClearSearchBtn.style.display = this.globalSearchQuery ? 'block' : 'none';
+          this.seriesRenderedCount = BATCH_SIZE;
+          this.wallRenderedCount = BATCH_SIZE;
+          this.bpRenderedCount = BATCH_SIZE;
+          this.renderActiveTab();
+        }, 120);
+      });
+
+      this.globalClearSearchBtn.addEventListener('click', () => {
+        this.globalSearchInput.value = '';
+        this.globalSearchQuery = '';
+        this.globalClearSearchBtn.style.display = 'none';
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.wallRenderedCount = BATCH_SIZE;
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderActiveTab();
+      });
+
+      // ----------------------------------------------------------------
+      // Tab: Series Master Catalog Events
+      // ----------------------------------------------------------------
+      this.backToSeriesListBtn.addEventListener('click', () => {
+        this.focusedSeriesId = null;
+        this.seriesDrillDownView.style.display = 'none';
+        this.seriesGiftsContainer.style.display = 'block';
+        this.seriesFilterHub.style.display = 'flex';
+        this.renderSeriesTab();
+      });
+
+      this.seriesStatusPills.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-chip');
+        if (!btn || !btn.dataset.seriesStatus) return;
+        this.seriesStatusFilter = btn.dataset.seriesStatus;
+        this.seriesStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.seriesStatus === this.seriesStatusFilter);
+        });
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      this.seriesFilterCategory.addEventListener('change', () => {
+        this.seriesSelectedCategory = this.seriesFilterCategory.value;
+        this.updateSeriesDropdownFilter();
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      this.seriesFilterSeries.addEventListener('change', () => {
+        this.seriesSelectedSeries = this.seriesFilterSeries.value;
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      this.seriesFilterTier.addEventListener('change', () => {
+        this.seriesSelectedTier = this.seriesFilterTier.value;
+        this.syncSeriesTierPills();
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      this.seriesSortBy.addEventListener('change', () => {
+        this.seriesSortMethod = this.seriesSortBy.value;
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      this.seriesResetFiltersBtn.addEventListener('click', () => {
+        this.globalSearchInput.value = '';
+        this.globalSearchQuery = '';
+        this.globalClearSearchBtn.style.display = 'none';
+        this.seriesStatusFilter = 'all';
+        this.seriesStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.seriesStatus === 'all');
+        });
+        this.seriesSelectedCategory = '';
+        this.seriesFilterCategory.value = '';
+        this.seriesSelectedSeries = '';
+        this.seriesFilterSeries.value = '';
+        this.seriesSelectedTier = '';
+        this.seriesFilterTier.value = '';
+        this.syncSeriesTierPills();
+        this.seriesSortMethod = 'coins-desc';
+        this.seriesSortBy.value = 'coins-desc';
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+
+      // ----------------------------------------------------------------
+      // Tab 2: Wall Events
+      // ----------------------------------------------------------------
+      this.wallStatusPills.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-chip');
+        if (!btn || !btn.dataset.wallStatus) return;
+        this.wallStatusFilter = btn.dataset.wallStatus;
+        this.wallStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.wallStatus === this.wallStatusFilter);
+        });
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      this.wallFilterCategory.addEventListener('change', () => {
+        this.wallSelectedCategory = this.wallFilterCategory.value;
+        this.updateWallSeriesDropdownFilter();
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      this.wallFilterSeries.addEventListener('change', () => {
+        this.wallSelectedSeries = this.wallFilterSeries.value;
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      this.wallFilterTier.addEventListener('change', () => {
+        this.wallSelectedTier = this.wallFilterTier.value;
+        this.syncWallTierPills();
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      this.wallSortBy.addEventListener('change', () => {
+        this.wallSortMethod = this.wallSortBy.value;
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      this.wallResetFiltersBtn.addEventListener('click', () => {
+        this.globalSearchInput.value = '';
+        this.globalSearchQuery = '';
+        this.globalClearSearchBtn.style.display = 'none';
+        this.wallStatusFilter = 'all';
+        this.wallStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.wallStatus === 'all');
+        });
+        this.wallSelectedCategory = '';
+        this.wallFilterCategory.value = '';
+        this.wallSelectedSeries = '';
+        this.wallFilterSeries.value = '';
+        this.wallSelectedTier = '';
+        this.wallFilterTier.value = '';
+        this.syncWallTierPills();
+        this.wallSortMethod = 'coins-desc';
+        this.wallSortBy.value = 'coins-desc';
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+
+      // ----------------------------------------------------------------
+      // Tab 3: Backpack Events
+      // ----------------------------------------------------------------
+      this.bpStatusPills.addEventListener('click', (e) => {
+        const btn = e.target.closest('.filter-chip');
+        if (!btn || !btn.dataset.bpStatus) return;
+        this.bpStatusFilter = btn.dataset.bpStatus;
+        this.bpStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.bpStatus === this.bpStatusFilter);
+        });
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      this.bpFilterCategory.addEventListener('change', () => {
+        this.bpSelectedCategory = this.bpFilterCategory.value;
+        this.updateBpSeriesDropdownFilter();
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      this.bpFilterSeries.addEventListener('change', () => {
+        this.bpSelectedSeries = this.bpFilterSeries.value;
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      this.bpFilterTier.addEventListener('change', () => {
+        this.bpSelectedTier = this.bpFilterTier.value;
+        this.syncBpTierPills();
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      this.bpSortBy.addEventListener('change', () => {
+        this.bpSortMethod = this.bpSortBy.value;
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      this.bpResetFiltersBtn.addEventListener('click', () => {
+        this.globalSearchInput.value = '';
+        this.globalSearchQuery = '';
+        this.globalClearSearchBtn.style.display = 'none';
+        this.bpStatusFilter = 'all';
+        this.bpStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+          b.classList.toggle('active', b.dataset.bpStatus === 'all');
+        });
+        this.bpSelectedCategory = '';
+        this.bpFilterCategory.value = '';
+        this.bpSelectedSeries = '';
+        this.bpFilterSeries.value = '';
+        this.bpSelectedTier = '';
+        this.bpFilterTier.value = '';
+        this.syncBpTierPills();
+        this.bpSortMethod = 'worth-desc';
+        this.bpSortBy.value = 'worth-desc';
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+
+      // ----------------------------------------------------------------
+      // Tab 4: Portfolio & Studio Events
+      // ----------------------------------------------------------------
+      this.addCategoryBtn.addEventListener('click', () => {
+        this.openCategoryModal();
+      });
+
+      this.addSeriesBtn.addEventListener('click', () => {
+        this.openSeriesModal();
+      });
+
+      if (this.addTierBtn) {
+        this.addTierBtn.addEventListener('click', () => {
+          this.openTierModal();
+        });
+      }
+
+      this.exportDataBtn.addEventListener('click', () => {
+        this.exportDatabaseJSON();
+      });
+
+      this.importFileInput.addEventListener('change', (e) => {
+        this.handleImportFile(e);
+      });
+
+      this.wipeDataBtn.addEventListener('click', () => {
+        this.confirmAction(
+          'Reset to Official Seed',
+          'This will reset your catalog, series, and categories to the verified 759-gift database. All changes will be overwritten.',
+          () => {
+            this.state.wipeAll();
+            this.showToast('Database reset to official 759-gift seed.');
+          }
+        );
+      });
+
+      // Duplicate Detection and Catalog Integrity Listeners
+      this.initDuplicateDetection();
+
+      // GitHub Cloud Synchronization Listeners
+      this.initGitHubSync();
+
+      // ----------------------------------------------------------------
+      // Tag and Series Management Events
+      // ----------------------------------------------------------------
+      if (this.resetTagManagerBtn) {
+        this.resetTagManagerBtn.addEventListener('click', () => {
+          this.confirmAction('Reset Default Tags', 'Restore default tag names and colors (Wall, Series, Backpack)?', () => {
+            this.state.resetTags();
+            this.applyThemeColors();
+            this.renderTagManagerList();
+            this.renderAll();
+            this.showToast('Default tags and colors restored');
+          });
+        });
+      }
+
+      if (this.tagForm) {
+        this.tagForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          this.handleSaveTag();
+        });
+      }
+
+      if (this.tagModalName) {
+        this.tagModalName.addEventListener('input', () => {
+          this.updateTagModalPreview();
+        });
+      }
+
+      if (this.tagModalColorPicker) {
+        this.tagModalColorPicker.addEventListener('input', (e) => {
+          this.tagModalColorHex.value = e.target.value;
+          this.updateTagModalPreview();
+        });
+      }
+
+      if (this.tagModalColorHex) {
+        this.tagModalColorHex.addEventListener('input', (e) => {
+          let hex = e.target.value.trim();
+          if (hex && !hex.startsWith('#')) hex = '#' + hex;
+          if (/^#[0-9A-Fa-f]{6}$/.test(hex)) {
+            this.tagModalColorPicker.value = hex;
+          }
+          this.updateTagModalPreview();
+        });
+      }
+
+      // ----------------------------------------------------------------
+      // Modal Category Change -> Dynamic Series Cascade
+      // ----------------------------------------------------------------
+      this.editItemCategory.addEventListener('change', () => {
+        const catId = this.editItemCategory.value;
+        this.populateModalSeriesSelect(catId);
+      });
+
+      // Modal Target Tabs Selection Buttons (Multi-Select)
+      if (this.editItemTabsPresets) {
+        this.editItemTabsPresets.addEventListener('click', (e) => {
+          const btn = e.target.closest('.tab-preset-btn');
+          if (!btn) return;
+          btn.classList.toggle('active');
+        });
+      }
+
+      // Modal Manual Tier Selection Buttons
+      this.editItemTierPresets.addEventListener('click', (e) => {
+        const btn = e.target.closest('.tier-preset-btn');
+        if (!btn || !btn.dataset.tier) return;
+        const chosenTier = btn.dataset.tier;
+        this.editItemTier.value = chosenTier;
+        this.editItemTierPresets.querySelectorAll('.tier-preset-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.tier === chosenTier);
+        });
+      });
+
+      // Save Item Form
+      this.editItemForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleSaveItem();
+      });
+
+      // Save Category Form
+      this.categoryForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleSaveCategory();
+      });
+
+      // Save Series Form
+      this.seriesForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        this.handleSaveSeries();
+      });
+
+      // Modal Close Handlers (Overlay & Cancel buttons)
+      document.querySelectorAll('[data-modal]').forEach(el => {
+        el.addEventListener('click', () => {
+          const modalId = el.dataset.modal;
+          if (modalId) this.closeModal(modalId);
+        });
+      });
+
+      document.querySelectorAll('.modal-overlay').forEach(overlay => {
+        overlay.addEventListener('click', (e) => {
+          if (e.target === overlay) {
+            overlay.style.display = 'none';
+            this.pendingConfirmAction = null;
+          }
+        });
+      });
+
+      // Keyboard Accessibility: Escape key dismisses open modals cleanly
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            if (overlay.style.display === 'flex') {
+              overlay.style.display = 'none';
+            }
+          });
+          this.pendingConfirmAction = null;
+        }
+      });
+
+      // Confirm Modal Action
+      this.confirmAcceptBtn.addEventListener('click', () => {
+        if (typeof this.pendingConfirmAction === 'function') {
+          this.pendingConfirmAction();
+        }
+        this.closeModal('confirmModal');
+      });
+
+      this.confirmCancelBtn.addEventListener('click', () => {
+        this.closeModal('confirmModal');
+      });
+    }
+
+    switchTab(tabId, saveToStorage = true) {
+      if (!tabId) return;
+      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio'];
+      if (!validTabs.includes(tabId)) return;
+      this.currentTab = tabId;
+
+      if (saveToStorage) {
+        try {
+          localStorage.setItem('hellotalk_active_tab', tabId);
+        } catch (e) {}
+      }
+
+      this.navTabButtons.forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tab === tabId);
+      });
+
+      this.tabPanes.forEach(pane => {
+        pane.classList.toggle('active', pane.id === tabId);
+      });
+
+      this.renderActiveTab();
+      if (saveToStorage) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    }
+
+    renderActiveTab() {
+      switch (this.currentTab) {
+        case 'tab-series': this.renderSeriesTab(); break;
+        case 'tab-wall': this.renderWallTab(); break;
+        case 'tab-backpack': this.renderBackpackTab(); break;
+        case 'tab-portfolio': this.renderPortfolioTab(); break;
+      }
+    }
+
+    // ------------------------------------------------------------------
+    // ------------------------------------------------------------------
+    // MASTER RENDER DISPATCHER
+    // ------------------------------------------------------------------
+    renderAll() {
+      this.renderSeriesTab();
+      this.renderWallTab();
+      this.renderBackpackTab();
+      this.renderPortfolioTab();
+      this.populateCategorySelects();
+    }
+
+    // ------------------------------------------------------------------
+    // TAB CATALOG ROUTING & SCOPING HELPERS
+    // ------------------------------------------------------------------
+    getSeriesCatalogItems() {
+      return this.state.data.items.filter(i => {
+        return !!(i.categoryId && i.seriesId && this.state.getSeries(i.seriesId));
+      });
+    }
+
+    getWallCatalogItems() {
+      return this.state.data.items.filter(i => {
+        return !!i.wallOwned;
+      });
+    }
+
+    getBackpackCatalogItems() {
+      return this.state.data.items.filter(i => {
+        return (Number(i.quantity) || 0) > 0;
+      });
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 1: SERIES (MASTER CATALOG FOR ALL 759 GIFTS & 91 SERIES)
+    // ------------------------------------------------------------------
+    renderSeriesTab() {
+      const seriesItems = this.getSeriesCatalogItems();
+      const totalItems = seriesItems.length;
+      const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
+      const wallMissingCount = totalItems - wallCollectedCount;
+      const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
+
+      const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
+
+      this.seriesTotalGifts.textContent = totalItems;
+      this.seriesTotalCount.textContent = this.state.data.series.length;
+      this.seriesWallProgressRatio.textContent = `${wallCollectedCount} / ${totalItems}`;
+      this.seriesWallProgressPercent.textContent = `${completionPct}% Collected on Wall`;
+      this.seriesWallProgressBar.style.width = `${completionPct}%`;
+
+      // Series completion tracking
+      let completedSeriesCount = 0;
+      const totalSeries = this.state.data.series.length;
+      this.state.data.series.forEach(s => {
+        const sItems = seriesItems.filter(i => i.seriesId === s.id);
+        if (sItems.length > 0 && sItems.every(i => !!i.wallOwned)) {
+          completedSeriesCount++;
+        }
+      });
+      const seriesPct = totalSeries > 0 ? ((completedSeriesCount / totalSeries) * 100).toFixed(1) : '0.0';
+      this.seriesCompleteRatio.textContent = `${completedSeriesCount} / ${totalSeries}`;
+      this.seriesCompletePercent.textContent = `${seriesPct}% Series Complete`;
+      this.seriesCompleteBar.style.width = `${seriesPct}%`;
+
+      // Status Pill Counts
+      this.seriesCountAll.textContent = totalItems;
+      this.seriesCountCollected.textContent = wallCollectedCount;
+      this.seriesCountMissing.textContent = wallMissingCount;
+      this.seriesCountInStock.textContent = inStockCount;
+
+      this.updateSeriesCategoryDropdownFilter(seriesItems);
+      this.updateSeriesDropdownFilter(seriesItems);
+      this.updateSeriesTierDropdownFilter(seriesItems);
+      this.renderSeriesTierPills(seriesItems);
+
+      if (this.focusedSeriesId) {
+        this.openSeriesDrilldown(this.focusedSeriesId);
+        return;
+      }
+
+      const filtered = this.getFilteredSeriesItems();
+
+      const hasActiveFilters = this.globalSearchQuery || this.seriesStatusFilter !== 'all' || this.seriesSelectedCategory || this.seriesSelectedSeries || this.seriesSelectedTier;
+      this.seriesResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
+
+      const toRender = filtered.slice(0, this.seriesRenderedCount);
+      const currentHeight = this.seriesGiftsGrid.offsetHeight;
+      if (currentHeight > 0) {
+        this.seriesGiftsGrid.style.minHeight = `${currentHeight}px`;
+      }
+      this.seriesGiftsGrid.innerHTML = '';
+
+      if (toRender.length === 0) {
+        this.seriesGiftsGrid.style.minHeight = '';
+        this.seriesGiftsGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+            <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">No gifts match current criteria</div>
+            <p style="font-size: 13px; color: var(--text-muted);">Adjust search query or reset filter pills to browse the master catalog.</p>
+          </div>
+        `;
+        if (this.seriesResultsCount) this.seriesResultsCount.textContent = 'Showing 0 gifts';
+        if (this.seriesResultsAggregate) this.seriesResultsAggregate.textContent = 'Master Catalog';
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      toRender.forEach(item => {
+        const card = this.createSeriesGiftCard(item);
+        fragment.appendChild(card);
+      });
+      this.seriesGiftsGrid.appendChild(fragment);
+      requestAnimationFrame(() => {
+        this.seriesGiftsGrid.style.minHeight = '';
+      });
+
+      if (this.seriesResultsCount) this.seriesResultsCount.textContent = `Showing ${filtered.length} of ${totalItems} gifts`;
+      if (this.seriesResultsAggregate) this.seriesResultsAggregate.textContent = `Wall: ${wallCollectedCount}/${totalItems} (${completionPct}%)`;
+    }
+
+    getFilteredSeriesItems() {
+      let items = this.getSeriesCatalogItems();
+
+      if (this.globalSearchQuery) {
+        const q = this.globalSearchQuery;
+        items = items.filter(i => {
+          const cat = this.state.getCategory(i.categoryId);
+          const ser = this.state.getSeries(i.seriesId);
+          return (
+            (i.name && i.name.toLowerCase().includes(q)) ||
+            (cat && cat.name.toLowerCase().includes(q)) ||
+            (ser && ser.name.toLowerCase().includes(q)) ||
+            (i.tier && i.tier.toLowerCase().includes(q)) ||
+            (i.notes && i.notes.toLowerCase().includes(q))
+          );
+        });
+      }
+
+      if (this.seriesStatusFilter === 'collected') {
+        items = items.filter(i => !!i.wallOwned);
+      } else if (this.seriesStatusFilter === 'missing') {
+        items = items.filter(i => !i.wallOwned);
+      } else if (this.seriesStatusFilter === 'in-stock') {
+        items = items.filter(i => (Number(i.quantity) || 0) > 0);
+      }
+
+      if (this.seriesSelectedCategory) {
+        items = items.filter(i => i.categoryId === this.seriesSelectedCategory);
+      }
+
+      if (this.seriesSelectedSeries) {
+        items = items.filter(i => i.seriesId === this.seriesSelectedSeries);
+      }
+
+      if (this.seriesSelectedTier) {
+        const cleanTier = this.seriesSelectedTier.toLowerCase();
+        items = items.filter(i => (i.tier || '').toLowerCase() === cleanTier);
+      }
+
+      items.sort((a, b) => {
+        const aBase = a.baseValue || 0;
+        const bBase = b.baseValue || 0;
+        const aOwned = a.wallOwned ? 1 : 0;
+        const bOwned = b.wallOwned ? 1 : 0;
+
+        switch (this.seriesSortMethod) {
+          case 'coins-desc': return bBase - aBase;
+          case 'coins-asc': return aBase - bBase;
+          case 'missing-first':
+            if (aOwned !== bOwned) return aOwned - bOwned;
+            return bBase - aBase;
+          case 'tier-rank': {
+            const aRank = this.getTierInfo(a.tier).rank;
+            const bRank = this.getTierInfo(b.tier).rank;
+            if (aRank !== bRank) return aRank - bRank;
+            return bBase - aBase;
+          }
+          case 'name-asc': return (a.name || '').localeCompare(b.name || '');
+          case 'series-group': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aName = aSer ? aSer.name : 'Standalone';
+            const bName = bSer ? bSer.name : 'Standalone';
+            return aName.localeCompare(bName) || (bBase - aBase);
+          }
+          default: return 0;
+        }
+      });
+
+      return items;
+    }
+
+    createSeriesGiftCard(item) {
+      const tierInfo = this.getTierInfo(item.tier);
+      const card = document.createElement('div');
+      const isOwned = !!item.wallOwned;
+      const isStarred = !!item.starred;
+      const ser = this.state.getSeries(item.seriesId);
+      const qty = Number(item.quantity) || 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+
+      card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
+
+      const baseVal = item.baseValue || 0;
+      const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
+
+      // Clean card top: Badges ONLY
+      card.innerHTML = `
+        <div>
+          <div class="card-badges-row">
+            <div class="badges-group-left">
+              <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="gift-title" title="${this.escapeHtml(item.name)}">${this.escapeHtml(item.name)}</div>
+            <div class="coin-valuation-box">
+              <div class="coins-main tabular">${this.formatNumber(baseVal)} <span>Coins</span></div>
+              <div class="coins-worth tabular">${this.formatNumber(marketVal)} <span>Worth</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-top">
+            <button class="btn-wall-toggle ${isOwned ? 'is-collected' : ''}" title="${isOwned ? 'Click to unmark from Wall' : 'Mark Collected on Wall'}">
+              ${isOwned
+                ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Collected</span>`
+                : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Mark Collected</span>`
+              }
+            </button>
+
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </button>
+
+            <div class="card-actions">
+              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-context-row">
+            <button type="button" class="btn-context-tag tag-bp ${isInBackpack ? 'is-active' : ''}" data-action="toggle-bp" title="${isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack'}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>
+              <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      const btnStar = card.querySelector('.star-mark-badge');
+      const btnToggle = card.querySelector('.btn-wall-toggle');
+      const btnBp = card.querySelector('.tag-bp');
+      const btnEdit = card.querySelector('.btn-edit');
+
+      if (btnStar) {
+        btnStar.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const willStar = !item.starred;
+          const scrollY = window.scrollY;
+          this.state.toggleStarred(item.id);
+          this.renderAll();
+          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnToggle) {
+        btnToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const willBeOwned = !item.wallOwned;
+          this.confirmAction(
+            'Confirm Wall Status',
+            `Are you sure you want to mark "${item.name}" as ${willBeOwned ? 'collected on' : 'missing from'} the Wall?`,
+            () => {
+              const scrollY = window.scrollY;
+              this.state.toggleWallOwned(item.id);
+              this.renderAll();
+              this.showToast(`Updated "${item.name}" wall status`);
+              window.scrollTo({ top: scrollY });
+            }
+          );
+        });
+      }
+
+      if (btnBp) {
+        btnBp.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const scrollY = window.scrollY;
+          const res = this.state.toggleItemTab(item.id, 'backpack');
+          if (!res.success) {
+            this.showToast(res.reason || 'Could not update Backpack tab');
+            return;
+          }
+          this.renderAll();
+          this.showToast(res.added ? `Added "${item.name}" to Backpack` : `Removed "${item.name}" from Backpack`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnEdit) {
+        btnEdit.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.openEditItemModal(item.id);
+        });
+      }
+
+      return card;
+    }
+
+    openSeriesDrilldown(seriesId) {
+      const ser = this.state.getSeries(seriesId);
+      if (!ser) return;
+
+      this.focusedSeriesId = seriesId;
+      this.seriesGiftsContainer.style.display = 'none';
+      this.seriesFilterHub.style.display = 'none';
+      this.seriesDrillDownView.style.display = 'block';
+
+      const cat = this.state.getCategory(ser.categoryId);
+      this.drillCategoryCrumb.textContent = cat ? cat.name : 'Standalone Category';
+      this.drillSeriesTitle.textContent = ser.name;
+      this.drillSeriesBadge.textContent = ser.badge || ser.name;
+      this.drillSeriesDesc.textContent = ser.description || '';
+
+      const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === ser.id);
+      const total = sItems.length;
+      const collected = sItems.filter(i => !!i.wallOwned).length;
+      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
+
+      this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
+      this.drillUnitsText.textContent = `${totalUnits} Units in Backpack`;
+      this.drillProgressBar.style.width = `${pct}%`;
+      this.drillGiftsCountTitle.textContent = `Series Gifts (${total})`;
+
+      this.drillGiftsGrid.innerHTML = '';
+      sItems.sort((a, b) => (b.baseValue || 0) - (a.baseValue || 0));
+      sItems.forEach(item => {
+        const card = this.createSeriesGiftCard(item);
+        this.drillGiftsGrid.appendChild(card);
+      });
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 2: WALL (STRICTLY COLLECTED-ONLY GALLERY)
+    // ------------------------------------------------------------------
+    renderWallTab() {
+      // ONLY GIFTS MARKED AS COLLECTED
+      const collectedGifts = this.getWallCatalogItems();
+      const totalCollected = collectedGifts.length;
+
+      const totalBase = collectedGifts.reduce((s, i) => s + (Number(i.baseValue) || 0), 0);
+      const totalMarket = collectedGifts.reduce((s, i) => s + (Number(i.marketWorth) || 0), 0);
+
+      this.wallCollectedTotal.textContent = totalCollected;
+      this.wallBaseTotal.textContent = this.formatNumber(totalBase);
+      this.wallMarketTotal.textContent = this.formatNumber(totalMarket);
+
+      this.wallCountCollectedOnly.textContent = totalCollected;
+      this.wallCountStarredOnly.textContent = collectedGifts.filter(i => !!i.starred).length;
+
+      this.updateWallCategoryDropdownFilter(collectedGifts);
+      this.updateWallSeriesDropdownFilter(collectedGifts);
+      this.updateWallTierDropdownFilter(collectedGifts);
+      this.renderWallTierPills(collectedGifts);
+
+      const filtered = this.getFilteredWallItems(collectedGifts);
+
+      const hasActiveFilters = this.globalSearchQuery || this.wallStatusFilter !== 'all' || this.wallSelectedCategory || this.wallSelectedSeries || this.wallSelectedTier;
+      this.wallResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
+
+      const toRender = filtered.slice(0, this.wallRenderedCount);
+      const currentHeight = this.wallGrid.offsetHeight;
+      if (currentHeight > 0) {
+        this.wallGrid.style.minHeight = `${currentHeight}px`;
+      }
+      this.wallGrid.innerHTML = '';
+
+      if (toRender.length === 0) {
+        this.wallGrid.style.minHeight = '';
+        this.wallGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+            <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">
+              ${totalCollected === 0 ? 'No gifts marked as collected on your Wall yet' : 'No collected gifts match current filters'}
+            </div>
+            <p style="font-size: 13px; color: var(--text-muted);">
+              ${totalCollected === 0 ? 'Switch to the Series catalog and click "Mark Collected" on gifts to populate your Wall gallery.' : 'Adjust search query or reset filter pills to view your full Wall collection.'}
+            </p>
+          </div>
+        `;
+        if (this.wallResultsCount) this.wallResultsCount.textContent = 'Showing 0 collected gifts';
+        if (this.wallResultsAggregate) this.wallResultsAggregate.textContent = 'Wall Gallery';
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      toRender.forEach(item => {
+        const card = this.createWallCard(item);
+        fragment.appendChild(card);
+      });
+      this.wallGrid.appendChild(fragment);
+      requestAnimationFrame(() => {
+        this.wallGrid.style.minHeight = '';
+      });
+
+      if (this.wallResultsCount) this.wallResultsCount.textContent = `Showing ${filtered.length} of ${totalCollected} collected gifts`;
+      if (this.wallResultsAggregate) this.wallResultsAggregate.textContent = `Wall Base: ${this.formatNumber(totalBase)} // Market: ${this.formatNumber(totalMarket)}`;
+    }
+
+    getFilteredWallItems(collectedGifts) {
+      let items = [...collectedGifts];
+
+      if (this.globalSearchQuery) {
+        const q = this.globalSearchQuery;
+        items = items.filter(i => {
+          const cat = this.state.getCategory(i.categoryId);
+          const ser = this.state.getSeries(i.seriesId);
+          return (
+            (i.name && i.name.toLowerCase().includes(q)) ||
+            (cat && cat.name.toLowerCase().includes(q)) ||
+            (ser && ser.name.toLowerCase().includes(q)) ||
+            (i.tier && i.tier.toLowerCase().includes(q)) ||
+            (i.notes && i.notes.toLowerCase().includes(q))
+          );
+        });
+      }
+
+      if (this.wallStatusFilter === 'starred') {
+        items = items.filter(i => !!i.starred);
+      }
+
+      if (this.wallSelectedCategory) {
+        if (this.wallSelectedCategory === '__standalone__') {
+          items = items.filter(i => !i.categoryId);
+        } else {
+          items = items.filter(i => i.categoryId === this.wallSelectedCategory);
+        }
+      }
+
+      if (this.wallSelectedSeries) {
+        items = items.filter(i => i.seriesId === this.wallSelectedSeries);
+      }
+
+      if (this.wallSelectedTier) {
+        const cleanTier = this.wallSelectedTier.toLowerCase();
+        items = items.filter(i => (i.tier || '').toLowerCase() === cleanTier);
+      }
+
+      items.sort((a, b) => {
+        const aBase = a.baseValue || 0;
+        const bBase = b.baseValue || 0;
+
+        switch (this.wallSortMethod) {
+          case 'coins-desc': return bBase - aBase;
+          case 'coins-asc': return aBase - bBase;
+          case 'tier-rank': {
+            const aRank = this.getTierInfo(a.tier).rank;
+            const bRank = this.getTierInfo(b.tier).rank;
+            if (aRank !== bRank) return aRank - bRank;
+            return bBase - aBase;
+          }
+          case 'name-asc': return (a.name || '').localeCompare(b.name || '');
+          case 'recent-desc': return (b.updatedAt || 0) - (a.updatedAt || 0);
+          default: return 0;
+        }
+      });
+
+      return items;
+    }
+
+    createWallCard(item) {
+      const tierInfo = this.getTierInfo(item.tier);
+      const card = document.createElement('div');
+      const isStarred = !!item.starred;
+      const ser = this.state.getSeries(item.seriesId);
+      const qty = Number(item.quantity) || 0;
+      const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+
+      // On Wall tab, all displayed items are owned -> tier glow active!
+      card.className = `gift-card is-owned ${tierInfo.cardClass}`;
+
+      const baseVal = item.baseValue || 0;
+      const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
+
+      // Clean card top: Badges ONLY
+      card.innerHTML = `
+        <div>
+          <div class="card-badges-row">
+            <div class="badges-group-left">
+              <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="gift-title" title="${this.escapeHtml(item.name)}">${this.escapeHtml(item.name)}</div>
+            <div class="coin-valuation-box">
+              <div class="coins-main tabular">${this.formatNumber(baseVal)} <span>Coins</span></div>
+              <div class="coins-worth tabular">${this.formatNumber(marketVal)} <span>Worth</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-top">
+            <button class="btn-wall-toggle is-collected" title="Click to unmark from Wall">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              <span>Collected</span>
+            </button>
+
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </button>
+
+            <div class="card-actions">
+              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-context-row">
+            <button type="button" class="btn-context-tag tag-series ${isInSeries ? 'is-active' : ''}" data-action="route-series" title="${isInSeries ? 'In Series Catalog (Click to view series)' : 'Series Catalog'}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              <span>${this.escapeHtml(this.state.getTagName('series'))}</span>
+            </button>
+            <button type="button" class="btn-context-tag tag-bp ${isInBackpack ? 'is-active' : ''}" data-action="toggle-bp" title="${isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack'}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>
+              <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      const btnStar = card.querySelector('.star-mark-badge');
+      const btnToggle = card.querySelector('.btn-wall-toggle');
+      const btnSeries = card.querySelector('.tag-series');
+      const btnBp = card.querySelector('.tag-bp');
+      const btnEdit = card.querySelector('.btn-edit');
+
+      if (btnStar) {
+        btnStar.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const willStar = !item.starred;
+          const scrollY = window.scrollY;
+          this.state.toggleStarred(item.id);
+          this.renderAll();
+          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnToggle) {
+        btnToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.confirmAction(
+            'Confirm Wall Status',
+            `Are you sure you want to remove "${item.name}" from your Wall?`,
+            () => {
+              const scrollY = window.scrollY;
+              const res = this.state.toggleItemTab(item.id, 'wall');
+              if (!res.success) {
+                this.showToast(res.reason || 'Could not remove from Wall');
+                return;
+              }
+              this.renderAll();
+              this.showToast(`Removed "${item.name}" from Wall`);
+              window.scrollTo({ top: scrollY });
+            }
+          );
+        });
+      }
+
+      if (btnSeries) {
+        btnSeries.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (item.seriesId) {
+            this.switchTab('tab-series');
+            this.openSeriesDrilldown(item.seriesId);
+          }
+        });
+      }
+
+      if (btnBp) {
+        btnBp.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const scrollY = window.scrollY;
+          const res = this.state.toggleItemTab(item.id, 'backpack');
+          if (!res.success) {
+            this.showToast(res.reason || 'Could not update Backpack tab');
+            return;
+          }
+          this.renderAll();
+          this.showToast(res.added ? `Added "${item.name}" to Backpack` : `Removed "${item.name}" from Backpack`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnEdit) {
+        btnEdit.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.openEditItemModal(item.id);
+        });
+      }
+
+      return card;
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 3: BACKPACK (INVENTORY & STOCK LINKED TO MASTER CATALOG)
+    // ------------------------------------------------------------------
+    renderBackpackTab() {
+      // STRICT VIEW SCOPE: Only gifts physically in user backpack inventory
+      const bpItems = this.getBackpackCatalogItems();
+      const totalUnits = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const totalBaseWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
+      const totalMarketWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const netSpread = totalMarketWorth - totalBaseWorth;
+      const spreadSign = netSpread > 0 ? '+' : '';
+
+      const exchangeNeededGifts = bpItems.filter(i => !i.wallOwned);
+      const starredGifts = bpItems.filter(i => !!i.starred);
+      const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
+      const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
+
+      this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
+      this.bpUniqueItems.textContent = bpItems.length;
+      this.bpMarketWorth.textContent = this.formatNumber(totalMarketWorth);
+      this.bpBaseWorth.textContent = this.formatNumber(totalBaseWorth);
+      this.bpProfitSpread.textContent = `${spreadSign}${this.formatNumber(netSpread)} Coins`;
+      this.bpExchangeMarkerCount.textContent = exchangeNeededGifts.length;
+
+      // Status Pill Counts
+      this.bpCountAll.textContent = bpItems.length;
+      this.bpCountInStock.textContent = inStockExact1.length;
+      this.bpCountExchange.textContent = exchangeNeededGifts.length;
+      this.bpCountStarred.textContent = starredGifts.length;
+      this.bpCountExtras.textContent = extrasGifts.length;
+
+      this.updateBpCategoryDropdownFilter(bpItems);
+      this.updateBpSeriesDropdownFilter(bpItems);
+      this.updateBpTierDropdownFilter(bpItems);
+      this.renderBpTierPills(bpItems);
+
+      const filtered = this.getFilteredBpItems();
+
+      const hasActiveFilters = this.globalSearchQuery || this.bpStatusFilter !== 'all' || this.bpSelectedCategory || this.bpSelectedSeries || this.bpSelectedTier;
+      this.bpResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
+
+      const toRender = filtered.slice(0, this.bpRenderedCount);
+      const currentHeight = this.backpackGrid.offsetHeight;
+      if (currentHeight > 0) {
+        this.backpackGrid.style.minHeight = `${currentHeight}px`;
+      }
+      this.backpackGrid.innerHTML = '';
+
+      if (toRender.length === 0) {
+        this.backpackGrid.style.minHeight = '';
+        this.backpackGrid.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 20px; background: var(--bg-surface); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+            <div style="font-size: 15px; font-weight: 700; color: var(--text-primary); margin-bottom: 6px;">No inventory gifts match criteria</div>
+            <p style="font-size: 13px; color: var(--text-muted);">Adjust search query or filter pills to browse your Backpack stock.</p>
+          </div>
+        `;
+        if (this.bpResultsCount) this.bpResultsCount.textContent = 'Showing 0 inventory gifts';
+        if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = 'Base: 0 // Market: 0';
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+      toRender.forEach(item => {
+        const card = this.createBackpackCard(item);
+        fragment.appendChild(card);
+      });
+      this.backpackGrid.appendChild(fragment);
+      requestAnimationFrame(() => {
+        this.backpackGrid.style.minHeight = '';
+      });
+
+      const subBase = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
+      const subMarket = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+
+      if (this.bpResultsCount) this.bpResultsCount.textContent = `Showing ${filtered.length} inventory gift${filtered.length === 1 ? '' : 's'}`;
+      if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = `Held Base: ${this.formatNumber(subBase)} // Market: ${this.formatNumber(subMarket)}`;
+    }
+
+    getFilteredBpItems() {
+      // STRICT VIEW SCOPE: Only gifts physically in user backpack inventory
+      let items = this.getBackpackCatalogItems();
+
+      if (this.globalSearchQuery) {
+        const q = this.globalSearchQuery;
+        items = items.filter(i => {
+          const cat = this.state.getCategory(i.categoryId);
+          const ser = this.state.getSeries(i.seriesId);
+          return (
+            (i.name && i.name.toLowerCase().includes(q)) ||
+            (cat && cat.name.toLowerCase().includes(q)) ||
+            (ser && ser.name.toLowerCase().includes(q)) ||
+            (i.tier && i.tier.toLowerCase().includes(q)) ||
+            (i.notes && i.notes.toLowerCase().includes(q))
+          );
+        });
+      }
+
+      if (this.bpStatusFilter === 'in-stock') {
+        items = items.filter(i => (Number(i.quantity) || 0) === 1);
+      } else if (this.bpStatusFilter === 'exchange-needed') {
+        items = items.filter(i => !i.wallOwned);
+      } else if (this.bpStatusFilter === 'starred') {
+        items = items.filter(i => !!i.starred);
+      } else if (this.bpStatusFilter === 'extras') {
+        items = items.filter(i => (Number(i.quantity) || 0) > 1);
+      }
+
+      if (this.bpSelectedCategory) {
+        if (this.bpSelectedCategory === '__standalone__') {
+          items = items.filter(i => !i.categoryId);
+        } else {
+          items = items.filter(i => i.categoryId === this.bpSelectedCategory);
+        }
+      }
+
+      if (this.bpSelectedSeries) {
+        items = items.filter(i => i.seriesId === this.bpSelectedSeries);
+      }
+
+      if (this.bpSelectedTier) {
+        const cleanTier = this.bpSelectedTier.toLowerCase();
+        items = items.filter(i => (i.tier || '').toLowerCase() === cleanTier);
+      }
+
+      items.sort((a, b) => {
+        const aBase = a.baseValue || 0;
+        const bBase = b.baseValue || 0;
+        const aWorth = a.marketWorth || 0;
+        const bWorth = b.marketWorth || 0;
+        const aQty = a.quantity || 0;
+        const bQty = b.quantity || 0;
+        const aTotalWorth = aQty * aWorth;
+        const bTotalWorth = bQty * bWorth;
+
+        switch (this.bpSortMethod) {
+          case 'base-desc':
+          case 'worth-desc': return (bQty * bBase) - (aQty * aBase) || (bBase - aBase);
+          case 'base-asc': return (aQty * aBase) - (bQty * bBase) || (aBase - bBase);
+          case 'qty-desc': return bQty - aQty || ((bQty * bBase) - (aQty * aBase));
+          case 'tier-rank': {
+            const aRank = this.getTierInfo(a.tier).rank;
+            const bRank = this.getTierInfo(b.tier).rank;
+            if (aRank !== bRank) return aRank - bRank;
+            return (bQty * bBase) - (aQty * aBase);
+          }
+          case 'name-asc': return (a.name || '').localeCompare(b.name || '');
+          case 'recent-desc': return (b.updatedAt || 0) - (a.updatedAt || 0);
+          default: return 0;
+        }
+      });
+
+      return items;
+    }
+
+    createBackpackCard(item) {
+      const tierInfo = this.getTierInfo(item.tier);
+      const card = document.createElement('div');
+      const qty = Number(item.quantity) || 0;
+      const isOwned = qty > 0;
+      const isStarred = !!item.starred;
+      const isExchangeNeeded = qty > 0 && !item.wallOwned;
+      const ser = this.state.getSeries(item.seriesId);
+      const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
+      const isWallOwned = !!item.wallOwned;
+
+      card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
+
+      const baseVal = item.baseValue || 0;
+      const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
+
+      // Clean card top: Badges ONLY
+      card.innerHTML = `
+        <div>
+          <div class="card-badges-row">
+            <div class="badges-group-left">
+              <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+              ${isExchangeNeeded ? `<span class="marker-badge-exchange" title="In Backpack but missing on Wall">Exchange Needed</span>` : ''}
+            </div>
+          </div>
+
+          <div class="card-body">
+            <div class="gift-title" title="${this.escapeHtml(item.name)}">${this.escapeHtml(item.name)}</div>
+            <div class="coin-valuation-box">
+              <div class="coins-main tabular">${this.formatNumber(baseVal)} <span>Coins</span></div>
+              <div class="coins-worth tabular">${this.formatNumber(marketVal)} <span>Worth</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-footer">
+          <div class="card-footer-top">
+            <div class="stepper-group">
+              <button class="stepper-btn btn-minus" aria-label="Decrease quantity">&minus;</button>
+              <span class="stepper-qty tabular">${qty}</span>
+              <button class="stepper-btn btn-plus" aria-label="Increase quantity">&plus;</button>
+            </div>
+
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" style="margin-left: auto;" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+              </svg>
+            </button>
+
+            <div class="card-actions">
+              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="card-context-row">
+            <button type="button" class="btn-context-tag tag-wall ${isWallOwned ? 'is-active' : ''}" data-action="toggle-wall" title="${isWallOwned ? 'On Wall (Click to remove)' : 'Add to Wall'}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>
+              <span>${this.escapeHtml(this.state.getTagName('wall'))}</span>
+            </button>
+            <button type="button" class="btn-context-tag tag-series ${isInSeries ? 'is-active' : ''}" data-action="route-series" title="${isInSeries ? 'In Series Catalog (Click to view series)' : 'Series Catalog'}">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              <span>${this.escapeHtml(this.state.getTagName('series'))}</span>
+            </button>
+          </div>
+        </div>
+      `;
+
+      const btnStar = card.querySelector('.star-mark-badge');
+      const btnMinus = card.querySelector('.btn-minus');
+      const btnPlus = card.querySelector('.btn-plus');
+      const btnWall = card.querySelector('.tag-wall');
+      const btnSeries = card.querySelector('.tag-series');
+      const btnEdit = card.querySelector('.btn-edit');
+
+      if (btnStar) {
+        btnStar.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const willStar = !item.starred;
+          const scrollY = window.scrollY;
+          this.state.toggleStarred(item.id);
+          this.renderAll();
+          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnMinus) {
+        btnMinus.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const scrollY = window.scrollY;
+          this.state.incrementQuantity(item.id, -1);
+          this.renderAll();
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnPlus) {
+        btnPlus.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const scrollY = window.scrollY;
+          this.state.incrementQuantity(item.id, 1);
+          this.renderAll();
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnWall) {
+        btnWall.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const scrollY = window.scrollY;
+          const res = this.state.toggleItemTab(item.id, 'wall');
+          if (!res.success) {
+            this.showToast(res.reason || 'Could not update Wall tab');
+            return;
+          }
+          this.renderAll();
+          this.showToast(res.added ? `Added "${item.name}" to Wall` : `Removed "${item.name}" from Wall`);
+          window.scrollTo({ top: scrollY });
+        });
+      }
+
+      if (btnSeries) {
+        btnSeries.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (item.seriesId) {
+            this.switchTab('tab-series');
+            this.openSeriesDrilldown(item.seriesId);
+          }
+        });
+      }
+
+      if (btnEdit) {
+        btnEdit.addEventListener('click', (e) => {
+          e.stopPropagation();
+          this.openEditItemModal(item.id);
+        });
+      }
+
+      return card;
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 4: PORTFOLIO & STUDIO
+    // ------------------------------------------------------------------
+    renderPortfolioTab() {
+      const items = this.state.data.items;
+      const series = this.state.data.series;
+
+      // Tier Breakdown Table
+      this.ledgerTierTableBody.innerHTML = '';
+      const tierMap = new Map();
+      const currentTiers = this.getDynamicTierList();
+
+      currentTiers.forEach(t => {
+        tierMap.set(t, { name: t, info: this.getTierInfo(t), count: 0, ownedUnits: 0, baseVal: 0, marketVal: 0 });
+      });
+
+      items.forEach(i => {
+        const info = this.getTierInfo(i.tier);
+        const entry = tierMap.get(info.name) || { name: info.name, info, count: 0, ownedUnits: 0, baseVal: 0, marketVal: 0 };
+        entry.count++;
+        const qty = Number(i.quantity) || 0;
+        entry.ownedUnits += qty;
+        entry.baseVal += (Number(i.baseValue) || 0) * qty;
+        entry.marketVal += (Number(i.marketWorth) || 0) * qty;
+        tierMap.set(info.name, entry);
+      });
+
+      tierMap.forEach(tData => {
+        const tr = document.createElement('tr');
+        const diff = tData.marketVal - tData.baseVal;
+        const spreadPct = tData.baseVal > 0 ? ((diff / tData.baseVal) * 100).toFixed(0) : '0';
+        const spreadSign = diff > 0 ? '+' : '';
+
+        tr.innerHTML = `
+          <td><span class="tier-badge ${tData.info.className}" style="color: ${tData.info.color}; background-color: ${tData.info.bg}; border-color: ${tData.info.border};">${tData.name}</span></td>
+          <td class="tabular">${tData.count}</td>
+          <td class="tabular" style="font-weight: 700;">${this.formatNumber(tData.ownedUnits)}</td>
+          <td class="tabular">${this.formatNumber(tData.baseVal)}</td>
+          <td class="tabular" style="color: #38bdf8; font-weight: 700;">${this.formatNumber(tData.marketVal)}</td>
+          <td class="tabular" style="color: ${diff >= 0 ? '#38bdf8' : 'var(--danger)'}; font-weight: 700;">
+            ${spreadSign}${this.formatNumber(diff)} (${spreadSign}${spreadPct}%)
+          </td>
+        `;
+        this.ledgerTierTableBody.appendChild(tr);
+      });
+
+      // Series Breakdown Table
+      this.ledgerSeriesTableBody.innerHTML = '';
+      const sortedSeries = [...series].sort((a, b) => a.name.localeCompare(b.name));
+      sortedSeries.forEach(s => {
+        const cat = this.state.getCategory(s.categoryId);
+        const sItems = items.filter(i => i.seriesId === s.id);
+        const total = sItems.length;
+        const wallCollected = sItems.filter(i => !!i.wallOwned).length;
+        const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
+        const bpUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+        const bpBase = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td><span class="badge-series">${this.escapeHtml(s.name)}</span></td>
+          <td style="color: var(--text-muted); font-size: 11px;">${cat ? this.escapeHtml(cat.name) : 'Standalone'}</td>
+          <td class="tabular">${wallCollected} / ${total} (${wallPct}%)</td>
+          <td class="tabular" style="font-weight: 700;">${this.formatNumber(bpUnits)}</td>
+          <td class="tabular">${this.formatNumber(bpBase)}</td>
+          <td class="tabular" style="color: #38bdf8; font-weight: 700;">${this.formatNumber(bpMarket)}</td>
+        `;
+        this.ledgerSeriesTableBody.appendChild(tr);
+      });
+
+      this.renderCategoryManagerList();
+      this.renderSeriesManagerList();
+      this.renderTierManagerList();
+      this.renderTagManagerList();
+    }
+
+    setupDraggableList(container, itemSelector, onReorder) {
+      if (!container) return;
+      const rows = Array.from(container.querySelectorAll(itemSelector));
+      let draggedElement = null;
+      let draggedIndex = -1;
+
+      const clearIndicators = () => {
+        rows.forEach(r => {
+          r.classList.remove('is-dragging', 'drag-over-top', 'drag-over-bottom');
+        });
+      };
+
+      rows.forEach((row, index) => {
+        row.setAttribute('draggable', 'true');
+
+        row.addEventListener('dragstart', (e) => {
+          if (e.target.closest('button') || e.target.closest('input')) {
+            e.preventDefault();
+            return;
+          }
+          draggedElement = row;
+          draggedIndex = index;
+          e.dataTransfer.effectAllowed = 'move';
+          e.dataTransfer.setData('text/plain', String(index));
+          setTimeout(() => row.classList.add('is-dragging'), 0);
+        });
+
+        row.addEventListener('dragover', (e) => {
+          e.preventDefault();
+          if (!draggedElement || draggedElement === row) return;
+          e.dataTransfer.dropEffect = 'move';
+
+          const rect = row.getBoundingClientRect();
+          const midY = rect.top + rect.height / 2;
+          if (e.clientY < midY) {
+            row.classList.add('drag-over-top');
+            row.classList.remove('drag-over-bottom');
+          } else {
+            row.classList.add('drag-over-bottom');
+            row.classList.remove('drag-over-top');
+          }
+        });
+
+        row.addEventListener('dragleave', () => {
+          row.classList.remove('drag-over-top', 'drag-over-bottom');
+        });
+
+        row.addEventListener('drop', (e) => {
+          e.preventDefault();
+          if (!draggedElement || draggedElement === row) {
+            clearIndicators();
+            return;
+          }
+          const rect = row.getBoundingClientRect();
+          const isBefore = e.clientY < (rect.top + rect.height / 2);
+          clearIndicators();
+
+          let targetIndex = rows.indexOf(row);
+          if (!isBefore && draggedIndex < targetIndex) {
+            // target remains targetIndex
+          } else if (isBefore && draggedIndex > targetIndex) {
+            // target remains targetIndex
+          } else if (!isBefore && draggedIndex > targetIndex) {
+            targetIndex = targetIndex + 1;
+          } else if (isBefore && draggedIndex < targetIndex) {
+            targetIndex = targetIndex - 1;
+          }
+          if (targetIndex >= 0 && targetIndex < rows.length && targetIndex !== draggedIndex) {
+            onReorder(draggedIndex, targetIndex);
+          }
+        });
+
+        row.addEventListener('dragend', () => {
+          clearIndicators();
+          draggedElement = null;
+          draggedIndex = -1;
+        });
+
+        // Mobile touch drag handle support
+        const handle = row.querySelector('.drag-handle');
+        if (handle) {
+          handle.addEventListener('click', (e) => e.stopPropagation());
+
+          let touchStartTarget = null;
+          let activeHoverRow = null;
+          let isOverTop = false;
+
+          handle.addEventListener('touchstart', (e) => {
+            touchStartTarget = row;
+            draggedIndex = index;
+            row.classList.add('is-dragging');
+          }, { passive: true });
+
+          handle.addEventListener('touchmove', (e) => {
+            if (!touchStartTarget) return;
+            e.preventDefault();
+            const touch = e.touches[0];
+            touchStartTarget.style.pointerEvents = 'none';
+            const elemBelow = document.elementFromPoint(touch.clientX, touch.clientY);
+            touchStartTarget.style.pointerEvents = '';
+            const targetRow = elemBelow ? elemBelow.closest(itemSelector) : null;
+
+            rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+
+            if (targetRow && targetRow !== touchStartTarget && container.contains(targetRow)) {
+              activeHoverRow = targetRow;
+              const rect = targetRow.getBoundingClientRect();
+              isOverTop = touch.clientY < (rect.top + rect.height / 2);
+              if (isOverTop) {
+                targetRow.classList.add('drag-over-top');
+              } else {
+                targetRow.classList.add('drag-over-bottom');
+              }
+            } else {
+              activeHoverRow = null;
+            }
+          }, { passive: false });
+
+          const handleTouchEnd = () => {
+            if (!touchStartTarget) return;
+            touchStartTarget.style.pointerEvents = '';
+            const from = draggedIndex;
+            const hover = activeHoverRow;
+            const before = isOverTop;
+
+            touchStartTarget.classList.remove('is-dragging');
+            rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+            touchStartTarget = null;
+            activeHoverRow = null;
+
+            if (hover && hover !== rows[from]) {
+              let targetIndex = rows.indexOf(hover);
+              if (!before && from < targetIndex) {
+                // target remains
+              } else if (before && from > targetIndex) {
+                // target remains
+              } else if (!before && from > targetIndex) {
+                targetIndex = targetIndex + 1;
+              } else if (before && from < targetIndex) {
+                targetIndex = targetIndex - 1;
+              }
+              if (targetIndex >= 0 && targetIndex < rows.length && targetIndex !== from) {
+                onReorder(from, targetIndex);
+              }
+            }
+          };
+
+          handle.addEventListener('touchend', handleTouchEnd);
+          handle.addEventListener('touchcancel', () => {
+            if (touchStartTarget) {
+              touchStartTarget.style.pointerEvents = '';
+              touchStartTarget.classList.remove('is-dragging');
+            }
+            rows.forEach(r => r.classList.remove('drag-over-top', 'drag-over-bottom'));
+            touchStartTarget = null;
+            activeHoverRow = null;
+          });
+        }
+      });
+    }
+
+    renderCategoryManagerList() {
+      this.categoryManagerList.innerHTML = '';
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      this.catTotalCount.textContent = cats.length;
+
+      cats.forEach(c => {
+        const count = this.state.data.series.filter(s => s.categoryId === c.id).length;
+        const row = document.createElement('div');
+        row.className = 'manager-row';
+        row.dataset.id = c.id;
+        row.style.cursor = 'pointer';
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="drag-handle" title="Drag to reorder category" aria-label="Drag handle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="5" r="1.5"></circle>
+                <circle cx="9" cy="12" r="1.5"></circle>
+                <circle cx="9" cy="19" r="1.5"></circle>
+                <circle cx="15" cy="5" r="1.5"></circle>
+                <circle cx="15" cy="12" r="1.5"></circle>
+                <circle cx="15" cy="19" r="1.5"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong>${this.escapeHtml(c.name)}</strong>
+              <span style="color:var(--text-muted); font-size: 11px;">(#${c.order || 1} &bull; ${count} series)</span>
+              ${c.description ? `<div style="font-size: 10.5px; color: var(--text-dim); margin-top: 2px;">${this.escapeHtml(c.description)}</div>` : ''}
+            </div>
+          </div>
+          <div style="display:flex; gap:4px; align-items:center;">
+            <button class="btn-secondary edit-cat-btn" style="padding: 2px 8px; font-size: 11px;" title="Edit Category">Edit</button>
+          </div>
+        `;
+        const editCatBtn = row.querySelector('.edit-cat-btn');
+        if (editCatBtn) editCatBtn.addEventListener('click', (e) => { e.stopPropagation(); this.openCategoryModal(c.id); });
+        const handle = row.querySelector('.drag-handle');
+        if (handle) handle.addEventListener('click', (e) => e.stopPropagation());
+        row.addEventListener('click', () => this.openCategoryModal(c.id));
+        this.categoryManagerList.appendChild(row);
+      });
+
+      this.setupDraggableList(this.categoryManagerList, '.manager-row', (fromIdx, toIdx) => {
+        const list = [...cats];
+        const moved = list.splice(fromIdx, 1)[0];
+        list.splice(toIdx, 0, moved);
+        list.forEach((c, i) => {
+          const itemInState = this.state.data.categories.find(x => x.id === c.id);
+          if (itemInState) itemInState.order = i + 1;
+        });
+        this.state.data.categories.sort((a, b) => (a.order || 0) - (b.order || 0));
+        this.state.saveState();
+        this.renderCategoryManagerList();
+        this.updateSeriesCategoryDropdownFilter();
+        this.updateWallCategoryDropdownFilter();
+        this.updateBpCategoryDropdownFilter();
+        this.renderAll();
+        this.showToast('Category order updated');
+      });
+    }
+
+    renderSeriesManagerList() {
+      this.seriesManagerList.innerHTML = '';
+      const sers = [...this.state.data.series].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0) || a.name.localeCompare(b.name));
+      this.serTotalCount.textContent = sers.length;
+
+      sers.forEach(s => {
+        const cat = this.state.getCategory(s.categoryId);
+        const count = this.state.data.items.filter(i => i.seriesId === s.id).length;
+        const row = document.createElement('div');
+        row.className = 'manager-row';
+        row.dataset.id = s.id;
+        row.style.cursor = 'pointer';
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="drag-handle" title="Drag to reorder series" aria-label="Drag handle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="5" r="1.5"></circle>
+                <circle cx="9" cy="12" r="1.5"></circle>
+                <circle cx="9" cy="19" r="1.5"></circle>
+                <circle cx="15" cy="5" r="1.5"></circle>
+                <circle cx="15" cy="12" r="1.5"></circle>
+                <circle cx="15" cy="19" r="1.5"></circle>
+              </svg>
+            </div>
+            <div>
+              <strong style="color: #f8fafc;">${this.escapeHtml(s.name)}</strong>
+              <span style="font-size:11px; color:var(--text-muted);">(#${s.displayOrder || 1} &bull; ${cat ? this.escapeHtml(cat.name) : 'Standalone'} &bull; ${count} gifts)</span>
+              ${s.description ? `<div style="font-size: 10.5px; color: var(--text-dim); margin-top: 2px;">${this.escapeHtml(s.description)}</div>` : ''}
+            </div>
+          </div>
+          <div style="display:flex; gap:4px; align-items:center;">
+            <button class="btn-secondary edit-ser-btn" style="padding: 2px 8px; font-size: 11px;" title="Edit Series">Edit</button>
+          </div>
+        `;
+        const editSerBtn = row.querySelector('.edit-ser-btn');
+        if (editSerBtn) editSerBtn.addEventListener('click', (e) => { e.stopPropagation(); this.openSeriesModal(s.id); });
+        const handle = row.querySelector('.drag-handle');
+        if (handle) handle.addEventListener('click', (e) => e.stopPropagation());
+        row.addEventListener('click', () => this.openSeriesModal(s.id));
+        this.seriesManagerList.appendChild(row);
+      });
+
+      this.setupDraggableList(this.seriesManagerList, '.manager-row', (fromIdx, toIdx) => {
+        const list = [...sers];
+        const moved = list.splice(fromIdx, 1)[0];
+        list.splice(toIdx, 0, moved);
+        list.forEach((s, i) => {
+          const itemInState = this.state.data.series.find(x => x.id === s.id);
+          if (itemInState) itemInState.displayOrder = i + 1;
+        });
+        this.state.data.series.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        this.state.saveState();
+        this.renderSeriesManagerList();
+        this.updateSeriesDropdownFilter();
+        this.updateWallSeriesDropdownFilter();
+        this.updateBpSeriesDropdownFilter();
+        this.renderAll();
+        this.showToast('Series order updated');
+      });
+    }
+
+    renderTierManagerList() {
+      if (!this.tierManagerList) return;
+      this.tierManagerList.innerHTML = '';
+      const orderMap = { 'standard': 1, 'featured': 2, 'limited': 3, 'luxury': 4, 'collection': 5 };
+      const tiers = [...(this.state.data.tiers || [])].sort((a, b) => {
+        const aOrder = a.displayOrder ?? orderMap[(a.name || '').toLowerCase()] ?? 99;
+        const bOrder = b.displayOrder ?? orderMap[(b.name || '').toLowerCase()] ?? 99;
+        return aOrder - bOrder;
+      });
+      if (this.tierTotalCount) this.tierTotalCount.textContent = tiers.length;
+
+      tiers.forEach(t => {
+        const count = this.state.data.items.filter(i => (i.tier || '').toLowerCase() === t.name.toLowerCase()).length;
+        const row = document.createElement('div');
+        row.className = 'manager-row';
+        row.dataset.id = t.id;
+        row.style.cursor = 'pointer';
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="drag-handle" title="Drag to reorder tier" aria-label="Drag handle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="5" r="1.5"></circle>
+                <circle cx="9" cy="12" r="1.5"></circle>
+                <circle cx="9" cy="19" r="1.5"></circle>
+                <circle cx="15" cy="5" r="1.5"></circle>
+                <circle cx="15" cy="12" r="1.5"></circle>
+                <circle cx="15" cy="19" r="1.5"></circle>
+              </svg>
+            </div>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background-color: ${t.color || '#e2e8f0'}; display: inline-block;"></span>
+            <div>
+              <strong>${this.escapeHtml(t.name)}</strong>
+              <span style="color:var(--text-muted); font-size: 11px;">(#${t.displayOrder || 1} &bull; ${count} gifts)</span>
+              ${t.description ? `<div style="font-size: 10.5px; color: var(--text-dim); margin-top: 2px;">${this.escapeHtml(t.description)}</div>` : ''}
+            </div>
+          </div>
+          <div style="display:flex; gap:4px; align-items:center;">
+            <button class="btn-secondary edit-tier-btn" style="padding: 2px 8px; font-size: 11px;" title="Edit Tier">Edit</button>
+          </div>
+        `;
+        const editBtn = row.querySelector('.edit-tier-btn');
+        if (editBtn) editBtn.addEventListener('click', (e) => { e.stopPropagation(); this.openTierModal(t.id); });
+        const handle = row.querySelector('.drag-handle');
+        if (handle) handle.addEventListener('click', (e) => e.stopPropagation());
+        row.addEventListener('click', () => this.openTierModal(t.id));
+        this.tierManagerList.appendChild(row);
+      });
+
+      this.setupDraggableList(this.tierManagerList, '.manager-row', (fromIdx, toIdx) => {
+        const list = [...tiers];
+        const moved = list.splice(fromIdx, 1)[0];
+        list.splice(toIdx, 0, moved);
+        list.forEach((t, i) => {
+          const itemInState = this.state.data.tiers.find(x => x.id === t.id);
+          if (itemInState) itemInState.displayOrder = i + 1;
+        });
+        this.state.data.tiers.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+        this.state.saveState();
+        this.renderTierManagerList();
+        this.renderPortfolioTab();
+        this.updateSeriesTierDropdownFilter();
+        this.updateWallTierDropdownFilter();
+        this.updateBpTierDropdownFilter();
+        this.renderSeriesTierPills();
+        this.renderBpTierPills();
+        this.renderWallTierPills();
+        this.renderAll();
+        this.showToast('Tier order updated');
+      });
+    }
+
+    renderTagManagerList() {
+      if (!this.tagManagerList) return;
+      this.tagManagerList.innerHTML = '';
+      const tags = this.state.getTags();
+      if (this.tagTotalCount) this.tagTotalCount.textContent = tags.length;
+
+      const tagIcons = {
+        wall: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>',
+        series: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+        backpack: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>'
+      };
+
+      tags.forEach(t => {
+        const row = document.createElement('div');
+        row.className = 'manager-row';
+        row.dataset.key = t.key;
+        row.style.cursor = 'pointer';
+        const iconSvg = tagIcons[t.key] || '';
+        const tagClass = t.key === 'backpack' ? 'tag-bp' : (t.key === 'series' ? 'tag-series' : 'tag-wall');
+
+        row.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="drag-handle" title="Drag to reorder tag" aria-label="Drag handle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="5" r="1.5"></circle>
+                <circle cx="9" cy="12" r="1.5"></circle>
+                <circle cx="9" cy="19" r="1.5"></circle>
+                <circle cx="15" cy="5" r="1.5"></circle>
+                <circle cx="15" cy="12" r="1.5"></circle>
+                <circle cx="15" cy="19" r="1.5"></circle>
+              </svg>
+            </div>
+            <span class="btn-context-tag is-active ${tagClass}" style="pointer-events: none; margin: 0; padding: 2px 8px; font-size: 11px;">
+              ${iconSvg}
+              <span>${this.escapeHtml(t.name)}</span>
+            </span>
+            <div>
+              <span style="color:var(--text-muted); font-size: 11px;">(#${t.displayOrder || 1} &bull; ${t.color.toUpperCase()})</span>
+            </div>
+          </div>
+          <div style="display:flex; gap:4px; align-items:center;">
+            <button class="btn-secondary edit-tag-btn" style="padding: 2px 8px; font-size: 11px;" title="Edit Tag">Edit</button>
+          </div>
+        `;
+
+        const editBtn = row.querySelector('.edit-tag-btn');
+        if (editBtn) editBtn.addEventListener('click', (e) => { e.stopPropagation(); this.openTagModal(t.key); });
+        const handle = row.querySelector('.drag-handle');
+        if (handle) handle.addEventListener('click', (e) => e.stopPropagation());
+        row.addEventListener('click', () => this.openTagModal(t.key));
+        this.tagManagerList.appendChild(row);
+      });
+
+      this.setupDraggableList(this.tagManagerList, '.manager-row', (fromIdx, toIdx) => {
+        const list = [...tags];
+        const moved = list.splice(fromIdx, 1)[0];
+        list.splice(toIdx, 0, moved);
+        list.forEach((t, i) => {
+          this.state.updateTagOrder(t.key, i + 1);
+        });
+        this.state.saveState();
+        this.renderTagManagerList();
+        this.renderAll();
+        this.showToast('Tag order updated');
+      });
+    }
+
+    // ------------------------------------------------------------------
+    // DYNAMIC FILTER ADAPTATION FOR ACTIVE TAB
+    // ------------------------------------------------------------------
+    // Series Master Tab Filters
+    updateSeriesCategoryDropdownFilter(seriesItems) {
+      if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
+      const currentVal = this.seriesFilterCategory.value;
+      this.seriesFilterCategory.innerHTML = '<option value="">All Categories</option>';
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      cats.forEach(c => {
+        const count = seriesItems.filter(i => i.categoryId === c.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = c.id;
+          opt.textContent = `${c.name} (${count})`;
+          this.seriesFilterCategory.appendChild(opt);
+        }
+      });
+      this.seriesFilterCategory.value = currentVal;
+    }
+
+    updateSeriesDropdownFilter(seriesItems) {
+      if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
+      const currentVal = this.seriesFilterSeries.value;
+      this.seriesFilterSeries.innerHTML = '<option value="">All Series</option>';
+
+      this.seriesFilterSeries.disabled = false;
+      let seriesList = [...this.state.data.series];
+      if (this.seriesSelectedCategory) {
+        seriesList = seriesList.filter(s => s.categoryId === this.seriesSelectedCategory);
+      }
+      seriesList.sort((a, b) => a.name.localeCompare(b.name));
+      seriesList.forEach(s => {
+        const count = seriesItems.filter(i => i.seriesId === s.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = s.id;
+          opt.textContent = `${s.name} (${count})`;
+          this.seriesFilterSeries.appendChild(opt);
+        }
+      });
+
+      const exists = seriesList.some(s => s.id === currentVal);
+      if (exists) {
+        this.seriesFilterSeries.value = currentVal;
+        this.seriesSelectedSeries = currentVal;
+      } else {
+        this.seriesFilterSeries.value = '';
+        this.seriesSelectedSeries = '';
+      }
+    }
+
+    getDynamicTierList() {
+      const orderMap = { 'standard': 1, 'featured': 2, 'limited': 3, 'luxury': 4, 'collection': 5 };
+      if (this.state.data.tiers && this.state.data.tiers.length) {
+        return [...this.state.data.tiers].sort((a, b) => {
+          const aOrder = a.displayOrder ?? orderMap[(a.name || '').toLowerCase()] ?? 99;
+          const bOrder = b.displayOrder ?? orderMap[(b.name || '').toLowerCase()] ?? 99;
+          return aOrder - bOrder;
+        }).map(t => t.name);
+      }
+      return ['Standard', 'Featured', 'Limited', 'Luxury', 'Collection'];
+    }
+
+    updateSeriesTierDropdownFilter(seriesItems) {
+      if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
+      const currentVal = this.seriesFilterTier.value;
+      this.seriesFilterTier.innerHTML = '<option value="">All Tiers</option>';
+      this.getDynamicTierList().forEach(t => {
+        const count = seriesItems.filter(i => (i.tier || '').toLowerCase() === t.toLowerCase()).length;
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = `${t} (${count})`;
+        this.seriesFilterTier.appendChild(opt);
+      });
+      this.seriesFilterTier.value = currentVal;
+    }
+
+    renderSeriesTierPills(items) {
+      if (!this.seriesTierPills) return;
+      this.seriesTierPills.innerHTML = '';
+      const counts = new Map();
+      const tierList = this.getDynamicTierList();
+      tierList.forEach(t => counts.set(t, 0));
+      items.forEach(i => {
+        const info = this.getTierInfo(i.tier);
+        counts.set(info.name, (counts.get(info.name) || 0) + 1);
+      });
+
+      const allBtn = document.createElement('button');
+      allBtn.className = `filter-chip ${!this.seriesSelectedTier ? 'active' : ''}`;
+      allBtn.dataset.tier = '';
+      allBtn.innerHTML = `All Tiers <span class="chip-badge">${items.length}</span>`;
+      allBtn.addEventListener('click', () => {
+        this.seriesSelectedTier = '';
+        this.seriesFilterTier.value = '';
+        this.syncSeriesTierPills();
+        this.seriesRenderedCount = BATCH_SIZE;
+        this.renderSeriesTab();
+      });
+      this.seriesTierPills.appendChild(allBtn);
+
+      tierList.forEach(tierName => {
+        const info = this.getTierInfo(tierName);
+        const count = counts.get(tierName) || 0;
+        const btn = document.createElement('button');
+        const isActive = (this.seriesSelectedTier || '').toLowerCase() === tierName.toLowerCase();
+        btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
+        btn.dataset.tier = tierName;
+        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.addEventListener('click', () => {
+          this.seriesSelectedTier = (this.seriesSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
+          this.seriesFilterTier.value = this.seriesSelectedTier;
+          this.syncSeriesTierPills();
+          this.seriesRenderedCount = BATCH_SIZE;
+          this.renderSeriesTab();
+        });
+        this.seriesTierPills.appendChild(btn);
+      });
+    }
+
+    syncSeriesTierPills() {
+      if (!this.seriesTierPills) return;
+      this.seriesTierPills.querySelectorAll('.filter-chip').forEach(btn => {
+        const t = btn.dataset.tier || '';
+        const isActive = (this.seriesSelectedTier || '').toLowerCase() === t.toLowerCase();
+        btn.classList.toggle('active', isActive);
+      });
+    }
+
+    // Wall Tab Dynamic Filters (Adapted to collected items only)
+    updateWallCategoryDropdownFilter(collectedGifts) {
+      const currentVal = this.wallFilterCategory.value;
+      this.wallFilterCategory.innerHTML = '<option value="">All Collected Categories</option>';
+
+      const standaloneCount = collectedGifts.filter(i => !i.categoryId).length;
+      if (standaloneCount > 0) {
+        const stOpt = document.createElement('option');
+        stOpt.value = '__standalone__';
+        stOpt.textContent = `Standalone Base (${standaloneCount})`;
+        this.wallFilterCategory.appendChild(stOpt);
+      }
+
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      cats.forEach(c => {
+        const count = collectedGifts.filter(i => i.categoryId === c.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = c.id;
+          opt.textContent = `${c.name} (${count})`;
+          this.wallFilterCategory.appendChild(opt);
+        }
+      });
+      this.wallFilterCategory.value = currentVal;
+    }
+
+    updateWallSeriesDropdownFilter(collectedGifts) {
+      const currentVal = this.wallFilterSeries.value;
+      this.wallFilterSeries.innerHTML = '<option value="">All Collected Series</option>';
+
+      if (this.wallSelectedCategory === '__standalone__') {
+        this.wallFilterSeries.disabled = true;
+        this.wallFilterSeries.value = '';
+        this.wallSelectedSeries = '';
+        return;
+      }
+
+      this.wallFilterSeries.disabled = false;
+      let seriesList = [...this.state.data.series];
+      if (this.wallSelectedCategory) {
+        seriesList = seriesList.filter(s => s.categoryId === this.wallSelectedCategory);
+      }
+      seriesList.sort((a, b) => a.name.localeCompare(b.name));
+      seriesList.forEach(s => {
+        const count = collectedGifts.filter(i => i.seriesId === s.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = s.id;
+          opt.textContent = `${s.name} (${count})`;
+          this.wallFilterSeries.appendChild(opt);
+        }
+      });
+
+      const exists = seriesList.some(s => s.id === currentVal);
+      if (exists) {
+        this.wallFilterSeries.value = currentVal;
+        this.wallSelectedSeries = currentVal;
+      } else {
+        this.wallFilterSeries.value = '';
+        this.wallSelectedSeries = '';
+      }
+    }
+
+    updateWallTierDropdownFilter(collectedGifts) {
+      const currentVal = this.wallFilterTier.value;
+      this.wallFilterTier.innerHTML = '<option value="">All Tiers</option>';
+      this.getDynamicTierList().forEach(t => {
+        const count = collectedGifts.filter(i => (i.tier || '').toLowerCase() === t.toLowerCase()).length;
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = `${t} (${count})`;
+        this.wallFilterTier.appendChild(opt);
+      });
+      this.wallFilterTier.value = currentVal;
+    }
+
+    renderWallTierPills(collectedGifts) {
+      if (!this.wallTierPills) return;
+      this.wallTierPills.innerHTML = '';
+      const counts = new Map();
+      const tierList = this.getDynamicTierList();
+      tierList.forEach(t => counts.set(t, 0));
+      collectedGifts.forEach(i => {
+        const info = this.getTierInfo(i.tier);
+        counts.set(info.name, (counts.get(info.name) || 0) + 1);
+      });
+
+      const allBtn = document.createElement('button');
+      allBtn.className = `filter-chip ${!this.wallSelectedTier ? 'active' : ''}`;
+      allBtn.dataset.tier = '';
+      allBtn.innerHTML = `All Tiers <span class="chip-badge">${collectedGifts.length}</span>`;
+      allBtn.addEventListener('click', () => {
+        this.wallSelectedTier = '';
+        this.wallFilterTier.value = '';
+        this.syncWallTierPills();
+        this.wallRenderedCount = BATCH_SIZE;
+        this.renderWallTab();
+      });
+      this.wallTierPills.appendChild(allBtn);
+
+      tierList.forEach(tierName => {
+        const info = this.getTierInfo(tierName);
+        const count = counts.get(tierName) || 0;
+        const btn = document.createElement('button');
+        const isActive = (this.wallSelectedTier || '').toLowerCase() === tierName.toLowerCase();
+        btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
+        btn.dataset.tier = tierName;
+        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.addEventListener('click', () => {
+          this.wallSelectedTier = (this.wallSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
+          this.wallFilterTier.value = this.wallSelectedTier;
+          this.syncWallTierPills();
+          this.wallRenderedCount = BATCH_SIZE;
+          this.renderWallTab();
+        });
+        this.wallTierPills.appendChild(btn);
+      });
+    }
+
+    syncWallTierPills() {
+      if (!this.wallTierPills) return;
+      this.wallTierPills.querySelectorAll('.filter-chip').forEach(btn => {
+        const t = btn.dataset.tier || '';
+        const isActive = (this.wallSelectedTier || '').toLowerCase() === t.toLowerCase();
+        btn.classList.toggle('active', isActive);
+      });
+    }
+
+    // Backpack Dropdowns
+    updateBpCategoryDropdownFilter(bpItems) {
+      if (!bpItems) bpItems = this.getBackpackCatalogItems();
+      const currentVal = this.bpFilterCategory.value;
+      this.bpFilterCategory.innerHTML = '<option value="">All Categories</option>';
+      const standaloneCount = bpItems.filter(i => !i.categoryId).length;
+      if (standaloneCount > 0) {
+        const stOpt = document.createElement('option');
+        stOpt.value = '__standalone__';
+        stOpt.textContent = `Standalone Base (${standaloneCount})`;
+        this.bpFilterCategory.appendChild(stOpt);
+      }
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      cats.forEach(c => {
+        const count = bpItems.filter(i => i.categoryId === c.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = c.id;
+          opt.textContent = `${c.name} (${count})`;
+          this.bpFilterCategory.appendChild(opt);
+        }
+      });
+      this.bpFilterCategory.value = currentVal;
+    }
+
+    updateBpSeriesDropdownFilter(bpItems) {
+      if (!bpItems) bpItems = this.getBackpackCatalogItems();
+      const currentVal = this.bpFilterSeries.value;
+      this.bpFilterSeries.innerHTML = '<option value="">All Series</option>';
+
+      if (this.bpSelectedCategory === '__standalone__') {
+        this.bpFilterSeries.disabled = true;
+        this.bpFilterSeries.value = '';
+        this.bpSelectedSeries = '';
+        return;
+      }
+
+      this.bpFilterSeries.disabled = false;
+      let seriesList = [...this.state.data.series];
+      if (this.bpSelectedCategory) {
+        seriesList = seriesList.filter(s => s.categoryId === this.bpSelectedCategory);
+      }
+      seriesList.sort((a, b) => a.name.localeCompare(b.name));
+      seriesList.forEach(s => {
+        const count = bpItems.filter(i => i.seriesId === s.id).length;
+        if (count > 0) {
+          const opt = document.createElement('option');
+          opt.value = s.id;
+          opt.textContent = `${s.name} (${count})`;
+          this.bpFilterSeries.appendChild(opt);
+        }
+      });
+
+      const exists = seriesList.some(s => s.id === currentVal);
+      if (exists) {
+        this.bpFilterSeries.value = currentVal;
+        this.bpSelectedSeries = currentVal;
+      } else {
+        this.bpFilterSeries.value = '';
+        this.bpSelectedSeries = '';
+      }
+    }
+
+    updateBpTierDropdownFilter(bpItems) {
+      if (!bpItems) bpItems = this.getBackpackCatalogItems();
+      const currentVal = this.bpFilterTier.value;
+      this.bpFilterTier.innerHTML = '<option value="">All Tiers</option>';
+      this.getDynamicTierList().forEach(t => {
+        const count = bpItems.filter(i => (i.tier || '').toLowerCase() === t.toLowerCase()).length;
+        const opt = document.createElement('option');
+        opt.value = t;
+        opt.textContent = `${t} (${count})`;
+        this.bpFilterTier.appendChild(opt);
+      });
+      this.bpFilterTier.value = currentVal;
+    }
+
+    renderBpTierPills(items) {
+      if (!this.bpTierPills) return;
+      this.bpTierPills.innerHTML = '';
+      const counts = new Map();
+      const tierList = this.getDynamicTierList();
+      tierList.forEach(t => counts.set(t, 0));
+      items.forEach(i => {
+        const info = this.getTierInfo(i.tier);
+        counts.set(info.name, (counts.get(info.name) || 0) + 1);
+      });
+
+      const allBtn = document.createElement('button');
+      allBtn.className = `filter-chip ${!this.bpSelectedTier ? 'active' : ''}`;
+      allBtn.dataset.tier = '';
+      allBtn.innerHTML = `All Tiers <span class="chip-badge">${items.length}</span>`;
+      allBtn.addEventListener('click', () => {
+        this.bpSelectedTier = '';
+        this.bpFilterTier.value = '';
+        this.syncBpTierPills();
+        this.bpRenderedCount = BATCH_SIZE;
+        this.renderBackpackTab();
+      });
+      this.bpTierPills.appendChild(allBtn);
+
+      tierList.forEach(tierName => {
+        const info = this.getTierInfo(tierName);
+        const count = counts.get(tierName) || 0;
+        const btn = document.createElement('button');
+        const isActive = (this.bpSelectedTier || '').toLowerCase() === tierName.toLowerCase();
+        btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
+        btn.dataset.tier = tierName;
+        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.addEventListener('click', () => {
+          this.bpSelectedTier = (this.bpSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
+          this.bpFilterTier.value = this.bpSelectedTier;
+          this.syncBpTierPills();
+          this.bpRenderedCount = BATCH_SIZE;
+          this.renderBackpackTab();
+        });
+        this.bpTierPills.appendChild(btn);
+      });
+    }
+
+    syncBpTierPills() {
+      if (!this.bpTierPills) return;
+      this.bpTierPills.querySelectorAll('.filter-chip').forEach(btn => {
+        const t = btn.dataset.tier || '';
+        const isActive = (this.bpSelectedTier || '').toLowerCase() === t.toLowerCase();
+        btn.classList.toggle('active', isActive);
+      });
+    }
+
+    // ------------------------------------------------------------------
+    // TIER INFO LOOKUP
+    // ------------------------------------------------------------------
+    getTierInfo(tier) {
+      const clean = (tier || '').trim().toLowerCase();
+      if (this.state && this.state.data && Array.isArray(this.state.data.tiers)) {
+        const found = this.state.data.tiers.find(t =>
+          (t.name && t.name.toLowerCase() === clean) ||
+          (t.id && t.id.toLowerCase() === clean)
+        );
+        if (found) {
+          const color = found.color || '#e2e8f0';
+          const rgb = this.state.hexToRgb ? this.state.hexToRgb(color) : '226, 232, 240';
+          return {
+            name: found.name,
+            className: `tier-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            cardClass: `tier-card-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            chipClass: `tier-chip-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            color,
+            bg: found.bg || `rgba(${rgb}, 0.16)`,
+            border: found.border || `rgba(${rgb}, 0.35)`,
+            rank: Number(found.rank) || 10
+          };
+        }
+      }
+
+      // Default tier fallbacks (strict v1.0.0 Morphe palette)
+      if (clean.includes('collection')) return { name: 'Collection', className: 'tier-collection', cardClass: 'tier-card-collection', chipClass: 'tier-chip-collection', color: '#ef4444', bg: '#450a0a', border: 'rgba(239, 68, 68, 0.35)', rank: 100 };
+      if (clean.includes('luxury')) return { name: 'Luxury', className: 'tier-luxury', cardClass: 'tier-card-luxury', chipClass: 'tier-chip-luxury', color: '#facc15', bg: '#422006', border: 'rgba(250, 204, 21, 0.35)', rank: 80 };
+      if (clean.includes('limited')) return { name: 'Limited', className: 'tier-limited', cardClass: 'tier-card-limited', chipClass: 'tier-chip-limited', color: '#c084fc', bg: '#3b0764', border: 'rgba(192, 132, 252, 0.35)', rank: 60 };
+      if (clean.includes('featured')) return { name: 'Featured', className: 'tier-featured', cardClass: 'tier-card-featured', chipClass: 'tier-chip-featured', color: '#38bdf8', bg: '#0c4a6e', border: 'rgba(56, 189, 248, 0.35)', rank: 40 };
+      return { name: 'Standard', className: 'tier-standard', cardClass: 'tier-card-standard', chipClass: 'tier-chip-standard', color: '#e2e8f0', bg: '#1e293b', border: 'rgba(226, 232, 240, 0.25)', rank: 10 };
+    }
+
+    // ------------------------------------------------------------------
+    // BATCH SCROLL OBSERVERS (60FPS SCROLLING)
+    // ------------------------------------------------------------------
+    setupBatchObservers() {
+      if ('IntersectionObserver' in window) {
+        const seriesObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && this.currentTab === 'tab-series') {
+            const filtered = this.getFilteredSeriesItems();
+            if (this.seriesRenderedCount < filtered.length) {
+              this.seriesRenderedCount += BATCH_SIZE;
+              this.renderSeriesTab();
+            }
+          }
+        }, { rootMargin: '300px' });
+        if (this.seriesScrollSentinel) seriesObserver.observe(this.seriesScrollSentinel);
+
+        const wallObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && this.currentTab === 'tab-wall') {
+            const collected = this.getWallCatalogItems();
+            const filtered = this.getFilteredWallItems(collected);
+            if (this.wallRenderedCount < filtered.length) {
+              this.wallRenderedCount += BATCH_SIZE;
+              this.renderWallTab();
+            }
+          }
+        }, { rootMargin: '300px' });
+        if (this.wallScrollSentinel) wallObserver.observe(this.wallScrollSentinel);
+
+        const bpObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && this.currentTab === 'tab-backpack') {
+            const filtered = this.getFilteredBpItems();
+            if (this.bpRenderedCount < filtered.length) {
+              this.bpRenderedCount += BATCH_SIZE;
+              this.renderBackpackTab();
+            }
+          }
+        }, { rootMargin: '300px' });
+        if (this.bpScrollSentinel) bpObserver.observe(this.bpScrollSentinel);
+      }
+    }
+
+    // ------------------------------------------------------------------
+    // MODALS: ITEM / CATEGORY / SERIES (MANAGES CATEGORY & SERIES EXCLUSIVELY)
+    // ------------------------------------------------------------------
+    populateCategorySelects() {
+      this.serModalCategory.innerHTML = '<option value="">Select Category</option>';
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        this.serModalCategory.appendChild(opt);
+      });
+    }
+
+    populateModalCategorySelect(selectedCatId = '') {
+      this.editItemCategory.innerHTML = '<option value="">None / Standalone Base</option>';
+      const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
+      cats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c.id;
+        opt.textContent = c.name;
+        this.editItemCategory.appendChild(opt);
+      });
+      this.editItemCategory.value = selectedCatId || '';
+      this.populateModalSeriesSelect(selectedCatId, '');
+    }
+
+    populateModalSeriesSelect(categoryId = '', selectedSeriesId = '') {
+      if (!categoryId) {
+        this.editItemSeries.innerHTML = '<option value="">None / Standalone</option>';
+        this.editItemSeries.disabled = true;
+        this.editItemSeries.value = '';
+        return;
+      }
+
+      this.editItemSeries.disabled = false;
+      this.editItemSeries.innerHTML = '<option value="">Select Series</option>';
+      const sers = this.state.data.series.filter(s => s.categoryId === categoryId).sort((a, b) => a.name.localeCompare(b.name));
+      sers.forEach(s => {
+        const opt = document.createElement('option');
+        opt.value = s.id;
+        opt.textContent = s.name;
+        this.editItemSeries.appendChild(opt);
+      });
+      this.editItemSeries.value = selectedSeriesId || '';
+    }
+
+    getModalSelectedTabs() {
+      if (!this.editItemTabsPresets) return ['backpack'];
+      const tabs = [];
+      this.editItemTabsPresets.querySelectorAll('.tab-preset-btn.active').forEach(btn => {
+        if (btn.dataset.tabName) tabs.push(btn.dataset.tabName);
+      });
+      return tabs;
+    }
+
+    setModalSelectedTabs(tabs = []) {
+      if (!this.editItemTabsPresets) return;
+      const clean = Array.isArray(tabs) ? tabs.map(t => String(t).toLowerCase().trim()) : [];
+      const tagList = this.state.getTags();
+      this.editItemTabsPresets.innerHTML = tagList.map(t => {
+        const isActive = clean.includes(t.key);
+        return `<button type="button" class="preset-btn tab-preset-btn ${isActive ? 'active' : ''}" data-tab-name="${t.key}">${this.escapeHtml(t.name)}</button>`;
+      }).join('');
+    }
+
+    openNewItemModal() {
+      this.itemModalTitle.textContent = 'Add New Gift';
+      this.editItemId.value = '';
+      if (this.modalDeleteBtn) this.modalDeleteBtn.style.display = 'none';
+      if (this.editItemDuplicateAlert) this.editItemDuplicateAlert.style.display = 'none';
+      this.populateModalCategorySelect('');
+      this.editItemName.value = '';
+      this.editItemBaseValue.value = '';
+      this.editItemMarketWorth.value = '';
+      this.editItemQuantity.value = '1';
+      this.editItemStarred.checked = false;
+      this.editItemTier.value = 'Standard';
+      this.populateModalTierPresets('Standard');
+
+      let defaultTabs = ['backpack'];
+      if (this.currentTab === 'tab-series') defaultTabs = ['series'];
+      else if (this.currentTab === 'tab-wall') defaultTabs = ['wall'];
+      this.setModalSelectedTabs(defaultTabs);
+
+      this.openModal('itemModal');
+      setTimeout(() => this.editItemName.focus(), 100);
+    }
+
+    openEditItemModal(itemId) {
+      const item = this.state.getItem(itemId);
+      if (!item) return;
+
+      this.itemModalTitle.textContent = 'Edit Gift';
+      this.editItemId.value = item.id;
+      if (this.modalDeleteBtn) this.modalDeleteBtn.style.display = 'inline-flex';
+      if (this.editItemDuplicateAlert) this.editItemDuplicateAlert.style.display = 'none';
+      this.populateModalCategorySelect(item.categoryId || '');
+      this.populateModalSeriesSelect(item.categoryId || '', item.seriesId || '');
+      this.editItemName.value = item.name || '';
+      this.editItemBaseValue.value = item.baseValue !== undefined ? item.baseValue : 0;
+      this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : '';
+      this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
+      this.editItemStarred.checked = !!item.starred;
+
+      let itemTabs = Array.isArray(item.tabs) ? [...item.tabs] : [];
+      if (item.categoryId && item.seriesId && !itemTabs.includes('series')) {
+        itemTabs.push('series');
+      }
+      if (item.wallOwned && !itemTabs.includes('wall')) {
+        itemTabs.push('wall');
+      }
+      if ((Number(item.quantity) || 0) > 0 && !itemTabs.includes('backpack')) {
+        itemTabs.push('backpack');
+      }
+      this.setModalSelectedTabs(itemTabs);
+
+      const t = item.tier || 'Standard';
+      this.editItemTier.value = t;
+      this.populateModalTierPresets(t);
+      this.openModal('itemModal');
+    }
+
+    populateModalTierPresets(selectedTier) {
+      if (!this.editItemTierPresets) return;
+      this.editItemTierPresets.innerHTML = '';
+      const tierList = this.getDynamicTierList();
+      const cleanSelected = (selectedTier || 'Standard').toLowerCase().trim();
+
+      tierList.forEach(tName => {
+        const info = this.getTierInfo(tName);
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `preset-btn tier-preset-btn ${tName.toLowerCase() === cleanSelected ? 'active' : ''}`;
+        btn.dataset.tier = tName;
+        btn.textContent = tName;
+        btn.style.color = info.color;
+        btn.addEventListener('click', () => {
+          this.editItemTier.value = tName;
+          this.setModalTierPresets(tName);
+        });
+        this.editItemTierPresets.appendChild(btn);
+      });
+    }
+
+    setModalTierPresets(tier) {
+      const clean = (tier || 'Standard').trim().toLowerCase();
+      this.editItemTierPresets.querySelectorAll('.tier-preset-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.tier.toLowerCase() === clean);
+      });
+    }
+
+    updateTierPreviewBadge(badgeEl, tier) {
+      if (!badgeEl) return;
+      const info = this.getTierInfo(tier);
+      badgeEl.className = `tier-badge ${info.className}`;
+      badgeEl.textContent = info.name;
+      badgeEl.style.color = info.color;
+      badgeEl.style.backgroundColor = info.bg;
+      badgeEl.style.borderColor = info.border;
+    }
+
+    handleSaveItem() {
+      const id = this.editItemId.value;
+      const existingItem = id ? this.state.getItem(id) : null;
+
+      const rawName = this.editItemName.value.trim();
+      const name = this.toSmartTitleCase(rawName);
+      const rawBase = this.editItemBaseValue.value.trim();
+      const rawMarket = this.editItemMarketWorth.value.trim();
+      const rawQty = this.editItemQuantity.value.trim();
+      const categoryId = this.editItemCategory.value.trim();
+      const seriesId = this.editItemSeries.value.trim();
+      const selectedTabs = this.getModalSelectedTabs();
+
+      // Strict validation checks
+      if (!name) {
+        this.showToast('Validation Error: Gift Name is required.');
+        this.editItemName.focus();
+        return;
+      }
+
+      if (rawBase === '' || isNaN(Number(rawBase)) || Number(rawBase) <= 0) {
+        this.showToast('Validation Error: Base Coins must be greater than 0.');
+        this.editItemBaseValue.focus();
+        return;
+      }
+      const baseCoins = Math.round(Number(rawBase));
+
+      if (rawMarket === '' || isNaN(Number(rawMarket)) || Number(rawMarket) <= 0) {
+        this.showToast('Validation Error: Market Worth must be greater than 0.');
+        this.editItemMarketWorth.focus();
+        return;
+      }
+      const marketCoins = Math.round(Number(rawMarket));
+
+      const effectiveTabs = Array.isArray(selectedTabs) ? [...selectedTabs] : [];
+      if (categoryId && seriesId && this.state.getSeries(seriesId) && !effectiveTabs.includes('series')) {
+        effectiveTabs.push('series');
+      }
+
+      if (!categoryId && effectiveTabs.length === 0) {
+        this.showToast('Validation Error: Standalone gifts must be assigned to Backpack or Wall.');
+        return;
+      }
+
+      if (effectiveTabs.includes('series')) {
+        if (!categoryId || !seriesId || !this.state.getSeries(seriesId)) {
+          this.showToast('Validation Error: Series tab requires a valid Category and Series.');
+          this.editItemCategory.focus();
+          return;
+        }
+      }
+
+      let qty = (rawQty !== '' && !isNaN(Number(rawQty))) ? Math.max(0, Math.floor(Number(rawQty))) : 0;
+      if (effectiveTabs.includes('backpack')) {
+        if (qty <= 0) {
+          qty = 1;
+          this.editItemQuantity.value = '1';
+        }
+      } else {
+        qty = 0;
+      }
+
+      const isWallOwned = effectiveTabs.includes('wall');
+
+      const itemData = {
+        categoryId,
+        seriesId,
+        name,
+        baseValue: baseCoins,
+        marketWorth: marketCoins,
+        quantity: qty,
+        wallOwned: isWallOwned,
+        starred: this.editItemStarred.checked,
+        tier: this.editItemTier.value.trim() || 'Standard',
+        tabs: effectiveTabs,
+        notes: existingItem ? (existingItem.notes || '') : ''
+      };
+
+      // Smart Duplicate Check Scoped to Same Series
+      const items = this.state.data.items || [];
+      const duplicateMatch = items.find(i => 
+        i.id !== id && 
+        (i.seriesId || '') === seriesId && 
+        (i.name || '').trim().toLowerCase() === name.toLowerCase()
+      );
+
+      if (duplicateMatch) {
+        if (duplicateMatch.baseValue === baseCoins) {
+          // Exact duplicate in same series with matching coins: prompt to merge stock
+          this.confirmAction(
+            'Duplicate Gift Detected',
+            `A gift named "${duplicateMatch.name}" with ${baseCoins} coins already exists in this series.
+
+Would you like to merge stock (${qty} units) and collection status into the existing gift instead of creating a duplicate?`,
+            () => {
+              const scrollY = window.scrollY;
+              const mergedQty = (Number(duplicateMatch.quantity) || 0) + qty;
+              const mergedWall = duplicateMatch.wallOwned || isWallOwned;
+              const mergedStarred = duplicateMatch.starred || this.editItemStarred.checked;
+              const mergedTabs = Array.isArray(duplicateMatch.tabs) ? [...duplicateMatch.tabs] : [];
+              if (mergedWall && !mergedTabs.includes('wall')) mergedTabs.push('wall');
+              if (mergedQty > 0 && !mergedTabs.includes('backpack')) mergedTabs.push('backpack');
+
+              this.state.updateItem(duplicateMatch.id, {
+                quantity: mergedQty,
+                wallOwned: mergedWall,
+                starred: mergedStarred,
+                tabs: mergedTabs
+              });
+              this.closeModal('itemModal');
+              this.showToast(`Merged stock into existing "${duplicateMatch.name}"`);
+              window.scrollTo({ top: scrollY });
+            }
+          );
+          return;
+        } else {
+          // Same name but different coin values: prompt as price variant
+          this.confirmAction(
+            'Price Variant Detected',
+            `A gift named "${duplicateMatch.name}" exists in this series with ${duplicateMatch.baseValue} coins.
+
+Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coins?`,
+            () => {
+              const scrollY = window.scrollY;
+              if (id) {
+                this.state.updateItem(id, itemData);
+                this.showToast(`Updated "${itemData.name}" (${itemData.baseValue} coins)`);
+              } else {
+                this.state.addItem(itemData);
+                this.showToast(`Added variant "${itemData.name}" (${itemData.baseValue} coins)`);
+              }
+              this.closeModal('itemModal');
+              window.scrollTo({ top: scrollY });
+            }
+          );
+          return;
+        }
+      }
+
+      if (id) {
+        // Universal confirmation for saving edits to an existing gift
+        this.confirmAction(
+          'Confirm Save Changes',
+          `Are you sure you want to save changes to "${itemData.name}"?`,
+          () => {
+            const scrollY = window.scrollY;
+            this.state.updateItem(id, itemData);
+            this.closeModal('itemModal');
+            this.showToast(`Updated "${itemData.name}"`);
+            window.scrollTo({ top: scrollY });
+          }
+        );
+      } else {
+        // Universal confirmation for adding a brand new gift
+        this.confirmAction(
+          'Confirm Add New Gift',
+          `Are you sure you want to add "${itemData.name}" (${itemData.baseValue} base coins, ${itemData.tier} tier) to the database?`,
+          () => {
+            const scrollY = window.scrollY;
+            this.state.addItem(itemData);
+            this.closeModal('itemModal');
+            this.showToast(`Added "${itemData.name}" to catalog`);
+            window.scrollTo({ top: scrollY });
+          }
+        );
+      }
+    }
+
+    handleDeleteItem() {
+      const id = this.editItemId.value;
+      if (!id) return;
+      const item = this.state.getItem(id);
+      if (!item) return;
+
+      this.confirmAction(
+        'Confirm Delete Gift',
+        `Are you sure you want to permanently delete "${item.name}" from the database?`,
+        () => {
+          const scrollY = window.scrollY;
+          this.state.deleteItem(id);
+          this.closeModal('itemModal');
+          this.showToast(`Deleted "${item.name}"`);
+          window.scrollTo({ top: scrollY });
+        }
+      );
+    }
+
+    openCategoryModal(catId = null) {
+      if (this.catModalDeleteBtn) {
+        this.catModalDeleteBtn.style.display = catId ? 'inline-block' : 'none';
+      }
+      if (catId) {
+        const cat = this.state.getCategory(catId);
+        if (!cat) return;
+        this.catModalTitle.textContent = 'Edit Category';
+        this.catModalId.value = cat.id;
+        this.catModalName.value = cat.name;
+        if (this.catModalOrder) this.catModalOrder.value = cat.order || 1;
+        if (this.catModalDesc) this.catModalDesc.value = cat.description || '';
+      } else {
+        this.catModalTitle.textContent = 'New Category';
+        this.catModalId.value = '';
+        this.catModalName.value = '';
+        if (this.catModalOrder) this.catModalOrder.value = this.state.data.categories.length + 1;
+        if (this.catModalDesc) this.catModalDesc.value = '';
+      }
+      this.openModal('categoryModal');
+      setTimeout(() => this.catModalName.focus(), 100);
+    }
+
+    handleSaveCategory() {
+      const id = this.catModalId.value;
+      const name = this.catModalName.value.trim();
+      const existingCat = id ? this.state.getCategory(id) : null;
+      const order = existingCat && existingCat.order !== undefined ? existingCat.order : (this.state.data.categories.length + 1);
+      const description = this.catModalDesc ? this.catModalDesc.value.trim() : '';
+      if (!name) return;
+
+      const actionTitle = id ? 'Confirm Save Category' : 'Confirm New Category';
+      const actionMsg = id ? `Save changes to category "${name}"?` : `Create new category "${name}"?`;
+
+      this.confirmAction(actionTitle, actionMsg, () => {
+        if (id) {
+          this.state.updateCategory(id, { name, order, description });
+          this.showToast(`Updated category "${name}"`);
+        } else {
+          this.state.addCategory({ name, order, description });
+          this.showToast(`Created category "${name}"`);
+        }
+        this.closeModal('categoryModal');
+      });
+    }
+
+    openSeriesModal(serId = null) {
+      this.populateCategorySelects();
+      if (this.serModalDeleteBtn) {
+        this.serModalDeleteBtn.style.display = serId ? 'inline-block' : 'none';
+      }
+      if (serId) {
+        const ser = this.state.getSeries(serId);
+        if (!ser) return;
+        this.serModalTitle.textContent = 'Edit Series';
+        this.serModalId.value = ser.id;
+        this.serModalCategory.value = ser.categoryId || '';
+        this.serModalName.value = ser.name;
+        if (this.serModalOrder) this.serModalOrder.value = ser.displayOrder !== undefined ? ser.displayOrder : 1;
+        this.serModalBadge.value = ser.badge || '';
+        this.serModalDesc.value = ser.description || '';
+      } else {
+        this.serModalTitle.textContent = 'New Series';
+        this.serModalId.value = '';
+        this.serModalCategory.value = this.state.data.categories[0] ? this.state.data.categories[0].id : '';
+        this.serModalName.value = '';
+        if (this.serModalOrder) this.serModalOrder.value = this.state.data.series.length + 1;
+        this.serModalBadge.value = '';
+        this.serModalDesc.value = '';
+      }
+      this.openModal('seriesModal');
+      setTimeout(() => this.serModalName.focus(), 100);
+    }
+
+    handleSaveSeries() {
+      const id = this.serModalId.value;
+      const categoryId = this.serModalCategory.value;
+      const name = this.serModalName.value.trim();
+      const existingSer = id ? this.state.getSeries(id) : null;
+      const displayOrder = existingSer && existingSer.displayOrder !== undefined ? existingSer.displayOrder : (this.state.data.series.length + 1);
+      const badge = this.serModalBadge.value.trim();
+      const description = this.serModalDesc.value.trim();
+      if (!name) return;
+
+      const actionTitle = id ? 'Confirm Save Series' : 'Confirm New Series';
+      const actionMsg = id ? `Save changes to series "${name}"?` : `Create new series "${name}"?`;
+
+      this.confirmAction(actionTitle, actionMsg, () => {
+        if (id) {
+          this.state.updateSeries(id, { categoryId, name, badge, description, displayOrder });
+          this.showToast(`Updated series "${name}"`);
+        } else {
+          this.state.addSeries({ categoryId, name, badge, description, displayOrder });
+          this.showToast(`Created series "${name}"`);
+        }
+        this.closeModal('seriesModal');
+      });
+    }
+
+    openTierModal(tierId = null) {
+      if (this.tierModalDeleteBtn) {
+        this.tierModalDeleteBtn.style.display = tierId ? 'inline-block' : 'none';
+      }
+      if (tierId) {
+        const tier = this.state.getTier(tierId);
+        if (!tier) return;
+        this.tierModalTitle.textContent = 'Edit Tier';
+        this.tierModalId.value = tier.id;
+        this.tierModalName.value = tier.name;
+        this.tierModalRank.value = tier.rank !== undefined ? tier.rank : 10;
+        if (this.tierModalOrder) this.tierModalOrder.value = tier.displayOrder !== undefined ? tier.displayOrder : 1;
+        if (this.tierModalDesc) this.tierModalDesc.value = tier.description || '';
+        const col = tier.color || '#c084fc';
+        this.tierModalColorPicker.value = col.startsWith('#') && col.length === 7 ? col : '#c084fc';
+        this.tierModalColorHex.value = col;
+      } else {
+        this.tierModalTitle.textContent = 'New Tier';
+        this.tierModalId.value = '';
+        this.tierModalName.value = '';
+        this.tierModalRank.value = 50;
+        if (this.tierModalOrder) this.tierModalOrder.value = (this.state.data.tiers ? this.state.data.tiers.length : 0) + 1;
+        if (this.tierModalDesc) this.tierModalDesc.value = '';
+        this.tierModalColorPicker.value = '#c084fc';
+        this.tierModalColorHex.value = '#c084fc';
+      }
+      this.populateTierColorPresets();
+      this.updateTierModalPreview();
+      this.openModal('tierModal');
+      setTimeout(() => this.tierModalName.focus(), 100);
+    }
+
+    populateTierColorPresets() {
+      if (!this.tierColorPalettePresets) return;
+      this.tierColorPalettePresets.innerHTML = '';
+      const palette = [
+        { name: 'Red', hex: '#ef4444' },
+        { name: 'Yellow', hex: '#facc15' },
+        { name: 'Purple', hex: '#c084fc' },
+        { name: 'Deep Violet', hex: '#a855f7' },
+        { name: 'Blue', hex: '#38bdf8' },
+        { name: 'Cyan', hex: '#06b6d4' },
+        { name: 'Orange', hex: '#fb923c' },
+        { name: 'Rose', hex: '#f43f5e' },
+        { name: 'Light Grey', hex: '#e2e8f0' }
+      ];
+
+      const currentHex = (this.tierModalColorHex.value || '#c084fc').toLowerCase();
+
+      palette.forEach(p => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `color-swatch-btn ${p.hex.toLowerCase() === currentHex ? 'active' : ''}`;
+        btn.style.backgroundColor = p.hex;
+        btn.title = p.name;
+        btn.addEventListener('click', () => {
+          this.tierModalColorPicker.value = p.hex;
+          this.tierModalColorHex.value = p.hex;
+          this.tierColorPalettePresets.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.updateTierModalPreview();
+        });
+        this.tierColorPalettePresets.appendChild(btn);
+      });
+    }
+
+    updateTierModalPreview() {
+      if (!this.tierModalPreviewBadge) return;
+      const name = (this.tierModalName.value || 'Preview Tier').trim();
+      const color = (this.tierModalColorHex.value || '#c084fc').trim();
+      this.tierModalPreviewBadge.textContent = name || 'Preview Tier';
+      this.tierModalPreviewBadge.style.color = color;
+      const rgb = this.state.hexToRgb ? this.state.hexToRgb(color) : '192, 132, 252';
+      this.tierModalPreviewBadge.style.backgroundColor = `rgba(${rgb}, 0.16)`;
+      this.tierModalPreviewBadge.style.borderColor = `rgba(${rgb}, 0.45)`;
+    }
+
+    handleSaveTier() {
+      const id = this.tierModalId.value;
+      const name = this.tierModalName.value.trim();
+      const rank = Number(this.tierModalRank.value) || 10;
+      const existingTier = id ? this.state.getTier(id) : null;
+      const displayOrder = existingTier && existingTier.displayOrder !== undefined ? existingTier.displayOrder : ((this.state.data.tiers ? this.state.data.tiers.length : 0) + 1);
+      const description = this.tierModalDesc ? this.tierModalDesc.value.trim() : '';
+      let color = this.tierModalColorHex.value.trim() || this.tierModalColorPicker.value || '#c084fc';
+      if (!name) return;
+
+      const actionTitle = id ? 'Confirm Save Tier' : 'Confirm New Tier';
+      const actionMsg = id ? `Save changes to tier "${name}"?` : `Create new tier "${name}"?`;
+
+      this.confirmAction(actionTitle, actionMsg, () => {
+        if (id) {
+          this.state.updateTier(id, { name, rank, color, displayOrder, description });
+          this.showToast(`Updated tier "${name}"`);
+        } else {
+          this.state.addTier({ name, rank, color, displayOrder, description });
+          this.showToast(`Created tier "${name}"`);
+        }
+        this.closeModal('tierModal');
+      });
+    }
+
+    handleDeleteTier() {
+      const id = this.tierModalId.value;
+      if (!id) return;
+      const tier = this.state.getTier(id);
+      const name = tier ? tier.name : 'this tier';
+
+      this.confirmAction(
+        'Confirm Delete Tier',
+        `Are you sure you want to delete tier "${name}"? Any gifts classified under this tier will safely revert to Standard.`,
+        () => {
+          this.state.deleteTier(id);
+          this.closeModal('tierModal');
+          this.showToast(`Deleted tier "${name}"`);
+        }
+      );
+    }
+
+    openTagModal(tagKey) {
+      const tag = this.state.getTag(tagKey);
+      if (!tag) return;
+      this.tagModalTitle.textContent = `Edit "${tag.name}" Tag`;
+      this.tagModalKey.value = tag.key;
+      this.tagModalName.value = tag.name;
+      const col = tag.color || (tag.key === 'wall' ? '#10b981' : (tag.key === 'series' ? '#06b6d4' : '#f43f5e'));
+      this.tagModalColorPicker.value = col.startsWith('#') && col.length === 7 ? col : '#10b981';
+      this.tagModalColorHex.value = col;
+      this.populateTagColorPresets(tag.key);
+      this.updateTagModalPreview();
+      this.openModal('tagModal');
+      setTimeout(() => this.tagModalName.focus(), 100);
+    }
+
+    populateTagColorPresets(tagKey) {
+      if (!this.tagColorPalettePresets) return;
+      this.tagColorPalettePresets.innerHTML = '';
+      const curatedPresets = {
+        wall: [
+          { name: 'Emerald', hex: '#10b981' },
+          { name: 'Neon Mint', hex: '#00f5a0' },
+          { name: 'Green', hex: '#22c55e' },
+          { name: 'Lime', hex: '#84cc16' },
+          { name: 'Teal', hex: '#14b8a6' },
+          { name: 'Cyan', hex: '#06b6d4' },
+          { name: 'Sky Blue', hex: '#0ea5e9' },
+          { name: 'Rose', hex: '#f43f5e' },
+          { name: 'Coral', hex: '#ff6b4a' }
+        ],
+        series: [
+          { name: 'Cyan', hex: '#06b6d4' },
+          { name: 'Sky Blue', hex: '#0ea5e9' },
+          { name: 'Electric Blue', hex: '#38bdf8' },
+          { name: 'Indigo', hex: '#6366f1' },
+          { name: 'Purple', hex: '#a855f7' },
+          { name: 'Emerald', hex: '#10b981' },
+          { name: 'Rose', hex: '#f43f5e' },
+          { name: 'Orange', hex: '#f97316' },
+          { name: 'Teal', hex: '#14b8a6' }
+        ],
+        backpack: [
+          { name: 'Rose', hex: '#f43f5e' },
+          { name: 'Coral', hex: '#ff6b4a' },
+          { name: 'Orange', hex: '#f97316' },
+          { name: 'Pink', hex: '#ec4899' },
+          { name: 'Amber', hex: '#fbbf24' },
+          { name: 'Emerald', hex: '#10b981' },
+          { name: 'Cyan', hex: '#06b6d4' },
+          { name: 'Sky Blue', hex: '#0ea5e9' },
+          { name: 'Purple', hex: '#a855f7' }
+        ]
+      };
+
+      const palette = curatedPresets[tagKey] || curatedPresets.wall;
+      const currentHex = (this.tagModalColorHex.value || '#10b981').toLowerCase();
+
+      palette.forEach(p => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `color-swatch-btn ${p.hex.toLowerCase() === currentHex ? 'active' : ''}`;
+        btn.style.backgroundColor = p.hex;
+        btn.title = p.name;
+        btn.addEventListener('click', () => {
+          this.tagModalColorPicker.value = p.hex;
+          this.tagModalColorHex.value = p.hex;
+          this.tagColorPalettePresets.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.updateTagModalPreview();
+        });
+        this.tagColorPalettePresets.appendChild(btn);
+      });
+    }
+
+    updateTagModalPreview() {
+      if (!this.tagModalPreviewBadge) return;
+      const key = this.tagModalKey.value || 'wall';
+      const name = (this.tagModalName.value || (key.charAt(0).toUpperCase() + key.slice(1))).trim();
+      let color = (this.tagModalColorHex.value || this.tagModalColorPicker.value || '#10b981').trim();
+      if (!color.startsWith('#')) color = '#' + color;
+
+      const tagIcons = {
+        wall: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>',
+        series: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+        backpack: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>'
+      };
+
+      const icon = tagIcons[key] || '';
+      this.tagModalPreviewBadge.innerHTML = `${icon}<span>${this.escapeHtml(name)}</span>`;
+      this.tagModalPreviewBadge.style.color = color;
+      this.tagModalPreviewBadge.style.backgroundColor = `color-mix(in srgb, ${color} 14%, transparent)`;
+      this.tagModalPreviewBadge.style.borderColor = `color-mix(in srgb, ${color} 42%, transparent)`;
+    }
+
+    handleSaveTag() {
+      const key = this.tagModalKey.value;
+      const name = this.tagModalName.value.trim();
+      let color = (this.tagModalColorHex.value || this.tagModalColorPicker.value || '#10b981').trim();
+      if (!name || !key) return;
+      if (!color.startsWith('#')) color = '#' + color;
+
+      this.confirmAction('Confirm Save Tag', `Save changes to "${name}" tag?`, () => {
+        this.state.updateTag(key, { name, color });
+        this.applyThemeColors();
+        this.renderTagManagerList();
+        this.renderAll();
+        this.closeModal('tagModal');
+        this.showToast(`Updated "${name}" tag`);
+      });
+    }
+
+    openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) {
+        modal.style.display = 'flex';
+        document.body.classList.add('modal-open');
+      }
+    }
+
+    closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if (modal) modal.style.display = 'none';
+      if (modalId === 'confirmModal') {
+        this.pendingConfirmAction = null;
+      }
+      const anyOpen = Array.from(document.querySelectorAll('.modal-overlay')).some(m => m.style.display === 'flex');
+      if (!anyOpen) {
+        document.body.classList.remove('modal-open');
+      }
+    }
+
+    confirmAction(title, message, onAccept) {
+      this.confirmModalTitle.textContent = title;
+      this.confirmModalMessage.textContent = message;
+      this.pendingConfirmAction = onAccept;
+      this.openModal('confirmModal');
+    }
+
+    exportDatabaseJSON() {
+      const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.state.data, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute('href', dataStr);
+      downloadAnchor.setAttribute('download', `hellotalk-gifts-backup-${new Date().toISOString().slice(0, 10)}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      this.showToast('Database exported as JSON backup.');
+    }
+
+    handleImportFile(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        try {
+          const parsed = JSON.parse(event.target.result);
+          this.state.importData(parsed);
+          this.showToast('Database successfully imported and restored.');
+        } catch (err) {
+          alert('Failed to parse JSON file: ' + err.message);
+        }
+      };
+      reader.readAsText(file);
+      e.target.value = '';
+    }
+
+    toSmartTitleCase(str) {
+      if (!str) return '';
+      const trimmed = str.trim();
+      // If user typed entirely lowercase, capitalize each word nicely
+      if (trimmed === trimmed.toLowerCase()) {
+        return trimmed.split(' ').map(w => w ? (w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()) : '').join(' ');
+      }
+      // If string begins with lowercase letter, capitalize first letter
+      if (/^[a-z]/.test(trimmed)) {
+        return trimmed.charAt(0).toUpperCase() + trimmed.slice(1);
+      }
+      return trimmed;
+    }
+
+    initDuplicateDetection() {
+      let duplicateDebounceTimer;
+      if (this.editItemName) {
+        this.editItemName.addEventListener('input', () => {
+          clearTimeout(duplicateDebounceTimer);
+          duplicateDebounceTimer = setTimeout(() => {
+            this.checkItemDuplicates();
+          }, 150);
+        });
+      }
+
+      if (this.editItemSeries) {
+        this.editItemSeries.addEventListener('change', () => {
+          this.checkItemDuplicates();
+        });
+      }
+
+      if (this.scanDuplicatesBtn) {
+        this.scanDuplicatesBtn.addEventListener('click', () => {
+          this.scanDuplicates();
+        });
+      }
+    }
+
+    checkItemDuplicates() {
+      if (!this.editItemDuplicateAlert || !this.editItemName) return;
+      const name = this.editItemName.value.trim();
+      const seriesId = this.editItemSeries ? this.editItemSeries.value.trim() : '';
+      const currentId = this.editItemId ? this.editItemId.value : '';
+
+      if (!name) {
+        this.editItemDuplicateAlert.style.display = 'none';
+        return;
+      }
+
+      const normName = name.toLowerCase();
+      const items = this.state.data.items || [];
+
+      // 1. Same-series match check
+      const sameSeriesMatch = items.find(i => 
+        i.id !== currentId && 
+        (i.seriesId || '') === seriesId && 
+        (i.name || '').trim().toLowerCase() === normName
+      );
+
+      if (sameSeriesMatch) {
+        const ser = this.state.getSeries(sameSeriesMatch.seriesId);
+        const serName = ser ? ser.name : 'Current Series';
+        this.duplicateWarningText.innerHTML = `⚠️ Conflict: <strong>"${this.escapeHtml(sameSeriesMatch.name)}"</strong> already exists in <em>${this.escapeHtml(serName)}</em> (${sameSeriesMatch.baseValue} coins).`;
+        this.duplicateLoadExistingBtn.style.display = 'inline-block';
+        this.duplicateLoadExistingBtn.onclick = () => {
+          this.openEditItemModal(sameSeriesMatch.id);
+        };
+        this.editItemDuplicateAlert.style.display = 'flex';
+        return;
+      }
+
+      // 2. Cross-series informational note (HelloTalk allows duplicate names in different series)
+      const otherSeriesMatch = items.find(i => 
+        i.id !== currentId && 
+        (i.name || '').trim().toLowerCase() === normName
+      );
+
+      if (otherSeriesMatch) {
+        const ser = this.state.getSeries(otherSeriesMatch.seriesId);
+        const serName = ser ? ser.name : 'Another Series';
+        this.duplicateWarningText.innerHTML = `ℹ️ Note: <strong>"${this.escapeHtml(otherSeriesMatch.name)}"</strong> exists in <em>${this.escapeHtml(serName)}</em> (${otherSeriesMatch.baseValue} coins). Duplicate names across different series are valid.`;
+        this.duplicateLoadExistingBtn.style.display = 'none';
+        this.editItemDuplicateAlert.style.display = 'flex';
+        return;
+      }
+
+      this.editItemDuplicateAlert.style.display = 'none';
+    }
+
+    scanDuplicates() {
+      if (!this.duplicateAuditResults) return;
+      this.duplicateAuditResults.style.display = 'block';
+      this.duplicateAuditResults.innerHTML = '<div style="padding: 10px; color: var(--text-muted);">Auditing catalog gifts...</div>';
+
+      const items = this.state.data.items || [];
+      const groups = new Map();
+
+      items.forEach(item => {
+        const key = (item.seriesId || 'standalone') + ':::' + (item.name || '').trim().toLowerCase();
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(item);
+      });
+
+      const duplicateGroups = Array.from(groups.values()).filter(arr => arr.length > 1);
+
+      if (duplicateGroups.length === 0) {
+        this.duplicateAuditResults.innerHTML = `
+          <div style="padding: 10px 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-sm); color: #34d399; display: flex; align-items: center; gap: 8px;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            <span><strong>Catalog Integrity Verified:</strong> 0 duplicate gifts found across all series. Total items: ${items.length}.</span>
+          </div>
+        `;
+        return;
+      }
+
+      let html = `
+        <div style="margin-bottom: 8px; font-weight: 700; color: #f87171;">
+          Found ${duplicateGroups.length} duplicate group(s):
+        </div>
+      `;
+
+      duplicateGroups.forEach(group => {
+        const sample = group[0];
+        const ser = this.state.getSeries(sample.seriesId);
+        const serName = ser ? ser.name : 'Standalone';
+
+        html += `
+          <div class="duplicate-audit-group">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+              <span style="font-weight: 700; color: var(--text-primary);">${this.escapeHtml(sample.name)} (${this.escapeHtml(serName)})</span>
+              <button type="button" class="btn-secondary duplicate-merge-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">
+                Merge into One
+              </button>
+            </div>
+            ${group.map(g => `
+              <div class="duplicate-item-row">
+                <span style="font-size: 11px; color: var(--text-muted);">
+                  ID: ${this.escapeHtml(g.id)} | Base: ${g.baseValue} coins | Qty: ${g.quantity || 0} | Wall: ${g.wallOwned ? 'Yes' : 'No'} | Tier: ${this.escapeHtml(g.tier || 'Standard')}
+                </span>
+                <button type="button" class="btn-modal-delete" data-delete-id="${g.id}" style="font-size: 10px; padding: 2px 6px;">Delete</button>
+              </div>
+            `).join('')}
+          </div>
+        `;
+      });
+
+      this.duplicateAuditResults.innerHTML = html;
+
+      // Bind merge action
+      this.duplicateAuditResults.querySelectorAll('.duplicate-merge-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ids = btn.dataset.groupIds.split(',');
+          if (ids.length <= 1) return;
+          const primaryId = ids[0];
+          const primary = this.state.getItem(primaryId);
+          if (!primary) return;
+
+          let totalQty = Number(primary.quantity) || 0;
+          let anyWall = !!primary.wallOwned;
+          let anyStarred = !!primary.starred;
+
+          for (let i = 1; i < ids.length; i++) {
+            const other = this.state.getItem(ids[i]);
+            if (other) {
+              totalQty += Number(other.quantity) || 0;
+              if (other.wallOwned) anyWall = true;
+              if (other.starred) anyStarred = true;
+              this.state.deleteItem(ids[i]);
+            }
+          }
+
+          const tabs = Array.isArray(primary.tabs) ? [...primary.tabs] : [];
+          if (anyWall && !tabs.includes('wall')) tabs.push('wall');
+          if (totalQty > 0 && !tabs.includes('backpack')) tabs.push('backpack');
+
+          this.state.updateItem(primaryId, {
+            quantity: totalQty,
+            wallOwned: anyWall,
+            starred: anyStarred,
+            tabs: tabs
+          });
+
+          this.showToast(`Merged duplicate group into "${primary.name}"`);
+          this.scanDuplicates();
+        });
+      });
+
+      // Bind delete action
+      this.duplicateAuditResults.querySelectorAll('[data-delete-id]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const delId = btn.dataset.deleteId;
+          this.state.deleteItem(delId);
+          this.showToast('Deleted duplicate item');
+          this.scanDuplicates();
+        });
+      });
+    }
+
+    initGitHubSync() {
+      const STORAGE_KEY_TOKEN = 'ht_gh_pat';
+      const STORAGE_KEY_LAST_SYNC = 'ht_gh_last_sync';
+
+      const updateUI = () => {
+        const token = localStorage.getItem(STORAGE_KEY_TOKEN);
+        const lastSync = localStorage.getItem(STORAGE_KEY_LAST_SYNC);
+
+        if (token) {
+          if (this.ghSyncStatusBadge) {
+            this.ghSyncStatusBadge.className = 'status-badge status-online';
+            this.ghSyncStatusBadge.textContent = 'Token Connected';
+          }
+          if (this.ghClearTokenBtn) this.ghClearTokenBtn.style.display = 'inline-block';
+          if (this.ghPatInput && !this.ghPatInput.value) {
+            this.ghPatInput.placeholder = '•••••••••••••••••••••••••••• (Saved)';
+          }
+        } else {
+          if (this.ghSyncStatusBadge) {
+            this.ghSyncStatusBadge.className = 'status-badge status-offline';
+            this.ghSyncStatusBadge.textContent = 'No Token';
+          }
+          if (this.ghClearTokenBtn) this.ghClearTokenBtn.style.display = 'none';
+          if (this.ghPatInput) this.ghPatInput.placeholder = 'Personal Access Token (ghp_...)';
+        }
+
+        if (this.ghLastSyncTime) {
+          this.ghLastSyncTime.textContent = lastSync ? `Last synced: ${lastSync}` : 'Never synced';
+        }
+      };
+
+      if (this.ghSaveTokenBtn) {
+        this.ghSaveTokenBtn.addEventListener('click', () => {
+          const val = this.ghPatInput ? this.ghPatInput.value.trim() : '';
+          if (!val) {
+            this.showToast('Please enter a GitHub Personal Access Token.');
+            return;
+          }
+          localStorage.setItem(STORAGE_KEY_TOKEN, val);
+          if (this.ghPatInput) this.ghPatInput.value = '';
+          updateUI();
+          this.showToast('GitHub token securely saved in browser storage.');
+        });
+      }
+
+      if (this.ghClearTokenBtn) {
+        this.ghClearTokenBtn.addEventListener('click', () => {
+          localStorage.removeItem(STORAGE_KEY_TOKEN);
+          if (this.ghPatInput) this.ghPatInput.value = '';
+          updateUI();
+          this.showToast('GitHub token cleared.');
+        });
+      }
+
+      if (this.ghPushBtn) {
+        this.ghPushBtn.addEventListener('click', () => {
+          this.pushToGitHub();
+        });
+      }
+
+      if (this.ghPullBtn) {
+        this.ghPullBtn.addEventListener('click', () => {
+          this.pullFromGitHub();
+        });
+      }
+
+      updateUI();
+    }
+
+    async pushToGitHub() {
+      const STORAGE_KEY_TOKEN = 'ht_gh_pat';
+      const STORAGE_KEY_LAST_SYNC = 'ht_gh_last_sync';
+      const token = localStorage.getItem(STORAGE_KEY_TOKEN);
+
+      if (!token) {
+        alert('Please save a GitHub Personal Access Token (Fine-grained or classic with "repo" permission) before syncing.');
+        if (this.ghPatInput) this.ghPatInput.focus();
+        return;
+      }
+
+      this.confirmAction(
+        'Commit & Deploy to GitHub Pages',
+        'Push current database changes (Categories, Series, and 759 Gifts) to GitHub repo "LbsLightX/ht-database"?\n\nThis will trigger GitHub Actions to auto-rebuild and update GitHub Pages.',
+        async () => {
+          const repo = 'LbsLightX/ht-database';
+          const filePaths = ['data/hellotalk-gifts.json', 'data/template-seed.json'];
+          const commitMessage = `Update database via Web Vault [${new Date().toISOString()}]`;
+          const jsonContent = JSON.stringify(this.state.data, null, 2);
+
+          const utf8ToBase64 = (str) => {
+            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) => {
+              return String.fromCharCode(parseInt(p1, 16));
+            }));
+          };
+          const base64Content = utf8ToBase64(jsonContent);
+
+          this.showToast('Connecting to GitHub API...');
+
+          try {
+            for (const path of filePaths) {
+              const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+
+              let currentSha = null;
+              const getRes = await fetch(url, {
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Accept': 'application/vnd.github.v3+json'
+                }
+              });
+
+              if (getRes.ok) {
+                const getData = await getRes.json();
+                currentSha = getData.sha;
+              } else if (getRes.status !== 404) {
+                const errData = await getRes.json().catch(() => ({}));
+                throw new Error(`Failed to query ${path}: ${errData.message || getRes.statusText}`);
+              }
+
+              const putBody = {
+                message: commitMessage,
+                content: base64Content,
+                branch: 'main'
+              };
+              if (currentSha) {
+                putBody.sha = currentSha;
+              }
+
+              const putRes = await fetch(url, {
+                method: 'PUT',
+                headers: {
+                  'Authorization': `Bearer ${token}`,
+                  'Accept': 'application/vnd.github.v3+json',
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(putBody)
+              });
+
+              if (!putRes.ok) {
+                const putErr = await putRes.json().catch(() => ({}));
+                throw new Error(`Failed to commit ${path}: ${putErr.message || putRes.statusText}`);
+              }
+            }
+
+            const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            localStorage.setItem(STORAGE_KEY_LAST_SYNC, nowStr);
+            if (this.ghLastSyncTime) this.ghLastSyncTime.textContent = `Last synced: ${nowStr}`;
+            this.showToast('🚀 Pushed to GitHub! GitHub Pages is building automatically.');
+          } catch (err) {
+            alert('GitHub Sync Error: ' + err.message);
+          }
+        }
+      );
+    }
+
+    async pullFromGitHub() {
+      const STORAGE_KEY_TOKEN = 'ht_gh_pat';
+      const STORAGE_KEY_LAST_SYNC = 'ht_gh_last_sync';
+      const token = localStorage.getItem(STORAGE_KEY_TOKEN);
+      const repo = 'LbsLightX/ht-database';
+      const path = 'data/hellotalk-gifts.json';
+
+      this.confirmAction(
+        'Pull Latest from GitHub',
+        'Pull latest database JSON from repository "LbsLightX/ht-database"? This will update your local browser data.',
+        async () => {
+          this.showToast('Fetching latest database from GitHub...');
+          try {
+            const headers = { 'Accept': 'application/vnd.github.v3+json' };
+            if (token) headers['Authorization'] = `Bearer ${token}`;
+
+            const url = `https://api.github.com/repos/${repo}/contents/${path}?ref=main&t=${Date.now()}`;
+            const res = await fetch(url, { headers });
+
+            if (!res.ok) {
+              const errData = await res.json().catch(() => ({}));
+              throw new Error(`Failed to fetch database: ${errData.message || res.statusText}`);
+            }
+
+            const data = await res.json();
+            if (!data.content) throw new Error('Repository response does not contain file content.');
+
+            const base64ToUtf8 = (str) => {
+              const binStr = atob(str.replace(/\s+/g, ''));
+              const bytes = new Uint8Array(binStr.length);
+              for (let i = 0; i < binStr.length; i++) {
+                bytes[i] = binStr.charCodeAt(i);
+              }
+              return new TextDecoder('utf-8').decode(bytes);
+            };
+
+            const rawJson = base64ToUtf8(data.content);
+            const parsed = JSON.parse(rawJson);
+            this.state.importData(parsed);
+
+            const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            localStorage.setItem(STORAGE_KEY_LAST_SYNC, nowStr);
+            if (this.ghLastSyncTime) this.ghLastSyncTime.textContent = `Last synced: ${nowStr}`;
+
+            this.showToast('✅ Successfully pulled and synced latest database from GitHub!');
+          } catch (err) {
+            alert('GitHub Pull Error: ' + err.message);
+          }
+        }
+      );
+    }
+
+    showToast(msg) {
+      if (!this.toastContainer) return;
+      const toast = document.createElement('div');
+      toast.className = 'toast';
+      toast.textContent = msg;
+      this.toastContainer.appendChild(toast);
+      setTimeout(() => {
+        toast.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(8px)';
+        setTimeout(() => toast.remove(), 200);
+      }, 2400);
+    }
+
+    formatNumber(num) {
+      return (Number(num) || 0).toLocaleString('en-US');
+    }
+
+    escapeHtml(str) {
+      return String(str ?? '').replace(/[&<>"']/g, m => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[m]));
+    }
+  }
+
+  // Boot Application on DOM Ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => new HelloTalkApp());
+  } else {
+    new HelloTalkApp();
+  }
+})();

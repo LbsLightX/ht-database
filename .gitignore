@@ -1,0 +1,13 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Temporary and log files
+*.tmp
+*.log
+.DS_Store
+
+# Node
+node_modules/
+npm-debug.log*

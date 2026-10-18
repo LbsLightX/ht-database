@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="theme-color" content="#0f1115">
+  <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
+  <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
+  <link rel="stylesheet" href="styles.css?v=1.0.0">
+</head>
+<body>
+
+  <!-- ==================================================================== -->
+  <!-- TOP APPLICATION BAR -->
+  <!-- ==================================================================== -->
+  <header class="app-topbar">
+    <div class="topbar-inner">
+      <div class="brand-section">
+        <div class="brand-info">
+          <h1 class="brand-title">HelloTalk Database</h1>
+          <span class="brand-subtitle">Gift Wall &amp; Valuation Catalog</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================================================================== -->
+  <!-- MAIN CONTAINER -->
+  <!-- ==================================================================== -->
+  <main class="app-container">
+
+    <!-- ================================================================== -->
+    <!-- UNIFIED GLOBAL SEARCH BAR (ACTIVE ACROSS ALL TABS) -->
+    <!-- ================================================================== -->
+    <div class="search-hub-global">
+      <div class="search-nav-row">
+        <div class="search-box-row">
+          <svg class="search-icon-svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+          <input type="text" id="globalSearchInput" class="search-input" placeholder="Search 750+ gifts, series, tiers across catalog..." autocomplete="off" spellcheck="false">
+          <button id="globalClearSearchBtn" class="search-clear-btn" title="Clear query" style="display: none;">&times;</button>
+        </div>
+        <button id="navAddGiftBtn" class="btn-primary search-add-btn" title="Add New Gift to Catalog" aria-label="Add New Gift">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>New Gift</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <!-- TAB 1: BACKPACK (ACTIVE INVENTORY & STOCK MANAGEMENT) -->
+    <!-- ================================================================== -->
+    <section id="tab-backpack" class="tab-pane active" role="tabpanel">
+      <!-- Backpack Summary Hero -->
+      <div class="summary-hero-row">
+        <div class="summary-metric-card">
+          <div class="metric-label">Total Backpack Units</div>
+          <div class="metric-val" id="bpTotalUnits">0</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;"><span id="bpUniqueItems">0</span> Unique Stored Gifts</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Market Inventory Worth</div>
+          <div class="metric-val" id="bpMarketWorth" style="color: #38bdf8;">0</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Base Cost: <span id="bpBaseWorth">0</span> Coins</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Surplus Valuation Spread</div>
+          <div class="metric-val" id="bpProfitSpread">0</div>
+          <div style="font-size: 10px; color: #fb923c; margin-top: 3px;"><span id="bpExchangeMarkerCount">0</span> Need Wall Exchange</div>
+        </div>
+      </div>
+
+      <!-- Backpack Filter Hub -->
+      <div class="search-control-hub">
+        <!-- Status Chips -->
+        <div class="filter-scroll-rail" id="bpStatusPills">
+          <button class="filter-chip active" data-bp-status="all">All Inventory <span class="chip-badge" id="bpCountAll">0</span></button>
+          <button class="filter-chip" data-bp-status="in-stock">In Stock (=1) <span class="chip-badge" id="bpCountInStock">0</span></button>
+          <button class="filter-chip chip-exchange" data-bp-status="exchange-needed">Exchange Needed <span class="chip-badge" id="bpCountExchange">0</span></button>
+          <button class="filter-chip chip-starred" data-bp-status="starred">Saved / Priority <span class="chip-badge" id="bpCountStarred">0</span></button>
+          <button class="filter-chip" data-bp-status="extras">Tradable Extras (&gt;1) <span class="chip-badge" id="bpCountExtras">0</span></button>
+        </div>
+
+        <!-- Tier Chips -->
+        <div class="filter-scroll-rail" id="bpTierPills"></div>
+
+        <!-- Dropdowns Row -->
+        <div class="filter-dropdowns-row">
+          <div class="select-group">
+            <label for="bpFilterCategory">Category</label>
+            <select id="bpFilterCategory" class="clean-select">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="bpFilterSeries">Series</label>
+            <select id="bpFilterSeries" class="clean-select">
+              <option value="">All Series</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="bpFilterTier">Tier</label>
+            <select id="bpFilterTier" class="clean-select">
+              <option value="">All Tiers</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="bpSortBy">Sort By</label>
+            <select id="bpSortBy" class="clean-select">
+              <option value="base-desc" selected>Coins: High &rarr; Low</option>
+              <option value="base-asc">Coins: Low &rarr; High</option>
+              <option value="qty-desc">Quantity: High &rarr; Low</option>
+              <option value="tier-rank">Tier: Standard &rarr; Collection</option>
+              <option value="name-asc">Alphabetical: A &rarr; Z</option>
+              <option value="recent-desc">Recently Updated</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="bpResetFiltersBtn" class="filter-chip" style="display: none; width: fit-content; margin-top: 4px;">Reset Inventory Filters</button>
+      </div>
+
+      <!-- Backpack Inventory Grid -->
+      <div class="gifts-grid" id="backpackGrid"></div>
+
+      <!-- Scroll Sentinel for Batched Loading -->
+      <div id="bpScrollSentinel" style="height: 30px;"></div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- TAB 2: SERIES (MASTER CATALOG FOR ALL 759 GIFTS & 91 SERIES) -->
+    <!-- ================================================================== -->
+    <section id="tab-series" class="tab-pane" role="tabpanel">
+      <!-- Master Catalog Summary Hero -->
+      <div class="summary-hero-row">
+        <div class="summary-metric-card">
+          <div class="metric-label">Master Catalog</div>
+          <div class="metric-val" id="seriesTotalGifts">759</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;"><span id="seriesTotalCount">91</span> Active Series</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Wall Collected Progress</div>
+          <div class="metric-val" id="seriesWallProgressRatio">0 / 759</div>
+          <div class="progress-track">
+            <div class="progress-bar-fill" id="seriesWallProgressBar" style="width: 0%;"></div>
+          </div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;" id="seriesWallProgressPercent">0% Collected on Wall</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Completed Series Sets</div>
+          <div class="metric-val" id="seriesCompleteRatio">0 / 91</div>
+          <div class="progress-track">
+            <div class="progress-bar-fill complete" id="seriesCompleteBar" style="width: 0%;"></div>
+          </div>
+          <div style="font-size: 10px; color: var(--badge-collected-text); margin-top: 3px;" id="seriesCompletePercent">0% Series Complete</div>
+        </div>
+      </div>
+
+      <!-- Series Master Filter Hub -->
+      <div class="search-control-hub" id="seriesFilterHub">
+        <!-- Status Chips -->
+        <div class="filter-scroll-rail" id="seriesStatusPills">
+          <button class="filter-chip active" data-series-status="all">All Gifts <span class="chip-badge" id="seriesCountAll">759</span></button>
+          <button class="filter-chip" data-series-status="collected">Collected on Wall <span class="chip-badge" id="seriesCountCollected">0</span></button>
+          <button class="filter-chip" data-series-status="missing">Missing from Wall <span class="chip-badge" id="seriesCountMissing">759</span></button>
+          <button class="filter-chip" data-series-status="in-stock">In Backpack Stock <span class="chip-badge" id="seriesCountInStock">0</span></button>
+        </div>
+
+        <!-- Tier Chips -->
+        <div class="filter-scroll-rail" id="seriesTierPills"></div>
+
+        <!-- Dropdowns Row -->
+        <div class="filter-dropdowns-row">
+          <div class="select-group">
+            <label for="seriesFilterCategory">Category</label>
+            <select id="seriesFilterCategory" class="clean-select">
+              <option value="">All Categories</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="seriesFilterSeries">Series</label>
+            <select id="seriesFilterSeries" class="clean-select">
+              <option value="">All Series</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="seriesFilterTier">Tier</label>
+            <select id="seriesFilterTier" class="clean-select">
+              <option value="">All Tiers</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="seriesSortBy">Sort By</label>
+            <select id="seriesSortBy" class="clean-select">
+              <option value="coins-desc" selected>Coins: High &rarr; Low</option>
+              <option value="coins-asc">Coins: Low &rarr; High</option>
+              <option value="tier-rank">Tier: Standard &rarr; Collection</option>
+              <option value="name-asc">Alphabetical: A &rarr; Z</option>
+              <option value="missing-first">Missing from Wall First</option>
+              <option value="series-group">Series Grouping</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="seriesResetFiltersBtn" class="filter-chip" style="display: none; width: fit-content; margin-top: 4px;">Reset Filters</button>
+      </div>
+
+      <!-- Container: All Gifts Grid -->
+      <div id="seriesGiftsContainer">
+        <div class="gifts-grid" id="seriesGiftsGrid"></div>
+        <div id="seriesScrollSentinel" style="height: 30px;"></div>
+      </div>
+
+      <!-- Container C: Series Focused Drilldown View -->
+      <div id="seriesDrillDownView" style="display: none;">
+        <div style="background-color: var(--bg-surface); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 16px; margin-bottom: 14px;">
+          <button id="backToSeriesListBtn" class="btn-secondary" style="padding: 5px 12px; font-size: 11px; margin-bottom: 10px;">&larr; Back to All Gifts</button>
+          <div style="display: flex; align-items: flex-start; justify-content: space-between; gap: 10px;">
+            <div>
+              <div style="font-size: 10px; font-weight: 700; color: var(--accent-primary); text-transform: uppercase;" id="drillCategoryCrumb">Category</div>
+              <h2 style="font-size: 18px; font-weight: 800; color: var(--text-primary); margin: 3px 0;" id="drillSeriesTitle">Series Name</h2>
+              <p style="font-size: 12px; color: var(--text-secondary);" id="drillSeriesDesc"></p>
+            </div>
+            <span class="badge-series" id="drillSeriesBadge"></span>
+          </div>
+
+          <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle);">
+            <div style="display: flex; justify-content: space-between; font-size: 11px; font-weight: 700; margin-bottom: 4px;">
+              <span id="drillProgressText">0 / 0 Collected on Wall</span>
+              <span id="drillUnitsText">0 Units in Backpack</span>
+            </div>
+            <div class="progress-track" style="height: 7px;">
+              <div class="progress-bar-fill" id="drillProgressBar" style="width: 0%;"></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="font-size: 13px; font-weight: 800; margin-bottom: 10px;" id="drillGiftsCountTitle">Series Gifts (0)</h3>
+        <div class="gifts-grid" id="drillGiftsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- TAB 3: WALL (DISPLAYING STRICTLY GIFTS MARKED AS COLLECTED) -->
+    <!-- ================================================================== -->
+    <section id="tab-wall" class="tab-pane" role="tabpanel">
+      <!-- Wall Summary Hero -->
+      <div class="summary-hero-row">
+        <div class="summary-metric-card">
+          <div class="metric-label">Gifts on Wall</div>
+          <div class="metric-val" id="wallCollectedTotal" style="color: var(--badge-collected-text);">0</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Collected Wall Catalog</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Wall Base Value</div>
+          <div class="metric-val" id="wallBaseTotal">0</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Cumulative Base Coins</div>
+        </div>
+
+        <div class="summary-metric-card">
+          <div class="metric-label">Wall Market Worth</div>
+          <div class="metric-val" id="wallMarketTotal" style="color: #38bdf8;">0</div>
+          <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Estimated Total Market Value</div>
+        </div>
+      </div>
+
+      <!-- Wall Filter Hub -->
+      <div class="search-control-hub">
+        <!-- Status Chips -->
+        <div class="filter-scroll-rail" id="wallStatusPills">
+          <button class="filter-chip active" data-wall-status="all">All Collected <span class="chip-badge" id="wallCountCollectedOnly">0</span></button>
+          <button class="filter-chip chip-starred" data-wall-status="starred">Starred / Priority <span class="chip-badge" id="wallCountStarredOnly">0</span></button>
+        </div>
+
+        <!-- Tier Chips -->
+        <div class="filter-scroll-rail" id="wallTierPills"></div>
+
+        <!-- Dropdowns Row -->
+        <div class="filter-dropdowns-row">
+          <div class="select-group">
+            <label for="wallFilterCategory">Category</label>
+            <select id="wallFilterCategory" class="clean-select">
+              <option value="">All Collected Categories</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="wallFilterSeries">Series</label>
+            <select id="wallFilterSeries" class="clean-select">
+              <option value="">All Collected Series</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="wallFilterTier">Tier</label>
+            <select id="wallFilterTier" class="clean-select">
+              <option value="">All Tiers</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="wallSortBy">Sort By</label>
+            <select id="wallSortBy" class="clean-select">
+              <option value="coins-desc" selected>Coins: High &rarr; Low</option>
+              <option value="coins-asc">Coins: Low &rarr; High</option>
+              <option value="tier-rank">Tier: Standard &rarr; Collection</option>
+              <option value="name-asc">Alphabetical: A &rarr; Z</option>
+              <option value="recent-desc">Recently Collected</option>
+            </select>
+          </div>
+        </div>
+
+        <button id="wallResetFiltersBtn" class="filter-chip" style="display: none; width: fit-content; margin-top: 4px;">Reset Wall Filters</button>
+      </div>
+
+      <!-- Wall Collected Gifts Grid -->
+      <div class="gifts-grid" id="wallGrid"></div>
+
+      <!-- Scroll Sentinel for Batched Loading -->
+      <div id="wallScrollSentinel" style="height: 30px;"></div>
+    </section>
+
+    <!-- ================================================================== -->
+    <!-- TAB 4: PORTFOLIO & STUDIO (VALUATION BREAKDOWN & STUDIO MANAGERS) -->
+    <!-- ================================================================== -->
+    <section id="tab-portfolio" class="tab-pane" role="tabpanel">
+      <!-- Tier Breakdown Card -->
+      <div class="breakdown-table-container">
+        <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--text-primary);">Tier Valuation &amp; Holdings Breakdown</h2>
+          <span style="font-size: 11px; color: var(--text-muted);">Live Inventory Sync</span>
+        </div>
+        <div style="overflow-x: auto;">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Catalog Gifts</th>
+                <th>Held Units</th>
+                <th>Base Value</th>
+                <th>Market Worth</th>
+                <th>Spread</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerTierTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Series Breakdown Card -->
+      <div class="breakdown-table-container">
+        <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+          <h2 style="font-size: 14px; font-weight: 800; color: var(--text-primary);">Series Progress &amp; Completion</h2>
+          <span style="font-size: 11px; color: var(--text-muted);">Global Collection Wall Progress</span>
+        </div>
+        <div style="overflow-x: auto; max-height: 400px;">
+          <table class="clean-table">
+            <thead>
+              <tr>
+                <th>Series Name</th>
+                <th>Category</th>
+                <th>Wall Progress</th>
+                <th>Backpack Units</th>
+                <th>Base Value</th>
+                <th>Market Worth</th>
+              </tr>
+            </thead>
+            <tbody id="ledgerSeriesTableBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Management & Data Maintenance -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-bottom: 16px;">
+        <!-- Category Manager -->
+        <div class="summary-metric-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div class="metric-label">Category Management (<span id="catTotalCount">0</span>)</div>
+            <button id="addCategoryBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px;">+ New Category</button>
+          </div>
+          <div id="categoryManagerList" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;"></div>
+        </div>
+
+        <!-- Series Manager -->
+        <div class="summary-metric-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div class="metric-label">Series Management (<span id="serTotalCount">0</span>)</div>
+            <button id="addSeriesBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px;">+ New Series</button>
+          </div>
+          <div id="seriesManagerList" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;"></div>
+        </div>
+
+        <!-- Tier Manager -->
+        <div class="summary-metric-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div class="metric-label">Tier Management (<span id="tierTotalCount">0</span>)</div>
+            <button id="addTierBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px;">+ New Tier</button>
+          </div>
+          <div id="tierManagerList" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;"></div>
+        </div>
+
+        <!-- Tag and Series Management -->
+        <div class="summary-metric-card">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <div class="metric-label">Tag and Series Management (<span id="tagTotalCount">3</span>)</div>
+            <button id="resetTagManagerBtn" class="btn-secondary" style="padding: 4px 10px; font-size: 11px;">Reset Defaults</button>
+          </div>
+          <div id="tagManagerList" style="max-height: 200px; overflow-y: auto; display: flex; flex-direction: column; gap: 4px;"></div>
+        </div>
+      </div>
+
+      <!-- Catalog Integrity & Duplicate Scanner Card -->
+      <div class="summary-metric-card" style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <div class="metric-label">Catalog Integrity &amp; Duplicate Audit</div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Scans for duplicate or variant gift entries across all series</div>
+          </div>
+          <button type="button" id="scanDuplicatesBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 14px;">Scan Catalog</button>
+        </div>
+        <div id="duplicateAuditResults" style="display: none; margin-top: 12px; font-size: 12px;"></div>
+      </div>
+
+      <!-- GitHub Cloud Synchronization Card -->
+      <div class="summary-metric-card" style="margin-bottom: 16px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <div>
+            <div class="metric-label" style="display: flex; align-items: center; gap: 8px;">
+              <span>GitHub Cloud Synchronization</span>
+              <span id="ghSyncStatusBadge" class="status-badge status-offline">No Token</span>
+            </div>
+            <div style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">Direct Browser ⇄ GitHub Pages 2-Way Sync (<code style="color: var(--accent-series);">LbsLightX/ht-database</code>)</div>
+          </div>
+          <span id="ghLastSyncTime" style="font-size: 11px; color: var(--text-muted);">Never synced</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 12px;">
+          <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+            <input type="password" id="ghPatInput" class="form-input" placeholder="Personal Access Token (ghp_...)" style="flex: 1; min-width: 200px; font-size: 12px; padding: 7px 10px;">
+            <button type="button" id="ghSaveTokenBtn" class="btn-secondary" style="font-size: 12px; padding: 7px 12px;">Save Token</button>
+            <button type="button" id="ghClearTokenBtn" class="btn-secondary" style="font-size: 12px; padding: 7px 12px; display: none; color: var(--danger);">Clear</button>
+          </div>
+          <div style="font-size: 10px; color: var(--text-muted);">
+            Token is stored strictly in your browser's private <code>localStorage</code> with zero server exposure.
+          </div>
+          <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;">
+            <button type="button" id="ghPushBtn" class="btn-secondary" style="font-size: 12px; padding: 8px 14px; background: rgba(59, 130, 246, 0.15); border-color: rgba(59, 130, 246, 0.4); color: #60a5fa;">
+              🚀 Commit &amp; Deploy to GitHub Pages
+            </button>
+            <button type="button" id="ghPullBtn" class="btn-secondary" style="font-size: 12px; padding: 8px 14px;">
+              ⬇️ Pull Latest from GitHub
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Data Portability Tools -->
+      <div class="summary-metric-card" style="margin-bottom: 20px;">
+        <div class="metric-label" style="margin-bottom: 10px;">Database Portability &amp; State Maintenance</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+          <button id="exportDataBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 14px;">Export Database JSON</button>
+          <label class="btn-secondary" style="font-size: 12px; padding: 6px 14px; cursor: pointer;">
+            Import JSON <input type="file" id="importFileInput" accept=".json" style="display: none;">
+          </label>
+          <button id="wipeDataBtn" class="btn-secondary" style="font-size: 12px; padding: 6px 14px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">Reset to Official Seed</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================================================================== -->
+  <!-- BOTTOM NAVIGATION DOCK (ENFORCED ORDER: BACKPACK, SERIES, WALL, PORTFOLIO) -->
+  <!-- ==================================================================== -->
+  <nav class="bottom-nav-dock">
+    <div class="dock-pill">
+      <button class="dock-item active" data-tab="tab-backpack" id="navTabBackpack">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path>
+          <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+          <path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path>
+          <line x1="8" y1="10" x2="16" y2="10"></line>
+        </svg>
+        <span>Backpack</span>
+      </button>
+
+      <button class="dock-item" data-tab="tab-series" id="navTabSeries">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+          <polyline points="2 17 12 22 22 17"></polyline>
+          <polyline points="2 12 12 17 22 12"></polyline>
+        </svg>
+        <span>Series</span>
+      </button>
+
+      <button class="dock-item" data-tab="tab-wall" id="navTabWall">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+          <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+        </svg>
+        <span>Wall</span>
+      </button>
+
+      <button class="dock-item" data-tab="tab-portfolio" id="navTabPortfolio">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="20" x2="18" y2="10"></line>
+          <line x1="12" y1="20" x2="12" y2="4"></line>
+          <line x1="6" y1="20" x2="6" y2="14"></line>
+        </svg>
+        <span>Portfolio</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ==================================================================== -->
+  <!-- MODALS -->
+  <!-- ==================================================================== -->
+
+  <!-- EDIT / NEW GIFT MODAL (PINNED TOP ACTIONS: DELETE, CANCEL, SAVE) -->
+  <div id="itemModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card">
+      <div class="sheet-drag-handle"></div>
+      <form id="editItemForm" style="display: flex; flex-direction: column; height: 100%; min-height: 0;">
+        <div class="modal-header modal-header-action-bar">
+          <div class="modal-header-left">
+            <h3 id="itemModalTitle">Edit Gift</h3>
+          </div>
+          <div class="modal-header-actions">
+            <button type="button" id="modalDeleteBtn" class="btn-modal-delete" style="display: none;" title="Delete Gift">Delete</button>
+            <button type="button" id="modalCancelBtn" class="btn-modal-cancel" data-modal="itemModal">Cancel</button>
+            <button type="submit" id="modalSaveBtn" class="btn-modal-save">Save</button>
+            <button type="button" class="modal-close" data-modal="itemModal" aria-label="Close dialog">&times;</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <input type="hidden" id="editItemId">
+
+          <!-- Category & Series Selection (Supports Standalone Base) -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="editItemCategory">Category</label>
+              <select id="editItemCategory" class="form-select">
+                <option value="">None / Standalone Base</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="editItemSeries">Series</label>
+              <select id="editItemSeries" class="form-select" disabled>
+                <option value="">None / Standalone</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="editItemName">Gift Name</label>
+            <input type="text" id="editItemName" class="form-input" required placeholder="Enter gift name">
+          </div>
+
+          <!-- Real-Time Duplicate Warning / Conflict Alert Banner -->
+          <div id="editItemDuplicateAlert" class="duplicate-warning-banner" style="display: none;">
+            <div class="duplicate-warning-icon">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="8" x2="12" y2="12"></line>
+                <line x1="12" y1="16" x2="12.01" y2="16"></line>
+              </svg>
+            </div>
+            <div class="duplicate-warning-content">
+              <span id="duplicateWarningText"></span>
+            </div>
+            <button type="button" id="duplicateLoadExistingBtn" class="btn-secondary duplicate-load-btn">Load Existing</button>
+          </div>
+
+          <!-- Valuation Inputs -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="editItemBaseValue">Base Coins</label>
+              <input type="number" id="editItemBaseValue" class="form-input tabular" min="0" required placeholder="0">
+            </div>
+            <div class="form-group">
+              <label for="editItemMarketWorth">Market Worth</label>
+              <input type="number" id="editItemMarketWorth" class="form-input tabular" min="0" placeholder="0">
+            </div>
+          </div>
+
+          <!-- Backpack Quantity Input -->
+          <div class="form-group">
+            <label for="editItemQuantity">Backpack Quantity</label>
+            <input type="number" id="editItemQuantity" class="form-input tabular" min="0" placeholder="0">
+          </div>
+
+          <!-- Target Tabs Assignment (Multi-Select Pills) -->
+          <div class="form-group">
+            <label>Target Tabs Assignment</label>
+            <div class="preset-buttons-row" id="editItemTabsPresets">
+              <button type="button" class="preset-btn tab-preset-btn" data-tab-name="backpack">Backpack</button>
+              <button type="button" class="preset-btn tab-preset-btn" data-tab-name="series">Series</button>
+              <button type="button" class="preset-btn tab-preset-btn" data-tab-name="wall">Wall</button>
+            </div>
+          </div>
+
+          <!-- Star Priority Marker (Uniform Left Alignment) -->
+          <div class="form-group">
+            <label class="form-checkbox-label">
+              <input type="checkbox" id="editItemStarred" class="form-checkbox" style="accent-color: #ca8a04;">
+              <span>Save / Series Priority (Do Not Trade)</span>
+            </label>
+          </div>
+
+          <!-- Manual Tier Selection (User Choice Respected Unconditionally) -->
+          <div class="form-group">
+            <label for="editItemTier">Tier Classification</label>
+            <div class="preset-buttons-row" id="editItemTierPresets">
+              <button type="button" class="preset-btn tier-preset-btn active" data-tier="Standard">Standard</button>
+              <button type="button" class="preset-btn tier-preset-btn" data-tier="Featured">Featured</button>
+              <button type="button" class="preset-btn tier-preset-btn" data-tier="Limited">Limited</button>
+              <button type="button" class="preset-btn tier-preset-btn" data-tier="Luxury">Luxury</button>
+              <button type="button" class="preset-btn tier-preset-btn" data-tier="Collection">Collection</button>
+            </div>
+            <input type="hidden" id="editItemTier" value="Standard">
+          </div>
+
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CATEGORY MODAL -->
+  <div id="categoryModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-header">
+        <h3 id="catModalTitle">Category</h3>
+        <div class="modal-header-actions">
+          <button type="button" id="catModalDeleteBtn" class="btn-modal-delete" style="display: none;">Delete</button>
+          <button type="button" class="btn-modal-cancel" data-modal="categoryModal">Cancel</button>
+          <button type="submit" form="categoryForm" class="btn-modal-save">Save</button>
+        </div>
+      </div>
+      <form id="categoryForm">
+        <div class="modal-body">
+          <input type="hidden" id="catModalId">
+          <div class="form-group">
+            <label for="catModalName">Category Name</label>
+            <input type="text" id="catModalName" class="form-input" required placeholder="e.g. Activity, Luxury, Special">
+          </div>
+          <div class="form-group">
+            <label for="catModalDesc">Description</label>
+            <textarea id="catModalDesc" class="form-textarea" rows="2" placeholder="Optional category description"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- SERIES MODAL -->
+  <div id="seriesModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 420px;">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-header">
+        <h3 id="serModalTitle">Series</h3>
+        <div class="modal-header-actions">
+          <button type="button" id="serModalDeleteBtn" class="btn-modal-delete" style="display: none;">Delete</button>
+          <button type="button" class="btn-modal-cancel" data-modal="seriesModal">Cancel</button>
+          <button type="submit" form="seriesForm" class="btn-modal-save">Save</button>
+        </div>
+      </div>
+      <form id="seriesForm">
+        <div class="modal-body">
+          <input type="hidden" id="serModalId">
+          <div class="form-group">
+            <label for="serModalCategory">Category</label>
+            <select id="serModalCategory" class="form-select" required></select>
+          </div>
+          <div class="form-group">
+            <label for="serModalName">Series Name</label>
+            <input type="text" id="serModalName" class="form-input" required placeholder="e.g. Echoes of Youth">
+          </div>
+          <div class="form-group">
+            <label for="serModalBadge">Badge (e.g. Special, Apex, Zodiac)</label>
+            <input type="text" id="serModalBadge" class="form-input" placeholder="e.g. Apex">
+          </div>
+          <div class="form-group">
+            <label for="serModalDesc">Description</label>
+            <textarea id="serModalDesc" class="form-textarea" rows="2" placeholder="Optional series notes or lore"></textarea>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TIER MODAL (CRUD & COLOR PALETTE SELECTOR) -->
+  <div id="tierModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-header">
+        <h3 id="tierModalTitle">Tier Classification</h3>
+        <div class="modal-header-actions">
+          <button type="button" id="tierModalDeleteBtn" class="btn-modal-delete" style="display: none;">Delete</button>
+          <button type="button" class="btn-modal-cancel" data-modal="tierModal">Cancel</button>
+          <button type="submit" form="tierForm" class="btn-modal-save">Save</button>
+        </div>
+      </div>
+      <form id="tierForm">
+        <div class="modal-body">
+          <input type="hidden" id="tierModalId">
+          <div class="form-group">
+            <label for="tierModalName">Tier Name</label>
+            <input type="text" id="tierModalName" class="form-input" required placeholder="e.g. Mythic, Collector, Prime">
+          </div>
+          <div class="form-group">
+            <label for="tierModalRank">Hierarchy Rank (Higher = Top Tier)</label>
+            <input type="number" id="tierModalRank" class="form-input tabular" min="1" step="5" placeholder="e.g. 50">
+          </div>
+          <div class="form-group">
+            <label for="tierModalDesc">Description</label>
+            <textarea id="tierModalDesc" class="form-textarea" rows="2" placeholder="Optional tier description"></textarea>
+          </div>
+          <div class="form-group">
+            <label>Color Palette Selector</label>
+            <div id="tierColorPalettePresets" class="color-palette-presets" style="margin-bottom: 10px;"></div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input type="color" id="tierModalColorPicker" value="#c084fc" style="width: 36px; height: 36px; padding: 0; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); cursor: pointer; background: transparent;">
+              <input type="text" id="tierModalColorHex" class="form-input tabular" style="font-family: monospace; font-size: 13px;" placeholder="#c084fc">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Live Preview</label>
+            <div style="padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+              <span id="tierModalPreviewBadge" class="tier-badge" style="font-size: 11px; padding: 4px 14px;">Preview Tier</span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TAG AND SERIES MANAGEMENT MODAL -->
+  <div id="tagModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 440px;">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-header">
+        <h3 id="tagModalTitle">Edit Tag</h3>
+        <div class="modal-header-actions">
+          <button type="button" class="btn-modal-cancel" data-modal="tagModal">Cancel</button>
+          <button type="submit" form="tagForm" class="btn-modal-save">Save</button>
+        </div>
+      </div>
+      <form id="tagForm">
+        <div class="modal-body">
+          <input type="hidden" id="tagModalKey">
+          <div class="form-group">
+            <label for="tagModalName">Tag Display Name</label>
+            <input type="text" id="tagModalName" class="form-input" required placeholder="Tag Name">
+          </div>
+          <div class="form-group">
+            <label>Color Palette Selector</label>
+            <div id="tagColorPalettePresets" class="color-palette-presets" style="margin-bottom: 10px;"></div>
+            <div style="display: flex; gap: 8px; align-items: center;">
+              <input type="color" id="tagModalColorPicker" value="#10b981" style="width: 36px; height: 36px; padding: 0; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); cursor: pointer; background: transparent;">
+              <input type="text" id="tagModalColorHex" class="form-input tabular" style="font-family: monospace; font-size: 13px;" placeholder="#10b981">
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Live Preview</label>
+            <div style="padding: 12px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center;">
+              <span id="tagModalPreviewBadge" class="btn-context-tag is-active" style="pointer-events: none; font-size: 11px; padding: 4px 14px;"></span>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- CONFIRM DIALOG -->
+  <div id="confirmModal" class="modal-overlay" style="display: none;">
+    <div class="modal-card" style="max-width: 380px;">
+      <div class="sheet-drag-handle"></div>
+      <div class="modal-header">
+        <h3 id="confirmModalTitle">Confirm Action</h3>
+        <button class="modal-close" data-modal="confirmModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p id="confirmModalMessage" style="font-size: 13px; color: var(--text-secondary); line-height: 1.5;"></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="confirmCancelBtn" class="btn-secondary">Cancel</button>
+        <button type="button" id="confirmAcceptBtn" class="btn-primary" style="background-color: var(--accent-primary);">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST CONTAINER -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- CORE SCRIPT -->
+  <script src="app.js?v=1.0.0"></script>
+</body>
+</html>
