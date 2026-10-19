@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792392377857,
+  "lastExported": 1792403144270,
   "categories": [
     {
       "id": "cat-basic",
@@ -67,7 +67,7 @@
     {
       "id": "ser-basic-echoes-of-youth",
       "categoryId": "cat-basic",
-      "name": "Echoes of Youth",
+      "name": "Echoes of Growth",
       "badge": "Collection",
       "description": "Echoes of Youth collection series under Basic.",
       "displayOrder": 1
@@ -75,7 +75,7 @@
     {
       "id": "ser-basic-live-streamer-s-trilogy",
       "categoryId": "cat-basic",
-      "name": "Live Streamer's Trilogy",
+      "name": "Live Streamer's Tribute",
       "badge": "Collection",
       "description": "Live Streamer's Trilogy collection series under Basic.",
       "displayOrder": 2
@@ -99,7 +99,7 @@
     {
       "id": "ser-basic-happy-anniversary",
       "categoryId": "cat-basic",
-      "name": "HAPPY ANNIVERSARY",
+      "name": "HAPPY ANNIVERSARY!",
       "badge": "Special",
       "description": "HAPPY ANNIVERSARY collection series under Basic.",
       "displayOrder": 5
@@ -809,9 +809,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402660257,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-perfect-2",
@@ -828,9 +831,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402659055,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-much-better-3",
@@ -847,9 +853,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402657458,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-you-did-it-4",
@@ -866,9 +875,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402656065,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-keep-it-up-5",
@@ -885,9 +897,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402654740,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-good-job-6",
@@ -904,9 +919,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402653425,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-mystery-gift-7",
@@ -914,18 +932,22 @@
       "seriesId": "ser-basic-echoes-of-youth",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Mystery Gift",
       "tags": [
         "basic",
         "echoes-of-youth",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402665654,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-youth-best-teacher-8",
@@ -933,7 +955,7 @@
       "seriesId": "ser-basic-echoes-of-youth",
       "name": "Best Teacher",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -942,9 +964,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402650442,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-rocket-9",
@@ -952,7 +978,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Rocket",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -961,9 +987,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402675214,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-hat-10",
@@ -1028,7 +1058,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Key",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1037,9 +1067,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402685428,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-symphony-salute-14",
@@ -1047,7 +1081,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Symphony Salute",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1056,9 +1090,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402689746,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-balloon-15",
@@ -1066,7 +1104,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Balloon",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1075,9 +1113,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402680084,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-gummy-party-treasure-hunter-16",
@@ -1094,9 +1136,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402932105,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-super-lucky-17",
@@ -1113,9 +1158,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402934241,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-happy-4-u-18",
@@ -1132,9 +1180,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402935855,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-get-well-soon-19",
@@ -1151,9 +1202,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402937504,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-i-m-here-4-u-20",
@@ -1170,9 +1224,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402938603,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-thought-of-u-21",
@@ -1189,9 +1246,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402940180,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-nice-post-22",
@@ -1208,9 +1268,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402941651,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-flutter-23",
@@ -1227,9 +1290,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402943120,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-bear-hug-24",
@@ -1246,9 +1312,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402945312,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-thank-you-feedback-25",
@@ -1275,7 +1344,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Flower-language fan",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1284,9 +1353,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402997236,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-film-camera-27",
@@ -1294,7 +1368,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Film camera",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1303,9 +1377,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402998637,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-pearl-gift-box-28",
@@ -1313,7 +1392,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Pearl gift box",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1322,9 +1401,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402999804,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-white-rose-29",
@@ -1341,9 +1425,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403003989,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-feather-notebook-30",
@@ -1360,9 +1447,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403002657,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-thank-you-letter-31",
@@ -1379,9 +1469,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403001514,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-blossoms-books-32",
@@ -1389,7 +1482,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Blossoms & Books",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1398,9 +1491,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402963831,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-double-salute-cannon-33",
@@ -1417,9 +1514,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403069009,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-happy-anniversary-party-card-34",
@@ -1436,9 +1536,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403065174,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-happy-anniversary-to-the-celebration-35",
@@ -1446,7 +1549,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "To the Celebration",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1455,9 +1558,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403040689,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-ht-trophy-36",
@@ -1465,7 +1572,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "HT Trophy",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1474,9 +1581,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403020342,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-anniversary-37",
@@ -1484,7 +1595,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Anniversary",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1493,9 +1604,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403033019,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-golden-piano-38",
@@ -1503,7 +1618,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Golden Piano",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1512,9 +1627,13 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403060673,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-fairy-tale-bear-39",
@@ -1522,7 +1641,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Fairy Tale Bear",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1531,9 +1650,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403052983,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-magic-bun-40",
@@ -1541,7 +1664,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Magic Bun",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1550,9 +1673,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403027274,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-cat-magician-41",
@@ -1560,7 +1687,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Cat Magician",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1569,9 +1696,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403046366,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-magic-wand-42",
@@ -1579,7 +1710,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Magic Wand",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1588,9 +1719,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403138574,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-balloon-43",
@@ -1598,7 +1734,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Balloon",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1607,9 +1743,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403141974,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-gift-box-44",
@@ -1617,7 +1758,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Gift Box",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1626,9 +1767,14 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403144270,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-bouquet-45",
@@ -1636,7 +1782,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Bouquet",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1645,9 +1791,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403103074,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-dinner-46",
@@ -1655,7 +1805,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Dinner",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1664,9 +1814,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403091797,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-jewel-47",
@@ -1674,7 +1828,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Jewel",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1683,9 +1837,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403097836,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-party-hall-48",
@@ -1693,7 +1851,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Party Hall",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1702,9 +1860,13 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403084987,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-crystal-shell-49",
