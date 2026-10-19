@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792410614680,
+  "lastExported": 1792413011740,
   "categories": [
     {
       "id": "cat-basic",
@@ -826,6 +826,63 @@
     }
   ],
   "items": [
+    {
+      "id": "item-mvf8ffa4-6khij2",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6lli1-91ioig",
+      "name": "Dessert Plate",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792413011740
+    },
+    {
+      "id": "item-mvf8erkn-pgccd4",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6lli1-91ioig",
+      "name": "Celebrating Nowruz",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792412981016
+    },
+    {
+      "id": "item-mvf8e2il-os9vpg",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6lli1-91ioig",
+      "name": "Little Goldfish",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792412948551
+    },
     {
       "id": "item-echoes-of-youth-proud-of-you-1",
       "categoryId": "cat-basic",
@@ -14507,16 +14564,21 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412819201,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-eid-al-fitr-eid-feast-713",
@@ -14533,9 +14595,12 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412830223,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-eid-al-fitr-star-moon-lantern-714",
@@ -14545,16 +14610,21 @@
       "baseValue": 89,
       "marketWorth": 89,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Standard",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412838704,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-eid-al-fitr-ramadan-lantern-715",
@@ -14564,16 +14634,20 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Standard",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412784281,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-glazed-glass-lantern-716",
@@ -14602,16 +14676,20 @@
       "baseValue": 59,
       "marketWorth": 59,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Standard",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412766621,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-moonboat-718",
@@ -14621,16 +14699,20 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412756373,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-ramadanlight-719",
@@ -14640,16 +14722,20 @@
       "baseValue": 699,
       "marketWorth": 699,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412747373,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-iftar-720",
@@ -14659,16 +14745,20 @@
       "baseValue": 1000,
       "marketWorth": 1000,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412737351,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-gilded-decor-721",
@@ -14678,16 +14768,20 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412725218,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-eid-al-fitr-starry-dream-722",
@@ -14697,16 +14791,20 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "eid-al-fitr",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412710482,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-holi-gulal-723",
@@ -14723,9 +14821,14 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412850890,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-holi-elephant-724",
@@ -14735,16 +14838,20 @@
       "baseValue": 799,
       "marketWorth": 799,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "holi",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412630784,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-holi-happy-holi-725",
@@ -14754,16 +14861,20 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "holi",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412622829,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-holi-holi-726",
@@ -14773,16 +14884,20 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "holi",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412614558,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-holi-holi-girl-727",
@@ -14792,16 +14907,20 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "holi",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412605706,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-st-patrick-s-day-shamrock-badge-728",
@@ -14818,9 +14937,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412515846,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-st-patrick-s-day-leprechaun-729",
@@ -14830,16 +14952,20 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "st-patrick-s-day",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412527026,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-st-patrick-s-day-emerald-festival-730",
@@ -14849,16 +14975,20 @@
       "baseValue": 999,
       "marketWorth": 999,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "st-patrick-s-day",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412523457,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-april-fools-day-april-fool-731",
@@ -14868,16 +14998,20 @@
       "baseValue": 799,
       "marketWorth": 799,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "april-fools-day",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412489712,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-april-fools-day-jokerballoon-732",
@@ -14887,16 +15021,20 @@
       "baseValue": 699,
       "marketWorth": 699,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "april-fools-day",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412485969,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-april-fools-day-prank-hammer-733",
@@ -14906,16 +15044,20 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "april-fools-day",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412472674,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-april-fools-day-pirate-barrel-734",
@@ -14925,16 +15067,20 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "april-fools-day",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412465713,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-winter-reunion-festival-tangyuan-735",
@@ -14944,22 +15090,27 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Standard",
       "tags": [
         "celebration",
         "winter-reunion-festival",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412360504,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "isDistinctVariant": false
     },
     {
       "id": "item-winter-reunion-festival-warm-warm-lantern-736",
       "categoryId": "cat-celebration",
       "seriesId": "ser-celebration-winter-reunion-festival",
-      "name": "Warm & Warm Lantern",
+      "name": "Plum & Warm Lantern",
       "baseValue": 119,
       "marketWorth": 119,
       "quantity": 0,
@@ -14970,9 +15121,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412428758,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-winter-reunion-festival-winter-solstice-737",
@@ -14989,9 +15145,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412401342,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-winter-reunion-festival-jiaozi-738",
@@ -15001,16 +15160,20 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "winter-reunion-festival",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412414069,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-winter-reunion-festival-laba-festival-739",
@@ -15020,16 +15183,20 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "winter-reunion-festival",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412420987,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-epiphany-king-cake-740",
@@ -15046,9 +15213,14 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412334640,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-epiphany-gilt-pile-741",
@@ -15058,16 +15230,20 @@
       "baseValue": 999,
       "marketWorth": 999,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "epiphany",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412318604,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-epiphany-the-three-kings-gifts-742",
@@ -15077,16 +15253,20 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "epiphany",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412324939,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-leo-743",
@@ -15096,16 +15276,21 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792412218059,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-sagittarius-744",
@@ -15115,16 +15300,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412221637,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-scorpio-745",
@@ -15134,16 +15323,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412225403,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-libra-746",
@@ -15153,16 +15346,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412261759,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-virgo-747",
@@ -15172,16 +15369,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412258462,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-aquarius-748",
@@ -15191,16 +15392,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412255425,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-pisces-749",
@@ -15210,16 +15415,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412251900,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-cancer-750",
@@ -15229,16 +15438,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412243982,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-aries-751",
@@ -15248,16 +15461,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412240356,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-capricorn-752",
@@ -15267,16 +15484,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412236153,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-taurus-753",
@@ -15286,16 +15507,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412230427,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-constellation-gifts-star-whisper-gemini-754",
@@ -15305,16 +15530,20 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "constellation-gifts",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412232986,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-christmas-xmaswreath-755",
@@ -15324,16 +15553,20 @@
       "baseValue": 59,
       "marketWorth": 59,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Standard",
       "tags": [
         "celebration",
         "christmas",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412136983,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-christmas-xmasbell-756",
@@ -15343,16 +15576,20 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "christmas",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412127589,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-christmas-sleigh-757",
@@ -15362,16 +15599,20 @@
       "baseValue": 1000,
       "marketWorth": 1000,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "christmas",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412115207,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-christmas-xmas-globe-758",
@@ -15381,16 +15622,20 @@
       "baseValue": 6999,
       "marketWorth": 6999,
       "quantity": 0,
-      "tier": "Collection",
+      "tier": "Luxury",
       "tags": [
         "celebration",
         "christmas",
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412090590,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-christmas-xmas-eve-759",
@@ -15400,16 +15645,20 @@
       "baseValue": 899,
       "marketWorth": 899,
       "quantity": 0,
-      "tier": "Luxury",
+      "tier": "Featured",
       "tags": [
         "celebration",
         "christmas",
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792412099142,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-select-world-war-indian-sari-760",
