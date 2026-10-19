@@ -1,9 +1,5 @@
 /**
- * ====================================================================
- * HELLOTALK DATABASE (V1.0.0) - MASTER ARCHITECTURAL APPLICATION ENGINE
- * Dedicated Series Master Catalog // Collected-Only Wall // Backpack Stock
- * Red Collection // Purple Luxury & Limited // Blue Featured // Indigo Collected
- * ====================================================================
+ * HelloTalk Gift Database & Vault (v1.0.1)
  */
 
 (() => {
@@ -13,7 +9,7 @@
   const BATCH_SIZE = 60;
 
   const DEFAULT_SEED = {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "lastExported": 1729000000000,
   "categories": [
     {
@@ -15284,6 +15280,15 @@
   ]
 };
 
+  const APP_VERSION = DEFAULT_SEED.version || '1.0.1';
+
+  // Shared SVG Icons for contextual tags
+  const TAG_ICONS = {
+    wall: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>',
+    series: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
+    backpack: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>'
+  };
+
   const DEFAULT_TAGS = [
     { key: 'wall', name: 'Wall', color: '#10b981', displayOrder: 1 },
     { key: 'series', name: 'Series', color: '#06b6d4', displayOrder: 2 },
@@ -15417,7 +15422,7 @@
               const themeConfig = { tags, tagColors };
 
               return {
-                version: "1.0.0",
+                version: APP_VERSION,
                 lastExported: Number(parsed.lastExported) || Date.now(),
                 categories: safeCategories,
                 series: safeSeries,
@@ -15880,7 +15885,7 @@
     wipeAll() {
       const savedTheme = this.data.themeConfig;
       this.data = JSON.parse(JSON.stringify(DEFAULT_SEED));
-      this.data.version = "1.0.0";
+      this.data.version = APP_VERSION;
       if (savedTheme) {
         this.data.themeConfig = savedTheme;
       }
@@ -15992,7 +15997,7 @@
       }
 
       this.data = {
-        version: "1.0.0",
+        version: APP_VERSION,
         lastExported: Date.now(),
         categories: safeCategories,
         series: safeSeries,
@@ -17060,7 +17065,7 @@
 
           <div class="card-context-row">
             <button type="button" class="btn-context-tag tag-bp ${isInBackpack ? 'is-active' : ''}" data-action="toggle-bp" title="${isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack'}">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>
+              ${TAG_ICONS.backpack}
               <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
             </button>
           </div>
@@ -17344,11 +17349,11 @@
 
           <div class="card-context-row">
             <button type="button" class="btn-context-tag tag-series ${isInSeries ? 'is-active' : ''}" data-action="route-series" title="${isInSeries ? 'In Series Catalog (Click to view series)' : 'Series Catalog'}">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+              ${TAG_ICONS.series}
               <span>${this.escapeHtml(this.state.getTagName('series'))}</span>
             </button>
             <button type="button" class="btn-context-tag tag-bp ${isInBackpack ? 'is-active' : ''}" data-action="toggle-bp" title="${isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack'}">
-              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>
+              ${TAG_ICONS.backpack}
               <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
             </button>
           </div>
@@ -18163,18 +18168,12 @@
       const tags = this.state.getTags();
       if (this.tagTotalCount) this.tagTotalCount.textContent = tags.length;
 
-      const tagIcons = {
-        wall: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>',
-        series: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
-        backpack: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>'
-      };
-
       tags.forEach(t => {
         const row = document.createElement('div');
         row.className = 'manager-row';
         row.dataset.key = t.key;
         row.style.cursor = 'pointer';
-        const iconSvg = tagIcons[t.key] || '';
+        const iconSvg = TAG_ICONS[t.key] || '';
         const tagClass = t.key === 'backpack' ? 'tag-bp' : (t.key === 'series' ? 'tag-series' : 'tag-wall');
 
         row.innerHTML = `
@@ -19334,13 +19333,7 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
       let color = (this.tagModalColorHex.value || this.tagModalColorPicker.value || '#10b981').trim();
       if (!color.startsWith('#')) color = '#' + color;
 
-      const tagIcons = {
-        wall: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect></svg>',
-        series: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>',
-        backpack: '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path><path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path><path d="M8 21v-5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v5"></path><line x1="8" y1="10" x2="16" y2="10"></line></svg>'
-      };
-
-      const icon = tagIcons[key] || '';
+      const icon = TAG_ICONS[key] || '';
       this.tagModalPreviewBadge.innerHTML = `${icon}<span>${this.escapeHtml(name)}</span>`;
       this.tagModalPreviewBadge.style.color = color;
       this.tagModalPreviewBadge.style.backgroundColor = `color-mix(in srgb, ${color} 14%, transparent)`;

@@ -1,9 +1,6 @@
 /**
- * ====================================================================
- * HELLOTALK DATABASE (V1.0.0) - MASTER ARCHITECTURAL REFACTOR
- * Master Series Catalog // Wall Collected Gallery // Backpack Inventory
- * Red Collection // Purple Luxury & Limited // Blue Featured // Indigo Collected
- * ====================================================================
+ * HelloTalk Database & Vault - Stylesheet
+ * Morphe Dark Theme (#0f1115) & Custom Accent Variables
  */
 
 :root {
@@ -35,7 +32,7 @@
   --accent-primary-soft: rgba(148, 163, 184, 0.14);
   --accent-glow: 0 0 16px rgba(148, 163, 184, 0.18);
 
-  /* Strict v1.0.0 Tier Palette Specifications */
+  /* Master Tier Palette Specifications */
   /* Collection: Red hex tokens */
   --tier-collection-text: #ef4444;
   --tier-collection-bg: #450a0a;

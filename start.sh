@@ -106,11 +106,11 @@ trap 'kill $SERVER_PID 2>/dev/null || true; printf "\n[!] HelloTalk Database ser
 # 5. Clean Terminal Banner
 printf "\n"
 printf "  ==============================================================\n"
-printf "  // HELLOTALK DATABASE (V1.0.0) - GIFT WALL & VALUATION CATALOG\n"
+printf "  // HELLOTALK DATABASE & VAULT - LOCAL SERVER\n"
 printf "  ==============================================================\n"
 printf "  [+] Engine:      %s (Serving %s)\n" "$SERVER_TYPE" "$PROJECT_DIR"
-printf "  [+] Localhost:   http://127.0.0.1:%s/index.html?v=1.0.0\n" "$PORT"
-printf "  [+] LAN Network: http://%s:%s/index.html?v=1.0.0\n" "$LAN_IP" "$PORT"
+printf "  [+] Localhost:   http://127.0.0.1:%s/index.html\n" "$PORT"
+printf "  [+] LAN Network: http://%s:%s/index.html\n" "$LAN_IP" "$PORT"
 printf "  --------------------------------------------------------------\n"
 printf "  [!] Status: Running offline in attached terminal.\n"
 printf "  [!] Press Ctrl+C to terminate the server.\n"
@@ -119,7 +119,7 @@ printf "  ==============================================================\n\n"
 # 6. Auto-Open Browser Silently After 0.8s
 (
     sleep 0.8
-    TARGET_URL="http://127.0.0.1:$PORT/index.html?v=1.0.0"
+    TARGET_URL="http://127.0.0.1:$PORT/index.html"
     if command -v termux-open-url >/dev/null 2>&1; then
         termux-open-url "$TARGET_URL" >/dev/null 2>&1 || true
     elif command -v termux-open >/dev/null 2>&1; then
