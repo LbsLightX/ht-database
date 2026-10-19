@@ -17591,8 +17591,8 @@
         this.bpSelectedTier = '';
         this.bpFilterTier.value = '';
         this.syncBpTierPills();
-        this.bpSortMethod = 'worth-desc';
-        this.bpSortBy.value = 'worth-desc';
+        this.bpSortMethod = 'base-desc';
+        this.bpSortBy.value = 'base-desc';
         this.bpRenderedCount = BATCH_SIZE;
         this.renderBackpackTab();
       });
@@ -18052,6 +18052,37 @@
           case 'missing-first':
             if (aOwned !== bOwned) return aOwned - bOwned;
             return bBase - aBase;
+          case 'series-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
+          case 'category-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aCatId = a.categoryId || (aSer ? aSer.categoryId : '');
+            const bCatId = b.categoryId || (bSer ? bSer.categoryId : '');
+            const aCat = this.state.getCategory(aCatId);
+            const bCat = this.state.getCategory(bCatId);
+            const aCatOrder = aCat ? (Number(aCat.order) || 9999) : 99999;
+            const bCatOrder = bCat ? (Number(bCat.order) || 9999) : 99999;
+            if (aCatOrder !== bCatOrder) return aCatOrder - bCatOrder;
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
+          case 'tier-order': {
+            const aInfo = this.getTierInfo(a.tier);
+            const bInfo = this.getTierInfo(b.tier);
+            const aOrder = Number(aInfo.displayOrder ?? aInfo.rank) || 999;
+            const bOrder = Number(bInfo.displayOrder ?? bInfo.rank) || 999;
+            if (aOrder !== bOrder) return aOrder - bOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
           case 'tier-rank': {
             const aRank = this.getTierInfo(a.tier).rank;
             const bRank = this.getTierInfo(b.tier).rank;
@@ -18385,6 +18416,37 @@
         switch (this.wallSortMethod) {
           case 'coins-desc': return bBase - aBase;
           case 'coins-asc': return aBase - bBase;
+          case 'series-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
+          case 'category-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aCatId = a.categoryId || (aSer ? aSer.categoryId : '');
+            const bCatId = b.categoryId || (bSer ? bSer.categoryId : '');
+            const aCat = this.state.getCategory(aCatId);
+            const bCat = this.state.getCategory(bCatId);
+            const aCatOrder = aCat ? (Number(aCat.order) || 9999) : 99999;
+            const bCatOrder = bCat ? (Number(bCat.order) || 9999) : 99999;
+            if (aCatOrder !== bCatOrder) return aCatOrder - bCatOrder;
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
+          case 'tier-order': {
+            const aInfo = this.getTierInfo(a.tier);
+            const bInfo = this.getTierInfo(b.tier);
+            const aOrder = Number(aInfo.displayOrder ?? aInfo.rank) || 999;
+            const bOrder = Number(bInfo.displayOrder ?? bInfo.rank) || 999;
+            if (aOrder !== bOrder) return aOrder - bOrder;
+            return (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          }
           case 'tier-rank': {
             const aRank = this.getTierInfo(a.tier).rank;
             const bRank = this.getTierInfo(b.tier).rank;
@@ -18719,6 +18781,37 @@
           case 'worth-desc': return (bQty * bBase) - (aQty * aBase) || (bBase - aBase);
           case 'base-asc': return (aQty * aBase) - (bQty * bBase) || (aBase - bBase);
           case 'qty-desc': return bQty - aQty || ((bQty * bBase) - (aQty * aBase));
+          case 'series-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return ((bQty * bBase) - (aQty * aBase)) || (bBase - aBase);
+          }
+          case 'category-order': {
+            const aSer = this.state.getSeries(a.seriesId);
+            const bSer = this.state.getSeries(b.seriesId);
+            const aCatId = a.categoryId || (aSer ? aSer.categoryId : '');
+            const bCatId = b.categoryId || (bSer ? bSer.categoryId : '');
+            const aCat = this.state.getCategory(aCatId);
+            const bCat = this.state.getCategory(bCatId);
+            const aCatOrder = aCat ? (Number(aCat.order) || 9999) : 99999;
+            const bCatOrder = bCat ? (Number(bCat.order) || 9999) : 99999;
+            if (aCatOrder !== bCatOrder) return aCatOrder - bCatOrder;
+            const aSerOrder = aSer ? (Number(aSer.displayOrder ?? aSer.order) || 9999) : 99999;
+            const bSerOrder = bSer ? (Number(bSer.displayOrder ?? bSer.order) || 9999) : 99999;
+            if (aSerOrder !== bSerOrder) return aSerOrder - bSerOrder;
+            return ((bQty * bBase) - (aQty * aBase)) || (bBase - aBase);
+          }
+          case 'tier-order': {
+            const aInfo = this.getTierInfo(a.tier);
+            const bInfo = this.getTierInfo(b.tier);
+            const aOrder = Number(aInfo.displayOrder ?? aInfo.rank) || 999;
+            const bOrder = Number(bInfo.displayOrder ?? bInfo.rank) || 999;
+            if (aOrder !== bOrder) return aOrder - bOrder;
+            return (bQty * bBase) - (aQty * aBase);
+          }
           case 'tier-rank': {
             const aRank = this.getTierInfo(a.tier).rank;
             const bRank = this.getTierInfo(b.tier).rank;
@@ -19821,17 +19914,18 @@
             bg: found.bg || `rgba(${rgb}, 0.16)`,
             border: found.border || `rgba(${rgb}, 0.35)`,
             glow: `0 0 16px rgba(${rgb}, 0.20)`,
-            rank: Number(found.rank) || 10
+            rank: Number(found.rank) || 10,
+            displayOrder: Number(found.displayOrder ?? found.order) || (Number(found.rank) || 10)
           };
         }
       }
 
       // Default tier fallbacks (strict v1.0.0 Morphe palette)
-      if (clean.includes('collection')) return { name: 'Collection', className: 'tier-collection', cardClass: 'tier-card-collection', chipClass: 'tier-chip-collection', color: '#ef4444', bg: '#450a0a', border: 'rgba(239, 68, 68, 0.35)', glow: '0 0 16px rgba(239, 68, 68, 0.16)', rank: 100 };
-      if (clean.includes('luxury')) return { name: 'Luxury', className: 'tier-luxury', cardClass: 'tier-card-luxury', chipClass: 'tier-chip-luxury', color: '#facc15', bg: '#422006', border: 'rgba(250, 204, 21, 0.35)', glow: '0 0 16px rgba(250, 204, 21, 0.16)', rank: 80 };
-      if (clean.includes('limited')) return { name: 'Limited', className: 'tier-limited', cardClass: 'tier-card-limited', chipClass: 'tier-chip-limited', color: '#c084fc', bg: '#3b0764', border: 'rgba(192, 132, 252, 0.35)', glow: '0 0 16px rgba(192, 132, 252, 0.16)', rank: 60 };
-      if (clean.includes('featured')) return { name: 'Featured', className: 'tier-featured', cardClass: 'tier-card-featured', chipClass: 'tier-chip-featured', color: '#38bdf8', bg: '#0c4a6e', border: 'rgba(56, 189, 248, 0.35)', glow: '0 0 16px rgba(56, 189, 248, 0.16)', rank: 40 };
-      return { name: 'Standard', className: 'tier-standard', cardClass: 'tier-card-standard', chipClass: 'tier-chip-standard', color: '#e2e8f0', bg: '#1e293b', border: 'rgba(226, 232, 240, 0.25)', glow: '0 0 14px rgba(226, 232, 240, 0.08)', rank: 10 };
+      if (clean.includes('collection')) return { name: 'Collection', className: 'tier-collection', cardClass: 'tier-card-collection', chipClass: 'tier-chip-collection', color: '#ef4444', bg: '#450a0a', border: 'rgba(239, 68, 68, 0.35)', glow: '0 0 16px rgba(239, 68, 68, 0.16)', rank: 100, displayOrder: 5 };
+      if (clean.includes('luxury')) return { name: 'Luxury', className: 'tier-luxury', cardClass: 'tier-card-luxury', chipClass: 'tier-chip-luxury', color: '#facc15', bg: '#422006', border: 'rgba(250, 204, 21, 0.35)', glow: '0 0 16px rgba(250, 204, 21, 0.16)', rank: 80, displayOrder: 4 };
+      if (clean.includes('limited')) return { name: 'Limited', className: 'tier-limited', cardClass: 'tier-card-limited', chipClass: 'tier-chip-limited', color: '#c084fc', bg: '#3b0764', border: 'rgba(192, 132, 252, 0.35)', glow: '0 0 16px rgba(192, 132, 252, 0.16)', rank: 60, displayOrder: 3 };
+      if (clean.includes('featured')) return { name: 'Featured', className: 'tier-featured', cardClass: 'tier-card-featured', chipClass: 'tier-chip-featured', color: '#38bdf8', bg: '#0c4a6e', border: 'rgba(56, 189, 248, 0.35)', glow: '0 0 16px rgba(56, 189, 248, 0.16)', rank: 40, displayOrder: 2 };
+      return { name: 'Standard', className: 'tier-standard', cardClass: 'tier-card-standard', chipClass: 'tier-chip-standard', color: '#e2e8f0', bg: '#1e293b', border: 'rgba(226, 232, 240, 0.25)', glow: '0 0 14px rgba(226, 232, 240, 0.08)', rank: 10, displayOrder: 1 };
     }
 
     // ------------------------------------------------------------------
