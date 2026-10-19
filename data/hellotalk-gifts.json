@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1729300000000,
+  "lastExported": 1792385148154,
   "categories": [
     {
       "id": "cat-basic",
@@ -15574,6 +15574,43 @@
       "rank": 100,
       "displayOrder": 5,
       "description": "Collection red apex tier"
+    },
+    {
+      "id": "tier-mvertu49-em82ey",
+      "name": "Mystery Gift",
+      "color": "#251b6e",
+      "bg": "rgba(37, 27, 110, 0.16)",
+      "border": "rgba(37, 27, 110, 0.35)",
+      "rank": 1,
+      "displayOrder": 6,
+      "description": ""
     }
-  ]
+  ],
+  "themeConfig": {
+    "tags": [
+      {
+        "key": "wall",
+        "name": "Wall",
+        "color": "#10b981",
+        "displayOrder": 1
+      },
+      {
+        "key": "series",
+        "name": "Series",
+        "color": "#06b6d4",
+        "displayOrder": 2
+      },
+      {
+        "key": "backpack",
+        "name": "Backpack",
+        "color": "#f43f5e",
+        "displayOrder": 3
+      }
+    ],
+    "tagColors": {
+      "wall": "#10b981",
+      "series": "#06b6d4",
+      "backpack": "#f43f5e"
+    }
+  }
 }
