@@ -193,6 +193,11 @@ js_logic = ''';
                     if (!item.marketWorth || item.marketWorth <= 0 || item.marketWorth !== item.baseValue) {
                       item.marketWorth = seed.marketWorth || item.baseValue;
                     }
+                    const itemTierLower = (item.tier || '').toLowerCase();
+                    const isExempt = itemTierLower.includes('limited') || itemTierLower.includes('mystery');
+                    if (!isExempt && seed.tier && seed.tier !== item.tier) {
+                      item.tier = seed.tier;
+                    }
                   } else if (!item.marketWorth || item.marketWorth <= 0) {
                     item.marketWorth = item.baseValue;
                   }
@@ -948,6 +953,8 @@ js_logic = ''';
       this.wallRenderedCount = BATCH_SIZE;
 
       this.pendingConfirmAction = null;
+      this._renderScheduled = false;
+      this.isBatchLoading = false;
 
       this.initDomReferences();
       this.applyThemeColors();
@@ -957,7 +964,7 @@ js_logic = ''';
       this.switchTab(this.currentTab, false);
 
       this.state.subscribe(() => {
-        this.renderAll();
+        this.scheduleRender();
         this.applyThemeColors();
       });
 
@@ -1795,9 +1802,17 @@ js_logic = ''';
     }
 
     // ------------------------------------------------------------------
+    // MASTER RENDER DISPATCHER (COALESCED & DEBOUNCED)
     // ------------------------------------------------------------------
-    // MASTER RENDER DISPATCHER
-    // ------------------------------------------------------------------
+    scheduleRender() {
+      if (this._renderScheduled) return;
+      this._renderScheduled = true;
+      requestAnimationFrame(() => {
+        this._renderScheduled = false;
+        this.renderAll();
+      });
+    }
+
     renderAll() {
       this.renderSeriesTab();
       this.renderWallTab();
@@ -1895,6 +1910,7 @@ js_logic = ''';
             <p style="font-size: 13px; color: var(--text-muted);">Adjust search query or reset filter pills to browse the master catalog.</p>
           </div>
         `;
+        if (this.seriesScrollSentinel) this.seriesScrollSentinel.style.display = 'none';
         if (this.seriesResultsCount) this.seriesResultsCount.textContent = 'Showing 0 gifts';
         if (this.seriesResultsAggregate) this.seriesResultsAggregate.textContent = 'Master Catalog';
         return;
@@ -1910,8 +1926,44 @@ js_logic = ''';
         this.seriesGiftsGrid.style.minHeight = '';
       });
 
-      if (this.seriesResultsCount) this.seriesResultsCount.textContent = `Showing ${filtered.length} of ${totalItems} gifts`;
+      if (this.seriesScrollSentinel) {
+        this.seriesScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
+      }
+
+      if (this.seriesResultsCount) this.seriesResultsCount.textContent = `Showing ${toRender.length} of ${totalItems} gifts`;
       if (this.seriesResultsAggregate) this.seriesResultsAggregate.textContent = `Wall: ${wallCollectedCount}/${totalItems} (${completionPct}%)`;
+    }
+
+    appendSeriesBatch() {
+      if (this.isBatchLoading || this.focusedSeriesId) return;
+      const filtered = this.getFilteredSeriesItems();
+      if (this.seriesRenderedCount >= filtered.length) {
+        if (this.seriesScrollSentinel) this.seriesScrollSentinel.style.display = 'none';
+        return;
+      }
+      this.isBatchLoading = true;
+      const prevCount = this.seriesRenderedCount;
+      this.seriesRenderedCount = Math.min(filtered.length, this.seriesRenderedCount + BATCH_SIZE);
+      const toAppend = filtered.slice(prevCount, this.seriesRenderedCount);
+
+      const fragment = document.createDocumentFragment();
+      toAppend.forEach(item => {
+        fragment.appendChild(this.createSeriesGiftCard(item));
+      });
+      this.seriesGiftsGrid.appendChild(fragment);
+
+      if (this.seriesResultsCount) {
+        this.seriesResultsCount.textContent = `Showing ${this.seriesRenderedCount} of ${filtered.length} gifts`;
+      }
+      if (this.seriesScrollSentinel) {
+        this.seriesScrollSentinel.style.display = (this.seriesRenderedCount < filtered.length) ? 'block' : 'none';
+      }
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          this.isBatchLoading = false;
+        }, 50);
+      });
     }
 
     getFilteredSeriesItems() {
@@ -2195,6 +2247,7 @@ js_logic = ''';
             </p>
           </div>
         `;
+        if (this.wallScrollSentinel) this.wallScrollSentinel.style.display = 'none';
         if (this.wallResultsCount) this.wallResultsCount.textContent = 'Showing 0 collected gifts';
         if (this.wallResultsAggregate) this.wallResultsAggregate.textContent = 'Wall Gallery';
         return;
@@ -2210,8 +2263,45 @@ js_logic = ''';
         this.wallGrid.style.minHeight = '';
       });
 
-      if (this.wallResultsCount) this.wallResultsCount.textContent = `Showing ${filtered.length} of ${totalCollected} collected gifts`;
+      if (this.wallScrollSentinel) {
+        this.wallScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
+      }
+
+      if (this.wallResultsCount) this.wallResultsCount.textContent = `Showing ${toRender.length} of ${totalCollected} collected gifts`;
       if (this.wallResultsAggregate) this.wallResultsAggregate.textContent = `Wall Base: ${this.formatNumber(totalBase)} // Market: ${this.formatNumber(totalMarket)}`;
+    }
+
+    appendWallBatch() {
+      if (this.isBatchLoading) return;
+      const collected = this.getWallCatalogItems();
+      const filtered = this.getFilteredWallItems(collected);
+      if (this.wallRenderedCount >= filtered.length) {
+        if (this.wallScrollSentinel) this.wallScrollSentinel.style.display = 'none';
+        return;
+      }
+      this.isBatchLoading = true;
+      const prevCount = this.wallRenderedCount;
+      this.wallRenderedCount = Math.min(filtered.length, this.wallRenderedCount + BATCH_SIZE);
+      const toAppend = filtered.slice(prevCount, this.wallRenderedCount);
+
+      const fragment = document.createDocumentFragment();
+      toAppend.forEach(item => {
+        fragment.appendChild(this.createWallCard(item));
+      });
+      this.wallGrid.appendChild(fragment);
+
+      if (this.wallResultsCount) {
+        this.wallResultsCount.textContent = `Showing ${this.wallRenderedCount} of ${filtered.length} collected gifts`;
+      }
+      if (this.wallScrollSentinel) {
+        this.wallScrollSentinel.style.display = (this.wallRenderedCount < filtered.length) ? 'block' : 'none';
+      }
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          this.isBatchLoading = false;
+        }, 50);
+      });
     }
 
     getFilteredWallItems(collectedGifts) {
@@ -2474,6 +2564,7 @@ js_logic = ''';
             <p style="font-size: 13px; color: var(--text-muted);">Adjust search query or filter pills to browse your Backpack stock.</p>
           </div>
         `;
+        if (this.bpScrollSentinel) this.bpScrollSentinel.style.display = 'none';
         if (this.bpResultsCount) this.bpResultsCount.textContent = 'Showing 0 inventory gifts';
         if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = 'Base: 0 // Market: 0';
         return;
@@ -2489,11 +2580,47 @@ js_logic = ''';
         this.backpackGrid.style.minHeight = '';
       });
 
+      if (this.bpScrollSentinel) {
+        this.bpScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
+      }
+
       const subBase = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
       const subMarket = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
 
-      if (this.bpResultsCount) this.bpResultsCount.textContent = `Showing ${filtered.length} inventory gift${filtered.length === 1 ? '' : 's'}`;
+      if (this.bpResultsCount) this.bpResultsCount.textContent = `Showing ${toRender.length} of ${filtered.length} inventory gifts`;
       if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = `Held Base: ${this.formatNumber(subBase)} // Market: ${this.formatNumber(subMarket)}`;
+    }
+
+    appendBpBatch() {
+      if (this.isBatchLoading) return;
+      const filtered = this.getFilteredBpItems();
+      if (this.bpRenderedCount >= filtered.length) {
+        if (this.bpScrollSentinel) this.bpScrollSentinel.style.display = 'none';
+        return;
+      }
+      this.isBatchLoading = true;
+      const prevCount = this.bpRenderedCount;
+      this.bpRenderedCount = Math.min(filtered.length, this.bpRenderedCount + BATCH_SIZE);
+      const toAppend = filtered.slice(prevCount, this.bpRenderedCount);
+
+      const fragment = document.createDocumentFragment();
+      toAppend.forEach(item => {
+        fragment.appendChild(this.createBackpackCard(item));
+      });
+      this.backpackGrid.appendChild(fragment);
+
+      if (this.bpResultsCount) {
+        this.bpResultsCount.textContent = `Showing ${this.bpRenderedCount} of ${filtered.length} inventory gifts`;
+      }
+      if (this.bpScrollSentinel) {
+        this.bpScrollSentinel.style.display = (this.bpRenderedCount < filtered.length) ? 'block' : 'none';
+      }
+
+      requestAnimationFrame(() => {
+        setTimeout(() => {
+          this.isBatchLoading = false;
+        }, 50);
+      });
     }
 
     getFilteredBpItems() {
@@ -3679,36 +3806,23 @@ js_logic = ''';
       if ('IntersectionObserver' in window) {
         const seriesObserver = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting && this.currentTab === 'tab-series') {
-            const filtered = this.getFilteredSeriesItems();
-            if (this.seriesRenderedCount < filtered.length) {
-              this.seriesRenderedCount += BATCH_SIZE;
-              this.renderSeriesTab();
-            }
+            this.appendSeriesBatch();
           }
-        }, { rootMargin: '300px' });
+        }, { rootMargin: '200px' });
         if (this.seriesScrollSentinel) seriesObserver.observe(this.seriesScrollSentinel);
 
         const wallObserver = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting && this.currentTab === 'tab-wall') {
-            const collected = this.getWallCatalogItems();
-            const filtered = this.getFilteredWallItems(collected);
-            if (this.wallRenderedCount < filtered.length) {
-              this.wallRenderedCount += BATCH_SIZE;
-              this.renderWallTab();
-            }
+            this.appendWallBatch();
           }
-        }, { rootMargin: '300px' });
+        }, { rootMargin: '200px' });
         if (this.wallScrollSentinel) wallObserver.observe(this.wallScrollSentinel);
 
         const bpObserver = new IntersectionObserver((entries) => {
           if (entries[0].isIntersecting && this.currentTab === 'tab-backpack') {
-            const filtered = this.getFilteredBpItems();
-            if (this.bpRenderedCount < filtered.length) {
-              this.bpRenderedCount += BATCH_SIZE;
-              this.renderBackpackTab();
-            }
+            this.appendBpBatch();
           }
-        }, { rootMargin: '300px' });
+        }, { rootMargin: '200px' });
         if (this.bpScrollSentinel) bpObserver.observe(this.bpScrollSentinel);
       }
     }
