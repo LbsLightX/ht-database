@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792403144270,
+  "lastExported": 1792410614680,
   "categories": [
     {
       "id": "cat-basic",
@@ -115,7 +115,7 @@
     {
       "id": "ser-emotion-luminous-heart-s-melody",
       "categoryId": "cat-emotion",
-      "name": "Luminous Heart's Melody",
+      "name": "Luminous Heart's Whisper",
       "badge": "Romance",
       "description": "Luminous Heart's Melody collection series under Emotion.",
       "displayOrder": 7
@@ -131,7 +131,7 @@
     {
       "id": "ser-emotion-collections-of-hearts",
       "categoryId": "cat-emotion",
-      "name": "Collections of Hearts",
+      "name": "Collections of Heart Flutters",
       "badge": "Romance",
       "description": "Collections of Hearts collection series under Emotion.",
       "displayOrder": 9
@@ -179,7 +179,7 @@
     {
       "id": "ser-art-wonderland-dream",
       "categoryId": "cat-art",
-      "name": "Wonderland Dream",
+      "name": "Wonderland Dreamscape",
       "badge": "Collection",
       "description": "Wonderland Dream collection series under Art.",
       "displayOrder": 15
@@ -195,7 +195,7 @@
     {
       "id": "ser-art-a-little-square-board",
       "categoryId": "cat-art",
-      "name": "A Little Square Board",
+      "name": "A Little Square Big Player",
       "badge": "Collection",
       "description": "A Little Square Board collection series under Art.",
       "displayOrder": 17
@@ -211,7 +211,7 @@
     {
       "id": "ser-art-eastern-musical-instrument",
       "categoryId": "cat-art",
-      "name": "Eastern musical instrument",
+      "name": "Eastern musical instruments",
       "badge": "Art",
       "description": "Eastern musical instrument collection series under Art.",
       "displayOrder": 19
@@ -219,7 +219,7 @@
     {
       "id": "ser-fantasy-glimmering-hidden-paradise",
       "categoryId": "cat-fantasy",
-      "name": "Glimmering Hidden Paradise",
+      "name": "Glimmering Hidden Realm",
       "badge": "Collection",
       "description": "Glimmering Hidden Paradise collection series under Fantasy.",
       "displayOrder": 20
@@ -259,7 +259,7 @@
     {
       "id": "ser-apparel-select-world-war",
       "categoryId": "cat-apparel",
-      "name": "Select World War...",
+      "name": "Select World Wardrobe I - Asia",
       "badge": "Collection",
       "description": "Select World War... collection series under Apparel.",
       "displayOrder": 25
@@ -267,10 +267,26 @@
     {
       "id": "ser-apparel-mysterious-europe",
       "categoryId": "cat-apparel",
-      "name": "Mysterious Europe...",
+      "name": "Mysterious European Treasure",
       "badge": "Collection",
       "description": "Mysterious Europe... collection series under Apparel.",
       "displayOrder": 26
+    },
+    {
+      "id": "ser-mvf6u22o-c2v0nf",
+      "categoryId": "cat-apparel",
+      "name": "Select World Wardrobe II - Americas",
+      "badge": "",
+      "description": "Select World Wardrobe II - Americas collection series under Apparel.",
+      "displayOrder": 27
+    },
+    {
+      "id": "ser-mvf6vc76-q06lzc",
+      "categoryId": "cat-basic",
+      "name": "Select World Wardrobe III",
+      "badge": "",
+      "description": "Select World Wardrobe III collection series under Apparel.",
+      "displayOrder": 28
     },
     {
       "id": "ser-lives-doggo-squad",
@@ -278,7 +294,7 @@
       "name": "Doggo Squad",
       "badge": "Event",
       "description": "Doggo Squad collection series under Lives.",
-      "displayOrder": 27
+      "displayOrder": 29
     },
     {
       "id": "ser-lives-butterfly-series",
@@ -286,7 +302,7 @@
       "name": "Butterfly Series",
       "badge": "Collection",
       "description": "Butterfly Series collection series under Lives.",
-      "displayOrder": 28
+      "displayOrder": 30
     },
     {
       "id": "ser-lives-four-seasons-in-bloom",
@@ -294,15 +310,15 @@
       "name": "Four Seasons in Bloom",
       "badge": "Collection",
       "description": "Four Seasons in Bloom collection series under Lives.",
-      "displayOrder": 29
+      "displayOrder": 31
     },
     {
       "id": "ser-lives-humanity-s-adorable",
       "categoryId": "cat-lives",
-      "name": "Humanity's Adorable",
+      "name": "Humanity's Adorable Friends",
       "badge": "Collection",
       "description": "Humanity's Adorable collection series under Lives.",
-      "displayOrder": 30
+      "displayOrder": 32
     },
     {
       "id": "ser-lives-paws-of-attraction",
@@ -310,7 +326,7 @@
       "name": "Paws of Attraction",
       "badge": "Collection",
       "description": "Paws of Attraction collection series under Lives.",
-      "displayOrder": 31
+      "displayOrder": 33
     },
     {
       "id": "ser-lives-springtime-wishes",
@@ -318,31 +334,31 @@
       "name": "Springtime Wishes",
       "badge": "Collection",
       "description": "Springtime Wishes collection series under Lives.",
-      "displayOrder": 32
+      "displayOrder": 34
     },
     {
       "id": "ser-lives-spring-wildflowers",
       "categoryId": "cat-lives",
-      "name": "Spring Wildflowers",
+      "name": "Spring Wildflower News",
       "badge": "Collection",
       "description": "Spring Wildflowers collection series under Lives.",
-      "displayOrder": 33
+      "displayOrder": 35
     },
     {
       "id": "ser-lives-star-wish-cat-land",
       "categoryId": "cat-lives",
-      "name": "Star Wish Cat Land",
+      "name": "Star Wish Cat Language",
       "badge": "Collection",
       "description": "Star Wish Cat Land collection series under Lives.",
-      "displayOrder": 34
+      "displayOrder": 36
     },
     {
       "id": "ser-lives-a-heart-full-of-felicity",
       "categoryId": "cat-lives",
-      "name": "A heart full of felicity",
+      "name": "A heart of feline spirit",
       "badge": "Romance",
       "description": "A heart full of felicity collection series under Lives.",
-      "displayOrder": 35
+      "displayOrder": 37
     },
     {
       "id": "ser-lives-starry-flowers",
@@ -350,7 +366,7 @@
       "name": "Starry Flowers",
       "badge": "Collection",
       "description": "Starry Flowers collection series under Lives.",
-      "displayOrder": 36
+      "displayOrder": 38
     },
     {
       "id": "ser-lives-panda",
@@ -358,7 +374,7 @@
       "name": "Panda",
       "badge": "Collection",
       "description": "Panda collection series under Lives.",
-      "displayOrder": 37
+      "displayOrder": 39
     },
     {
       "id": "ser-home-autumn-delights",
@@ -366,7 +382,7 @@
       "name": "Autumn Delights",
       "badge": "Collection",
       "description": "Autumn Delights collection series under Home.",
-      "displayOrder": 38
+      "displayOrder": 40
     },
     {
       "id": "ser-home-cosmic-galaxy",
@@ -374,15 +390,15 @@
       "name": "Cosmic Galaxy",
       "badge": "Collection",
       "description": "Cosmic Galaxy collection series under Home.",
-      "displayOrder": 39
+      "displayOrder": 41
     },
     {
       "id": "ser-home-ticket-to-the-wonderland",
       "categoryId": "cat-home",
-      "name": "Ticket to the Wonderland",
+      "name": "Ticket to the Wonders",
       "badge": "Collection",
       "description": "Ticket to the Wonderland collection series under Home.",
-      "displayOrder": 40
+      "displayOrder": 42
     },
     {
       "id": "ser-home-world-garden-stamp",
@@ -390,7 +406,7 @@
       "name": "World Garden Stamp",
       "badge": "Collection",
       "description": "World Garden Stamp collection series under Home.",
-      "displayOrder": 41
+      "displayOrder": 43
     },
     {
       "id": "ser-home-beautiful-earth",
@@ -398,7 +414,7 @@
       "name": "Beautiful Earth",
       "badge": "Collection",
       "description": "Beautiful Earth collection series under Home.",
-      "displayOrder": 42
+      "displayOrder": 44
     },
     {
       "id": "ser-home-travel-tickets",
@@ -406,7 +422,7 @@
       "name": "Travel tickets",
       "badge": "Collection",
       "description": "Travel tickets collection series under Home.",
-      "displayOrder": 43
+      "displayOrder": 45
     },
     {
       "id": "ser-home-world-cultural-heritage",
@@ -414,7 +430,7 @@
       "name": "World Cultural Heritage",
       "badge": "Collection",
       "description": "World Cultural Heritage collection series under Home.",
-      "displayOrder": 44
+      "displayOrder": 46
     },
     {
       "id": "ser-home-cherry-blossom",
@@ -422,7 +438,7 @@
       "name": "Cherry Blossom",
       "badge": "Collection",
       "description": "Cherry Blossom collection series under Home.",
-      "displayOrder": 45
+      "displayOrder": 47
     },
     {
       "id": "ser-home-lotus-dreamscape",
@@ -430,7 +446,7 @@
       "name": "Lotus Dreamscape",
       "badge": "Collection",
       "description": "Lotus Dreamscape collection series under Home.",
-      "displayOrder": 46
+      "displayOrder": 48
     },
     {
       "id": "ser-home-four-seasons",
@@ -438,7 +454,7 @@
       "name": "Four seasons",
       "badge": "Collection",
       "description": "Four seasons collection series under Home.",
-      "displayOrder": 47
+      "displayOrder": 49
     },
     {
       "id": "ser-delicious-chocolate-feast",
@@ -446,7 +462,7 @@
       "name": "Chocolate Feast",
       "badge": "Collection",
       "description": "Chocolate Feast collection series under Delicious.",
-      "displayOrder": 48
+      "displayOrder": 50
     },
     {
       "id": "ser-delicious-pixel-ice-cream",
@@ -454,15 +470,15 @@
       "name": "Pixel Ice Cream",
       "badge": "Collection",
       "description": "Pixel Ice Cream collection series under Delicious.",
-      "displayOrder": 49
+      "displayOrder": 51
     },
     {
       "id": "ser-delicious-global-ice-cream-festival",
       "categoryId": "cat-delicious",
-      "name": "Global Ice Cream Festival",
+      "name": "Global Ice Cream Fair",
       "badge": "Special",
       "description": "Global Ice Cream Festival collection series under Delicious.",
-      "displayOrder": 50
+      "displayOrder": 52
     },
     {
       "id": "ser-delicious-afternoon-tea-time",
@@ -470,7 +486,7 @@
       "name": "Afternoon tea time",
       "badge": "Collection",
       "description": "Afternoon tea time collection series under Delicious.",
-      "displayOrder": 51
+      "displayOrder": 53
     },
     {
       "id": "ser-delicious-desserts",
@@ -478,7 +494,7 @@
       "name": "Desserts",
       "badge": "Collection",
       "description": "Desserts collection series under Delicious.",
-      "displayOrder": 52
+      "displayOrder": 54
     },
     {
       "id": "ser-delicious-alcoholic-beverages",
@@ -486,7 +502,7 @@
       "name": "Alcoholic beverages",
       "badge": "Collection",
       "description": "Alcoholic beverages collection series under Delicious.",
-      "displayOrder": 53
+      "displayOrder": 55
     },
     {
       "id": "ser-delicious-cocktail-journey",
@@ -494,15 +510,15 @@
       "name": "Cocktail Journey",
       "badge": "Collection",
       "description": "Cocktail Journey collection series under Delicious.",
-      "displayOrder": 54
+      "displayOrder": 56
     },
     {
       "id": "ser-delicious-flavors-of-the-american-continent",
       "categoryId": "cat-delicious",
-      "name": "Flavors of the American Continent",
+      "name": "Flavors of the Americas",
       "badge": "Collection",
       "description": "Flavors of the American Continent collection series under Delicious.",
-      "displayOrder": 55
+      "displayOrder": 57
     },
     {
       "id": "ser-delicious-chinese-flavor-i",
@@ -510,7 +526,7 @@
       "name": "Chinese Flavor I",
       "badge": "Collection",
       "description": "Chinese Flavor I collection series under Delicious.",
-      "displayOrder": 56
+      "displayOrder": 58
     },
     {
       "id": "ser-celebration-go-germany",
@@ -518,7 +534,7 @@
       "name": "Go Germany!",
       "badge": "Event",
       "description": "Go Germany! collection series under Celebration.",
-      "displayOrder": 57
+      "displayOrder": 59
     },
     {
       "id": "ser-celebration-oktoberfest",
@@ -526,7 +542,7 @@
       "name": "Oktoberfest",
       "badge": "Special",
       "description": "Oktoberfest collection series under Celebration.",
-      "displayOrder": 58
+      "displayOrder": 60
     },
     {
       "id": "ser-celebration-happy-film-festival",
@@ -534,7 +550,7 @@
       "name": "Happy Film Festival",
       "badge": "Special",
       "description": "Happy Film Festival collection series under Celebration.",
-      "displayOrder": 59
+      "displayOrder": 61
     },
     {
       "id": "ser-celebration-childhood-dreamland",
@@ -542,15 +558,15 @@
       "name": "Childhood Dreamland",
       "badge": "Collection",
       "description": "Childhood Dreamland collection series under Celebration.",
-      "displayOrder": 60
+      "displayOrder": 62
     },
     {
       "id": "ser-celebration-mid-autumn-festival",
       "categoryId": "cat-celebration",
-      "name": "Mid-Autumn Festival",
+      "name": "Mid-Autumn Festival I",
       "badge": "Special",
       "description": "Mid-Autumn Festival collection series under Celebration.",
-      "displayOrder": 61
+      "displayOrder": 63
     },
     {
       "id": "ser-celebration-qixi-festival",
@@ -558,7 +574,7 @@
       "name": "Qixi Festival",
       "badge": "Special",
       "description": "Qixi Festival collection series under Celebration.",
-      "displayOrder": 62
+      "displayOrder": 64
     },
     {
       "id": "ser-celebration-new-year-greetings",
@@ -566,7 +582,7 @@
       "name": "New Year Greetings",
       "badge": "Collection",
       "description": "New Year Greetings collection series under Celebration.",
-      "displayOrder": 63
+      "displayOrder": 65
     },
     {
       "id": "ser-celebration-glory-commemoration",
@@ -574,7 +590,7 @@
       "name": "Glory Commemoration",
       "badge": "Apex",
       "description": "Glory Commemoration collection series under Celebration.",
-      "displayOrder": 64
+      "displayOrder": 66
     },
     {
       "id": "ser-celebration-8-legendary-goals",
@@ -582,7 +598,7 @@
       "name": "8 Legendary Goals",
       "badge": "Collection",
       "description": "8 Legendary Goals collection series under Celebration.",
-      "displayOrder": 65
+      "displayOrder": 67
     },
     {
       "id": "ser-celebration-dragon-boat-festival",
@@ -590,7 +606,7 @@
       "name": "Dragon Boat Festival",
       "badge": "Special",
       "description": "Dragon Boat Festival collection series under Celebration.",
-      "displayOrder": 66
+      "displayOrder": 68
     },
     {
       "id": "ser-celebration-football-match-iv",
@@ -598,7 +614,7 @@
       "name": "Football match IV",
       "badge": "Event",
       "description": "Football match IV collection series under Celebration.",
-      "displayOrder": 67
+      "displayOrder": 69
     },
     {
       "id": "ser-celebration-football-match-iii",
@@ -606,7 +622,7 @@
       "name": "Football match III",
       "badge": "Event",
       "description": "Football match III collection series under Celebration.",
-      "displayOrder": 68
+      "displayOrder": 70
     },
     {
       "id": "ser-celebration-go-netherlands",
@@ -614,7 +630,7 @@
       "name": "Go Netherlands!",
       "badge": "Event",
       "description": "Go Netherlands! collection series under Celebration.",
-      "displayOrder": 69
+      "displayOrder": 71
     },
     {
       "id": "ser-celebration-go-usa",
@@ -622,7 +638,7 @@
       "name": "Go USA!",
       "badge": "Event",
       "description": "Go USA! collection series under Celebration.",
-      "displayOrder": 70
+      "displayOrder": 72
     },
     {
       "id": "ser-celebration-go-france",
@@ -630,7 +646,7 @@
       "name": "Go France!",
       "badge": "Event",
       "description": "Go France! collection series under Celebration.",
-      "displayOrder": 71
+      "displayOrder": 73
     },
     {
       "id": "ser-celebration-go-england",
@@ -638,7 +654,7 @@
       "name": "Go England!",
       "badge": "Event",
       "description": "Go England! collection series under Celebration.",
-      "displayOrder": 72
+      "displayOrder": 74
     },
     {
       "id": "ser-celebration-go-brazil",
@@ -646,7 +662,7 @@
       "name": "Go Brazil!",
       "badge": "Event",
       "description": "Go Brazil! collection series under Celebration.",
-      "displayOrder": 73
+      "displayOrder": 75
     },
     {
       "id": "ser-celebration-go-argentina",
@@ -654,15 +670,23 @@
       "name": "Go Argentina!",
       "badge": "Event",
       "description": "Go Argentina! collection series under Celebration.",
-      "displayOrder": 74
+      "displayOrder": 76
     },
     {
       "id": "ser-celebration-love-of-the-champions",
       "categoryId": "cat-celebration",
-      "name": "Love of the champions",
+      "name": "Love of the champion",
       "badge": "Romance",
       "description": "Love of the champions collection series under Celebration.",
-      "displayOrder": 75
+      "displayOrder": 77
+    },
+    {
+      "id": "ser-mvf6nq6u-6nth15",
+      "categoryId": "cat-celebration",
+      "name": "Football star roster",
+      "badge": "",
+      "description": "Football star roster collection series under Celebration.",
+      "displayOrder": 78
     },
     {
       "id": "ser-celebration-football-keychain-ii",
@@ -670,7 +694,7 @@
       "name": "Football Keychain II",
       "badge": "Event",
       "description": "Football Keychain II collection series under Celebration.",
-      "displayOrder": 76
+      "displayOrder": 79
     },
     {
       "id": "ser-celebration-football-keychain-i",
@@ -678,23 +702,23 @@
       "name": "Football Keychain I",
       "badge": "Event",
       "description": "Football Keychain I collection series under Celebration.",
-      "displayOrder": 77
+      "displayOrder": 80
     },
     {
       "id": "ser-celebration-football-match",
       "categoryId": "cat-celebration",
-      "name": "Football match",
+      "name": "Football match II",
       "badge": "Event",
       "description": "Football match collection series under Celebration.",
-      "displayOrder": 78
+      "displayOrder": 81
     },
     {
       "id": "ser-celebration-football-match-ii",
       "categoryId": "cat-celebration",
-      "name": "Football match II",
+      "name": "Football match I",
       "badge": "Event",
       "description": "Football match II collection series under Celebration.",
-      "displayOrder": 79
+      "displayOrder": 82
     },
     {
       "id": "ser-celebration-songkran-festival",
@@ -702,7 +726,7 @@
       "name": "Songkran Festival",
       "badge": "Special",
       "description": "Songkran Festival collection series under Celebration.",
-      "displayOrder": 80
+      "displayOrder": 83
     },
     {
       "id": "ser-celebration-venice-carnival",
@@ -710,7 +734,7 @@
       "name": "Venice Carnival",
       "badge": "Carnival",
       "description": "Venice Carnival collection series under Celebration.",
-      "displayOrder": 81
+      "displayOrder": 84
     },
     {
       "id": "ser-celebration-easter",
@@ -718,7 +742,7 @@
       "name": "Easter",
       "badge": "Collection",
       "description": "Easter collection series under Celebration.",
-      "displayOrder": 82
+      "displayOrder": 85
     },
     {
       "id": "ser-celebration-rare-zodiac-set",
@@ -726,7 +750,15 @@
       "name": "Rare Zodiac Set",
       "badge": "Zodiac",
       "description": "Rare Zodiac Set collection series under Celebration.",
-      "displayOrder": 83
+      "displayOrder": 86
+    },
+    {
+      "id": "ser-mvf6lli1-91ioig",
+      "categoryId": "cat-celebration",
+      "name": "Nowruz",
+      "badge": "",
+      "description": "Nowruz collection series under Celebration.",
+      "displayOrder": 87
     },
     {
       "id": "ser-celebration-eid-al-fitr",
@@ -734,7 +766,7 @@
       "name": "Eid al-Fitr",
       "badge": "Special",
       "description": "Eid al-Fitr collection series under Celebration.",
-      "displayOrder": 84
+      "displayOrder": 88
     },
     {
       "id": "ser-celebration-holi",
@@ -742,7 +774,7 @@
       "name": "Holi",
       "badge": "Collection",
       "description": "Holi collection series under Celebration.",
-      "displayOrder": 85
+      "displayOrder": 89
     },
     {
       "id": "ser-celebration-st-patrick-s-day",
@@ -750,7 +782,7 @@
       "name": "St. Patrick's Day",
       "badge": "Collection",
       "description": "St. Patrick's Day collection series under Celebration.",
-      "displayOrder": 86
+      "displayOrder": 90
     },
     {
       "id": "ser-celebration-april-fools-day",
@@ -758,7 +790,7 @@
       "name": "April Fools' Day",
       "badge": "Collection",
       "description": "April Fools' Day collection series under Celebration.",
-      "displayOrder": 87
+      "displayOrder": 91
     },
     {
       "id": "ser-celebration-winter-reunion-festival",
@@ -766,7 +798,7 @@
       "name": "Winter Reunion Festival",
       "badge": "Special",
       "description": "Winter Reunion Festival collection series under Celebration.",
-      "displayOrder": 88
+      "displayOrder": 92
     },
     {
       "id": "ser-celebration-epiphany",
@@ -774,7 +806,7 @@
       "name": "Epiphany",
       "badge": "Collection",
       "description": "Epiphany collection series under Celebration.",
-      "displayOrder": 89
+      "displayOrder": 93
     },
     {
       "id": "ser-celebration-constellation-gifts",
@@ -782,7 +814,7 @@
       "name": "Constellation Gifts",
       "badge": "Collection",
       "description": "Constellation Gifts collection series under Celebration.",
-      "displayOrder": 90
+      "displayOrder": 94
     },
     {
       "id": "ser-celebration-christmas",
@@ -790,7 +822,7 @@
       "name": "Christmas",
       "badge": "Collection",
       "description": "Christmas collection series under Celebration.",
-      "displayOrder": 91
+      "displayOrder": 95
     }
   ],
   "items": [
