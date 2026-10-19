@@ -10,7 +10,7 @@
 
   const DEFAULT_SEED = {
   "version": "1.0.2",
-  "lastExported": 1792392377857,
+  "lastExported": 1792403144270,
   "categories": [
     {
       "id": "cat-basic",
@@ -77,7 +77,7 @@
     {
       "id": "ser-basic-echoes-of-youth",
       "categoryId": "cat-basic",
-      "name": "Echoes of Youth",
+      "name": "Echoes of Growth",
       "badge": "Collection",
       "description": "Echoes of Youth collection series under Basic.",
       "displayOrder": 1
@@ -85,7 +85,7 @@
     {
       "id": "ser-basic-live-streamer-s-trilogy",
       "categoryId": "cat-basic",
-      "name": "Live Streamer's Trilogy",
+      "name": "Live Streamer's Tribute",
       "badge": "Collection",
       "description": "Live Streamer's Trilogy collection series under Basic.",
       "displayOrder": 2
@@ -109,7 +109,7 @@
     {
       "id": "ser-basic-happy-anniversary",
       "categoryId": "cat-basic",
-      "name": "HAPPY ANNIVERSARY",
+      "name": "HAPPY ANNIVERSARY!",
       "badge": "Special",
       "description": "HAPPY ANNIVERSARY collection series under Basic.",
       "displayOrder": 5
@@ -819,9 +819,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402660257,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-perfect-2",
@@ -838,9 +841,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402659055,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-much-better-3",
@@ -857,9 +863,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402657458,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-you-did-it-4",
@@ -876,9 +885,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402656065,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-keep-it-up-5",
@@ -895,9 +907,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402654740,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-good-job-6",
@@ -914,9 +929,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402653425,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-youth-mystery-gift-7",
@@ -924,18 +942,22 @@
       "seriesId": "ser-basic-echoes-of-youth",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
-      "tier": "Featured",
+      "tier": "Mystery Gift",
       "tags": [
         "basic",
         "echoes-of-youth",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402665654,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-youth-best-teacher-8",
@@ -943,7 +965,7 @@
       "seriesId": "ser-basic-echoes-of-youth",
       "name": "Best Teacher",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -952,9 +974,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402650442,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-rocket-9",
@@ -962,7 +988,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Rocket",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -971,9 +997,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402675214,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-hat-10",
@@ -1038,7 +1068,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Key",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1047,9 +1077,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402685428,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-symphony-salute-14",
@@ -1057,7 +1091,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Symphony Salute",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1066,9 +1100,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402689746,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-balloon-15",
@@ -1076,7 +1114,7 @@
       "seriesId": "ser-basic-live-streamer-s-trilogy",
       "name": "Celebration Balloon",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1085,9 +1123,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402680084,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-gummy-party-treasure-hunter-16",
@@ -1104,9 +1146,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402932105,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-super-lucky-17",
@@ -1123,9 +1168,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402934241,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-happy-4-u-18",
@@ -1142,9 +1190,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402935855,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-get-well-soon-19",
@@ -1161,9 +1212,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402937504,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-i-m-here-4-u-20",
@@ -1180,9 +1234,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402938603,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-thought-of-u-21",
@@ -1199,9 +1256,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402940180,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-nice-post-22",
@@ -1218,9 +1278,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402941651,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-flutter-23",
@@ -1237,9 +1300,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402943120,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-bear-hug-24",
@@ -1256,9 +1322,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402945312,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-gummy-party-thank-you-feedback-25",
@@ -1266,7 +1335,7 @@
       "seriesId": "ser-basic-gummy-party",
       "name": "Thank You Feedback",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1285,7 +1354,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Flower-language fan",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1294,9 +1363,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402997236,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-film-camera-27",
@@ -1304,7 +1378,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Film camera",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1313,9 +1387,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402998637,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-pearl-gift-box-28",
@@ -1323,7 +1402,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Pearl gift box",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1332,9 +1411,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792402999804,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-white-rose-29",
@@ -1351,9 +1435,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403003989,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-feather-notebook-30",
@@ -1370,9 +1457,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403002657,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-thank-you-letter-31",
@@ -1389,9 +1479,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403001514,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-creator-s-gifts-blossoms-books-32",
@@ -1399,7 +1492,7 @@
       "seriesId": "ser-basic-creator-s-gifts",
       "name": "Blossoms & Books",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1408,9 +1501,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792402963831,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-double-salute-cannon-33",
@@ -1427,9 +1524,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403069009,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-happy-anniversary-party-card-34",
@@ -1446,9 +1546,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403065174,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-happy-anniversary-to-the-celebration-35",
@@ -1456,7 +1559,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "To the Celebration",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1465,9 +1568,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403040689,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-ht-trophy-36",
@@ -1475,7 +1582,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "HT Trophy",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1484,9 +1591,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403020342,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-anniversary-37",
@@ -1494,7 +1605,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Anniversary",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1503,9 +1614,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403033019,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-golden-piano-38",
@@ -1513,7 +1628,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Golden Piano",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1522,9 +1637,13 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403060673,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-fairy-tale-bear-39",
@@ -1532,7 +1651,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Fairy Tale Bear",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1541,9 +1660,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403052983,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-magic-bun-40",
@@ -1551,7 +1674,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Magic Bun",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1560,9 +1683,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403027274,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-anniversary-cat-magician-41",
@@ -1570,7 +1697,7 @@
       "seriesId": "ser-basic-happy-anniversary",
       "name": "Cat Magician",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1579,9 +1706,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403046366,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-magic-wand-42",
@@ -1589,7 +1720,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Magic Wand",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1598,9 +1729,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403138574,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-balloon-43",
@@ -1608,7 +1744,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Balloon",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1617,9 +1753,14 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403141974,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-gift-box-44",
@@ -1627,7 +1768,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Gift Box",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1636,9 +1777,14 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792403144270,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-bouquet-45",
@@ -1646,7 +1792,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Bouquet",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1655,9 +1801,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403103074,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-dinner-46",
@@ -1665,7 +1815,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Dinner",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1674,9 +1824,13 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403091797,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-jewel-47",
@@ -1684,7 +1838,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Jewel",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1693,9 +1847,13 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403097836,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-happy-birthday-birthday-party-hall-48",
@@ -1703,7 +1861,7 @@
       "seriesId": "ser-basic-happy-birthday",
       "name": "Birthday Party Hall",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1712,9 +1870,13 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792403084987,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-crystal-shell-49",
@@ -1741,7 +1903,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "CrystalLove",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1798,7 +1960,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "LilyPerfume",
       "baseValue": 100,
-      "marketWorth": 115,
+      "marketWorth": 100,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1817,7 +1979,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "MyLove",
       "baseValue": 9999,
-      "marketWorth": 19998,
+      "marketWorth": 9999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1836,7 +1998,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "Crystal Flower",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1855,7 +2017,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "Feather",
       "baseValue": 120,
-      "marketWorth": 138,
+      "marketWorth": 120,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1874,7 +2036,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "Star Wish",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -1893,7 +2055,7 @@
       "seriesId": "ser-emotion-luminous-heart-s-melody",
       "name": "Floral Path",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -1912,7 +2074,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Rose Orb",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1931,7 +2093,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "HeartSpark",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -1950,7 +2112,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Wish Gift",
       "baseValue": 200,
-      "marketWorth": 270,
+      "marketWorth": 200,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1969,7 +2131,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Flowers for You",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -1988,7 +2150,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Fancy Boat",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2007,7 +2169,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Heart Garden",
       "baseValue": 5999,
-      "marketWorth": 11998,
+      "marketWorth": 5999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2026,7 +2188,7 @@
       "seriesId": "ser-emotion-romantic-vow",
       "name": "Heart Castle",
       "baseValue": 5999,
-      "marketWorth": 11998,
+      "marketWorth": 5999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2083,7 +2245,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "HeartSpark",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2121,7 +2283,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2140,7 +2302,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "Cute Cam",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2159,7 +2321,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "Love Card",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2178,7 +2340,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "Diamond Heart",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2197,7 +2359,7 @@
       "seriesId": "ser-emotion-collections-of-hearts",
       "name": "HeartMatch",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2216,7 +2378,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Bear Hug",
       "baseValue": 100,
-      "marketWorth": 115,
+      "marketWorth": 100,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2235,7 +2397,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "BallRose",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2254,7 +2416,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "CuteVow",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2273,7 +2435,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "MistSweet",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2292,7 +2454,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Heart Crit",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2311,7 +2473,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Flower Bear",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2330,7 +2492,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Music Cake",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2349,7 +2511,7 @@
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Love Plane",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2368,7 +2530,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "photo booth",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2387,7 +2549,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "tape deck",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2444,7 +2606,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "disco",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2463,7 +2625,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "skateware",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2482,7 +2644,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "gachapon",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2501,7 +2663,7 @@
       "seriesId": "ser-modern-back-to-the-millennium",
       "name": "karaoke",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2539,7 +2701,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Sunset Ride",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2558,7 +2720,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Star Sports Car",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2577,7 +2739,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "F1 Car",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2596,7 +2758,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Lux Ride",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2615,7 +2777,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Coin Racer",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2634,7 +2796,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2653,7 +2815,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Thunder Racing",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2672,7 +2834,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Fire Tiger",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2691,7 +2853,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Convertible",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2710,7 +2872,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Tech Car",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2729,7 +2891,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Pink Car",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2748,7 +2910,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "LuxGarage",
       "baseValue": 9999,
-      "marketWorth": 19998,
+      "marketWorth": 9999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2767,7 +2929,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Goldwing Racer",
       "baseValue": 189,
-      "marketWorth": 255,
+      "marketWorth": 189,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2786,7 +2948,7 @@
       "seriesId": "ser-modern-roaring-engine",
       "name": "Luxury Sports Car",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -2824,7 +2986,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Travel Holiday",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2843,7 +3005,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Holiday Dove",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2881,7 +3043,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Airplane",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -2900,7 +3062,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "MiniCruise",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2919,7 +3081,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Playful Parade",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -2938,7 +3100,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Laser Backpack",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2957,7 +3119,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Travel Bus",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2976,7 +3138,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Go Travel",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -2995,7 +3157,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "GlobeCase",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3014,7 +3176,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Lazy Holiday",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3033,7 +3195,7 @@
       "seriesId": "ser-modern-ready-to-go",
       "name": "Good Holiday",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3052,7 +3214,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "FlyCrown",
       "baseValue": 60,
-      "marketWorth": 69,
+      "marketWorth": 60,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3071,7 +3233,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Gold Crown",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3090,7 +3252,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3109,7 +3271,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Star Gala",
       "baseValue": 9999,
-      "marketWorth": 19998,
+      "marketWorth": 9999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3128,7 +3290,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Award",
       "baseValue": 5999,
-      "marketWorth": 11998,
+      "marketWorth": 5999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3147,7 +3309,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Dragon Throne",
       "baseValue": 16999,
-      "marketWorth": 33998,
+      "marketWorth": 16999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3166,7 +3328,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Glory Crystal",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3185,7 +3347,7 @@
       "seriesId": "ser-modern-the-road-to-fame",
       "name": "Golden Piano",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3204,7 +3366,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Wonderland",
       "baseValue": 529,
-      "marketWorth": 846,
+      "marketWorth": 529,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3223,7 +3385,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Time Seal",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3261,7 +3423,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Heart Gem",
       "baseValue": 79,
-      "marketWorth": 91,
+      "marketWorth": 79,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3280,7 +3442,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -3299,7 +3461,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Magic Hat",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3318,7 +3480,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Sweet Treats",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3337,7 +3499,7 @@
       "seriesId": "ser-art-wonderland-dream",
       "name": "Poker Hat",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3356,7 +3518,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Aladdin's Lamp",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3375,7 +3537,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Anansi the Spider",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3394,7 +3556,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Paul Bunyan",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3413,7 +3575,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Peter and the Wolf",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3432,7 +3594,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "The Little Mermaid",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3451,7 +3613,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Jack and the Beanstalk",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3470,7 +3632,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Robin Hood",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3489,7 +3651,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Maui Lifting the Land",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3508,7 +3670,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "The Cowherd and the Weaver Girl",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3527,7 +3689,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Urashima Tarō",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3546,7 +3708,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Little Red Riding Hood",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3565,7 +3727,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Momotaro",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3584,7 +3746,7 @@
       "seriesId": "ser-art-global-story-club",
       "name": "Sun Wukong",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3603,7 +3765,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Poker",
       "baseValue": 239,
-      "marketWorth": 323,
+      "marketWorth": 239,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3622,7 +3784,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Monopoly",
       "baseValue": 159,
-      "marketWorth": 215,
+      "marketWorth": 159,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3641,7 +3803,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Mancala",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3660,7 +3822,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Checkers",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3679,7 +3841,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Go",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3698,7 +3860,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "UNO",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3717,7 +3879,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Xiangqi",
       "baseValue": 159,
-      "marketWorth": 215,
+      "marketWorth": 159,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3736,7 +3898,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Mahjong",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3755,7 +3917,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Wings of Chess",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3774,7 +3936,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Lotería",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -3793,7 +3955,7 @@
       "seriesId": "ser-art-a-little-square-board",
       "name": "Shogi",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -3812,7 +3974,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Girl with a Pearl Earring",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3831,7 +3993,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Dwelling in the Fuchun Mountains",
       "baseValue": 5999,
-      "marketWorth": 11998,
+      "marketWorth": 5999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3850,7 +4012,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "The Starry Night",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3869,7 +4031,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "The Great Wave off Kanagawa",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3888,7 +4050,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "American Gothic",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3907,7 +4069,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Impression, Sunrise",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3926,7 +4088,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Portrait with Thorn Necklace and Hummingbird",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3945,7 +4107,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Mona Lisa",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3964,7 +4126,7 @@
       "seriesId": "ser-art-world-famous-paintings",
       "name": "Guernica",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -3983,7 +4145,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Lotus Pipa",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4021,7 +4183,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Guzheng",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4040,7 +4202,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Bianzhong",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4059,7 +4221,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "FloralFlute",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4078,7 +4240,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Suona",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4097,7 +4259,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Sheng",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4116,7 +4278,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Erhu",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4135,7 +4297,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Drum",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4154,7 +4316,7 @@
       "seriesId": "ser-art-eastern-musical-instrument",
       "name": "Xun",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4192,7 +4354,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Fairy Boat",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4211,7 +4373,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Cloudfeather",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4249,7 +4411,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Magic Gate",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4268,7 +4430,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Butterfly Bloom",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4287,7 +4449,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Dreamcatcher",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4306,7 +4468,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Hourglass",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4325,7 +4487,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Celebration in the Clouds",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4344,7 +4506,7 @@
       "seriesId": "ser-fantasy-glimmering-hidden-paradise",
       "name": "Ice Castle",
       "baseValue": 6999,
-      "marketWorth": 13998,
+      "marketWorth": 6999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4363,7 +4525,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Starmoon Bottle",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4382,7 +4544,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Timepiece",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4401,7 +4563,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "ChronoWing",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4420,7 +4582,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Spellbook",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4439,7 +4601,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Magic Hat",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4458,7 +4620,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Star Train",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4477,7 +4639,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Starry Garden",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4496,7 +4658,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Galaxy Rose",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4515,7 +4677,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Stellar Mirage",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4534,7 +4696,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Galaxy Drink",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4553,7 +4715,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Galaxy Book",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4572,7 +4734,7 @@
       "seriesId": "ser-fantasy-starry-river-journey",
       "name": "Star Phonograph",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4610,7 +4772,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Phantom Feather",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4629,7 +4791,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Time Watch",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4648,7 +4810,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Galaxy Gift",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4667,7 +4829,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Swan Teacup",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4686,7 +4848,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Bottle Summer",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4705,7 +4867,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "Gilded Aviary",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4724,7 +4886,7 @@
       "seriesId": "ser-fantasy-wandering-in-wonderland",
       "name": "DreamStarCar",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -4762,7 +4924,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "CyberBike",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4781,7 +4943,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Star Sports Car",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4800,7 +4962,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Cyber Guitar",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4819,7 +4981,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Fantasy Box",
       "baseValue": 109,
-      "marketWorth": 125,
+      "marketWorth": 109,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4838,7 +5000,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Cyber Wand",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4857,7 +5019,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Supernova Helmet",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4876,7 +5038,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Starship Anthem",
       "baseValue": 16999,
-      "marketWorth": 33998,
+      "marketWorth": 16999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4895,7 +5057,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Cyber Moto",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -4914,7 +5076,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Cyber Backpack",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -4933,7 +5095,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "CyberRush",
       "baseValue": 4900,
-      "marketWorth": 9800,
+      "marketWorth": 4900,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -4952,7 +5114,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-ii",
       "name": "Thunder Racing",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5009,7 +5171,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Dagger",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5028,7 +5190,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Supernova Armor",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5047,7 +5209,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Space Rocket",
       "baseValue": 10000,
-      "marketWorth": 20000,
+      "marketWorth": 10000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -5066,7 +5228,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Racer",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -5085,7 +5247,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Storm",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5104,7 +5266,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Warrior",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5123,7 +5285,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Love",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5142,7 +5304,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cool Shades",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5161,7 +5323,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Time Train",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5180,7 +5342,7 @@
       "seriesId": "ser-fantasy-cyber-frenzy-i",
       "name": "Cyber Bear",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5199,7 +5361,7 @@
       "seriesId": "ser-apparel-select-world-war",
       "name": "Flamenco dress",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5218,7 +5380,7 @@
       "seriesId": "ser-apparel-select-world-war",
       "name": "Swedish folk costume",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5237,7 +5399,7 @@
       "seriesId": "ser-apparel-select-world-war",
       "name": "Egyptian Pharaoh Outfit",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5256,7 +5418,7 @@
       "seriesId": "ser-apparel-select-world-war",
       "name": "Court Dress",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5294,7 +5456,7 @@
       "seriesId": "ser-apparel-mysterious-europe",
       "name": "Lion Ring",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5332,7 +5494,7 @@
       "seriesId": "ser-apparel-mysterious-europe",
       "name": "Court Dress",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5351,7 +5513,7 @@
       "seriesId": "ser-apparel-mysterious-europe",
       "name": "White Suit",
       "baseValue": 899,
-      "marketWorth": 1438,
+      "marketWorth": 899,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5370,7 +5532,7 @@
       "seriesId": "ser-apparel-mysterious-europe",
       "name": "Amulet",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -5389,7 +5551,7 @@
       "seriesId": "ser-apparel-mysterious-europe",
       "name": "Star Crown",
       "baseValue": 10000,
-      "marketWorth": 20000,
+      "marketWorth": 10000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -5712,7 +5874,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Pomegranate Bloom",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5731,7 +5893,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Narcissus",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5750,7 +5912,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Peach Blossom",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5769,7 +5931,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "MorningGlory",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5788,7 +5950,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Lavender",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5807,7 +5969,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Osmanthus",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5826,7 +5988,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Lotus",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5845,7 +6007,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Chrysanthemum",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5864,7 +6026,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Wintersweet",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5883,7 +6045,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Camellia",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5902,7 +6064,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Peony",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5921,7 +6083,7 @@
       "seriesId": "ser-lives-four-seasons-in-bloom",
       "name": "Hibiscus",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -5959,7 +6121,7 @@
       "seriesId": "ser-lives-humanity-s-adorable",
       "name": "Energetic Hamster",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5978,7 +6140,7 @@
       "seriesId": "ser-lives-humanity-s-adorable",
       "name": "Lop-Eared Bunny",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -5997,7 +6159,7 @@
       "seriesId": "ser-lives-humanity-s-adorable",
       "name": "Cuddly Ragdoll Cat",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6035,7 +6197,7 @@
       "seriesId": "ser-lives-humanity-s-adorable",
       "name": "Energetic Golden Retriever",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6054,7 +6216,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Doggy Coins",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6073,7 +6235,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Toast XC",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6092,7 +6254,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Puppy",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6111,7 +6273,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Bee Puppy",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6130,7 +6292,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6149,7 +6311,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "HOT dog",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6168,7 +6330,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "ShibaFrame",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6187,7 +6349,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Dog King",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6206,7 +6368,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Energetic Golden Retriever",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6225,7 +6387,7 @@
       "seriesId": "ser-lives-paws-of-attraction",
       "name": "Sweet Dreams Puppy",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6244,7 +6406,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "FateFlower",
       "baseValue": 50,
-      "marketWorth": 57,
+      "marketWorth": 50,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6263,7 +6425,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "Spring Blessing",
       "baseValue": 79,
-      "marketWorth": 91,
+      "marketWorth": 79,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6282,7 +6444,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6301,7 +6463,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "Flower gift box",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6320,7 +6482,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "Floral Cradle",
       "baseValue": 4999,
-      "marketWorth": 9998,
+      "marketWorth": 4999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6339,7 +6501,7 @@
       "seriesId": "ser-lives-springtime-wishes",
       "name": "Butterfly Blossoms",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6377,7 +6539,7 @@
       "seriesId": "ser-lives-spring-wildflowers",
       "name": "Spring Bag",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6396,7 +6558,7 @@
       "seriesId": "ser-lives-spring-wildflowers",
       "name": "Holiday travel",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6415,7 +6577,7 @@
       "seriesId": "ser-lives-spring-wildflowers",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6434,7 +6596,7 @@
       "seriesId": "ser-lives-spring-wildflowers",
       "name": "Bloom Bee",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6453,7 +6615,7 @@
       "seriesId": "ser-lives-spring-wildflowers",
       "name": "Terrarium",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6472,7 +6634,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Stargaze Cat",
       "baseValue": 2000,
-      "marketWorth": 4000,
+      "marketWorth": 2000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6491,7 +6653,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6510,7 +6672,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Cat Melody",
       "baseValue": 6999,
-      "marketWorth": 13998,
+      "marketWorth": 6999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6529,7 +6691,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Teacup Cat",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6548,7 +6710,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Wish Cat",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6567,7 +6729,7 @@
       "seriesId": "ser-lives-star-wish-cat-land",
       "name": "Autumn Love",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6624,7 +6786,7 @@
       "seriesId": "ser-lives-a-heart-full-of-felicity",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6643,7 +6805,7 @@
       "seriesId": "ser-lives-a-heart-full-of-felicity",
       "name": "Snuggling Sweetie",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6662,7 +6824,7 @@
       "seriesId": "ser-lives-a-heart-full-of-felicity",
       "name": "Fish Cat",
       "baseValue": 109,
-      "marketWorth": 125,
+      "marketWorth": 109,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6681,7 +6843,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Tulip",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6700,7 +6862,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Rose",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6719,7 +6881,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Daisy",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6738,7 +6900,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Gypsophila",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6757,7 +6919,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Iris",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6776,7 +6938,7 @@
       "seriesId": "ser-lives-starry-flowers",
       "name": "Starry Narcissus",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -6795,7 +6957,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Panda Brew",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6814,7 +6976,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Panda Bamboo",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -6833,7 +6995,7 @@
       "seriesId": "ser-lives-panda",
       "name": "MeltyPanda",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6852,7 +7014,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Lazy Panda",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6871,7 +7033,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Panda Bath",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6890,7 +7052,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Swing Panda",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -6909,7 +7071,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Panda Tea",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -6928,7 +7090,7 @@
       "seriesId": "ser-lives-panda",
       "name": "Panda Pack",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7118,7 +7280,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Galaxy",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7137,7 +7299,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Sun",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7156,7 +7318,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Earth",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7175,7 +7337,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Saturn",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7194,7 +7356,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Mercury",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7213,7 +7375,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Nepture",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7232,7 +7394,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Venus",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7251,7 +7413,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Jupiter",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7270,7 +7432,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Mars",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7289,7 +7451,7 @@
       "seriesId": "ser-home-cosmic-galaxy",
       "name": "Uranus",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -7308,7 +7470,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Vinicunca",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7327,7 +7489,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Tianshan Mountains",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7346,7 +7508,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Barcelona",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7365,7 +7527,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Nice",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7384,7 +7546,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Florence",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7403,7 +7565,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Great Barrier Reef",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7422,7 +7584,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Uyuni Salt Flats",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7441,7 +7603,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Kyoto Maple",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7460,7 +7622,7 @@
       "seriesId": "ser-home-ticket-to-the-wonderland",
       "name": "Finnish Aurora",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7517,7 +7679,7 @@
       "seriesId": "ser-home-world-garden-stamp",
       "name": "The Butchart Gardens",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -7555,7 +7717,7 @@
       "seriesId": "ser-home-world-garden-stamp",
       "name": "Royal Botanic Garden Sydney",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -7612,7 +7774,7 @@
       "seriesId": "ser-home-world-garden-stamp",
       "name": "Humble Administrator's Garden",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7631,7 +7793,7 @@
       "seriesId": "ser-home-world-garden-stamp",
       "name": "Yanggu Temple",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -7688,7 +7850,7 @@
       "seriesId": "ser-home-world-garden-stamp",
       "name": "Rio de Janeiro Botanical Garden",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7707,7 +7869,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Sahara Desert",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7726,7 +7888,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Iguazu Falls",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7745,7 +7907,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Mountain at Sunrise",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7764,7 +7926,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Blue Ice Cave",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7783,7 +7945,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Uluru",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7802,7 +7964,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Li River",
       "baseValue": 2399,
-      "marketWorth": 4798,
+      "marketWorth": 2399,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7821,7 +7983,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Grand Canyon",
       "baseValue": 2399,
-      "marketWorth": 4798,
+      "marketWorth": 2399,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7840,7 +8002,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "White Cliffs",
       "baseValue": 2399,
-      "marketWorth": 4798,
+      "marketWorth": 2399,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7859,7 +8021,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Mount Kilimanjaro",
       "baseValue": 2399,
-      "marketWorth": 4798,
+      "marketWorth": 2399,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7878,7 +8040,7 @@
       "seriesId": "ser-home-beautiful-earth",
       "name": "Maldives Atolls",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -7897,7 +8059,7 @@
       "seriesId": "ser-home-travel-tickets",
       "name": "Paris Trip",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7916,7 +8078,7 @@
       "seriesId": "ser-home-travel-tickets",
       "name": "Shanghai Trip",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7935,7 +8097,7 @@
       "seriesId": "ser-home-travel-tickets",
       "name": "New York Trip",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7954,7 +8116,7 @@
       "seriesId": "ser-home-travel-tickets",
       "name": "Egypt Trip",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7973,7 +8135,7 @@
       "seriesId": "ser-home-travel-tickets",
       "name": "Tokyo Trip",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -7992,7 +8154,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "The Great Wall",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8011,7 +8173,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "Chichén Itzá",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8030,7 +8192,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "Machu Picchu",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8049,7 +8211,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "Colosseum",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8068,7 +8230,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "Embrace Rio",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8087,7 +8249,7 @@
       "seriesId": "ser-home-world-cultural-heritage",
       "name": "Taj Mahal",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8106,7 +8268,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Petal Spin",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8125,7 +8287,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "SakuraBell",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8144,7 +8306,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Fuji Sakura",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8163,7 +8325,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Cherry Fall",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8182,7 +8344,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Blossom Omamori",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8239,7 +8401,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Sakura Tea",
       "baseValue": 109,
-      "marketWorth": 125,
+      "marketWorth": 109,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8258,7 +8420,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "SakuraFall",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8277,7 +8439,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Sakura View",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8315,7 +8477,7 @@
       "seriesId": "ser-home-cherry-blossom",
       "name": "Sunny Doll",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8334,7 +8496,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Water Nest",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8353,7 +8515,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Lotus Lamp",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8372,7 +8534,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Circle Fan",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8391,7 +8553,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Lotus Pipa",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8410,7 +8572,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Pavilion",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8429,7 +8591,7 @@
       "seriesId": "ser-home-lotus-dreamscape",
       "name": "Floral Fan",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8448,7 +8610,7 @@
       "seriesId": "ser-home-four-seasons",
       "name": "Spring",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8467,7 +8629,7 @@
       "seriesId": "ser-home-four-seasons",
       "name": "Summer Lotus",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8486,7 +8648,7 @@
       "seriesId": "ser-home-four-seasons",
       "name": "Autumn",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8505,7 +8667,7 @@
       "seriesId": "ser-home-four-seasons",
       "name": "Snowglobe",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8524,7 +8686,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Choco Box",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8543,7 +8705,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "ChocoStick",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8600,7 +8762,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Hot Cocoa",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8619,7 +8781,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8638,7 +8800,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "SweetChoco",
       "baseValue": 9999,
-      "marketWorth": 19998,
+      "marketWorth": 9999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -8657,7 +8819,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "LuckyChoco",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -8676,7 +8838,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Chocolate",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8695,7 +8857,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Chocolate Gelato",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8714,7 +8876,7 @@
       "seriesId": "ser-delicious-chocolate-feast",
       "name": "Dessert Zodiac",
       "baseValue": 109,
-      "marketWorth": 125,
+      "marketWorth": 109,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8866,7 +9028,7 @@
       "seriesId": "ser-delicious-pixel-ice-cream",
       "name": "Guizhou Bingjiang",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8885,7 +9047,7 @@
       "seriesId": "ser-delicious-pixel-ice-cream",
       "name": "Maple Syrup Ice Cream",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -8904,7 +9066,7 @@
       "seriesId": "ser-delicious-pixel-ice-cream",
       "name": "Açaí Ice Cream",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8942,7 +9104,7 @@
       "seriesId": "ser-delicious-pixel-ice-cream",
       "name": "Croissant Ice Cream",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8961,7 +9123,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Coconut Ice Cream",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -8999,7 +9161,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Chinese-style ice dessert",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9018,7 +9180,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Cream Soda",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9075,7 +9237,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Frozen Yogurt Ice Cream",
       "baseValue": 79,
-      "marketWorth": 91,
+      "marketWorth": 79,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9113,7 +9275,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Durian Ice Cream",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9151,7 +9313,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "99 Flake",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9189,7 +9351,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Fruitpop",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9208,7 +9370,7 @@
       "seriesId": "ser-delicious-global-ice-cream-festival",
       "name": "Chocolate Gelato",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9246,7 +9408,7 @@
       "seriesId": "ser-delicious-afternoon-tea-time",
       "name": "CoffeePour",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9303,7 +9465,7 @@
       "seriesId": "ser-delicious-afternoon-tea-time",
       "name": "Hot Cocoa",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9322,7 +9484,7 @@
       "seriesId": "ser-delicious-afternoon-tea-time",
       "name": "Rose Latte",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9341,7 +9503,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Choco Box",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9360,7 +9522,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Donut",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9398,7 +9560,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Afternoon Tea",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9436,7 +9598,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "SwissRoll",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9455,7 +9617,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "SweetCake",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9512,7 +9674,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Spring Tea",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -9531,7 +9693,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Dessert Table",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9550,7 +9712,7 @@
       "seriesId": "ser-delicious-desserts",
       "name": "Rose Ice Cream",
       "baseValue": 79,
-      "marketWorth": 91,
+      "marketWorth": 79,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9569,7 +9731,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Luxury Wine Box",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -9588,7 +9750,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Cheers",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9607,7 +9769,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Cocktail",
       "baseValue": 119,
-      "marketWorth": 137,
+      "marketWorth": 119,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9645,7 +9807,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Red Wine",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -9664,7 +9826,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Champagne",
       "baseValue": 29999,
-      "marketWorth": 59998,
+      "marketWorth": 29999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -9683,7 +9845,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Colorful Glass",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9702,7 +9864,7 @@
       "seriesId": "ser-delicious-alcoholic-beverages",
       "name": "Astro Champagne",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9740,7 +9902,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Mai Tai",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9759,7 +9921,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Pina Colada",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9778,7 +9940,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Aperol Spritz",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -9797,7 +9959,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Mojito",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9816,7 +9978,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Old Fashioned",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9854,7 +10016,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Singapore Sling",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9873,7 +10035,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Zombie Cocktail",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -9892,7 +10054,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Godfather",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9911,7 +10073,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Sunset Stars",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9930,7 +10092,7 @@
       "seriesId": "ser-delicious-cocktail-journey",
       "name": "Negroni",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -9987,7 +10149,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Burger",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10006,7 +10168,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Big Burger",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10063,7 +10225,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Hot dog",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10082,7 +10244,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Eggs Benedict",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10101,7 +10263,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Lobster Roll",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10120,7 +10282,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Best Friend",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10139,7 +10301,7 @@
       "seriesId": "ser-delicious-flavors-of-the-american-continent",
       "name": "Lunch",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10177,7 +10339,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Tangyuan",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10196,7 +10358,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Sunflower Seeds",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10215,7 +10377,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Qiegao",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10253,7 +10415,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Chinese Xiaolongbao",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10272,7 +10434,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Grilled Oysters",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10291,7 +10453,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Hot Pot Lamb",
       "baseValue": 899,
-      "marketWorth": 1438,
+      "marketWorth": 899,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10310,7 +10472,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Luosifen",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10329,7 +10491,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Rock Sugar Pear",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10348,7 +10510,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Spring Roll",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10367,7 +10529,7 @@
       "seriesId": "ser-delicious-chinese-flavor-i",
       "name": "Jiaozi",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10386,7 +10548,7 @@
       "seriesId": "ser-celebration-go-germany",
       "name": "Triumphant Return",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10405,7 +10567,7 @@
       "seriesId": "ser-celebration-go-germany",
       "name": "Germany Golden Cup",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10424,7 +10586,7 @@
       "seriesId": "ser-celebration-go-germany",
       "name": "Munich Beer",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10519,7 +10681,7 @@
       "seriesId": "ser-celebration-oktoberfest",
       "name": "Munich Beer",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10538,7 +10700,7 @@
       "seriesId": "ser-celebration-oktoberfest",
       "name": "Munich Carnival Night",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10557,7 +10719,7 @@
       "seriesId": "ser-celebration-oktoberfest",
       "name": "Golden Cup Celebration",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10576,7 +10738,7 @@
       "seriesId": "ser-celebration-oktoberfest",
       "name": "Beer Barrel",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10595,7 +10757,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Popcorn",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10614,7 +10776,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Cat Popcorn",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10633,7 +10795,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Entry Ticket",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10652,7 +10814,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Movie corn",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10690,7 +10852,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Love Record",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10709,7 +10871,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Film projector",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10729,7 +10891,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Film projector",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10749,7 +10911,7 @@
       "seriesId": "ser-celebration-happy-film-festival",
       "name": "Love Memories",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10768,7 +10930,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "BubbleMaker",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10787,7 +10949,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Star Unicorn",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10806,7 +10968,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Book of Childhood Wonder",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -10825,7 +10987,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "BalloonPals",
       "baseValue": 610,
-      "marketWorth": 976,
+      "marketWorth": 610,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10844,7 +11006,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Gachapon",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10863,7 +11025,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Fun Park",
       "baseValue": 6999,
-      "marketWorth": 13998,
+      "marketWorth": 6999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -10882,7 +11044,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Love City",
       "baseValue": 6999,
-      "marketWorth": 13998,
+      "marketWorth": 6999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -10901,7 +11063,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Dream Park",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -10920,7 +11082,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Carousel",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -10939,7 +11101,7 @@
       "seriesId": "ser-celebration-childhood-dreamland",
       "name": "Garden Spy",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -10958,7 +11120,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Rabbit Lantern",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10977,7 +11139,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "JadeRabbit",
       "baseValue": 100,
-      "marketWorth": 115,
+      "marketWorth": 100,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -10996,7 +11158,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Basket Cake",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11015,7 +11177,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Mooncake",
       "baseValue": 66,
-      "marketWorth": 76,
+      "marketWorth": 66,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -11034,7 +11196,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Osmanthus tea",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11053,7 +11215,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Moonglow",
       "baseValue": 7999,
-      "marketWorth": 15998,
+      "marketWorth": 7999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11072,7 +11234,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Bunny Moon",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11091,7 +11253,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "Moonlight",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11110,7 +11272,7 @@
       "seriesId": "ser-celebration-mid-autumn-festival",
       "name": "MoonBunny",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11129,7 +11291,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Flying Together",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11205,7 +11367,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Love Drum",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11243,7 +11405,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Bird Lamp",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11262,7 +11424,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "JadeYearn",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -11281,7 +11443,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Kitty Love",
       "baseValue": 9998,
-      "marketWorth": 19996,
+      "marketWorth": 9998,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11300,7 +11462,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Qixi Wish",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11319,7 +11481,7 @@
       "seriesId": "ser-celebration-qixi-festival",
       "name": "Person in Book",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11357,7 +11519,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "Blast",
       "baseValue": 88,
-      "marketWorth": 101,
+      "marketWorth": 88,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -11395,7 +11557,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "Mystery Gift",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -11414,7 +11576,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "LionSpirit",
       "baseValue": 888,
-      "marketWorth": 1421,
+      "marketWorth": 888,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11433,7 +11595,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "Lucky Koi",
       "baseValue": 1088,
-      "marketWorth": 2176,
+      "marketWorth": 1088,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11452,7 +11614,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "LuckyPanda",
       "baseValue": 188,
-      "marketWorth": 254,
+      "marketWorth": 188,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11471,7 +11633,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "LuckyFeast",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11490,7 +11652,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "Lucky Bag",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11509,7 +11671,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "LunarSnack",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11528,7 +11690,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "Glowfest",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11547,7 +11709,7 @@
       "seriesId": "ser-celebration-new-year-greetings",
       "name": "LuckyCoins",
       "baseValue": 600,
-      "marketWorth": 960,
+      "marketWorth": 600,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11566,7 +11728,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Egypt",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11585,7 +11747,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Switzerland",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11604,7 +11766,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Belgium",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11623,7 +11785,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Spain",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11642,7 +11804,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Brazil",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11661,7 +11823,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of England",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11680,7 +11842,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Morocco",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11699,7 +11861,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of France",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11718,7 +11880,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Argentina",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11737,7 +11899,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Norway",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11756,7 +11918,7 @@
       "seriesId": "ser-celebration-glory-commemoration",
       "name": "Glory of Cape Verde",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -11775,7 +11937,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Golden Header",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11794,7 +11956,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Blue Miracle",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11813,7 +11975,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Last Minute",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11832,7 +11994,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Flying Strike",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11851,7 +12013,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Last-Gasp Equalizer",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11870,7 +12032,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Solo Run",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11889,7 +12051,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Samba Storm",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11908,7 +12070,7 @@
       "seriesId": "ser-celebration-8-legendary-goals",
       "name": "Century Run",
       "baseValue": 1199,
-      "marketWorth": 2398,
+      "marketWorth": 1199,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11946,7 +12108,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Cute Rice",
       "baseValue": 159,
-      "marketWorth": 215,
+      "marketWorth": 159,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -11965,7 +12127,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Rice Ride",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -11984,7 +12146,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Rice Boat",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -12003,7 +12165,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Zongzi",
       "baseValue": 129,
-      "marketWorth": 148,
+      "marketWorth": 129,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12022,7 +12184,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Zongzi Aroma Dream",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12041,7 +12203,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Summer with Kitty",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12060,7 +12222,7 @@
       "seriesId": "ser-celebration-dragon-boat-festival",
       "name": "Rabbit Boat",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12117,7 +12279,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Football Golden Cup",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12155,7 +12317,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Foul",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12174,7 +12336,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Gold Medal",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12193,7 +12355,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "I'm Champion!",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12212,7 +12374,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Snack Bucket",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12231,7 +12393,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Champions' Night",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12250,7 +12412,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Thunderbolt Shot",
       "baseValue": 2999,
-      "marketWorth": 5998,
+      "marketWorth": 2999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12269,7 +12431,7 @@
       "seriesId": "ser-celebration-football-match-iv",
       "name": "Cat Cheer Team",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12288,7 +12450,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Color Fizz",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12307,7 +12469,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Successful save",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12326,7 +12488,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Shot",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12345,7 +12507,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Goal moment",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12364,7 +12526,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Goal",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12383,7 +12545,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Defensive Master",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12402,7 +12564,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Trophy pendant",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12421,7 +12583,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "Kick-off",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12440,7 +12602,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "We are the champions!",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12459,7 +12621,7 @@
       "seriesId": "ser-celebration-football-match-iii",
       "name": "World Cup Night",
       "baseValue": 3999,
-      "marketWorth": 7998,
+      "marketWorth": 3999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -12478,7 +12640,7 @@
       "seriesId": "ser-celebration-go-netherlands",
       "name": "Football Flower Shop",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12497,7 +12659,7 @@
       "seriesId": "ser-celebration-go-netherlands",
       "name": "Netherlands Gold Cup",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12516,7 +12678,7 @@
       "seriesId": "ser-celebration-go-netherlands",
       "name": "Orange Lion",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12554,7 +12716,7 @@
       "seriesId": "ser-celebration-go-usa",
       "name": "Victory",
       "baseValue": 79,
-      "marketWorth": 91,
+      "marketWorth": 79,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12592,7 +12754,7 @@
       "seriesId": "ser-celebration-go-usa",
       "name": "Fierce Eagle",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12611,7 +12773,7 @@
       "seriesId": "ser-celebration-go-usa",
       "name": "Championship Trophy",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12630,7 +12792,7 @@
       "seriesId": "ser-celebration-go-france",
       "name": "France Gold Cup",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12649,7 +12811,7 @@
       "seriesId": "ser-celebration-go-france",
       "name": "Gallic Rooster",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12668,7 +12830,7 @@
       "seriesId": "ser-celebration-go-france",
       "name": "Iron Tower Football",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12687,7 +12849,7 @@
       "seriesId": "ser-celebration-go-england",
       "name": "Bells of Celebration",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12725,7 +12887,7 @@
       "seriesId": "ser-celebration-go-england",
       "name": "England Gold Cup",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12744,7 +12906,7 @@
       "seriesId": "ser-celebration-go-england",
       "name": "Football Cheers",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12763,7 +12925,7 @@
       "seriesId": "ser-celebration-go-england",
       "name": "Lion of England",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12782,7 +12944,7 @@
       "seriesId": "ser-celebration-go-brazil",
       "name": "Football Stage",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12820,7 +12982,7 @@
       "seriesId": "ser-celebration-go-brazil",
       "name": "We can win",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12839,7 +13001,7 @@
       "seriesId": "ser-celebration-go-brazil",
       "name": "Eternal Blaze",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12858,7 +13020,7 @@
       "seriesId": "ser-celebration-go-brazil",
       "name": "Crown of the Setting Sun",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12877,7 +13039,7 @@
       "seriesId": "ser-celebration-go-argentina",
       "name": "Tango",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12915,7 +13077,7 @@
       "seriesId": "ser-celebration-go-argentina",
       "name": "Football Star",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -12934,7 +13096,7 @@
       "seriesId": "ser-celebration-go-argentina",
       "name": "Gauchos",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -12972,7 +13134,7 @@
       "seriesId": "ser-celebration-love-of-the-champions",
       "name": "Champion Football",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -12991,7 +13153,7 @@
       "seriesId": "ser-celebration-love-of-the-champions",
       "name": "Champion Wish Ball",
       "baseValue": 599,
-      "marketWorth": 958,
+      "marketWorth": 599,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13010,7 +13172,7 @@
       "seriesId": "ser-celebration-love-of-the-champions",
       "name": "Champion necklace",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13029,7 +13191,7 @@
       "seriesId": "ser-celebration-love-of-the-champions",
       "name": "Champion Basket",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13048,7 +13210,7 @@
       "seriesId": "ser-celebration-love-of-the-champions",
       "name": "Championship Crystal Cup",
       "baseValue": 899,
-      "marketWorth": 1438,
+      "marketWorth": 899,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13067,7 +13229,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "Korean Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13086,7 +13248,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "Egypt Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13181,7 +13343,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "Argentina Pendant",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13200,7 +13362,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "Brazil Pendant",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13219,7 +13381,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "German Football",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13238,7 +13400,7 @@
       "seriesId": "ser-celebration-football-keychain-ii",
       "name": "American Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13257,7 +13419,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "Japan Pendant",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13295,7 +13457,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "Netherlands Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13314,7 +13476,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "Spain Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13352,7 +13514,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "Croatia Pendant",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13371,7 +13533,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "Australia Pendant",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13390,7 +13552,7 @@
       "seriesId": "ser-celebration-football-keychain-i",
       "name": "England Pendant",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13504,7 +13666,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Football match",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13523,7 +13685,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Pass",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13542,7 +13704,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Tackle",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13599,7 +13761,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Forward scores",
       "baseValue": 1299,
-      "marketWorth": 2598,
+      "marketWorth": 1299,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -13618,7 +13780,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Bicycle Kick",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13656,7 +13818,7 @@
       "seriesId": "ser-celebration-football-match",
       "name": "Wonder Goal!",
       "baseValue": 1999,
-      "marketWorth": 3998,
+      "marketWorth": 1999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -13675,7 +13837,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "GO GO GOAL",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13694,7 +13856,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "2 Yellow cards",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13732,7 +13894,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "Sliding celebration",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13789,7 +13951,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "Football Gift Box",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13808,7 +13970,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "Football coronation",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13827,7 +13989,7 @@
       "seriesId": "ser-celebration-football-match-ii",
       "name": "1 Yellow Card",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13846,7 +14008,7 @@
       "seriesId": "ser-celebration-songkran-festival",
       "name": "Songkran",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13865,7 +14027,7 @@
       "seriesId": "ser-celebration-songkran-festival",
       "name": "Water Gun Party",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13884,7 +14046,7 @@
       "seriesId": "ser-celebration-songkran-festival",
       "name": "Songkran Festival Girl",
       "baseValue": 1599,
-      "marketWorth": 3198,
+      "marketWorth": 1599,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -13903,7 +14065,7 @@
       "seriesId": "ser-celebration-songkran-festival",
       "name": "Throwing Water Bowl",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -13922,7 +14084,7 @@
       "seriesId": "ser-celebration-venice-carnival",
       "name": "Night of the Canal",
       "baseValue": 899,
-      "marketWorth": 1438,
+      "marketWorth": 899,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -13941,7 +14103,7 @@
       "seriesId": "ser-celebration-venice-carnival",
       "name": "Snack basket",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13960,7 +14122,7 @@
       "seriesId": "ser-celebration-venice-carnival",
       "name": "Mask",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -13998,7 +14160,7 @@
       "seriesId": "ser-celebration-venice-carnival",
       "name": "Volta Carnival Mask",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14017,7 +14179,7 @@
       "seriesId": "ser-celebration-easter",
       "name": "Happy Easter",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14036,7 +14198,7 @@
       "seriesId": "ser-celebration-easter",
       "name": "Easter Bunny",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14055,7 +14217,7 @@
       "seriesId": "ser-celebration-easter",
       "name": "Newborn Bunny",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14074,7 +14236,7 @@
       "seriesId": "ser-celebration-easter",
       "name": "Bunny Violinist",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14093,7 +14255,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Taurus",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14112,7 +14274,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Pisces",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14131,7 +14293,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Virgo",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14150,7 +14312,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Leo",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14169,7 +14331,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Libra",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14188,7 +14350,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Cancer",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14207,7 +14369,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Aries",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14226,7 +14388,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Gemini",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14245,7 +14407,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Aquarius",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14264,7 +14426,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Capricorn",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14283,7 +14445,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Scorpio",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14302,7 +14464,7 @@
       "seriesId": "ser-celebration-rare-zodiac-set",
       "name": "Sagittarius",
       "baseValue": 500,
-      "marketWorth": 800,
+      "marketWorth": 500,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14321,7 +14483,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Ketupat",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14340,7 +14502,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Eid Feast",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14359,7 +14521,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Star Moon Lantern",
       "baseValue": 89,
-      "marketWorth": 102,
+      "marketWorth": 89,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14378,7 +14540,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Ramadan lantern",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14416,7 +14578,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Shawarma",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14435,7 +14597,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Moonboat",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14454,7 +14616,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "RamadanLight",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14473,7 +14635,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Iftar",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14492,7 +14654,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Gilded Decor",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14511,7 +14673,7 @@
       "seriesId": "ser-celebration-eid-al-fitr",
       "name": "Starry Dream",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14549,7 +14711,7 @@
       "seriesId": "ser-celebration-holi",
       "name": "Elephant",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14568,7 +14730,7 @@
       "seriesId": "ser-celebration-holi",
       "name": "Happy Holi",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14587,7 +14749,7 @@
       "seriesId": "ser-celebration-holi",
       "name": "Holi",
       "baseValue": 399,
-      "marketWorth": 539,
+      "marketWorth": 399,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14606,7 +14768,7 @@
       "seriesId": "ser-celebration-holi",
       "name": "Holi Girl",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14625,7 +14787,7 @@
       "seriesId": "ser-celebration-st-patrick-s-day",
       "name": "Shamrock badge",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14644,7 +14806,7 @@
       "seriesId": "ser-celebration-st-patrick-s-day",
       "name": "Leprechaun",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14663,7 +14825,7 @@
       "seriesId": "ser-celebration-st-patrick-s-day",
       "name": "Emerald Festival",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14682,7 +14844,7 @@
       "seriesId": "ser-celebration-april-fools-day",
       "name": "April Fool",
       "baseValue": 799,
-      "marketWorth": 1278,
+      "marketWorth": 799,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14701,7 +14863,7 @@
       "seriesId": "ser-celebration-april-fools-day",
       "name": "JokerBalloon",
       "baseValue": 699,
-      "marketWorth": 1118,
+      "marketWorth": 699,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14720,7 +14882,7 @@
       "seriesId": "ser-celebration-april-fools-day",
       "name": "Prank Hammer",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14739,7 +14901,7 @@
       "seriesId": "ser-celebration-april-fools-day",
       "name": "Pirate Barrel",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14758,7 +14920,7 @@
       "seriesId": "ser-celebration-winter-reunion-festival",
       "name": "Tangyuan",
       "baseValue": 99,
-      "marketWorth": 114,
+      "marketWorth": 99,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14777,7 +14939,7 @@
       "seriesId": "ser-celebration-winter-reunion-festival",
       "name": "Warm & Warm Lantern",
       "baseValue": 119,
-      "marketWorth": 137,
+      "marketWorth": 119,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14796,7 +14958,7 @@
       "seriesId": "ser-celebration-winter-reunion-festival",
       "name": "Winter Solstice",
       "baseValue": 69,
-      "marketWorth": 79,
+      "marketWorth": 69,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -14815,7 +14977,7 @@
       "seriesId": "ser-celebration-winter-reunion-festival",
       "name": "Jiaozi",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14834,7 +14996,7 @@
       "seriesId": "ser-celebration-winter-reunion-festival",
       "name": "Laba Festival",
       "baseValue": 499,
-      "marketWorth": 674,
+      "marketWorth": 499,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14872,7 +15034,7 @@
       "seriesId": "ser-celebration-epiphany",
       "name": "Gilt Pile",
       "baseValue": 999,
-      "marketWorth": 1598,
+      "marketWorth": 999,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -14891,7 +15053,7 @@
       "seriesId": "ser-celebration-epiphany",
       "name": "The Three Kings' Gifts",
       "baseValue": 299,
-      "marketWorth": 404,
+      "marketWorth": 299,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -14910,7 +15072,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Leo",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14929,7 +15091,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Sagittarius",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14948,7 +15110,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Scorpio",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14967,7 +15129,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Libra",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -14986,7 +15148,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Virgo",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15005,7 +15167,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Aquarius",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15024,7 +15186,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Pisces",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15043,7 +15205,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Cancer",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15062,7 +15224,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Aries",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15081,7 +15243,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Capricorn",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15100,7 +15262,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Taurus",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15119,7 +15281,7 @@
       "seriesId": "ser-celebration-constellation-gifts",
       "name": "Star Whisper · Gemini",
       "baseValue": 1099,
-      "marketWorth": 2198,
+      "marketWorth": 1099,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15138,7 +15300,7 @@
       "seriesId": "ser-celebration-christmas",
       "name": "XmasWreath",
       "baseValue": 59,
-      "marketWorth": 68,
+      "marketWorth": 59,
       "quantity": 0,
       "tier": "Featured",
       "tags": [
@@ -15157,7 +15319,7 @@
       "seriesId": "ser-celebration-christmas",
       "name": "XmasBell",
       "baseValue": 199,
-      "marketWorth": 269,
+      "marketWorth": 199,
       "quantity": 0,
       "tier": "Limited",
       "tags": [
@@ -15176,7 +15338,7 @@
       "seriesId": "ser-celebration-christmas",
       "name": "Sleigh",
       "baseValue": 1000,
-      "marketWorth": 2000,
+      "marketWorth": 1000,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15195,7 +15357,7 @@
       "seriesId": "ser-celebration-christmas",
       "name": "Xmas Globe",
       "baseValue": 6999,
-      "marketWorth": 13998,
+      "marketWorth": 6999,
       "quantity": 0,
       "tier": "Collection",
       "tags": [
@@ -15214,7 +15376,7 @@
       "seriesId": "ser-celebration-christmas",
       "name": "Xmas Eve",
       "baseValue": 899,
-      "marketWorth": 1438,
+      "marketWorth": 899,
       "quantity": 0,
       "tier": "Luxury",
       "tags": [
@@ -15685,13 +15847,17 @@
                 itemTabs.push('backpack');
               }
 
+              const baseCoins = Math.max(0, Number(item.baseValue) || 0);
+              const rawMarket = Number(item.marketWorth);
+              const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
               return {
                 id: String(item.id || '').trim(),
                 categoryId: catId,
                 seriesId: serId,
                 name: String(item.name ?? '').trim(),
-                baseValue: Math.max(0, Number(item.baseValue) || 0),
-                marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+                baseValue: baseCoins,
+                marketWorth: marketCoins,
                 quantity: finalQty,
                 wallOwned: finalWallOwned,
                 starred: typeof item.starred === 'boolean' ? item.starred : false,
@@ -15774,6 +15940,18 @@
               let newlyAddedGiftsCount = 0;
 
               if (Array.isArray(DEFAULT_SEED.items)) {
+                const seedMap = new Map(DEFAULT_SEED.items.map(si => [si.id, si]));
+                safeItems.forEach(item => {
+                  const seed = seedMap.get(item.id);
+                  if (seed) {
+                    if (!item.marketWorth || item.marketWorth <= 0 || item.marketWorth !== item.baseValue) {
+                      item.marketWorth = seed.marketWorth || item.baseValue;
+                    }
+                  } else if (!item.marketWorth || item.marketWorth <= 0) {
+                    item.marketWorth = item.baseValue;
+                  }
+                });
+
                 DEFAULT_SEED.items.forEach(seedItem => {
                   if (!seedItem || !seedItem.id) return;
                   const key = `${seedItem.seriesId}:::${(seedItem.name || '').trim().toLowerCase()}`;
@@ -15784,7 +15962,7 @@
                       seriesId: String(seedItem.seriesId || '').trim(),
                       name: String(seedItem.name || '').trim(),
                       baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
-                      marketWorth: Math.max(0, Number(seedItem.marketWorth) || 0),
+                      marketWorth: Math.max(0, Number(seedItem.marketWorth) || Number(seedItem.baseValue) || 0),
                       quantity: 0,
                       wallOwned: false,
                       starred: false,
@@ -16024,13 +16202,17 @@
         qty = Math.max(1, Math.floor(Number(itemData.quantity) || 0));
       }
 
+      const baseCoins = Math.max(0, Number(itemData.baseValue) || 0);
+      const rawMarket = Number(itemData.marketWorth);
+      const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
       const newItem = {
         id,
         categoryId: catId,
         seriesId: serId,
         name: (itemData.name || '').trim(),
-        baseValue: Math.max(0, Number(itemData.baseValue) || 0),
-        marketWorth: Math.max(0, Number(itemData.marketWorth) || 0),
+        baseValue: baseCoins,
+        marketWorth: marketCoins,
         quantity: qty,
         wallOwned,
         starred: !!itemData.starred,
@@ -16066,13 +16248,17 @@
           qty = reqQty > 0 ? Math.floor(reqQty) : 1;
         }
 
+        const baseCoins = Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0);
+        const rawMarket = Number(itemData.marketWorth !== undefined ? itemData.marketWorth : cur.marketWorth);
+        const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
         this.data.items[idx] = {
           ...cur,
           categoryId: catId,
           seriesId: serId,
           name: (itemData.name !== undefined ? itemData.name : cur.name).trim(),
-          baseValue: Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0),
-          marketWorth: Math.max(0, Number(itemData.marketWorth !== undefined ? itemData.marketWorth : cur.marketWorth) || 0),
+          baseValue: baseCoins,
+          marketWorth: marketCoins,
           quantity: qty,
           wallOwned,
           starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
@@ -16383,13 +16569,17 @@
           itemTabs.push('backpack');
         }
 
+        const baseCoins = Math.max(0, Number(item.baseValue) || 0);
+        const rawMarket = Number(item.marketWorth);
+        const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
         return {
           id: String(item.id || this.uid('item')).trim(),
           categoryId: catId,
           seriesId: serId,
           name: String(item.name ?? '').trim(),
-          baseValue: Math.max(0, Number(item.baseValue) || 0),
-          marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+          baseValue: baseCoins,
+          marketWorth: marketCoins,
           quantity: finalQty,
           wallOwned: finalWallOwned,
           starred: typeof item.starred === 'boolean' ? item.starred : false,
@@ -16649,6 +16839,8 @@
       this.serTotalCount = document.getElementById('serTotalCount');
       this.categoryManagerList = document.getElementById('categoryManagerList');
       this.seriesManagerList = document.getElementById('seriesManagerList');
+      this.seriesManagerSearchInput = document.getElementById('seriesManagerSearchInput');
+      this.seriesManagerClearSearchBtn = document.getElementById('seriesManagerClearSearchBtn');
       this.addCategoryBtn = document.getElementById('addCategoryBtn');
       this.addSeriesBtn = document.getElementById('addSeriesBtn');
       this.addTierBtn = document.getElementById('addTierBtn');
@@ -17128,6 +17320,22 @@
         this.openSeriesModal();
       });
 
+      if (this.seriesManagerSearchInput) {
+        this.seriesManagerSearchInput.addEventListener('input', () => {
+          this.renderSeriesManagerList();
+        });
+      }
+
+      if (this.seriesManagerClearSearchBtn) {
+        this.seriesManagerClearSearchBtn.addEventListener('click', () => {
+          if (this.seriesManagerSearchInput) {
+            this.seriesManagerSearchInput.value = '';
+            this.seriesManagerSearchInput.focus();
+          }
+          this.renderSeriesManagerList();
+        });
+      }
+
       if (this.addTierBtn) {
         this.addTierBtn.addEventListener('click', () => {
           this.openTierModal();
@@ -17232,6 +17440,18 @@
           b.classList.toggle('active', b.dataset.tier === chosenTier);
         });
       });
+
+      if (this.editItemBaseValue && this.editItemMarketWorth) {
+        this.editItemBaseValue.addEventListener('input', () => {
+          if (!this.editItemMarketWorth.value || this.editItemMarketWorth.dataset.autoFilled === 'true') {
+            this.editItemMarketWorth.value = this.editItemBaseValue.value;
+            this.editItemMarketWorth.dataset.autoFilled = 'true';
+          }
+        });
+        this.editItemMarketWorth.addEventListener('input', () => {
+          this.editItemMarketWorth.dataset.autoFilled = 'false';
+        });
+      }
 
       // Save Item Form
       this.editItemForm.addEventListener('submit', (e) => {
@@ -18554,8 +18774,32 @@
 
     renderSeriesManagerList() {
       this.seriesManagerList.innerHTML = '';
-      const sers = [...this.state.data.series].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0) || a.name.localeCompare(b.name));
-      this.serTotalCount.textContent = sers.length;
+      const allSers = [...this.state.data.series].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0) || a.name.localeCompare(b.name));
+      const query = (this.seriesManagerSearchInput ? this.seriesManagerSearchInput.value.trim().toLowerCase() : '');
+
+      if (this.seriesManagerClearSearchBtn) {
+        this.seriesManagerClearSearchBtn.style.display = query ? 'block' : 'none';
+      }
+
+      const sers = query
+        ? allSers.filter(s => {
+            const cat = this.state.getCategory(s.categoryId);
+            const catName = cat ? cat.name.toLowerCase() : '';
+            return s.name.toLowerCase().includes(query) || (s.description && s.description.toLowerCase().includes(query)) || catName.includes(query);
+          })
+        : allSers;
+
+      if (this.serTotalCount) {
+        this.serTotalCount.textContent = query ? `${sers.length} / ${allSers.length}` : allSers.length;
+      }
+
+      if (sers.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.style.cssText = 'text-align: center; padding: 18px 8px; color: var(--text-muted); font-size: 11px;';
+        emptyDiv.textContent = `No series matching "${query}"`;
+        this.seriesManagerList.appendChild(emptyDiv);
+        return;
+      }
 
       sers.forEach(s => {
         const cat = this.state.getCategory(s.categoryId);
@@ -18566,7 +18810,7 @@
         row.style.cursor = 'pointer';
         row.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px;">
-            <div class="drag-handle" title="Drag to reorder series" aria-label="Drag handle">
+            <div class="drag-handle" title="${query ? 'Reordering disabled while searching' : 'Drag to reorder series'}" aria-label="Drag handle" style="${query ? 'opacity: 0.35; cursor: not-allowed;' : ''}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="5" r="1.5"></circle>
                 <circle cx="9" cy="12" r="1.5"></circle>
@@ -18594,23 +18838,25 @@
         this.seriesManagerList.appendChild(row);
       });
 
-      this.setupDraggableList(this.seriesManagerList, '.manager-row', (fromIdx, toIdx) => {
-        const list = [...sers];
-        const moved = list.splice(fromIdx, 1)[0];
-        list.splice(toIdx, 0, moved);
-        list.forEach((s, i) => {
-          const itemInState = this.state.data.series.find(x => x.id === s.id);
-          if (itemInState) itemInState.displayOrder = i + 1;
+      if (!query) {
+        this.setupDraggableList(this.seriesManagerList, '.manager-row', (fromIdx, toIdx) => {
+          const list = [...sers];
+          const moved = list.splice(fromIdx, 1)[0];
+          list.splice(toIdx, 0, moved);
+          list.forEach((s, i) => {
+            const itemInState = this.state.data.series.find(x => x.id === s.id);
+            if (itemInState) itemInState.displayOrder = i + 1;
+          });
+          this.state.data.series.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+          this.state.saveState();
+          this.renderSeriesManagerList();
+          this.updateSeriesDropdownFilter();
+          this.updateWallSeriesDropdownFilter();
+          this.updateBpSeriesDropdownFilter();
+          this.renderAll();
+          this.showToast('Series order updated');
         });
-        this.state.data.series.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
-        this.state.saveState();
-        this.renderSeriesManagerList();
-        this.updateSeriesDropdownFilter();
-        this.updateWallSeriesDropdownFilter();
-        this.updateBpSeriesDropdownFilter();
-        this.renderAll();
-        this.showToast('Series order updated');
-      });
+      }
     }
 
     renderTierManagerList() {
@@ -19296,6 +19542,7 @@
       this.editItemName.value = '';
       this.editItemBaseValue.value = '';
       this.editItemMarketWorth.value = '';
+      if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'true';
       this.editItemQuantity.value = '1';
       this.editItemStarred.checked = false;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = false;
@@ -19323,7 +19570,8 @@
       this.populateModalSeriesSelect(item.categoryId || '', item.seriesId || '');
       this.editItemName.value = item.name || '';
       this.editItemBaseValue.value = item.baseValue !== undefined ? item.baseValue : 0;
-      this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : '';
+      this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : (item.baseValue !== undefined ? item.baseValue : '');
+      if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'false';
       this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
       this.editItemStarred.checked = !!item.starred;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = !!item.isDistinctVariant;
@@ -19412,12 +19660,10 @@
       }
       const baseCoins = Math.round(Number(rawBase));
 
-      if (rawMarket === '' || isNaN(Number(rawMarket)) || Number(rawMarket) <= 0) {
-        this.showToast('Validation Error: Market Worth must be greater than 0.');
-        this.editItemMarketWorth.focus();
-        return;
+      let marketCoins = baseCoins;
+      if (rawMarket !== '' && !isNaN(Number(rawMarket)) && Number(rawMarket) > 0) {
+        marketCoins = Math.round(Number(rawMarket));
       }
-      const marketCoins = Math.round(Number(rawMarket));
 
       const effectiveTabs = Array.isArray(selectedTabs) ? [...selectedTabs] : [];
       if (categoryId && seriesId && this.state.getSeries(seriesId) && !effectiveTabs.includes('series')) {

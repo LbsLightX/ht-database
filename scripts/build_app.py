@@ -93,13 +93,17 @@ js_logic = ''';
                 itemTabs.push('backpack');
               }
 
+              const baseCoins = Math.max(0, Number(item.baseValue) || 0);
+              const rawMarket = Number(item.marketWorth);
+              const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
               return {
                 id: String(item.id || '').trim(),
                 categoryId: catId,
                 seriesId: serId,
                 name: String(item.name ?? '').trim(),
-                baseValue: Math.max(0, Number(item.baseValue) || 0),
-                marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+                baseValue: baseCoins,
+                marketWorth: marketCoins,
                 quantity: finalQty,
                 wallOwned: finalWallOwned,
                 starred: typeof item.starred === 'boolean' ? item.starred : false,
@@ -182,6 +186,18 @@ js_logic = ''';
               let newlyAddedGiftsCount = 0;
 
               if (Array.isArray(DEFAULT_SEED.items)) {
+                const seedMap = new Map(DEFAULT_SEED.items.map(si => [si.id, si]));
+                safeItems.forEach(item => {
+                  const seed = seedMap.get(item.id);
+                  if (seed) {
+                    if (!item.marketWorth || item.marketWorth <= 0 || item.marketWorth !== item.baseValue) {
+                      item.marketWorth = seed.marketWorth || item.baseValue;
+                    }
+                  } else if (!item.marketWorth || item.marketWorth <= 0) {
+                    item.marketWorth = item.baseValue;
+                  }
+                });
+
                 DEFAULT_SEED.items.forEach(seedItem => {
                   if (!seedItem || !seedItem.id) return;
                   const key = `${seedItem.seriesId}:::${(seedItem.name || '').trim().toLowerCase()}`;
@@ -192,7 +208,7 @@ js_logic = ''';
                       seriesId: String(seedItem.seriesId || '').trim(),
                       name: String(seedItem.name || '').trim(),
                       baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
-                      marketWorth: Math.max(0, Number(seedItem.marketWorth) || 0),
+                      marketWorth: Math.max(0, Number(seedItem.marketWorth) || Number(seedItem.baseValue) || 0),
                       quantity: 0,
                       wallOwned: false,
                       starred: false,
@@ -432,13 +448,17 @@ js_logic = ''';
         qty = Math.max(1, Math.floor(Number(itemData.quantity) || 0));
       }
 
+      const baseCoins = Math.max(0, Number(itemData.baseValue) || 0);
+      const rawMarket = Number(itemData.marketWorth);
+      const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
       const newItem = {
         id,
         categoryId: catId,
         seriesId: serId,
         name: (itemData.name || '').trim(),
-        baseValue: Math.max(0, Number(itemData.baseValue) || 0),
-        marketWorth: Math.max(0, Number(itemData.marketWorth) || 0),
+        baseValue: baseCoins,
+        marketWorth: marketCoins,
         quantity: qty,
         wallOwned,
         starred: !!itemData.starred,
@@ -474,13 +494,17 @@ js_logic = ''';
           qty = reqQty > 0 ? Math.floor(reqQty) : 1;
         }
 
+        const baseCoins = Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0);
+        const rawMarket = Number(itemData.marketWorth !== undefined ? itemData.marketWorth : cur.marketWorth);
+        const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
         this.data.items[idx] = {
           ...cur,
           categoryId: catId,
           seriesId: serId,
           name: (itemData.name !== undefined ? itemData.name : cur.name).trim(),
-          baseValue: Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0),
-          marketWorth: Math.max(0, Number(itemData.marketWorth !== undefined ? itemData.marketWorth : cur.marketWorth) || 0),
+          baseValue: baseCoins,
+          marketWorth: marketCoins,
           quantity: qty,
           wallOwned,
           starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
@@ -791,13 +815,17 @@ js_logic = ''';
           itemTabs.push('backpack');
         }
 
+        const baseCoins = Math.max(0, Number(item.baseValue) || 0);
+        const rawMarket = Number(item.marketWorth);
+        const marketCoins = (!isNaN(rawMarket) && rawMarket > 0) ? rawMarket : baseCoins;
+
         return {
           id: String(item.id || this.uid('item')).trim(),
           categoryId: catId,
           seriesId: serId,
           name: String(item.name ?? '').trim(),
-          baseValue: Math.max(0, Number(item.baseValue) || 0),
-          marketWorth: Math.max(0, Number(item.marketWorth) || 0),
+          baseValue: baseCoins,
+          marketWorth: marketCoins,
           quantity: finalQty,
           wallOwned: finalWallOwned,
           starred: typeof item.starred === 'boolean' ? item.starred : false,
@@ -1057,6 +1085,8 @@ js_logic = ''';
       this.serTotalCount = document.getElementById('serTotalCount');
       this.categoryManagerList = document.getElementById('categoryManagerList');
       this.seriesManagerList = document.getElementById('seriesManagerList');
+      this.seriesManagerSearchInput = document.getElementById('seriesManagerSearchInput');
+      this.seriesManagerClearSearchBtn = document.getElementById('seriesManagerClearSearchBtn');
       this.addCategoryBtn = document.getElementById('addCategoryBtn');
       this.addSeriesBtn = document.getElementById('addSeriesBtn');
       this.addTierBtn = document.getElementById('addTierBtn');
@@ -1536,6 +1566,22 @@ js_logic = ''';
         this.openSeriesModal();
       });
 
+      if (this.seriesManagerSearchInput) {
+        this.seriesManagerSearchInput.addEventListener('input', () => {
+          this.renderSeriesManagerList();
+        });
+      }
+
+      if (this.seriesManagerClearSearchBtn) {
+        this.seriesManagerClearSearchBtn.addEventListener('click', () => {
+          if (this.seriesManagerSearchInput) {
+            this.seriesManagerSearchInput.value = '';
+            this.seriesManagerSearchInput.focus();
+          }
+          this.renderSeriesManagerList();
+        });
+      }
+
       if (this.addTierBtn) {
         this.addTierBtn.addEventListener('click', () => {
           this.openTierModal();
@@ -1640,6 +1686,18 @@ js_logic = ''';
           b.classList.toggle('active', b.dataset.tier === chosenTier);
         });
       });
+
+      if (this.editItemBaseValue && this.editItemMarketWorth) {
+        this.editItemBaseValue.addEventListener('input', () => {
+          if (!this.editItemMarketWorth.value || this.editItemMarketWorth.dataset.autoFilled === 'true') {
+            this.editItemMarketWorth.value = this.editItemBaseValue.value;
+            this.editItemMarketWorth.dataset.autoFilled = 'true';
+          }
+        });
+        this.editItemMarketWorth.addEventListener('input', () => {
+          this.editItemMarketWorth.dataset.autoFilled = 'false';
+        });
+      }
 
       // Save Item Form
       this.editItemForm.addEventListener('submit', (e) => {
@@ -2962,8 +3020,32 @@ js_logic = ''';
 
     renderSeriesManagerList() {
       this.seriesManagerList.innerHTML = '';
-      const sers = [...this.state.data.series].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0) || a.name.localeCompare(b.name));
-      this.serTotalCount.textContent = sers.length;
+      const allSers = [...this.state.data.series].sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0) || a.name.localeCompare(b.name));
+      const query = (this.seriesManagerSearchInput ? this.seriesManagerSearchInput.value.trim().toLowerCase() : '');
+
+      if (this.seriesManagerClearSearchBtn) {
+        this.seriesManagerClearSearchBtn.style.display = query ? 'block' : 'none';
+      }
+
+      const sers = query
+        ? allSers.filter(s => {
+            const cat = this.state.getCategory(s.categoryId);
+            const catName = cat ? cat.name.toLowerCase() : '';
+            return s.name.toLowerCase().includes(query) || (s.description && s.description.toLowerCase().includes(query)) || catName.includes(query);
+          })
+        : allSers;
+
+      if (this.serTotalCount) {
+        this.serTotalCount.textContent = query ? `${sers.length} / ${allSers.length}` : allSers.length;
+      }
+
+      if (sers.length === 0) {
+        const emptyDiv = document.createElement('div');
+        emptyDiv.style.cssText = 'text-align: center; padding: 18px 8px; color: var(--text-muted); font-size: 11px;';
+        emptyDiv.textContent = `No series matching "${query}"`;
+        this.seriesManagerList.appendChild(emptyDiv);
+        return;
+      }
 
       sers.forEach(s => {
         const cat = this.state.getCategory(s.categoryId);
@@ -2974,7 +3056,7 @@ js_logic = ''';
         row.style.cursor = 'pointer';
         row.innerHTML = `
           <div style="display: flex; align-items: center; gap: 8px;">
-            <div class="drag-handle" title="Drag to reorder series" aria-label="Drag handle">
+            <div class="drag-handle" title="${query ? 'Reordering disabled while searching' : 'Drag to reorder series'}" aria-label="Drag handle" style="${query ? 'opacity: 0.35; cursor: not-allowed;' : ''}">
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="9" cy="5" r="1.5"></circle>
                 <circle cx="9" cy="12" r="1.5"></circle>
@@ -3002,23 +3084,25 @@ js_logic = ''';
         this.seriesManagerList.appendChild(row);
       });
 
-      this.setupDraggableList(this.seriesManagerList, '.manager-row', (fromIdx, toIdx) => {
-        const list = [...sers];
-        const moved = list.splice(fromIdx, 1)[0];
-        list.splice(toIdx, 0, moved);
-        list.forEach((s, i) => {
-          const itemInState = this.state.data.series.find(x => x.id === s.id);
-          if (itemInState) itemInState.displayOrder = i + 1;
+      if (!query) {
+        this.setupDraggableList(this.seriesManagerList, '.manager-row', (fromIdx, toIdx) => {
+          const list = [...sers];
+          const moved = list.splice(fromIdx, 1)[0];
+          list.splice(toIdx, 0, moved);
+          list.forEach((s, i) => {
+            const itemInState = this.state.data.series.find(x => x.id === s.id);
+            if (itemInState) itemInState.displayOrder = i + 1;
+          });
+          this.state.data.series.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
+          this.state.saveState();
+          this.renderSeriesManagerList();
+          this.updateSeriesDropdownFilter();
+          this.updateWallSeriesDropdownFilter();
+          this.updateBpSeriesDropdownFilter();
+          this.renderAll();
+          this.showToast('Series order updated');
         });
-        this.state.data.series.sort((a, b) => (a.displayOrder || 0) - (b.displayOrder || 0));
-        this.state.saveState();
-        this.renderSeriesManagerList();
-        this.updateSeriesDropdownFilter();
-        this.updateWallSeriesDropdownFilter();
-        this.updateBpSeriesDropdownFilter();
-        this.renderAll();
-        this.showToast('Series order updated');
-      });
+      }
     }
 
     renderTierManagerList() {
@@ -3704,6 +3788,7 @@ js_logic = ''';
       this.editItemName.value = '';
       this.editItemBaseValue.value = '';
       this.editItemMarketWorth.value = '';
+      if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'true';
       this.editItemQuantity.value = '1';
       this.editItemStarred.checked = false;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = false;
@@ -3731,7 +3816,8 @@ js_logic = ''';
       this.populateModalSeriesSelect(item.categoryId || '', item.seriesId || '');
       this.editItemName.value = item.name || '';
       this.editItemBaseValue.value = item.baseValue !== undefined ? item.baseValue : 0;
-      this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : '';
+      this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : (item.baseValue !== undefined ? item.baseValue : '');
+      if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'false';
       this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
       this.editItemStarred.checked = !!item.starred;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = !!item.isDistinctVariant;
@@ -3820,12 +3906,10 @@ js_logic = ''';
       }
       const baseCoins = Math.round(Number(rawBase));
 
-      if (rawMarket === '' || isNaN(Number(rawMarket)) || Number(rawMarket) <= 0) {
-        this.showToast('Validation Error: Market Worth must be greater than 0.');
-        this.editItemMarketWorth.focus();
-        return;
+      let marketCoins = baseCoins;
+      if (rawMarket !== '' && !isNaN(Number(rawMarket)) && Number(rawMarket) > 0) {
+        marketCoins = Math.round(Number(rawMarket));
       }
-      const marketCoins = Math.round(Number(rawMarket));
 
       const effectiveTabs = Array.isArray(selectedTabs) ? [...selectedTabs] : [];
       if (categoryId && seriesId && this.state.getSeries(seriesId) && !effectiveTabs.includes('series')) {
