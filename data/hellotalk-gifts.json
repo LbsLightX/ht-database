@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792413011740,
+  "lastExported": 1792422714503,
   "categories": [
     {
       "id": "cat-basic",
@@ -1069,14 +1069,14 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "live-streamer-s-trilogy",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792402675214,
+      "updatedAt": 1792422013736,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1640,14 +1640,14 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-anniversary",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403040689,
+      "updatedAt": 1792422267900,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1686,14 +1686,14 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-anniversary",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403033019,
+      "updatedAt": 1792422231183,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1755,14 +1755,14 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-anniversary",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403027274,
+      "updatedAt": 1792422253714,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1849,20 +1849,20 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-birthday",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403144270,
+      "updatedAt": 1792422294176,
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
-        "series",
-        "wall"
+        "wall",
+        "series"
       ]
     },
     {
@@ -1873,14 +1873,14 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-birthday",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403103074,
+      "updatedAt": 1792422296936,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1919,14 +1919,14 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "basic",
         "happy-birthday",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792403097836,
+      "updatedAt": 1792422304070,
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1972,9 +1972,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422403329,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-crystallove-50",
@@ -1991,9 +1994,12 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422397690,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-gem-hearts-51",
@@ -2010,9 +2016,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422392390,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-dream-bottle-52",
@@ -2029,9 +2038,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422391088,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-lilyperfume-53",
@@ -2048,9 +2060,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422395032,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-luminous-heart-s-melody-mylove-54",
@@ -2155,16 +2170,21 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "romantic-vow",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422474976,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series",
+        "wall"
+      ]
     },
     {
       "id": "item-romantic-vow-heartspark-60",
@@ -2181,9 +2201,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422478262,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-romantic-vow-wish-gift-61",
@@ -2193,16 +2216,21 @@
       "baseValue": 200,
       "marketWorth": 200,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "romantic-vow",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422485820,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "isDistinctVariant": false
     },
     {
       "id": "item-romantic-vow-flowers-for-you-62",
@@ -2212,16 +2240,20 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "romantic-vow",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422492043,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-romantic-vow-fancy-boat-63",
@@ -2295,9 +2327,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422546605,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-collections-of-hearts-lipstick-67",
@@ -2314,9 +2349,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422549905,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-collections-of-hearts-heartspark-68",
@@ -2333,9 +2371,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422558480,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-collections-of-hearts-gilded-ruby-heart-69",
@@ -2352,9 +2393,12 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422564017,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-collections-of-hearts-mystery-gift-70",
@@ -2364,16 +2408,20 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
-      "tier": "Standard",
+      "tier": "Mystery Gift",
       "tags": [
         "emotion",
         "collections-of-hearts",
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422574369,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-collections-of-hearts-cute-cam-71",
@@ -2466,9 +2514,12 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
-      "wallOwned": false,
-      "starred": false
+      "updatedAt": 1792422624969,
+      "wallOwned": true,
+      "starred": false,
+      "tabs": [
+        "wall"
+      ]
     },
     {
       "id": "item-echoes-of-love-ballrose-76",
@@ -2478,16 +2529,20 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "echoes-of-love",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422634228,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-love-cutevow-77",
@@ -2516,16 +2571,20 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "echoes-of-love",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422662380,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-love-heart-crit-79",
@@ -2554,35 +2613,43 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "echoes-of-love",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422714503,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-love-music-cake-81",
       "categoryId": "cat-emotion",
       "seriesId": "ser-emotion-echoes-of-love",
       "name": "Music Cake",
-      "baseValue": 299,
-      "marketWorth": 299,
+      "baseValue": 999,
+      "marketWorth": 999,
       "quantity": 0,
-      "tier": "Limited",
+      "tier": "Featured",
       "tags": [
         "emotion",
         "echoes-of-love",
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000,
+      "updatedAt": 1792422706777,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": false,
+      "tabs": [
+        "series"
+      ]
     },
     {
       "id": "item-echoes-of-love-love-plane-82",
