@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792385148154,
+  "lastExported": 1792392377857,
   "categories": [
     {
       "id": "cat-basic",
@@ -15578,9 +15578,9 @@
     {
       "id": "tier-mvertu49-em82ey",
       "name": "Mystery Gift",
-      "color": "#251b6e",
-      "bg": "rgba(37, 27, 110, 0.16)",
-      "border": "rgba(37, 27, 110, 0.35)",
+      "color": "#ba2089",
+      "bg": "rgba(186, 32, 137, 0.16)",
+      "border": "rgba(186, 32, 137, 0.35)",
       "rank": 1,
       "displayOrder": 6,
       "description": ""
