@@ -10,7 +10,7 @@
 
   const DEFAULT_SEED = {
   "version": "1.0.2",
-  "lastExported": 1729300000000,
+  "lastExported": 1792385148154,
   "categories": [
     {
       "id": "cat-basic",
@@ -15584,8 +15584,45 @@
       "rank": 100,
       "displayOrder": 5,
       "description": "Collection red apex tier"
+    },
+    {
+      "id": "tier-mvertu49-em82ey",
+      "name": "Mystery Gift",
+      "color": "#251b6e",
+      "bg": "rgba(37, 27, 110, 0.16)",
+      "border": "rgba(37, 27, 110, 0.35)",
+      "rank": 1,
+      "displayOrder": 6,
+      "description": ""
     }
-  ]
+  ],
+  "themeConfig": {
+    "tags": [
+      {
+        "key": "wall",
+        "name": "Wall",
+        "color": "#10b981",
+        "displayOrder": 1
+      },
+      {
+        "key": "series",
+        "name": "Series",
+        "color": "#06b6d4",
+        "displayOrder": 2
+      },
+      {
+        "key": "backpack",
+        "name": "Backpack",
+        "color": "#f43f5e",
+        "displayOrder": 3
+      }
+    ],
+    "tagColors": {
+      "wall": "#10b981",
+      "series": "#06b6d4",
+      "backpack": "#f43f5e"
+    }
+  }
 };
 
   const APP_VERSION = DEFAULT_SEED.version || '1.0.1';
@@ -15796,8 +15833,38 @@
                 });
               }
 
-              if (newlyAddedGiftsCount > 0) {
-                this.reconciliationNotice = `Catalog updated to v${APP_VERSION} (+${newlyAddedGiftsCount} new gifts added). Inventory preserved.`;
+              const existingTierIds = new Set(safeTiers.map(t => t.id));
+              const existingTierNames = new Set(safeTiers.map(t => (t.name || '').trim().toLowerCase()));
+              let newlyAddedTiersCount = 0;
+              if (Array.isArray(DEFAULT_SEED.tiers)) {
+                DEFAULT_SEED.tiers.forEach(seedTier => {
+                  if (!seedTier || !seedTier.id) return;
+                  const nameKey = (seedTier.name || '').trim().toLowerCase();
+                  if (!existingTierIds.has(seedTier.id) && !existingTierNames.has(nameKey)) {
+                    const color = String(seedTier.color || '#e2e8f0').trim();
+                    const rgb = this.hexToRgb ? this.hexToRgb(color) : '226, 232, 240';
+                    safeTiers.push({
+                      id: String(seedTier.id).trim(),
+                      name: String(seedTier.name || '').trim(),
+                      color,
+                      bg: String(seedTier.bg || `rgba(${rgb}, 0.16)`).trim(),
+                      border: String(seedTier.border || `rgba(${rgb}, 0.35)`).trim(),
+                      rank: Number(seedTier.rank) || 10,
+                      displayOrder: Number(seedTier.displayOrder ?? seedTier.order) || (safeTiers.length + 1),
+                      description: String(seedTier.description || '').trim()
+                    });
+                    existingTierIds.add(seedTier.id);
+                    existingTierNames.add(nameKey);
+                    newlyAddedTiersCount++;
+                  }
+                });
+              }
+
+              if (newlyAddedGiftsCount > 0 || newlyAddedTiersCount > 0) {
+                const parts = [];
+                if (newlyAddedGiftsCount > 0) parts.push(`+${newlyAddedGiftsCount} gifts`);
+                if (newlyAddedTiersCount > 0) parts.push(`+${newlyAddedTiersCount} tiers`);
+                this.reconciliationNotice = `Catalog updated to v${APP_VERSION} (${parts.join(', ')} added). Inventory preserved.`;
               }
 
               return {
@@ -16686,6 +16753,49 @@
       document.documentElement.style.setProperty('--tag-wall-color', wallColor);
       document.documentElement.style.setProperty('--tag-series-color', seriesColor);
       document.documentElement.style.setProperty('--tag-backpack-color', backpackColor);
+
+      // Dynamic Tier Styles: Injects colored outline and glow for all built-in & custom tiers
+      let styleEl = document.getElementById('dynamic-tier-styles');
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.id = 'dynamic-tier-styles';
+        document.head.appendChild(styleEl);
+      }
+
+      let cssRules = '';
+      const tiers = (this.state && this.state.data && Array.isArray(this.state.data.tiers)) ? this.state.data.tiers : [];
+      tiers.forEach(t => {
+        if (!t || !t.name) return;
+        const slug = t.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
+        const color = t.color || '#e2e8f0';
+        const rgb = this.state.hexToRgb ? this.state.hexToRgb(color) : '226, 232, 240';
+        const border = t.border || `rgba(${rgb}, 0.35)`;
+        const bg = t.bg || `rgba(${rgb}, 0.16)`;
+        const glow = `0 0 16px rgba(${rgb}, 0.20)`;
+
+        cssRules += `
+          .gift-card.is-owned.tier-card-${slug} {
+            border-color: ${border} !important;
+            box-shadow: ${glow} !important;
+          }
+          .tier-chip.tier-chip-${slug} {
+            border-color: ${border};
+            color: ${color};
+          }
+          .tier-chip.tier-chip-${slug}.active {
+            background-color: ${bg};
+            border-color: ${color};
+            color: ${color};
+            box-shadow: ${glow};
+          }
+          .tier-badge.tier-${slug} {
+            background-color: ${bg};
+            border-color: ${border};
+            color: ${color};
+          }
+        `;
+      });
+      styleEl.textContent = cssRules;
     }
 
     bindEvents() {
@@ -17410,6 +17520,10 @@
       const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
 
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
+      if (isOwned) {
+        card.style.setProperty('--card-tier-border', tierInfo.border);
+        card.style.setProperty('--card-tier-glow', tierInfo.glow);
+      }
 
       const baseVal = item.baseValue || 0;
       const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
@@ -17696,6 +17810,8 @@
 
       // On Wall tab, all displayed items are owned -> tier glow active!
       card.className = `gift-card is-owned ${tierInfo.cardClass}`;
+      card.style.setProperty('--card-tier-border', tierInfo.border);
+      card.style.setProperty('--card-tier-glow', tierInfo.glow);
 
       const baseVal = item.baseValue || 0;
       const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
@@ -17992,6 +18108,10 @@
       const isWallOwned = !!item.wallOwned;
 
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
+      if (isOwned) {
+        card.style.setProperty('--card-tier-border', tierInfo.border);
+        card.style.setProperty('--card-tier-glow', tierInfo.glow);
+      }
 
       const baseVal = item.baseValue || 0;
       const marketVal = item.marketWorth !== undefined ? item.marketWorth : 0;
@@ -18724,6 +18844,10 @@
         const isActive = (this.seriesSelectedTier || '').toLowerCase() === tierName.toLowerCase();
         btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
         btn.dataset.tier = tierName;
+        btn.style.setProperty('--chip-tier-border', info.border);
+        btn.style.setProperty('--chip-tier-color', info.color);
+        btn.style.setProperty('--chip-tier-bg', info.bg);
+        btn.style.setProperty('--chip-tier-glow', info.glow);
         btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.seriesSelectedTier = (this.seriesSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
@@ -18852,6 +18976,10 @@
         const isActive = (this.wallSelectedTier || '').toLowerCase() === tierName.toLowerCase();
         btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
         btn.dataset.tier = tierName;
+        btn.style.setProperty('--chip-tier-border', info.border);
+        btn.style.setProperty('--chip-tier-color', info.color);
+        btn.style.setProperty('--chip-tier-bg', info.bg);
+        btn.style.setProperty('--chip-tier-glow', info.glow);
         btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.wallSelectedTier = (this.wallSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
@@ -18981,6 +19109,10 @@
         const isActive = (this.bpSelectedTier || '').toLowerCase() === tierName.toLowerCase();
         btn.className = `filter-chip tier-chip ${info.chipClass} ${isActive ? 'active' : ''}`;
         btn.dataset.tier = tierName;
+        btn.style.setProperty('--chip-tier-border', info.border);
+        btn.style.setProperty('--chip-tier-color', info.color);
+        btn.style.setProperty('--chip-tier-bg', info.bg);
+        btn.style.setProperty('--chip-tier-glow', info.glow);
         btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.bpSelectedTier = (this.bpSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
@@ -19015,25 +19147,27 @@
         if (found) {
           const color = found.color || '#e2e8f0';
           const rgb = this.state.hexToRgb ? this.state.hexToRgb(color) : '226, 232, 240';
+          const slug = found.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
           return {
             name: found.name,
-            className: `tier-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
-            cardClass: `tier-card-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
-            chipClass: `tier-chip-${found.name.toLowerCase().replace(/[^a-z0-9]/g, '-')}`,
+            className: `tier-${slug}`,
+            cardClass: `tier-card-${slug}`,
+            chipClass: `tier-chip-${slug}`,
             color,
             bg: found.bg || `rgba(${rgb}, 0.16)`,
             border: found.border || `rgba(${rgb}, 0.35)`,
+            glow: `0 0 16px rgba(${rgb}, 0.20)`,
             rank: Number(found.rank) || 10
           };
         }
       }
 
       // Default tier fallbacks (strict v1.0.0 Morphe palette)
-      if (clean.includes('collection')) return { name: 'Collection', className: 'tier-collection', cardClass: 'tier-card-collection', chipClass: 'tier-chip-collection', color: '#ef4444', bg: '#450a0a', border: 'rgba(239, 68, 68, 0.35)', rank: 100 };
-      if (clean.includes('luxury')) return { name: 'Luxury', className: 'tier-luxury', cardClass: 'tier-card-luxury', chipClass: 'tier-chip-luxury', color: '#facc15', bg: '#422006', border: 'rgba(250, 204, 21, 0.35)', rank: 80 };
-      if (clean.includes('limited')) return { name: 'Limited', className: 'tier-limited', cardClass: 'tier-card-limited', chipClass: 'tier-chip-limited', color: '#c084fc', bg: '#3b0764', border: 'rgba(192, 132, 252, 0.35)', rank: 60 };
-      if (clean.includes('featured')) return { name: 'Featured', className: 'tier-featured', cardClass: 'tier-card-featured', chipClass: 'tier-chip-featured', color: '#38bdf8', bg: '#0c4a6e', border: 'rgba(56, 189, 248, 0.35)', rank: 40 };
-      return { name: 'Standard', className: 'tier-standard', cardClass: 'tier-card-standard', chipClass: 'tier-chip-standard', color: '#e2e8f0', bg: '#1e293b', border: 'rgba(226, 232, 240, 0.25)', rank: 10 };
+      if (clean.includes('collection')) return { name: 'Collection', className: 'tier-collection', cardClass: 'tier-card-collection', chipClass: 'tier-chip-collection', color: '#ef4444', bg: '#450a0a', border: 'rgba(239, 68, 68, 0.35)', glow: '0 0 16px rgba(239, 68, 68, 0.16)', rank: 100 };
+      if (clean.includes('luxury')) return { name: 'Luxury', className: 'tier-luxury', cardClass: 'tier-card-luxury', chipClass: 'tier-chip-luxury', color: '#facc15', bg: '#422006', border: 'rgba(250, 204, 21, 0.35)', glow: '0 0 16px rgba(250, 204, 21, 0.16)', rank: 80 };
+      if (clean.includes('limited')) return { name: 'Limited', className: 'tier-limited', cardClass: 'tier-card-limited', chipClass: 'tier-chip-limited', color: '#c084fc', bg: '#3b0764', border: 'rgba(192, 132, 252, 0.35)', glow: '0 0 16px rgba(192, 132, 252, 0.16)', rank: 60 };
+      if (clean.includes('featured')) return { name: 'Featured', className: 'tier-featured', cardClass: 'tier-card-featured', chipClass: 'tier-chip-featured', color: '#38bdf8', bg: '#0c4a6e', border: 'rgba(56, 189, 248, 0.35)', glow: '0 0 16px rgba(56, 189, 248, 0.16)', rank: 40 };
+      return { name: 'Standard', className: 'tier-standard', cardClass: 'tier-card-standard', chipClass: 'tier-chip-standard', color: '#e2e8f0', bg: '#1e293b', border: 'rgba(226, 232, 240, 0.25)', glow: '0 0 14px rgba(226, 232, 240, 0.08)', rank: 10 };
     }
 
     // ------------------------------------------------------------------

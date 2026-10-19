@@ -455,6 +455,17 @@ body {
 }
 
 /* Tier Specific Filter Chips */
+.tier-chip {
+  border-color: var(--chip-tier-border, var(--border-medium));
+  color: var(--chip-tier-color, var(--text-muted));
+}
+.tier-chip.active {
+  background-color: var(--chip-tier-bg, var(--card-bg));
+  border-color: var(--chip-tier-color, var(--text-main));
+  color: var(--chip-tier-color, var(--text-main));
+  box-shadow: var(--chip-tier-glow, none);
+}
+
 .tier-chip.tier-chip-luxury { border-color: var(--tier-luxury-border); color: var(--tier-luxury-text); }
 .tier-chip.tier-chip-luxury.active {
   background-color: var(--tier-luxury-bg);
@@ -696,9 +707,13 @@ body {
 }
 
 /* Ambient Tier Glow & Accent Border ONLY when Item is Owned */
+.gift-card.is-owned {
+  border-color: var(--card-tier-border, var(--border-medium));
+  box-shadow: var(--card-tier-glow, none);
+}
 .gift-card.is-owned.tier-card-luxury {
-  border-color: var(--tier-luxury-border);
-  box-shadow: var(--tier-luxury-glow);
+  border-color: var(--card-tier-border, var(--tier-luxury-border));
+  box-shadow: var(--card-tier-glow, var(--tier-luxury-glow));
 }
 .gift-card.is-owned.tier-card-collection {
   border-color: var(--tier-collection-border);
