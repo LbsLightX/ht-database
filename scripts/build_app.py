@@ -56,6 +56,7 @@ js_logic = ''';
       this.reconciliationNotice = null;
       this.data = this.loadState();
       this.listeners = [];
+      this.rebuildLookupMaps();
     }
 
     loadState() {
@@ -401,10 +402,33 @@ js_logic = ''';
       this.resetTags();
     }
 
-    saveState() {
+    saveState(silent = false) {
       this.data.lastExported = Date.now();
       localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
-      this.notify();
+      this.rebuildLookupMaps();
+      if (!silent) this.notify();
+    }
+
+    rebuildLookupMaps() {
+      this.seriesMap = new Map();
+      if (Array.isArray(this.data?.series)) {
+        this.data.series.forEach(s => this.seriesMap.set(s.id, s));
+      }
+      this.categoryMap = new Map();
+      if (Array.isArray(this.data?.categories)) {
+        this.data.categories.forEach(c => this.categoryMap.set(c.id, c));
+      }
+      this.tierMap = new Map();
+      if (Array.isArray(this.data?.tiers)) {
+        this.data.tiers.forEach(t => {
+          if (t.id) this.tierMap.set(t.id.toLowerCase(), t);
+          if (t.name) this.tierMap.set(t.name.toLowerCase(), t);
+        });
+      }
+      this.itemMap = new Map();
+      if (Array.isArray(this.data?.items)) {
+        this.data.items.forEach(i => this.itemMap.set(i.id, i));
+      }
     }
 
     save() {
@@ -425,7 +449,8 @@ js_logic = ''';
 
     // Item Operations
     getItem(id) {
-      return this.data.items.find(i => i.id === id);
+      if (!id) return null;
+      return this.itemMap?.get(id) || this.data.items.find(i => i.id === id);
     }
 
     addItem(itemData) {
@@ -547,7 +572,7 @@ js_logic = ''';
           item.tabs = item.tabs.filter(t => t !== 'wall');
         }
         item.updatedAt = Date.now();
-        this.saveState();
+        this.saveState(true);
         return item.wallOwned;
       }
       return false;
@@ -564,7 +589,7 @@ js_logic = ''';
           if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
         }
         item.updatedAt = Date.now();
-        this.saveState();
+        this.saveState(true);
       }
     }
 
@@ -573,7 +598,7 @@ js_logic = ''';
       if (item) {
         item.starred = !item.starred;
         item.updatedAt = Date.now();
-        this.saveState();
+        this.saveState(true);
         return item.starred;
       }
       return false;
@@ -607,14 +632,14 @@ js_logic = ''';
         }
       }
       item.updatedAt = Date.now();
-      this.saveState();
+      this.saveState(true);
       return { success: true, added: !hasTab };
     }
 
     // Category Operations
     getCategory(id) {
       if (!id) return null;
-      return this.data.categories.find(c => c.id === id);
+      return this.categoryMap?.get(id) || this.data.categories.find(c => c.id === id);
     }
 
     addCategory(catData) {
@@ -658,7 +683,7 @@ js_logic = ''';
     // Series Operations
     getSeries(id) {
       if (!id) return null;
-      return this.data.series.find(s => s.id === id);
+      return this.seriesMap?.get(id) || this.data.series.find(s => s.id === id);
     }
 
     addSeries(seriesData) {
@@ -701,7 +726,7 @@ js_logic = ''';
     getTier(idOrName) {
       if (!idOrName || !this.data.tiers) return null;
       const clean = String(idOrName).toLowerCase().trim();
-      return this.data.tiers.find(t => (t.id && t.id.toLowerCase() === clean) || (t.name && t.name.toLowerCase() === clean));
+      return this.tierMap?.get(clean) || this.data.tiers.find(t => (t.id && t.id.toLowerCase() === clean) || (t.name && t.name.toLowerCase() === clean));
     }
 
     addTier(tierData) {
@@ -955,6 +980,9 @@ js_logic = ''';
       this.pendingConfirmAction = null;
       this._renderScheduled = false;
       this.isBatchLoading = false;
+      this._cachedSeriesFiltered = null;
+      this._cachedWallFiltered = null;
+      this._cachedBpFiltered = null;
 
       this.initDomReferences();
       this.applyThemeColors();
@@ -968,7 +996,8 @@ js_logic = ''';
         this.applyThemeColors();
       });
 
-      this.renderAll();
+      this.renderActiveTab();
+      this.populateCategorySelects();
       this.setupBatchObservers();
 
       if (this.state.reconciliationNotice) {
@@ -1764,6 +1793,333 @@ js_logic = ''';
       this.confirmCancelBtn.addEventListener('click', () => {
         this.closeModal('confirmModal');
       });
+
+      // Grid Card Action Event Delegation (Single listener per container)
+      const handleGridClick = (e) => this.handleCardAction(e);
+      if (this.backpackGrid) this.backpackGrid.addEventListener('click', handleGridClick);
+      if (this.seriesGiftsGrid) this.seriesGiftsGrid.addEventListener('click', handleGridClick);
+      if (this.wallGrid) this.wallGrid.addEventListener('click', handleGridClick);
+      if (this.drillGiftsGrid) this.drillGiftsGrid.addEventListener('click', handleGridClick);
+    }
+
+    handleCardAction(e) {
+      const actionBtn = e.target.closest('[data-action]');
+      if (!actionBtn) return;
+      e.stopPropagation();
+      const card = actionBtn.closest('.gift-card');
+      if (!card) return;
+      const itemId = card.dataset.id;
+      const item = this.state.getItem(itemId);
+      if (!item) return;
+
+      const action = actionBtn.dataset.action;
+      switch (action) {
+        case 'toggle-star':
+          this.handleCardToggleStar(item, card);
+          break;
+        case 'toggle-wall':
+          this.handleCardToggleWall(item, card);
+          break;
+        case 'toggle-bp':
+          this.handleCardToggleBp(item, card);
+          break;
+        case 'qty-minus':
+          this.handleCardQtyChange(item, card, -1);
+          break;
+        case 'qty-plus':
+          this.handleCardQtyChange(item, card, 1);
+          break;
+        case 'open-edit':
+          this.openEditItemModal(item.id);
+          break;
+        case 'route-series':
+          if (item.seriesId) {
+            this.switchTab('tab-series');
+            this.openSeriesDrilldown(item.seriesId);
+          }
+          break;
+      }
+    }
+
+    handleCardToggleStar(item, card) {
+      const willStar = !item.starred;
+      this.state.toggleStarred(item.id);
+
+      // In-place update for all rendered instances of this card
+      document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
+        const starBtn = c.querySelector('.star-mark-badge');
+        if (starBtn) {
+          starBtn.className = `star-mark-badge ${willStar ? 'is-starred' : 'is-unstarred'}`;
+          starBtn.title = willStar ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)';
+          const svg = starBtn.querySelector('svg');
+          if (svg) {
+            svg.setAttribute('fill', willStar ? '#f59e0b' : 'none');
+            svg.setAttribute('stroke', willStar ? '#f59e0b' : 'currentColor');
+          }
+        }
+      });
+
+      // Update pill badge counts
+      if (this.wallCountStarredOnly) {
+        const starCount = this.state.data.items.filter(i => !!i.wallOwned && !!i.starred).length;
+        this.wallCountStarredOnly.textContent = starCount;
+      }
+      if (this.bpCountStarred) {
+        const bpStarCount = this.state.data.items.filter(i => (Number(i.quantity) || 0) > 0 && !!i.starred).length;
+        this.bpCountStarred.textContent = bpStarCount;
+      }
+
+      // If user is filtering by starred only and unstarred item, remove it from active view
+      if (this.currentTab === 'tab-wall' && this.wallStatusFilter === 'starred' && !willStar) {
+        card.remove();
+        this._cachedWallFiltered = this._cachedWallFiltered ? this._cachedWallFiltered.filter(i => i.id !== item.id) : null;
+        if (this.wallGrid && this.wallGrid.children.length === 0) {
+          this.renderWallTab();
+        }
+      } else if (this.currentTab === 'tab-backpack' && this.bpStatusFilter === 'starred' && !willStar) {
+        card.remove();
+        this._cachedBpFiltered = this._cachedBpFiltered ? this._cachedBpFiltered.filter(i => i.id !== item.id) : null;
+        if (this.backpackGrid && this.backpackGrid.children.length === 0) {
+          this.renderBackpackTab();
+        }
+      }
+
+      this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
+    }
+
+    handleCardToggleWall(item, card) {
+      const willBeOwned = !item.wallOwned;
+      const isWallTab = this.currentTab === 'tab-wall';
+
+      const doToggle = () => {
+        if (isWallTab) {
+          const res = this.state.toggleItemTab(item.id, 'wall');
+          if (!res.success) {
+            this.showToast(res.reason || 'Could not remove from Wall');
+            return;
+          }
+        } else {
+          this.state.toggleWallOwned(item.id);
+        }
+
+        const isOwned = !!item.wallOwned;
+        const tierInfo = this.getTierInfo(item.tier);
+
+        // Update all rendered card instances
+        document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
+          c.classList.toggle('is-owned', isOwned);
+          if (isOwned) {
+            c.classList.add(tierInfo.cardClass);
+            c.style.setProperty('--card-tier-border', tierInfo.border);
+            c.style.setProperty('--card-tier-glow', tierInfo.glow);
+          } else {
+            c.classList.remove(tierInfo.cardClass);
+            c.style.removeProperty('--card-tier-border');
+            c.style.removeProperty('--card-tier-glow');
+          }
+
+          const wallBtn = c.querySelector('.btn-wall-toggle');
+          if (wallBtn) {
+            wallBtn.className = `btn-wall-toggle ${isOwned ? 'is-collected' : ''}`;
+            wallBtn.title = isOwned ? 'Click to unmark from Wall' : 'Mark Collected on Wall';
+            wallBtn.innerHTML = isOwned
+              ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Collected</span>`
+              : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Mark Collected</span>`;
+          }
+
+          const tagWall = c.querySelector('.tag-wall');
+          if (tagWall) {
+            tagWall.classList.toggle('is-active', isOwned);
+            tagWall.title = isOwned ? 'On Wall (Click to remove)' : 'Add to Wall';
+          }
+
+          const exchangeBadge = c.querySelector('.marker-badge-exchange');
+          const qty = Number(item.quantity) || 0;
+          const isExchangeNeeded = qty > 0 && !isOwned;
+          if (isExchangeNeeded && !exchangeBadge) {
+            const badgesLeft = c.querySelector('.badges-group-left');
+            if (badgesLeft) {
+              const badge = document.createElement('span');
+              badge.className = 'marker-badge-exchange';
+              badge.title = 'In Backpack but missing on Wall';
+              badge.textContent = 'Exchange Needed';
+              badgesLeft.appendChild(badge);
+            }
+          } else if (!isExchangeNeeded && exchangeBadge) {
+            exchangeBadge.remove();
+          }
+        });
+
+        // If on Wall tab and item was uncollected, remove card from Wall view
+        if (isWallTab && !isOwned) {
+          card.remove();
+          this._cachedWallFiltered = this._cachedWallFiltered ? this._cachedWallFiltered.filter(i => i.id !== item.id) : null;
+          if (this.wallGrid && this.wallGrid.children.length === 0) {
+            this.renderWallTab();
+          }
+        }
+
+        // Update header counters in-place
+        this.updateSeriesHeaderCounts();
+        this.updateWallHeaderCounts();
+        this.updateBpHeaderCounts();
+
+        this.showToast(isOwned ? `Marked "${item.name}" as Collected on Wall` : `Removed "${item.name}" from Wall`);
+      };
+
+      this.confirmAction(
+        'Confirm Wall Status',
+        `Are you sure you want to mark "${item.name}" as ${willBeOwned ? 'collected on' : 'missing from'} the Wall?`,
+        doToggle
+      );
+    }
+
+    handleCardToggleBp(item, card) {
+      const res = this.state.toggleItemTab(item.id, 'backpack');
+      if (!res.success) {
+        this.showToast(res.reason || 'Could not update Backpack tab');
+        return;
+      }
+
+      const qty = Number(item.quantity) || 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+
+      document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
+        const btnBp = c.querySelector('.tag-bp');
+        if (btnBp) {
+          btnBp.className = `btn-context-tag tag-bp ${isInBackpack ? 'is-active' : ''}`;
+          btnBp.title = isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack';
+          btnBp.innerHTML = `
+            ${TAG_ICONS.backpack}
+            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
+          `;
+        }
+      });
+
+      this.updateSeriesHeaderCounts();
+      this.updateBpHeaderCounts();
+
+      this.showToast(res.added ? `Added "${item.name}" to Backpack` : `Removed "${item.name}" from Backpack`);
+    }
+
+    handleCardQtyChange(item, card, delta) {
+      this.state.incrementQuantity(item.id, delta);
+      const newQty = Number(item.quantity) || 0;
+
+      if (newQty > 0) {
+        const qtySpan = card.querySelector('.stepper-qty');
+        if (qtySpan) qtySpan.textContent = newQty;
+
+        const exchangeBadge = card.querySelector('.marker-badge-exchange');
+        const isExchangeNeeded = newQty > 0 && !item.wallOwned;
+        if (isExchangeNeeded && !exchangeBadge) {
+          const badgesLeft = card.querySelector('.badges-group-left');
+          if (badgesLeft) {
+            const badge = document.createElement('span');
+            badge.className = 'marker-badge-exchange';
+            badge.title = 'In Backpack but missing on Wall';
+            badge.textContent = 'Exchange Needed';
+            badgesLeft.appendChild(badge);
+          }
+        } else if (!isExchangeNeeded && exchangeBadge) {
+          exchangeBadge.remove();
+        }
+      } else {
+        card.remove();
+        this._cachedBpFiltered = this._cachedBpFiltered ? this._cachedBpFiltered.filter(i => i.id !== item.id) : null;
+        if (this.backpackGrid && this.backpackGrid.children.length === 0) {
+          this.renderBackpackTab();
+        }
+      }
+
+      document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
+        const btnBp = c.querySelector('.tag-bp');
+        if (btnBp) {
+          btnBp.classList.toggle('is-active', newQty > 0);
+          btnBp.title = newQty > 0 ? 'In Backpack (Click to remove)' : 'Add to Backpack';
+          btnBp.innerHTML = `
+            ${TAG_ICONS.backpack}
+            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${newQty > 0 ? ` (${newQty})` : ''}</span>
+          `;
+        }
+      });
+
+      this.updateBpHeaderCounts();
+      this.updateSeriesHeaderCounts();
+    }
+
+    updateSeriesHeaderCounts(seriesItems) {
+      if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
+      const totalItems = seriesItems.length;
+      const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
+      const wallMissingCount = totalItems - wallCollectedCount;
+      const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
+      const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
+
+      if (this.seriesTotalGifts) this.seriesTotalGifts.textContent = totalItems;
+      if (this.seriesTotalCount) this.seriesTotalCount.textContent = this.state.data.series.length;
+      if (this.seriesWallProgressRatio) this.seriesWallProgressRatio.textContent = `${wallCollectedCount} / ${totalItems}`;
+      if (this.seriesWallProgressPercent) this.seriesWallProgressPercent.textContent = `${completionPct}% Collected on Wall`;
+      if (this.seriesWallProgressBar) this.seriesWallProgressBar.style.width = `${completionPct}%`;
+
+      let completedSeriesCount = 0;
+      const totalSeries = this.state.data.series.length;
+      this.state.data.series.forEach(s => {
+        const sItems = seriesItems.filter(i => i.seriesId === s.id);
+        if (sItems.length > 0 && sItems.every(i => !!i.wallOwned)) {
+          completedSeriesCount++;
+        }
+      });
+      const seriesPct = totalSeries > 0 ? ((completedSeriesCount / totalSeries) * 100).toFixed(1) : '0.0';
+      if (this.seriesCompleteRatio) this.seriesCompleteRatio.textContent = `${completedSeriesCount} / ${totalSeries}`;
+      if (this.seriesCompletePercent) this.seriesCompletePercent.textContent = `${seriesPct}% Series Complete`;
+      if (this.seriesCompleteBar) this.seriesCompleteBar.style.width = `${seriesPct}%`;
+
+      if (this.seriesCountAll) this.seriesCountAll.textContent = totalItems;
+      if (this.seriesCountCollected) this.seriesCountCollected.textContent = wallCollectedCount;
+      if (this.seriesCountMissing) this.seriesCountMissing.textContent = wallMissingCount;
+      if (this.seriesCountInStock) this.seriesCountInStock.textContent = inStockCount;
+    }
+
+    updateWallHeaderCounts(collectedGifts) {
+      if (!collectedGifts) collectedGifts = this.getWallCatalogItems();
+      const totalCollected = collectedGifts.length;
+      const totalBase = collectedGifts.reduce((s, i) => s + (Number(i.baseValue) || 0), 0);
+      const totalMarket = collectedGifts.reduce((s, i) => s + (Number(i.marketWorth) || 0), 0);
+
+      if (this.wallCollectedTotal) this.wallCollectedTotal.textContent = totalCollected;
+      if (this.wallBaseTotal) this.wallBaseTotal.textContent = this.formatNumber(totalBase);
+      if (this.wallMarketTotal) this.wallMarketTotal.textContent = this.formatNumber(totalMarket);
+
+      if (this.wallCountCollectedOnly) this.wallCountCollectedOnly.textContent = totalCollected;
+      if (this.wallCountStarredOnly) this.wallCountStarredOnly.textContent = collectedGifts.filter(i => !!i.starred).length;
+    }
+
+    updateBpHeaderCounts(bpItems) {
+      if (!bpItems) bpItems = this.getBackpackCatalogItems();
+      const totalUnits = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const totalBaseWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
+      const totalMarketWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const netSpread = totalMarketWorth - totalBaseWorth;
+      const spreadSign = netSpread > 0 ? '+' : '';
+
+      const exchangeNeededGifts = bpItems.filter(i => !i.wallOwned);
+      const starredGifts = bpItems.filter(i => !!i.starred);
+      const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
+      const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
+
+      if (this.bpTotalUnits) this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
+      if (this.bpUniqueItems) this.bpUniqueItems.textContent = bpItems.length;
+      if (this.bpMarketWorth) this.bpMarketWorth.textContent = this.formatNumber(totalMarketWorth);
+      if (this.bpBaseWorth) this.bpBaseWorth.textContent = this.formatNumber(totalBaseWorth);
+      if (this.bpProfitSpread) this.bpProfitSpread.textContent = `${spreadSign}${this.formatNumber(netSpread)} Coins`;
+      if (this.bpExchangeMarkerCount) this.bpExchangeMarkerCount.textContent = exchangeNeededGifts.length;
+
+      if (this.bpCountAll) this.bpCountAll.textContent = bpItems.length;
+      if (this.bpCountInStock) this.bpCountInStock.textContent = inStockExact1.length;
+      if (this.bpCountExchange) this.bpCountExchange.textContent = exchangeNeededGifts.length;
+      if (this.bpCountStarred) this.bpCountStarred.textContent = starredGifts.length;
+      if (this.bpCountExtras) this.bpCountExtras.textContent = extrasGifts.length;
     }
 
     switchTab(tabId, saveToStorage = true) {
@@ -1849,37 +2205,9 @@ js_logic = ''';
       const seriesItems = this.getSeriesCatalogItems();
       const totalItems = seriesItems.length;
       const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
-      const wallMissingCount = totalItems - wallCollectedCount;
-      const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
-
       const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
 
-      this.seriesTotalGifts.textContent = totalItems;
-      this.seriesTotalCount.textContent = this.state.data.series.length;
-      this.seriesWallProgressRatio.textContent = `${wallCollectedCount} / ${totalItems}`;
-      this.seriesWallProgressPercent.textContent = `${completionPct}% Collected on Wall`;
-      this.seriesWallProgressBar.style.width = `${completionPct}%`;
-
-      // Series completion tracking
-      let completedSeriesCount = 0;
-      const totalSeries = this.state.data.series.length;
-      this.state.data.series.forEach(s => {
-        const sItems = seriesItems.filter(i => i.seriesId === s.id);
-        if (sItems.length > 0 && sItems.every(i => !!i.wallOwned)) {
-          completedSeriesCount++;
-        }
-      });
-      const seriesPct = totalSeries > 0 ? ((completedSeriesCount / totalSeries) * 100).toFixed(1) : '0.0';
-      this.seriesCompleteRatio.textContent = `${completedSeriesCount} / ${totalSeries}`;
-      this.seriesCompletePercent.textContent = `${seriesPct}% Series Complete`;
-      this.seriesCompleteBar.style.width = `${seriesPct}%`;
-
-      // Status Pill Counts
-      this.seriesCountAll.textContent = totalItems;
-      this.seriesCountCollected.textContent = wallCollectedCount;
-      this.seriesCountMissing.textContent = wallMissingCount;
-      this.seriesCountInStock.textContent = inStockCount;
-
+      this.updateSeriesHeaderCounts(seriesItems);
       this.updateSeriesCategoryDropdownFilter(seriesItems);
       this.updateSeriesDropdownFilter(seriesItems);
       this.updateSeriesTierDropdownFilter(seriesItems);
@@ -1891,6 +2219,7 @@ js_logic = ''';
       }
 
       const filtered = this.getFilteredSeriesItems();
+      this._cachedSeriesFiltered = filtered;
 
       const hasActiveFilters = this.globalSearchQuery || this.seriesStatusFilter !== 'all' || this.seriesSelectedCategory || this.seriesSelectedSeries || this.seriesSelectedTier;
       this.seriesResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
@@ -1936,7 +2265,7 @@ js_logic = ''';
 
     appendSeriesBatch() {
       if (this.isBatchLoading || this.focusedSeriesId) return;
-      const filtered = this.getFilteredSeriesItems();
+      const filtered = this._cachedSeriesFiltered || this.getFilteredSeriesItems();
       if (this.seriesRenderedCount >= filtered.length) {
         if (this.seriesScrollSentinel) this.seriesScrollSentinel.style.display = 'none';
         return;
@@ -2078,6 +2407,7 @@ js_logic = ''';
       const qty = Number(item.quantity) || 0;
       const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
 
+      card.dataset.id = item.id;
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
       if (isOwned) {
         card.style.setProperty('--card-tier-border', tierInfo.border);
@@ -2108,21 +2438,21 @@ js_logic = ''';
 
         <div class="card-footer">
           <div class="card-footer-top">
-            <button class="btn-wall-toggle ${isOwned ? 'is-collected' : ''}" title="${isOwned ? 'Click to unmark from Wall' : 'Mark Collected on Wall'}">
+            <button class="btn-wall-toggle ${isOwned ? 'is-collected' : ''}" data-action="toggle-wall" title="${isOwned ? 'Click to unmark from Wall' : 'Mark Collected on Wall'}">
               ${isOwned
                 ? `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Collected</span>`
                 : `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg><span>Mark Collected</span>`
               }
             </button>
 
-            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" data-action="toggle-star" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
             </button>
 
             <div class="card-actions">
-              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+              <button class="action-icon-btn btn-edit" data-action="open-edit" title="Edit gift details" aria-label="Edit gift">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </button>
             </div>
@@ -2136,63 +2466,6 @@ js_logic = ''';
           </div>
         </div>
       `;
-
-      const btnStar = card.querySelector('.star-mark-badge');
-      const btnToggle = card.querySelector('.btn-wall-toggle');
-      const btnBp = card.querySelector('.tag-bp');
-      const btnEdit = card.querySelector('.btn-edit');
-
-      if (btnStar) {
-        btnStar.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const willStar = !item.starred;
-          const scrollY = window.scrollY;
-          this.state.toggleStarred(item.id);
-          this.renderAll();
-          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnToggle) {
-        btnToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const willBeOwned = !item.wallOwned;
-          this.confirmAction(
-            'Confirm Wall Status',
-            `Are you sure you want to mark "${item.name}" as ${willBeOwned ? 'collected on' : 'missing from'} the Wall?`,
-            () => {
-              const scrollY = window.scrollY;
-              this.state.toggleWallOwned(item.id);
-              this.renderAll();
-              this.showToast(`Updated "${item.name}" wall status`);
-              window.scrollTo({ top: scrollY });
-            }
-          );
-        });
-      }
-
-      if (btnBp) {
-        btnBp.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const scrollY = window.scrollY;
-          const res = this.state.toggleItemTab(item.id, 'backpack');
-          if (!res.success) {
-            this.showToast(res.reason || 'Could not update Backpack tab');
-            return;
-          }
-          this.renderAll();
-          this.showToast(res.added ? `Added "${item.name}" to Backpack` : `Removed "${item.name}" from Backpack`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnEdit) {
-        btnEdit.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.openEditItemModal(item.id);
-        });
-      }
 
       return card;
     }
@@ -2239,15 +2512,7 @@ js_logic = ''';
       const collectedGifts = this.getWallCatalogItems();
       const totalCollected = collectedGifts.length;
 
-      const totalBase = collectedGifts.reduce((s, i) => s + (Number(i.baseValue) || 0), 0);
-      const totalMarket = collectedGifts.reduce((s, i) => s + (Number(i.marketWorth) || 0), 0);
-
-      this.wallCollectedTotal.textContent = totalCollected;
-      this.wallBaseTotal.textContent = this.formatNumber(totalBase);
-      this.wallMarketTotal.textContent = this.formatNumber(totalMarket);
-
-      this.wallCountCollectedOnly.textContent = totalCollected;
-      this.wallCountStarredOnly.textContent = collectedGifts.filter(i => !!i.starred).length;
+      this.updateWallHeaderCounts(collectedGifts);
 
       this.updateWallCategoryDropdownFilter(collectedGifts);
       this.updateWallSeriesDropdownFilter(collectedGifts);
@@ -2255,6 +2520,7 @@ js_logic = ''';
       this.renderWallTierPills(collectedGifts);
 
       const filtered = this.getFilteredWallItems(collectedGifts);
+      this._cachedWallFiltered = filtered;
 
       const hasActiveFilters = this.globalSearchQuery || this.wallStatusFilter !== 'all' || this.wallSelectedCategory || this.wallSelectedSeries || this.wallSelectedTier;
       this.wallResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
@@ -2298,14 +2564,16 @@ js_logic = ''';
         this.wallScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
       }
 
+      const totalBase = collectedGifts.reduce((s, i) => s + (Number(i.baseValue) || 0), 0);
+      const totalMarket = collectedGifts.reduce((s, i) => s + (Number(i.marketWorth) || 0), 0);
+
       if (this.wallResultsCount) this.wallResultsCount.textContent = `Showing ${toRender.length} of ${totalCollected} collected gifts`;
       if (this.wallResultsAggregate) this.wallResultsAggregate.textContent = `Wall Base: ${this.formatNumber(totalBase)} // Market: ${this.formatNumber(totalMarket)}`;
     }
 
     appendWallBatch() {
       if (this.isBatchLoading) return;
-      const collected = this.getWallCatalogItems();
-      const filtered = this.getFilteredWallItems(collected);
+      const filtered = this._cachedWallFiltered || this.getFilteredWallItems(this.getWallCatalogItems());
       if (this.wallRenderedCount >= filtered.length) {
         if (this.wallScrollSentinel) this.wallScrollSentinel.style.display = 'none';
         return;
@@ -2437,6 +2705,7 @@ js_logic = ''';
       const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
 
       // On Wall tab, all displayed items are owned -> tier glow active!
+      card.dataset.id = item.id;
       card.className = `gift-card is-owned ${tierInfo.cardClass}`;
       card.style.setProperty('--card-tier-border', tierInfo.border);
       card.style.setProperty('--card-tier-glow', tierInfo.glow);
@@ -2465,19 +2734,19 @@ js_logic = ''';
 
         <div class="card-footer">
           <div class="card-footer-top">
-            <button class="btn-wall-toggle is-collected" title="Click to unmark from Wall">
+            <button class="btn-wall-toggle is-collected" data-action="toggle-wall" title="Click to unmark from Wall">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
               <span>Collected</span>
             </button>
 
-            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" data-action="toggle-star" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
             </button>
 
             <div class="card-actions">
-              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+              <button class="action-icon-btn btn-edit" data-action="open-edit" title="Edit gift details" aria-label="Edit gift">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </button>
             </div>
@@ -2496,77 +2765,6 @@ js_logic = ''';
         </div>
       `;
 
-      const btnStar = card.querySelector('.star-mark-badge');
-      const btnToggle = card.querySelector('.btn-wall-toggle');
-      const btnSeries = card.querySelector('.tag-series');
-      const btnBp = card.querySelector('.tag-bp');
-      const btnEdit = card.querySelector('.btn-edit');
-
-      if (btnStar) {
-        btnStar.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const willStar = !item.starred;
-          const scrollY = window.scrollY;
-          this.state.toggleStarred(item.id);
-          this.renderAll();
-          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnToggle) {
-        btnToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.confirmAction(
-            'Confirm Wall Status',
-            `Are you sure you want to remove "${item.name}" from your Wall?`,
-            () => {
-              const scrollY = window.scrollY;
-              const res = this.state.toggleItemTab(item.id, 'wall');
-              if (!res.success) {
-                this.showToast(res.reason || 'Could not remove from Wall');
-                return;
-              }
-              this.renderAll();
-              this.showToast(`Removed "${item.name}" from Wall`);
-              window.scrollTo({ top: scrollY });
-            }
-          );
-        });
-      }
-
-      if (btnSeries) {
-        btnSeries.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (item.seriesId) {
-            this.switchTab('tab-series');
-            this.openSeriesDrilldown(item.seriesId);
-          }
-        });
-      }
-
-      if (btnBp) {
-        btnBp.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const scrollY = window.scrollY;
-          const res = this.state.toggleItemTab(item.id, 'backpack');
-          if (!res.success) {
-            this.showToast(res.reason || 'Could not update Backpack tab');
-            return;
-          }
-          this.renderAll();
-          this.showToast(res.added ? `Added "${item.name}" to Backpack` : `Removed "${item.name}" from Backpack`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnEdit) {
-        btnEdit.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.openEditItemModal(item.id);
-        });
-      }
-
       return card;
     }
 
@@ -2576,30 +2774,8 @@ js_logic = ''';
     renderBackpackTab() {
       // STRICT VIEW SCOPE: Only gifts physically in user backpack inventory
       const bpItems = this.getBackpackCatalogItems();
-      const totalUnits = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-      const totalBaseWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-      const totalMarketWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
-      const netSpread = totalMarketWorth - totalBaseWorth;
-      const spreadSign = netSpread > 0 ? '+' : '';
 
-      const exchangeNeededGifts = bpItems.filter(i => !i.wallOwned);
-      const starredGifts = bpItems.filter(i => !!i.starred);
-      const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
-      const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
-
-      this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
-      this.bpUniqueItems.textContent = bpItems.length;
-      this.bpMarketWorth.textContent = this.formatNumber(totalMarketWorth);
-      this.bpBaseWorth.textContent = this.formatNumber(totalBaseWorth);
-      this.bpProfitSpread.textContent = `${spreadSign}${this.formatNumber(netSpread)} Coins`;
-      this.bpExchangeMarkerCount.textContent = exchangeNeededGifts.length;
-
-      // Status Pill Counts
-      this.bpCountAll.textContent = bpItems.length;
-      this.bpCountInStock.textContent = inStockExact1.length;
-      this.bpCountExchange.textContent = exchangeNeededGifts.length;
-      this.bpCountStarred.textContent = starredGifts.length;
-      this.bpCountExtras.textContent = extrasGifts.length;
+      this.updateBpHeaderCounts(bpItems);
 
       this.updateBpCategoryDropdownFilter(bpItems);
       this.updateBpSeriesDropdownFilter(bpItems);
@@ -2607,6 +2783,7 @@ js_logic = ''';
       this.renderBpTierPills(bpItems);
 
       const filtered = this.getFilteredBpItems();
+      this._cachedBpFiltered = filtered;
 
       const hasActiveFilters = this.globalSearchQuery || this.bpStatusFilter !== 'all' || this.bpSelectedCategory || this.bpSelectedSeries || this.bpSelectedTier;
       this.bpResetFiltersBtn.style.display = hasActiveFilters ? 'inline-block' : 'none';
@@ -2655,7 +2832,7 @@ js_logic = ''';
 
     appendBpBatch() {
       if (this.isBatchLoading) return;
-      const filtered = this.getFilteredBpItems();
+      const filtered = this._cachedBpFiltered || this.getFilteredBpItems();
       if (this.bpRenderedCount >= filtered.length) {
         if (this.bpScrollSentinel) this.bpScrollSentinel.style.display = 'none';
         return;
@@ -2803,6 +2980,7 @@ js_logic = ''';
       const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
       const isWallOwned = !!item.wallOwned;
 
+      card.dataset.id = item.id;
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
       if (isOwned) {
         card.style.setProperty('--card-tier-border', tierInfo.border);
@@ -2835,19 +3013,19 @@ js_logic = ''';
         <div class="card-footer">
           <div class="card-footer-top">
             <div class="stepper-group">
-              <button class="stepper-btn btn-minus" aria-label="Decrease quantity">&minus;</button>
+              <button class="stepper-btn btn-minus" data-action="qty-minus" aria-label="Decrease quantity">&minus;</button>
               <span class="stepper-qty tabular">${qty}</span>
-              <button class="stepper-btn btn-plus" aria-label="Increase quantity">&plus;</button>
+              <button class="stepper-btn btn-plus" data-action="qty-plus" aria-label="Increase quantity">&plus;</button>
             </div>
 
-            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" style="margin-left: auto;" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
+            <button type="button" class="star-mark-badge ${isStarred ? 'is-starred' : 'is-unstarred'}" data-action="toggle-star" style="margin-left: auto;" title="${isStarred ? 'Priority (Do Not Trade) - Click to unmark' : 'Click to mark as Priority (Do Not Trade)'}">
               <svg width="13" height="13" viewBox="0 0 24 24" fill="${isStarred ? '#f59e0b' : 'none'}" stroke="${isStarred ? '#f59e0b' : 'currentColor'}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
               </svg>
             </button>
 
             <div class="card-actions">
-              <button class="action-icon-btn btn-edit" title="Edit gift details" aria-label="Edit gift">
+              <button class="action-icon-btn btn-edit" data-action="open-edit" title="Edit gift details" aria-label="Edit gift">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
               </button>
             </div>
@@ -2865,77 +3043,6 @@ js_logic = ''';
           </div>
         </div>
       `;
-
-      const btnStar = card.querySelector('.star-mark-badge');
-      const btnMinus = card.querySelector('.btn-minus');
-      const btnPlus = card.querySelector('.btn-plus');
-      const btnWall = card.querySelector('.tag-wall');
-      const btnSeries = card.querySelector('.tag-series');
-      const btnEdit = card.querySelector('.btn-edit');
-
-      if (btnStar) {
-        btnStar.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const willStar = !item.starred;
-          const scrollY = window.scrollY;
-          this.state.toggleStarred(item.id);
-          this.renderAll();
-          this.showToast(`Updated "${item.name}" priority: ${willStar ? 'Marked Priority' : 'Unmarked'}`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnMinus) {
-        btnMinus.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const scrollY = window.scrollY;
-          this.state.incrementQuantity(item.id, -1);
-          this.renderAll();
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnPlus) {
-        btnPlus.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const scrollY = window.scrollY;
-          this.state.incrementQuantity(item.id, 1);
-          this.renderAll();
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnWall) {
-        btnWall.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const scrollY = window.scrollY;
-          const res = this.state.toggleItemTab(item.id, 'wall');
-          if (!res.success) {
-            this.showToast(res.reason || 'Could not update Wall tab');
-            return;
-          }
-          this.renderAll();
-          this.showToast(res.added ? `Added "${item.name}" to Wall` : `Removed "${item.name}" from Wall`);
-          window.scrollTo({ top: scrollY });
-        });
-      }
-
-      if (btnSeries) {
-        btnSeries.addEventListener('click', (e) => {
-          e.stopPropagation();
-          if (item.seriesId) {
-            this.switchTab('tab-series');
-            this.openSeriesDrilldown(item.seriesId);
-          }
-        });
-      }
-
-      if (btnEdit) {
-        btnEdit.addEventListener('click', (e) => {
-          e.stopPropagation();
-          this.openEditItemModal(item.id);
-        });
-      }
 
       return card;
     }
