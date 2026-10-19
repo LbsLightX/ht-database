@@ -1,6 +1,7 @@
 import json
 import os
 import re
+import time
 
 # Master seed data source
 data_path = 'data/hellotalk-gifts.json'
@@ -247,7 +248,17 @@ js_logic = ''';
                 DEFAULT_SEED.tiers.forEach(seedTier => {
                   if (!seedTier || !seedTier.id) return;
                   const nameKey = (seedTier.name || '').trim().toLowerCase();
-                  if (!existingTierIds.has(seedTier.id) && !existingTierNames.has(nameKey)) {
+                  const existingTier = safeTiers.find(t => t.id === seedTier.id || (t.name || '').trim().toLowerCase() === nameKey);
+                  if (existingTier) {
+                    const color = String(seedTier.color || existingTier.color || '#e2e8f0').trim();
+                    const rgb = this.hexToRgb ? this.hexToRgb(color) : '226, 232, 240';
+                    existingTier.color = color;
+                    existingTier.bg = String(seedTier.bg || `rgba(${rgb}, 0.16)`).trim();
+                    existingTier.border = String(seedTier.border || `rgba(${rgb}, 0.35)`).trim();
+                    if (seedTier.name) existingTier.name = String(seedTier.name).trim();
+                    if (seedTier.description !== undefined) existingTier.description = String(seedTier.description).trim();
+                    if (seedTier.rank !== undefined) existingTier.rank = Number(seedTier.rank);
+                  } else {
                     const color = String(seedTier.color || '#e2e8f0').trim();
                     const rgb = this.hexToRgb ? this.hexToRgb(color) : '226, 232, 240';
                     safeTiers.push({
@@ -4980,13 +4991,15 @@ full_app_js = js_header + db_json + js_logic
 with open('app.js', 'w', encoding='utf-8') as f:
     f.write(full_app_js)
 
-# Auto-sync cache-busting version queries in index.html
+build_timestamp = int(time.time())
+
+# Auto-sync cache-busting version and build timestamp in index.html
 if os.path.exists('index.html'):
     with open('index.html', 'r', encoding='utf-8') as f:
         html = f.read()
-    html = re.sub(r'styles\.css\?v=[^"]+', f'styles.css?v={app_version}', html)
-    html = re.sub(r'app\.js\?v=[^"]+', f'app.js?v={app_version}', html)
+    html = re.sub(r'styles\.css(?:\?[^"]*)?', f'styles.css?v={app_version}&t={build_timestamp}', html)
+    html = re.sub(r'app\.js(?:\?[^"]*)?', f'app.js?v={app_version}&t={build_timestamp}', html)
     with open('index.html', 'w', encoding='utf-8') as f:
         f.write(html)
 
-print(f'app.js successfully built (v{app_version}) and index.html cache-busting synced!')
+print(f'app.js successfully built (v{app_version}, t={build_timestamp}) and index.html cache-busting synced!')

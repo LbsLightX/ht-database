@@ -10,7 +10,7 @@
 
   const DEFAULT_SEED = {
   "version": "1.0.2",
-  "lastExported": 1792385148154,
+  "lastExported": 1792392377857,
   "categories": [
     {
       "id": "cat-basic",
@@ -15588,9 +15588,9 @@
     {
       "id": "tier-mvertu49-em82ey",
       "name": "Mystery Gift",
-      "color": "#251b6e",
-      "bg": "rgba(37, 27, 110, 0.16)",
-      "border": "rgba(37, 27, 110, 0.35)",
+      "color": "#ba2089",
+      "bg": "rgba(186, 32, 137, 0.16)",
+      "border": "rgba(186, 32, 137, 0.35)",
       "rank": 1,
       "displayOrder": 6,
       "description": ""
@@ -15840,7 +15840,17 @@
                 DEFAULT_SEED.tiers.forEach(seedTier => {
                   if (!seedTier || !seedTier.id) return;
                   const nameKey = (seedTier.name || '').trim().toLowerCase();
-                  if (!existingTierIds.has(seedTier.id) && !existingTierNames.has(nameKey)) {
+                  const existingTier = safeTiers.find(t => t.id === seedTier.id || (t.name || '').trim().toLowerCase() === nameKey);
+                  if (existingTier) {
+                    const color = String(seedTier.color || existingTier.color || '#e2e8f0').trim();
+                    const rgb = this.hexToRgb ? this.hexToRgb(color) : '226, 232, 240';
+                    existingTier.color = color;
+                    existingTier.bg = String(seedTier.bg || `rgba(${rgb}, 0.16)`).trim();
+                    existingTier.border = String(seedTier.border || `rgba(${rgb}, 0.35)`).trim();
+                    if (seedTier.name) existingTier.name = String(seedTier.name).trim();
+                    if (seedTier.description !== undefined) existingTier.description = String(seedTier.description).trim();
+                    if (seedTier.rank !== undefined) existingTier.rank = Number(seedTier.rank);
+                  } else {
                     const color = String(seedTier.color || '#e2e8f0').trim();
                     const rgb = this.hexToRgb ? this.hexToRgb(color) : '226, 232, 240';
                     safeTiers.push({
