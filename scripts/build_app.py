@@ -4440,65 +4440,79 @@ js_logic = ''';
 
       this.confirmAction(
         'Commit & Deploy to GitHub Pages',
-        'Push current database changes (Categories, Series, and 759 Gifts) to GitHub repo "LbsLightX/ht-database"?\\n\\nThis will trigger GitHub Actions to auto-rebuild and update GitHub Pages.',
+        'Push current database changes (Categories, Series, and Gifts) directly to GitHub repo "LbsLightX/ht-database"?\\n\\nThis will trigger GitHub Actions to auto-rebuild and update GitHub Pages.',
         async () => {
           const repo = 'LbsLightX/ht-database';
-          const filePaths = ['data/hellotalk-gifts.json', 'data/template-seed.json'];
-          const commitMessage = `Update database via Web Vault [${new Date().toISOString()}]`;
+          const path = 'data/hellotalk-gifts.json';
+          const commitMessage = `Update database via Web Vault [${new Date().toISOString().slice(0, 19).replace('T', ' ')}]`;
           const jsonContent = JSON.stringify(this.state.data, null, 2);
 
           const utf8ToBase64 = (str) => {
-            return btoa(encodeURIComponent(str).replace(/%([0-9A-F]{2})/g, (match, p1) => {
-              return String.fromCharCode(parseInt(p1, 16));
-            }));
+            const bytes = new TextEncoder().encode(str);
+            let binStr = '';
+            for (let i = 0; i < bytes.length; i++) {
+              binStr += String.fromCharCode(bytes[i]);
+            }
+            return btoa(binStr);
           };
           const base64Content = utf8ToBase64(jsonContent);
 
+          if (this.ghPushBtn) {
+            this.ghPushBtn.disabled = true;
+            this.ghPushBtn.textContent = '⏳ Committing to GitHub...';
+          }
           this.showToast('Connecting to GitHub API...');
 
           try {
-            for (const path of filePaths) {
-              const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+            const url = `https://api.github.com/repos/${repo}/contents/${path}`;
 
-              let currentSha = null;
-              const getRes = await fetch(url, {
-                headers: {
-                  'Authorization': `Bearer ${token}`,
-                  'Accept': 'application/vnd.github.v3+json'
-                }
-              });
-
-              if (getRes.ok) {
-                const getData = await getRes.json();
-                currentSha = getData.sha;
-              } else if (getRes.status !== 404) {
-                const errData = await getRes.json().catch(() => ({}));
-                throw new Error(`Failed to query ${path}: ${errData.message || getRes.statusText}`);
+            // 1. Fetch current file SHA
+            let currentSha = null;
+            const getRes = await fetch(url, {
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
               }
+            });
 
-              const putBody = {
-                message: commitMessage,
-                content: base64Content,
-                branch: 'main'
-              };
-              if (currentSha) {
-                putBody.sha = currentSha;
+            if (getRes.ok) {
+              const getData = await getRes.json();
+              currentSha = getData.sha;
+            } else if (getRes.status === 401) {
+              throw new Error('Invalid or expired GitHub Personal Access Token. Please re-enter a valid token.');
+            } else if (getRes.status === 403) {
+              throw new Error('Permission denied. Ensure your token has "Contents: Read and write" access for repository LbsLightX/ht-database.');
+            } else if (getRes.status !== 404) {
+              const errData = await getRes.json().catch(() => ({}));
+              throw new Error(`Failed to query file info: ${errData.message || getRes.statusText}`);
+            }
+
+            // 2. Commit updated JSON file
+            const putBody = {
+              message: commitMessage,
+              content: base64Content,
+              branch: 'main'
+            };
+            if (currentSha) {
+              putBody.sha = currentSha;
+            }
+
+            const putRes = await fetch(url, {
+              method: 'PUT',
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+              },
+              body: JSON.stringify(putBody)
+            });
+
+            if (!putRes.ok) {
+              if (putRes.status === 409) {
+                throw new Error('Conflict detected: Remote repository was modified. Please click "Pull Latest from GitHub" first.');
               }
-
-              const putRes = await fetch(url, {
-                method: 'PUT',
-                headers: {
-                  'Authorization': `Bearer ${token}`,
-                  'Accept': 'application/vnd.github.v3+json',
-                  'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(putBody)
-              });
-
-              if (!putRes.ok) {
-                const putErr = await putRes.json().catch(() => ({}));
-                throw new Error(`Failed to commit ${path}: ${putErr.message || putRes.statusText}`);
-              }
+              const putErr = await putRes.json().catch(() => ({}));
+              throw new Error(`Failed to commit: ${putErr.message || putRes.statusText}`);
             }
 
             const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
@@ -4507,6 +4521,11 @@ js_logic = ''';
             this.showToast('🚀 Pushed to GitHub! GitHub Pages is building automatically.');
           } catch (err) {
             alert('GitHub Sync Error: ' + err.message);
+          } finally {
+            if (this.ghPushBtn) {
+              this.ghPushBtn.disabled = false;
+              this.ghPushBtn.textContent = '🚀 Commit & Deploy to GitHub Pages';
+            }
           }
         }
       );
@@ -4521,9 +4540,14 @@ js_logic = ''';
 
       this.confirmAction(
         'Pull Latest from GitHub',
-        'Pull latest database JSON from repository "LbsLightX/ht-database"? This will update your local browser data.',
+        'Pull latest database JSON from repository "LbsLightX/ht-database"?\\n\\nThis will update your local browser view with the latest cloud state.',
         async () => {
+          if (this.ghPullBtn) {
+            this.ghPullBtn.disabled = true;
+            this.ghPullBtn.textContent = '⏳ Fetching from GitHub...';
+          }
           this.showToast('Fetching latest database from GitHub...');
+
           try {
             const headers = { 'Accept': 'application/vnd.github.v3+json' };
             if (token) headers['Authorization'] = `Bearer ${token}`;
@@ -4532,6 +4556,12 @@ js_logic = ''';
             const res = await fetch(url, { headers });
 
             if (!res.ok) {
+              if (res.status === 401) {
+                throw new Error('Invalid or expired GitHub Personal Access Token.');
+              }
+              if (res.status === 403) {
+                throw new Error('Permission denied. Please verify your token permissions.');
+              }
               const errData = await res.json().catch(() => ({}));
               throw new Error(`Failed to fetch database: ${errData.message || res.statusText}`);
             }
@@ -4559,6 +4589,11 @@ js_logic = ''';
             this.showToast('✅ Successfully pulled and synced latest database from GitHub!');
           } catch (err) {
             alert('GitHub Pull Error: ' + err.message);
+          } finally {
+            if (this.ghPullBtn) {
+              this.ghPullBtn.disabled = false;
+              this.ghPullBtn.textContent = '⬇️ Pull Latest from GitHub';
+            }
           }
         }
       );
