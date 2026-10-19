@@ -10710,13 +10710,14 @@
       "notes": "",
       "updatedAt": 1729000000000,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": true
     },
     {
       "id": "item-happy-film-festival-film-projector-523",
       "categoryId": "cat-celebration",
       "seriesId": "ser-celebration-happy-film-festival",
-      "name": "Film projector ",
+      "name": "Film projector",
       "baseValue": 399,
       "marketWorth": 539,
       "quantity": 0,
@@ -10729,7 +10730,8 @@
       "notes": "",
       "updatedAt": 1729000000000,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": true
     },
     {
       "id": "item-happy-film-festival-love-memories-524",

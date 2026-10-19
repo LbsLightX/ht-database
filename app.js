@@ -10720,13 +10720,14 @@
       "notes": "",
       "updatedAt": 1729000000000,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": true
     },
     {
       "id": "item-happy-film-festival-film-projector-523",
       "categoryId": "cat-celebration",
       "seriesId": "ser-celebration-happy-film-festival",
-      "name": "Film projector ",
+      "name": "Film projector",
       "baseValue": 399,
       "marketWorth": 539,
       "quantity": 0,
@@ -10739,7 +10740,8 @@
       "notes": "",
       "updatedAt": 1729000000000,
       "wallOwned": false,
-      "starred": false
+      "starred": false,
+      "isDistinctVariant": true
     },
     {
       "id": "item-happy-film-festival-love-memories-524",
@@ -15656,6 +15658,7 @@
                 quantity: finalQty,
                 wallOwned: finalWallOwned,
                 starred: typeof item.starred === 'boolean' ? item.starred : false,
+                isDistinctVariant: typeof item.isDistinctVariant === 'boolean' ? item.isDistinctVariant : !!(DEFAULT_SEED.items && DEFAULT_SEED.items.find(si => si.id === item.id)?.isDistinctVariant),
                 tier: String(item.tier || 'Standard').trim(),
                 tabs: itemTabs,
                 tags: Array.isArray(item.tags) ? item.tags.map(t => String(t).trim()).filter(Boolean) : [],
@@ -15954,6 +15957,7 @@
         quantity: qty,
         wallOwned,
         starred: !!itemData.starred,
+        isDistinctVariant: !!itemData.isDistinctVariant,
         tier: (itemData.tier || 'Standard').trim(),
         tabs: itemTabs,
         tags: Array.isArray(itemData.tags) ? itemData.tags : [],
@@ -15995,6 +15999,7 @@
           quantity: qty,
           wallOwned,
           starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
+          isDistinctVariant: itemData.isDistinctVariant !== undefined ? !!itemData.isDistinctVariant : !!cur.isDistinctVariant,
           tier: (itemData.tier || cur.tier || 'Standard').trim(),
           tabs: itemTabs,
           tags: Array.isArray(itemData.tags) ? itemData.tags : cur.tags,
@@ -16311,6 +16316,7 @@
           quantity: finalQty,
           wallOwned: finalWallOwned,
           starred: typeof item.starred === 'boolean' ? item.starred : false,
+          isDistinctVariant: typeof item.isDistinctVariant === 'boolean' ? item.isDistinctVariant : false,
           tier: String(item.tier || 'Standard').trim(),
           tabs: itemTabs,
           tags: Array.isArray(item.tags) ? item.tags.map(t => String(t).trim()).filter(Boolean) : [],
@@ -16607,6 +16613,7 @@
       this.editItemQuantity = document.getElementById('editItemQuantity');
       this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
       this.editItemStarred = document.getElementById('editItemStarred');
+      this.editItemDistinctVariant = document.getElementById('editItemDistinctVariant');
       this.editItemTier = document.getElementById('editItemTier');
       this.editItemTierPresets = document.getElementById('editItemTierPresets');
       this.modalDeleteBtn = document.getElementById('modalDeleteBtn');
@@ -19147,6 +19154,7 @@
       this.editItemMarketWorth.value = '';
       this.editItemQuantity.value = '1';
       this.editItemStarred.checked = false;
+      if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = false;
       this.editItemTier.value = 'Standard';
       this.populateModalTierPresets('Standard');
 
@@ -19174,6 +19182,7 @@
       this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : '';
       this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
       this.editItemStarred.checked = !!item.starred;
+      if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = !!item.isDistinctVariant;
 
       let itemTabs = Array.isArray(item.tabs) ? [...item.tabs] : [];
       if (item.categoryId && item.seriesId && !itemTabs.includes('series')) {
@@ -19305,6 +19314,7 @@
         quantity: qty,
         wallOwned: isWallOwned,
         starred: this.editItemStarred.checked,
+        isDistinctVariant: this.editItemDistinctVariant ? this.editItemDistinctVariant.checked : (existingItem ? !!existingItem.isDistinctVariant : false),
         tier: this.editItemTier.value.trim() || 'Standard',
         tabs: effectiveTabs,
         notes: existingItem ? (existingItem.notes || '') : ''
@@ -19315,7 +19325,9 @@
       const duplicateMatch = items.find(i => 
         i.id !== id && 
         (i.seriesId || '') === seriesId && 
-        (i.name || '').trim().toLowerCase() === name.toLowerCase()
+        (i.name || '').trim().toLowerCase() === name.toLowerCase() &&
+        !i.isDistinctVariant &&
+        !itemData.isDistinctVariant
       );
 
       if (duplicateMatch) {
@@ -19356,6 +19368,8 @@ Would you like to merge stock (${qty} units) and collection status into the exis
 Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coins?`,
             () => {
               const scrollY = window.scrollY;
+              itemData.isDistinctVariant = true;
+              this.state.updateItem(duplicateMatch.id, { isDistinctVariant: true });
               if (id) {
                 this.state.updateItem(id, itemData);
                 this.showToast(`Updated "${itemData.name}" (${itemData.baseValue} coins)`);
@@ -19850,10 +19864,15 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
       const items = this.state.data.items || [];
 
       // 1. Same-series match check
+      const currentItem = currentId ? this.state.getItem(currentId) : null;
+      const isCurrentDistinct = this.editItemDistinctVariant ? this.editItemDistinctVariant.checked : !!(currentItem && currentItem.isDistinctVariant);
+
       const sameSeriesMatch = items.find(i => 
         i.id !== currentId && 
         (i.seriesId || '') === seriesId && 
-        (i.name || '').trim().toLowerCase() === normName
+        (i.name || '').trim().toLowerCase() === normName &&
+        !i.isDistinctVariant &&
+        !isCurrentDistinct
       );
 
       if (sameSeriesMatch) {
@@ -19902,34 +19921,83 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
 
       const duplicateGroups = Array.from(groups.values()).filter(arr => arr.length > 1);
 
-      if (duplicateGroups.length === 0) {
+      // Separate true unresolved conflicts from verified distinct variants
+      const activeConflictGroups = duplicateGroups.filter(group => {
+        const allDistinct = group.every(item => item.isDistinctVariant === true);
+        return !allDistinct;
+      });
+      const verifiedVariantGroups = duplicateGroups.filter(group => {
+        return group.every(item => item.isDistinctVariant === true);
+      });
+
+      if (activeConflictGroups.length === 0) {
+        let verifiedHtml = '';
+        if (verifiedVariantGroups.length > 0) {
+          verifiedHtml = `
+            <div style="margin-top: 10px; padding: 10px 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+              <div style="font-size: 11px; font-weight: 700; color: #a7f3d0; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+                <span>Verified Distinct Variants (${verifiedVariantGroups.length} Group${verifiedVariantGroups.length > 1 ? 's' : ''}):</span>
+                <span style="font-size: 10px; color: var(--text-muted); font-weight: 400;">Acknowledged &amp; Excluded from Conflicts</span>
+              </div>
+              ${verifiedVariantGroups.map(group => {
+                const sName = this.state.getSeries(group[0].seriesId)?.name || 'Series';
+                return `
+                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
+                    <span>• <strong>${this.escapeHtml(group[0].name)}</strong> (${this.escapeHtml(sName)}) — ${group.map(g => g.baseValue + ' coins').join(' / ')}</span>
+                    <button type="button" class="btn-secondary duplicate-unmark-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 10px; padding: 2px 7px;">
+                      Unmark
+                    </button>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          `;
+        }
+
         this.duplicateAuditResults.innerHTML = `
           <div style="padding: 10px 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-sm); color: #34d399; display: flex; align-items: center; gap: 8px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Catalog Integrity Verified:</strong> 0 duplicate gifts found across all series. Total items: ${items.length}.</span>
+            <span><strong>Catalog Integrity Verified:</strong> 0 duplicate conflicts across all series. Total items: ${items.length}.${verifiedVariantGroups.length > 0 ? ` (${verifiedVariantGroups.length} verified distinct variant group acknowledged).` : ''}</span>
           </div>
+          ${verifiedHtml}
         `;
+
+        this.duplicateAuditResults.querySelectorAll('.duplicate-unmark-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const ids = btn.dataset.groupIds.split(',');
+            ids.forEach(id => {
+              this.state.updateItem(id, { isDistinctVariant: false });
+            });
+            this.showToast('Unmarked distinct variant status.');
+            this.scanDuplicates();
+          });
+        });
         return;
       }
 
       let html = `
         <div style="margin-bottom: 8px; font-weight: 700; color: #f87171;">
-          Found ${duplicateGroups.length} duplicate group(s):
+          Found ${activeConflictGroups.length} unresolved duplicate conflict(s):
         </div>
       `;
 
-      duplicateGroups.forEach(group => {
+      activeConflictGroups.forEach(group => {
         const sample = group[0];
         const ser = this.state.getSeries(sample.seriesId);
         const serName = ser ? ser.name : 'Standalone';
 
         html += `
           <div class="duplicate-audit-group">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
               <span style="font-weight: 700; color: var(--text-primary);">${this.escapeHtml(sample.name)} (${this.escapeHtml(serName)})</span>
-              <button type="button" class="btn-secondary duplicate-merge-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">
-                Merge into One
-              </button>
+              <div style="display: flex; gap: 6px; align-items: center;">
+                <button type="button" class="btn-secondary duplicate-mark-valid-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
+                  ✓ Valid Variant
+                </button>
+                <button type="button" class="btn-secondary duplicate-merge-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">
+                  Merge into One
+                </button>
+              </div>
             </div>
             ${group.map(g => `
               <div class="duplicate-item-row">
@@ -19943,7 +20011,52 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
         `;
       });
 
+      if (verifiedVariantGroups.length > 0) {
+        html += `
+          <div style="margin-top: 12px; padding: 8px 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: #a7f3d0; margin-bottom: 4px;">
+              Acknowledged Distinct Variants (${verifiedVariantGroups.length}):
+            </div>
+            ${verifiedVariantGroups.map(group => {
+              const sName = this.state.getSeries(group[0].seriesId)?.name || 'Series';
+              return `
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
+                  <span>• <strong>${this.escapeHtml(group[0].name)}</strong> (${this.escapeHtml(sName)}) — ${group.map(g => g.baseValue + ' coins').join(' / ')}</span>
+                  <button type="button" class="btn-secondary duplicate-unmark-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 10px; padding: 2px 7px;">
+                    Unmark
+                  </button>
+                </div>
+              `;
+            }).join('')}
+          </div>
+        `;
+      }
+
       this.duplicateAuditResults.innerHTML = html;
+
+      // Bind mark valid variant action
+      this.duplicateAuditResults.querySelectorAll('.duplicate-mark-valid-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ids = btn.dataset.groupIds.split(',');
+          ids.forEach(id => {
+            this.state.updateItem(id, { isDistinctVariant: true });
+          });
+          this.showToast('Marked as verified distinct variant.');
+          this.scanDuplicates();
+        });
+      });
+
+      // Bind unmark action
+      this.duplicateAuditResults.querySelectorAll('.duplicate-unmark-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ids = btn.dataset.groupIds.split(',');
+          ids.forEach(id => {
+            this.state.updateItem(id, { isDistinctVariant: false });
+          });
+          this.showToast('Unmarked distinct variant status.');
+          this.scanDuplicates();
+        });
+      });
 
       // Bind merge action
       this.duplicateAuditResults.querySelectorAll('.duplicate-merge-btn').forEach(btn => {
