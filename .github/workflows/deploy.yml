@@ -37,6 +37,9 @@ jobs:
         with:
           node-version: '20'
 
+      - name: Validate Catalog Schema & Integrity
+        run: python3 scripts/validate_catalog.py
+
       - name: Build Application Bundle
         run: |
           python3 scripts/build_app.py

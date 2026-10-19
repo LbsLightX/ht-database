@@ -1,5 +1,5 @@
 /**
- * HelloTalk Gift Database & Vault (v1.0.1)
+ * HelloTalk Gift Database & Vault (v1.0.2)
  */
 
 (() => {
@@ -9,8 +9,8 @@
   const BATCH_SIZE = 60;
 
   const DEFAULT_SEED = {
-  "version": "1.0.1",
-  "lastExported": 1729000000000,
+  "version": "1.0.2",
+  "lastExported": 1729300000000,
   "categories": [
     {
       "id": "cat-basic",
@@ -15224,6 +15224,312 @@
       "updatedAt": 1729000000000,
       "wallOwned": false,
       "starred": false
+    },
+    {
+      "id": "item-select-world-war-indian-sari-760",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Indian Sari",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-traditional-thai-clothing-761",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Traditional Thai clothing",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-mongolian-robe-762",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Mongolian robe",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-hanbok-763",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Hanbok",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-kebaya-764",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Kebaya",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-vietnamese-o-d-i-765",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Vietnamese Áo Dài",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-hanfu-766",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Hanfu",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-japanese-kimono-767",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Japanese Kimono",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-american-clothing-768",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "American clothing",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-ivy-style-769",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Ivy Style",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-samba-dress-770",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Samba dress",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-vintage-swing-skirt-771",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Vintage Swing Skirt",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-flapper-dress-772",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Flapper Dress",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-mexican-catrina-773",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Mexican Catrina",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-straw-hat-shawl-774",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Straw Hat & Shawl",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-cowgirl-outfit-775",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Cowgirl Outfit",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-street-hip-hop-776",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Street Hip-Hop",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
     }
   ],
   "tiers": [
@@ -15300,6 +15606,7 @@
   // ------------------------------------------------------------------
   class VaultState {
     constructor() {
+      this.reconciliationNotice = null;
       this.data = this.loadState();
       this.listeners = [];
     }
@@ -15419,7 +15726,76 @@
                 series: tags.find(t => t.key === 'series')?.color || '#06b6d4',
                 backpack: tags.find(t => t.key === 'backpack')?.color || '#f43f5e'
               };
-              const themeConfig = { tags, tagColors };
+              // ------------------------------------------------------------------
+              // SEED RECONCILIATION ENGINE: Merge new seed items while preserving user state
+              // ------------------------------------------------------------------
+              const existingItemIds = new Set(safeItems.map(i => i.id));
+              const existingItemKeys = new Set(safeItems.map(i => `${i.seriesId}:::${(i.name || '').trim().toLowerCase()}`));
+              let newlyAddedGiftsCount = 0;
+
+              if (Array.isArray(DEFAULT_SEED.items)) {
+                DEFAULT_SEED.items.forEach(seedItem => {
+                  if (!seedItem || !seedItem.id) return;
+                  const key = `${seedItem.seriesId}:::${(seedItem.name || '').trim().toLowerCase()}`;
+                  if (!existingItemIds.has(seedItem.id) && !existingItemKeys.has(key)) {
+                    safeItems.push({
+                      id: String(seedItem.id).trim(),
+                      categoryId: String(seedItem.categoryId || '').trim(),
+                      seriesId: String(seedItem.seriesId || '').trim(),
+                      name: String(seedItem.name || '').trim(),
+                      baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
+                      marketWorth: Math.max(0, Number(seedItem.marketWorth) || 0),
+                      quantity: 0,
+                      wallOwned: false,
+                      starred: false,
+                      tier: String(seedItem.tier || 'Standard').trim(),
+                      tabs: Array.isArray(seedItem.tabs) ? [...seedItem.tabs] : (seedItem.seriesId ? ['series'] : []),
+                      tags: Array.isArray(seedItem.tags) ? [...seedItem.tags] : [],
+                      notes: '',
+                      updatedAt: Date.now()
+                    });
+                    existingItemIds.add(seedItem.id);
+                    existingItemKeys.add(key);
+                    newlyAddedGiftsCount++;
+                  }
+                });
+              }
+
+              const existingCatIds = new Set(safeCategories.map(c => c.id));
+              if (Array.isArray(DEFAULT_SEED.categories)) {
+                DEFAULT_SEED.categories.forEach(seedCat => {
+                  if (seedCat && seedCat.id && !existingCatIds.has(seedCat.id)) {
+                    safeCategories.push({
+                      id: String(seedCat.id).trim(),
+                      name: String(seedCat.name || '').trim(),
+                      order: Number(seedCat.order) || 1,
+                      description: String(seedCat.description || '').trim()
+                    });
+                    existingCatIds.add(seedCat.id);
+                  }
+                });
+              }
+
+              const existingSeriesIds = new Set(safeSeries.map(s => s.id));
+              if (Array.isArray(DEFAULT_SEED.series)) {
+                DEFAULT_SEED.series.forEach(seedSer => {
+                  if (seedSer && seedSer.id && !existingSeriesIds.has(seedSer.id)) {
+                    safeSeries.push({
+                      id: String(seedSer.id).trim(),
+                      categoryId: String(seedSer.categoryId || '').trim(),
+                      name: String(seedSer.name || '').trim(),
+                      badge: String(seedSer.badge || '').trim(),
+                      description: String(seedSer.description || '').trim(),
+                      displayOrder: Number(seedSer.displayOrder ?? seedSer.order) || 1
+                    });
+                    existingSeriesIds.add(seedSer.id);
+                  }
+                });
+              }
+
+              if (newlyAddedGiftsCount > 0) {
+                this.reconciliationNotice = `Catalog updated to v${APP_VERSION} (+${newlyAddedGiftsCount} new gifts added). Inventory preserved.`;
+              }
 
               return {
                 version: APP_VERSION,
@@ -16068,6 +16444,14 @@
 
       this.renderAll();
       this.setupBatchObservers();
+
+      if (this.state.reconciliationNotice) {
+        setTimeout(() => {
+          this.showToast(this.state.reconciliationNotice);
+          this.state.reconciliationNotice = null;
+          this.state.saveState();
+        }, 800);
+      }
     }
 
     initDomReferences() {
@@ -16203,6 +16587,7 @@
       this.ghLastSyncTime = document.getElementById('ghLastSyncTime');
       this.ghPatInput = document.getElementById('ghPatInput');
       this.ghSaveTokenBtn = document.getElementById('ghSaveTokenBtn');
+      this.ghTestTokenBtn = document.getElementById('ghTestTokenBtn');
       this.ghClearTokenBtn = document.getElementById('ghClearTokenBtn');
       this.ghPushBtn = document.getElementById('ghPushBtn');
       this.ghPullBtn = document.getElementById('ghPullBtn');
@@ -19652,6 +20037,57 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
           if (this.ghPatInput) this.ghPatInput.value = '';
           updateUI();
           this.showToast('GitHub token securely saved in browser storage.');
+        });
+      }
+
+      if (this.ghTestTokenBtn) {
+        this.ghTestTokenBtn.addEventListener('click', async () => {
+          const token = (this.ghPatInput && this.ghPatInput.value.trim()) || localStorage.getItem(STORAGE_KEY_TOKEN);
+          if (!token) {
+            alert('Please enter or save a GitHub Personal Access Token to test.');
+            return;
+          }
+          this.ghTestTokenBtn.disabled = true;
+          this.ghTestTokenBtn.textContent = 'Testing...';
+          this.showToast('Testing GitHub connection...');
+          try {
+            const res = await fetch('https://api.github.com/repos/LbsLightX/ht-database', {
+              headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/vnd.github.v3+json'
+              }
+            });
+            if (res.ok) {
+              const repoInfo = await res.json();
+              const hasPush = repoInfo.permissions && (repoInfo.permissions.push || repoInfo.permissions.admin);
+              if (hasPush) {
+                if (this.ghSyncStatusBadge) {
+                  this.ghSyncStatusBadge.className = 'status-badge status-online';
+                  this.ghSyncStatusBadge.textContent = 'Verified (Read/Write)';
+                }
+                this.showToast('✅ Connection Verified: Full Read/Write access to LbsLightX/ht-database');
+              } else {
+                if (this.ghSyncStatusBadge) {
+                  this.ghSyncStatusBadge.className = 'status-badge status-offline';
+                  this.ghSyncStatusBadge.textContent = 'Read Only (No Push)';
+                }
+                alert('Warning: Token connected, but lacks "Contents: Read and write" permission for this repo.');
+              }
+            } else if (res.status === 401) {
+              throw new Error('Invalid or expired Personal Access Token (HTTP 401 Unauthorized).');
+            } else if (res.status === 404) {
+              throw new Error('Repository not found or token lacks access to LbsLightX/ht-database (HTTP 404).');
+            } else {
+              throw new Error(`GitHub API returned status ${res.status}: ${res.statusText}`);
+            }
+          } catch (err) {
+            alert('Connection Test Failed: ' + err.message);
+          } finally {
+            if (this.ghTestTokenBtn) {
+              this.ghTestTokenBtn.disabled = false;
+              this.ghTestTokenBtn.textContent = 'Test Connection';
+            }
+          }
         });
       }
 

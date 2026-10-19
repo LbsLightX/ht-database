@@ -30,6 +30,8 @@ log_warn() { echo -e "${YELLOW}⚠️  ${BOLD}$1${RESET}"; }
 log_error() { echo -e "${RED}❌ ${BOLD}$1${RESET}"; }
 
 do_build() {
+  log_info "Validating catalog schema & integrity..."
+  python3 scripts/validate_catalog.py
   log_info "Compiling app.js via scripts/build_app.py..."
   python3 scripts/build_app.py
   if command -v node >/dev/null 2>&1; then
@@ -119,9 +121,11 @@ case "$ACTION" in
     echo "2) Compile, Commit & Push to GitHub (Sync Up)"
     echo "3) Rebuild local app.js"
     echo "4) View Git Status"
-    echo "5) Exit"
+    echo "5) Validate Catalog Schema & Integrity"
+    echo "6) Audit Raw Catalog Dump (Diff Check)"
+    echo "7) Exit"
     echo ""
-    read -rp "Select an option [1-5]: " choice
+    read -rp "Select an option [1-7]: " choice
     case "$choice" in
       1) do_pull ;;
       2)
@@ -130,12 +134,20 @@ case "$ACTION" in
         ;;
       3) do_build ;;
       4) do_status ;;
-      5) echo "Goodbye!"; exit 0 ;;
+      5) python3 scripts/validate_catalog.py ;;
+      6) python3 scripts/sync_raw_catalog.py ;;
+      7) echo "Goodbye!"; exit 0 ;;
       *) log_error "Invalid option selected."; exit 1 ;;
     esac
     ;;
+  validate)
+    python3 scripts/validate_catalog.py
+    ;;
+  audit-raw)
+    python3 scripts/sync_raw_catalog.py
+    ;;
   *)
-    echo "Usage: $0 {pull|push [msg]|build|status}"
+    echo "Usage: $0 {pull|push [msg]|build|status|validate|audit-raw}"
     exit 1
     ;;
 esac

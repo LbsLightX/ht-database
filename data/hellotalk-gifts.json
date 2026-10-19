@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
-  "lastExported": 1729000000000,
+  "version": "1.0.2",
+  "lastExported": 1729300000000,
   "categories": [
     {
       "id": "cat-basic",
@@ -15214,6 +15214,312 @@
       "updatedAt": 1729000000000,
       "wallOwned": false,
       "starred": false
+    },
+    {
+      "id": "item-select-world-war-indian-sari-760",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Indian Sari",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-traditional-thai-clothing-761",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Traditional Thai clothing",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-mongolian-robe-762",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Mongolian robe",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-hanbok-763",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Hanbok",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-kebaya-764",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Kebaya",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-vietnamese-o-d-i-765",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Vietnamese Áo Dài",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-hanfu-766",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Hanfu",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-japanese-kimono-767",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Japanese Kimono",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-american-clothing-768",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "American clothing",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-ivy-style-769",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Ivy Style",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-samba-dress-770",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Samba dress",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-vintage-swing-skirt-771",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Vintage Swing Skirt",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-flapper-dress-772",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Flapper Dress",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-mexican-catrina-773",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Mexican Catrina",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-straw-hat-shawl-774",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Straw Hat & Shawl",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-cowgirl-outfit-775",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Cowgirl Outfit",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
+    },
+    {
+      "id": "item-select-world-war-street-hip-hop-776",
+      "categoryId": "cat-apparel",
+      "seriesId": "ser-apparel-select-world-war",
+      "name": "Street Hip-Hop",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1729300000000
     }
   ],
   "tiers": [
