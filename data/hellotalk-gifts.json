@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792487210019,
+  "lastExported": 1792487738827,
   "categories": [
     {
       "id": "cat-basic",
@@ -826,6 +826,158 @@
     }
   ],
   "items": [
+    {
+      "id": "item-mvggx32j-ox8kts",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Golden Illusionist",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487738827
+    },
+    {
+      "id": "item-mvggwffe-r5evq7",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Chronos Weaver",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487708187
+    },
+    {
+      "id": "item-mvggvwuh-6vm6mg",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Petal Wanderer",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487684105
+    },
+    {
+      "id": "item-mvggvhap-fhs1cn",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Starward Sentinel",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487663953
+    },
+    {
+      "id": "item-mvgguwrs-zocn0s",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Thunder Ascendant",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487637352
+    },
+    {
+      "id": "item-mvggu7hn-8jga8s",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Frostbound Breaker",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487604587
+    },
+    {
+      "id": "item-mvggt96n-my2o6a",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Dawn's Striker",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487560127
+    },
+    {
+      "id": "item-mvggs15q-ipzwts",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvf6nq6u-6nth15",
+      "name": "Violet Tempest",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792487503089
+    },
     {
       "id": "item-mvgfl3tg-w5wdsd",
       "categoryId": "cat-celebration",
