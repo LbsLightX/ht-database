@@ -699,6 +699,9 @@ body {
   transition: transform var(--transition-smooth), border-color var(--transition-smooth), box-shadow var(--transition-smooth);
   position: relative;
   overflow: hidden;
+  content-visibility: auto;
+  contain-intrinsic-size: 0 152px;
+  contain: layout style;
 }
 
 .gift-card:hover {
@@ -716,20 +719,20 @@ body {
   box-shadow: var(--card-tier-glow, var(--tier-luxury-glow));
 }
 .gift-card.is-owned.tier-card-collection {
-  border-color: var(--tier-collection-border);
-  box-shadow: var(--tier-collection-glow);
+  border-color: var(--card-tier-border, var(--tier-collection-border));
+  box-shadow: var(--card-tier-glow, var(--tier-collection-glow));
 }
 .gift-card.is-owned.tier-card-limited {
-  border-color: var(--tier-limited-border);
-  box-shadow: var(--tier-limited-glow);
+  border-color: var(--card-tier-border, var(--tier-limited-border));
+  box-shadow: var(--card-tier-glow, var(--tier-limited-glow));
 }
 .gift-card.is-owned.tier-card-featured {
-  border-color: var(--tier-featured-border);
-  box-shadow: var(--tier-featured-glow);
+  border-color: var(--card-tier-border, var(--tier-featured-border));
+  box-shadow: var(--card-tier-glow, var(--tier-featured-glow));
 }
 .gift-card.is-owned.tier-card-standard {
-  border-color: var(--tier-standard-border);
-  box-shadow: var(--tier-standard-glow);
+  border-color: var(--card-tier-border, var(--tier-standard-border));
+  box-shadow: var(--card-tier-glow, var(--tier-standard-glow));
 }
 
 .card-body {

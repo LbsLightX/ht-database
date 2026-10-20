@@ -17,6 +17,34 @@ PROJECT_ROOT = os.path.dirname(SCRIPT_DIR)
 DEFAULT_RAW_PATH = os.path.join(PROJECT_ROOT, "data", "source", "raw-catalog-dump.txt")
 MASTER_JSON_PATH = os.path.join(PROJECT_ROOT, "data", "hellotalk-gifts.json")
 
+SERIES_ALIASES = {
+    "Echoes of Youth": "Echoes of Growth",
+    "Live Streamer's Trilogy": "Live Streamer's Tribute",
+    "HAPPY ANNIVERSARY": "HAPPY ANNIVERSARY!",
+    "Luminous Heart's Melody": "Luminous Heart's Whisper",
+    "Collections of Hearts": "Collections of Heart Flutters",
+    "Wonderland Dream": "Wonderland Dreamscape",
+    "A Little Square Board": "A Little Square Big Player",
+    "Eastern musical instrument": "Eastern musical instruments",
+    "Glimmering Hidden Paradise": "Glimmering Hidden Realm",
+    "Select World War...": "Select World Wardrobe I - Asia",
+    "Mysterious Europe...": "Mysterious European Treasure",
+    "Humanity's Adorable": "Humanity's Adorable Friends",
+    "Spring Wildflowers": "Spring Wildflower News",
+    "Star Wish Cat Land": "Star Wish Cat Language",
+    "A heart full of felicity": "A heart of feline spirit",
+    "Ticket to the Wonderland": "Ticket to the Wonders",
+    "Global Ice Cream Festival": "Global Ice Cream Fair",
+    "Flavors of the American Continent": "Flavors of the Americas",
+    "Mid-Autumn Festival": "Mid-Autumn Festival I",
+    "Love of the champions": "Love of the champion",
+    "Football match": "Football match II"
+}
+
+GIFT_ALIASES = {
+    ("Winter Reunion Festival", "Warm & Warm Lantern"): "Plum & Warm Lantern"
+}
+
 def parse_raw_catalog(filepath):
     if not os.path.exists(filepath):
         print(f"Error: Raw file not found at: {filepath}")
@@ -68,12 +96,14 @@ def compare_catalogs(raw_data, master_path):
     master_items = master.get("items", [])
 
     master_by_series = {}
+    master_by_name = {}
     for item in master_items:
         s_name = master_series.get(item.get("seriesId", ""), "Standalone")
         if s_name not in master_by_series:
             master_by_series[s_name] = {}
         g_clean = item["name"].strip()
         master_by_series[s_name][g_clean] = item
+        master_by_name[g_clean.lower()] = (s_name, item)
 
     raw_series = raw_data["series"]
     total_raw_unique = sum(len(gifts) for gifts in raw_series.values())
@@ -83,27 +113,30 @@ def compare_catalogs(raw_data, master_path):
     missing_in_master = []
 
     for s_name, gifts in raw_series.items():
-        if s_name in master_by_series:
-            for g_name, price in gifts.items():
-                if g_name in master_by_series[s_name]:
-                    matched += 1
-                    m_item = master_by_series[s_name][g_name]
-                    if m_item["baseValue"] != price:
-                        price_diffs.append({
-                            "series": s_name,
-                            "name": g_name,
-                            "raw_price": price,
-                            "master_price": m_item["baseValue"],
-                            "item_id": m_item["id"]
-                        })
-                else:
-                    missing_in_master.append({
+        mapped_series_name = SERIES_ALIASES.get(s_name, s_name)
+        target_series_dict = master_by_series.get(mapped_series_name, {})
+
+        for g_name, price in gifts.items():
+            lookup_g_name = GIFT_ALIASES.get((s_name, g_name), g_name)
+
+            # 1. Check direct or aliased series match
+            m_item = target_series_dict.get(lookup_g_name)
+
+            # 2. Global fallback check by name
+            if not m_item and lookup_g_name.lower() in master_by_name:
+                _, m_item = master_by_name[lookup_g_name.lower()]
+
+            if m_item:
+                matched += 1
+                if m_item["baseValue"] != price:
+                    price_diffs.append({
                         "series": s_name,
                         "name": g_name,
-                        "price": price
+                        "raw_price": price,
+                        "master_price": m_item["baseValue"],
+                        "item_id": m_item["id"]
                     })
-        else:
-            for g_name, price in gifts.items():
+            else:
                 missing_in_master.append({
                     "series": s_name,
                     "name": g_name,

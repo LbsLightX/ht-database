@@ -909,7 +909,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402660257,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -931,7 +931,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402659055,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -953,7 +953,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402657458,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -975,7 +975,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402656065,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -997,7 +997,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402654740,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1019,7 +1019,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402653425,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1236,7 +1236,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402932105,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1258,7 +1258,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402934241,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1280,7 +1280,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402935855,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1302,7 +1302,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402937504,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1324,7 +1324,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402938603,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1346,7 +1346,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402940180,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1368,7 +1368,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402941651,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1390,7 +1390,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402943120,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1412,7 +1412,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402945312,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1453,7 +1453,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402997236,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1477,7 +1477,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402998637,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1501,7 +1501,7 @@
       ],
       "notes": "",
       "updatedAt": 1792402999804,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1525,7 +1525,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403003989,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1547,7 +1547,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403002657,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1569,7 +1569,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403001514,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1614,7 +1614,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403069009,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1636,7 +1636,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403065174,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -1819,7 +1819,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403138574,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1843,7 +1843,7 @@
       ],
       "notes": "",
       "updatedAt": 1792403141974,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1867,7 +1867,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422294176,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -1983,7 +1983,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422403329,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2005,7 +2005,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422397690,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2027,7 +2027,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422392390,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2049,7 +2049,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422391088,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2071,7 +2071,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422395032,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2188,7 +2188,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422474976,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -2212,7 +2212,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422478262,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2234,7 +2234,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422485820,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall",
@@ -2338,7 +2338,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422546605,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2360,7 +2360,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422549905,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2382,7 +2382,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422558480,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2404,7 +2404,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422564017,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2525,7 +2525,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422624969,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2734,7 +2734,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422821025,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2882,7 +2882,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422945216,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -2906,7 +2906,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422949000,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2928,7 +2928,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422960537,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall",
@@ -2952,7 +2952,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422965857,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -2974,7 +2974,7 @@
       ],
       "notes": "",
       "updatedAt": 1792422971049,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3187,7 +3187,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423095853,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3209,7 +3209,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423108808,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall",
@@ -3233,7 +3233,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423114174,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3255,7 +3255,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423118532,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3277,7 +3277,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423123802,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3299,7 +3299,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423128532,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3467,7 +3467,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423224037,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -3489,7 +3489,7 @@
       ],
       "notes": "",
       "updatedAt": 1792423233122,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -14750,7 +14750,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412819201,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -14774,7 +14774,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412830223,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -14796,7 +14796,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412838704,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -15000,7 +15000,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412850890,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -15116,7 +15116,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412515846,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -15276,7 +15276,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412360504,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall",
@@ -15300,7 +15300,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412428758,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -15324,7 +15324,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412401342,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "tabs": [
         "wall"
@@ -15392,7 +15392,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412334640,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -15462,7 +15462,7 @@
       ],
       "notes": "",
       "updatedAt": 1792412218059,
-      "wallOwned": true,
+      "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
       "tabs": [
@@ -16257,9 +16257,26 @@
   class VaultState {
     constructor() {
       this.reconciliationNotice = null;
+      this._saveTimer = null;
       this.data = this.loadState();
       this.listeners = [];
       this.rebuildLookupMaps();
+
+      if (typeof window !== 'undefined') {
+        const flushPendingSave = () => {
+          if (this._saveTimer) {
+            clearTimeout(this._saveTimer);
+            this._saveTimer = null;
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+            } catch (e) {}
+          }
+        };
+        window.addEventListener('pagehide', flushPendingSave);
+        window.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') flushPendingSave();
+        });
+      }
     }
 
     loadState() {
@@ -16381,6 +16398,10 @@
                 wall: tags.find(t => t.key === 'wall')?.color || '#10b981',
                 series: tags.find(t => t.key === 'series')?.color || '#06b6d4',
                 backpack: tags.find(t => t.key === 'backpack')?.color || '#f43f5e'
+              };
+              let themeConfig = {
+                tags,
+                tagColors
               };
               // ------------------------------------------------------------------
               // SEED RECONCILIATION ENGINE: Merge new seed items while preserving user state
@@ -16605,10 +16626,32 @@
       this.resetTags();
     }
 
-    saveState(silent = false) {
+    saveState(silent = false, immediate = false) {
       this.data.lastExported = Date.now();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
       this.rebuildLookupMaps();
+
+      const persistToDisk = () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+        } catch (e) {
+          console.warn('HelloTalk Database: Failed to save state to localStorage', e);
+        }
+      };
+
+      if (immediate || !silent) {
+        if (this._saveTimer) {
+          clearTimeout(this._saveTimer);
+          this._saveTimer = null;
+        }
+        persistToDisk();
+      } else {
+        if (this._saveTimer) clearTimeout(this._saveTimer);
+        this._saveTimer = setTimeout(() => {
+          persistToDisk();
+          this._saveTimer = null;
+        }, 200);
+      }
+
       if (!silent) this.notify();
     }
 
@@ -17836,12 +17879,13 @@
       });
 
       this.wipeDataBtn.addEventListener('click', () => {
+        const seedCount = (DEFAULT_SEED && Array.isArray(DEFAULT_SEED.items)) ? DEFAULT_SEED.items.length : 779;
         this.confirmAction(
           'Reset to Official Seed',
-          'This will reset your catalog, series, and categories to the verified 759-gift database. All changes will be overwritten.',
+          `This will reset your catalog, series, and categories to the verified ${seedCount}-gift database. All changes will be overwritten.`,
           () => {
             this.state.wipeAll();
-            this.showToast('Database reset to official 759-gift seed.');
+            this.showToast(`Database reset to official ${seedCount}-gift seed.`);
           }
         );
       });
@@ -18166,6 +18210,9 @@
         this.updateSeriesHeaderCounts();
         this.updateWallHeaderCounts();
         this.updateBpHeaderCounts();
+        if (this.focusedSeriesId) {
+          this.updateDrilldownHeaderCounts(this.focusedSeriesId);
+        }
 
         this.showToast(isOwned ? `Marked "${item.name}" as Collected on Wall` : `Removed "${item.name}" from Wall`);
       };
@@ -18249,6 +18296,9 @@
 
       this.updateBpHeaderCounts();
       this.updateSeriesHeaderCounts();
+      if (this.focusedSeriesId) {
+        this.updateDrilldownHeaderCounts(this.focusedSeriesId);
+      }
     }
 
     updateSeriesHeaderCounts(seriesItems) {
@@ -18402,7 +18452,7 @@
     }
 
     // ------------------------------------------------------------------
-    // TAB 1: SERIES (MASTER CATALOG FOR ALL 759 GIFTS & 91 SERIES)
+    // TAB 1: SERIES (MASTER CATALOG FOR ALL 779 GIFTS & 95 SERIES)
     // ------------------------------------------------------------------
     renderSeriesTab() {
       const seriesItems = this.getSeriesCatalogItems();
@@ -18673,6 +18723,20 @@
       return card;
     }
 
+    updateDrilldownHeaderCounts(seriesId) {
+      if (!seriesId || this.focusedSeriesId !== seriesId) return;
+      const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === seriesId);
+      const total = sItems.length;
+      const collected = sItems.filter(i => !!i.wallOwned).length;
+      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
+
+      if (this.drillProgressText) this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
+      if (this.drillUnitsText) this.drillUnitsText.textContent = `${totalUnits} Units in Backpack`;
+      if (this.drillProgressBar) this.drillProgressBar.style.width = `${pct}%`;
+      if (this.drillGiftsCountTitle) this.drillGiftsCountTitle.textContent = `Series Gifts (${total})`;
+    }
+
     openSeriesDrilldown(seriesId) {
       const ser = this.state.getSeries(seriesId);
       if (!ser) return;
@@ -18688,17 +18752,9 @@
       this.drillSeriesBadge.textContent = ser.badge || ser.name;
       this.drillSeriesDesc.textContent = ser.description || '';
 
+      this.updateDrilldownHeaderCounts(seriesId);
+
       const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === ser.id);
-      const total = sItems.length;
-      const collected = sItems.filter(i => !!i.wallOwned).length;
-      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-      const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
-
-      this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
-      this.drillUnitsText.textContent = `${totalUnits} Units in Backpack`;
-      this.drillProgressBar.style.width = `${pct}%`;
-      this.drillGiftsCountTitle.textContent = `Series Gifts (${total})`;
-
       this.drillGiftsGrid.innerHTML = '';
       sItems.sort((a, b) => (b.baseValue || 0) - (a.baseValue || 0));
       sItems.forEach(item => {
@@ -19284,7 +19340,7 @@
         const spreadSign = diff > 0 ? '+' : '';
 
         tr.innerHTML = `
-          <td><span class="tier-badge ${tData.info.className}" style="color: ${tData.info.color}; background-color: ${tData.info.bg}; border-color: ${tData.info.border};">${tData.name}</span></td>
+          <td><span class="tier-badge ${tData.info.className}" style="color: ${tData.info.color}; background-color: ${tData.info.bg}; border-color: ${tData.info.border};">${this.escapeHtml(tData.name)}</span></td>
           <td class="tabular">${tData.count}</td>
           <td class="tabular" style="font-weight: 700;">${this.formatNumber(tData.ownedUnits)}</td>
           <td class="tabular">${this.formatNumber(tData.baseVal)}</td>
@@ -19880,7 +19936,7 @@
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.seriesSelectedTier = (this.seriesSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.seriesFilterTier.value = this.seriesSelectedTier;
@@ -20012,7 +20068,7 @@
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.wallSelectedTier = (this.wallSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.wallFilterTier.value = this.wallSelectedTier;
@@ -20145,7 +20201,7 @@
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.bpSelectedTier = (this.bpSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.bpFilterTier.value = this.bpSelectedTier;
@@ -21400,7 +21456,20 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
           const repo = 'LbsLightX/ht-database';
           const path = 'data/hellotalk-gifts.json';
           const commitMessage = `Update database via Web Vault [${new Date().toISOString().slice(0, 19).replace('T', ' ')}]`;
-          const jsonContent = JSON.stringify(this.state.data, null, 2);
+          
+          // Sanitize personal tracking fields from public canonical seed
+          const cleanItems = (this.state.data.items || []).map(item => ({
+            ...item,
+            quantity: 0,
+            wallOwned: false,
+            starred: false,
+            notes: ''
+          }));
+          const cleanPayload = {
+            ...this.state.data,
+            items: cleanItems
+          };
+          const jsonContent = JSON.stringify(cleanPayload, null, 2);
 
           const utf8ToBase64 = (str) => {
             const bytes = new TextEncoder().encode(str);

@@ -54,9 +54,26 @@ js_logic = ''';
   class VaultState {
     constructor() {
       this.reconciliationNotice = null;
+      this._saveTimer = null;
       this.data = this.loadState();
       this.listeners = [];
       this.rebuildLookupMaps();
+
+      if (typeof window !== 'undefined') {
+        const flushPendingSave = () => {
+          if (this._saveTimer) {
+            clearTimeout(this._saveTimer);
+            this._saveTimer = null;
+            try {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+            } catch (e) {}
+          }
+        };
+        window.addEventListener('pagehide', flushPendingSave);
+        window.addEventListener('visibilitychange', () => {
+          if (document.visibilityState === 'hidden') flushPendingSave();
+        });
+      }
     }
 
     loadState() {
@@ -178,6 +195,10 @@ js_logic = ''';
                 wall: tags.find(t => t.key === 'wall')?.color || '#10b981',
                 series: tags.find(t => t.key === 'series')?.color || '#06b6d4',
                 backpack: tags.find(t => t.key === 'backpack')?.color || '#f43f5e'
+              };
+              let themeConfig = {
+                tags,
+                tagColors
               };
               // ------------------------------------------------------------------
               // SEED RECONCILIATION ENGINE: Merge new seed items while preserving user state
@@ -402,10 +423,32 @@ js_logic = ''';
       this.resetTags();
     }
 
-    saveState(silent = false) {
+    saveState(silent = false, immediate = false) {
       this.data.lastExported = Date.now();
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
       this.rebuildLookupMaps();
+
+      const persistToDisk = () => {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+        } catch (e) {
+          console.warn('HelloTalk Database: Failed to save state to localStorage', e);
+        }
+      };
+
+      if (immediate || !silent) {
+        if (this._saveTimer) {
+          clearTimeout(this._saveTimer);
+          this._saveTimer = null;
+        }
+        persistToDisk();
+      } else {
+        if (this._saveTimer) clearTimeout(this._saveTimer);
+        this._saveTimer = setTimeout(() => {
+          persistToDisk();
+          this._saveTimer = null;
+        }, 200);
+      }
+
       if (!silent) this.notify();
     }
 
@@ -1633,12 +1676,13 @@ js_logic = ''';
       });
 
       this.wipeDataBtn.addEventListener('click', () => {
+        const seedCount = (DEFAULT_SEED && Array.isArray(DEFAULT_SEED.items)) ? DEFAULT_SEED.items.length : 779;
         this.confirmAction(
           'Reset to Official Seed',
-          'This will reset your catalog, series, and categories to the verified 759-gift database. All changes will be overwritten.',
+          `This will reset your catalog, series, and categories to the verified ${seedCount}-gift database. All changes will be overwritten.`,
           () => {
             this.state.wipeAll();
-            this.showToast('Database reset to official 759-gift seed.');
+            this.showToast(`Database reset to official ${seedCount}-gift seed.`);
           }
         );
       });
@@ -1963,6 +2007,9 @@ js_logic = ''';
         this.updateSeriesHeaderCounts();
         this.updateWallHeaderCounts();
         this.updateBpHeaderCounts();
+        if (this.focusedSeriesId) {
+          this.updateDrilldownHeaderCounts(this.focusedSeriesId);
+        }
 
         this.showToast(isOwned ? `Marked "${item.name}" as Collected on Wall` : `Removed "${item.name}" from Wall`);
       };
@@ -2046,6 +2093,9 @@ js_logic = ''';
 
       this.updateBpHeaderCounts();
       this.updateSeriesHeaderCounts();
+      if (this.focusedSeriesId) {
+        this.updateDrilldownHeaderCounts(this.focusedSeriesId);
+      }
     }
 
     updateSeriesHeaderCounts(seriesItems) {
@@ -2199,7 +2249,7 @@ js_logic = ''';
     }
 
     // ------------------------------------------------------------------
-    // TAB 1: SERIES (MASTER CATALOG FOR ALL 759 GIFTS & 91 SERIES)
+    // TAB 1: SERIES (MASTER CATALOG FOR ALL 779 GIFTS & 95 SERIES)
     // ------------------------------------------------------------------
     renderSeriesTab() {
       const seriesItems = this.getSeriesCatalogItems();
@@ -2470,6 +2520,20 @@ js_logic = ''';
       return card;
     }
 
+    updateDrilldownHeaderCounts(seriesId) {
+      if (!seriesId || this.focusedSeriesId !== seriesId) return;
+      const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === seriesId);
+      const total = sItems.length;
+      const collected = sItems.filter(i => !!i.wallOwned).length;
+      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
+
+      if (this.drillProgressText) this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
+      if (this.drillUnitsText) this.drillUnitsText.textContent = `${totalUnits} Units in Backpack`;
+      if (this.drillProgressBar) this.drillProgressBar.style.width = `${pct}%`;
+      if (this.drillGiftsCountTitle) this.drillGiftsCountTitle.textContent = `Series Gifts (${total})`;
+    }
+
     openSeriesDrilldown(seriesId) {
       const ser = this.state.getSeries(seriesId);
       if (!ser) return;
@@ -2485,17 +2549,9 @@ js_logic = ''';
       this.drillSeriesBadge.textContent = ser.badge || ser.name;
       this.drillSeriesDesc.textContent = ser.description || '';
 
+      this.updateDrilldownHeaderCounts(seriesId);
+
       const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === ser.id);
-      const total = sItems.length;
-      const collected = sItems.filter(i => !!i.wallOwned).length;
-      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-      const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
-
-      this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
-      this.drillUnitsText.textContent = `${totalUnits} Units in Backpack`;
-      this.drillProgressBar.style.width = `${pct}%`;
-      this.drillGiftsCountTitle.textContent = `Series Gifts (${total})`;
-
       this.drillGiftsGrid.innerHTML = '';
       sItems.sort((a, b) => (b.baseValue || 0) - (a.baseValue || 0));
       sItems.forEach(item => {
@@ -3081,7 +3137,7 @@ js_logic = ''';
         const spreadSign = diff > 0 ? '+' : '';
 
         tr.innerHTML = `
-          <td><span class="tier-badge ${tData.info.className}" style="color: ${tData.info.color}; background-color: ${tData.info.bg}; border-color: ${tData.info.border};">${tData.name}</span></td>
+          <td><span class="tier-badge ${tData.info.className}" style="color: ${tData.info.color}; background-color: ${tData.info.bg}; border-color: ${tData.info.border};">${this.escapeHtml(tData.name)}</span></td>
           <td class="tabular">${tData.count}</td>
           <td class="tabular" style="font-weight: 700;">${this.formatNumber(tData.ownedUnits)}</td>
           <td class="tabular">${this.formatNumber(tData.baseVal)}</td>
@@ -3677,7 +3733,7 @@ js_logic = ''';
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.seriesSelectedTier = (this.seriesSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.seriesFilterTier.value = this.seriesSelectedTier;
@@ -3809,7 +3865,7 @@ js_logic = ''';
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.wallSelectedTier = (this.wallSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.wallFilterTier.value = this.wallSelectedTier;
@@ -3942,7 +3998,7 @@ js_logic = ''';
         btn.style.setProperty('--chip-tier-color', info.color);
         btn.style.setProperty('--chip-tier-bg', info.bg);
         btn.style.setProperty('--chip-tier-glow', info.glow);
-        btn.innerHTML = `${tierName} <span class="chip-badge">${count}</span>`;
+        btn.innerHTML = `${this.escapeHtml(tierName)} <span class="chip-badge">${count}</span>`;
         btn.addEventListener('click', () => {
           this.bpSelectedTier = (this.bpSelectedTier.toLowerCase() === tierName.toLowerCase()) ? '' : tierName;
           this.bpFilterTier.value = this.bpSelectedTier;
@@ -5193,7 +5249,20 @@ js_logic = ''';
           const repo = 'LbsLightX/ht-database';
           const path = 'data/hellotalk-gifts.json';
           const commitMessage = `Update database via Web Vault [${new Date().toISOString().slice(0, 19).replace('T', ' ')}]`;
-          const jsonContent = JSON.stringify(this.state.data, null, 2);
+          
+          // Sanitize personal tracking fields from public canonical seed
+          const cleanItems = (this.state.data.items || []).map(item => ({
+            ...item,
+            quantity: 0,
+            wallOwned: false,
+            starred: false,
+            notes: ''
+          }));
+          const cleanPayload = {
+            ...this.state.data,
+            items: cleanItems
+          };
+          const jsonContent = JSON.stringify(cleanPayload, null, 2);
 
           const utf8ToBase64 = (str) => {
             const bytes = new TextEncoder().encode(str);
