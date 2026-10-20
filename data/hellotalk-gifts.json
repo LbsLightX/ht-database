@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792481214194,
+  "lastExported": 1792482294794,
   "categories": [
     {
       "id": "cat-basic",
@@ -282,7 +282,7 @@
     },
     {
       "id": "ser-mvf6vc76-q06lzc",
-      "categoryId": "cat-basic",
+      "categoryId": "cat-apparel",
       "name": "Select World Wardrobe III",
       "badge": "",
       "description": "Select World Wardrobe III collection series under Apparel.",
@@ -6283,7 +6283,7 @@
     {
       "id": "item-select-world-war-flamenco-dress-232",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6vc76-q06lzc",
       "name": "Flamenco dress",
       "baseValue": 999,
       "marketWorth": 999,
@@ -6293,6 +6293,7 @@
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
+        "wall",
         "series"
       ],
       "tags": [
@@ -6301,12 +6302,12 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482179355
     },
     {
       "id": "item-select-world-war-swedish-folk-costume-233",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6vc76-q06lzc",
       "name": "Swedish folk costume",
       "baseValue": 999,
       "marketWorth": 999,
@@ -6324,12 +6325,12 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482154421
     },
     {
       "id": "item-select-world-war-egyptian-pharaoh-outfit-234",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6vc76-q06lzc",
       "name": "Egyptian Pharaoh Outfit",
       "baseValue": 999,
       "marketWorth": 999,
@@ -6347,19 +6348,19 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482140703
     },
     {
       "id": "item-select-world-war-court-dress-235",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6vc76-q06lzc",
       "name": "Court Dress",
       "baseValue": 999,
       "marketWorth": 999,
       "quantity": 0,
       "wallOwned": false,
       "starred": false,
-      "isDistinctVariant": false,
+      "isDistinctVariant": true,
       "tier": "Featured",
       "tabs": [
         "series"
@@ -6370,7 +6371,7 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482115688
     },
     {
       "id": "item-mysterious-europe-white-bridal-veil-236",
@@ -6385,7 +6386,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "apparel",
@@ -6393,7 +6395,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482022643
     },
     {
       "id": "item-mysterious-europe-lion-ring-237",
@@ -6406,9 +6408,10 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "apparel",
@@ -6416,7 +6419,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482028548
     },
     {
       "id": "item-mysterious-europe-rose-scepter-238",
@@ -6431,7 +6434,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "apparel",
@@ -6439,7 +6443,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482020605
     },
     {
       "id": "item-mysterious-europe-court-dress-239",
@@ -6521,7 +6525,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Luxury",
+      "tier": "Collection",
       "tabs": [
         "series"
       ],
@@ -6531,7 +6535,7 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482039361
     },
     {
       "id": "item-doggo-squad-alaskan-malamute-243",
@@ -18589,8 +18593,8 @@
     {
       "id": "item-select-world-war-american-clothing-768",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
-      "name": "American clothing",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
+      "name": "Native American clothing",
       "baseValue": 999,
       "marketWorth": 999,
       "quantity": 0,
@@ -18603,12 +18607,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482294794
     },
     {
       "id": "item-select-world-war-ivy-style-769",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Ivy Style",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18622,12 +18626,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482207638
     },
     {
       "id": "item-select-world-war-samba-dress-770",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Samba dress",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18641,12 +18645,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482213938
     },
     {
       "id": "item-select-world-war-vintage-swing-skirt-771",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Vintage Swing Skirt",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18660,12 +18664,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482225977
     },
     {
       "id": "item-select-world-war-flapper-dress-772",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Flapper Dress",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18679,12 +18683,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482235669
     },
     {
       "id": "item-select-world-war-mexican-catrina-773",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Mexican Catrina",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18698,12 +18702,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482244725
     },
     {
       "id": "item-select-world-war-straw-hat-shawl-774",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Straw Hat & Shawl",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18717,12 +18721,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482253651
     },
     {
       "id": "item-select-world-war-cowgirl-outfit-775",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Cowgirl Outfit",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18736,12 +18740,12 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482264692
     },
     {
       "id": "item-select-world-war-street-hip-hop-776",
       "categoryId": "cat-apparel",
-      "seriesId": "ser-apparel-select-world-war",
+      "seriesId": "ser-mvf6u22o-c2v0nf",
       "name": "Street Hip-Hop",
       "baseValue": 999,
       "marketWorth": 999,
@@ -18755,7 +18759,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1792482273017
     }
   ],
   "tiers": [
