@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.2&t=1792493155">
+  <link rel="stylesheet" href="styles.css?v=1.0.2&t=1792501014">
 </head>
 <body>
 
@@ -85,6 +85,7 @@
           <button class="filter-chip chip-exchange" data-bp-status="exchange-needed">Exchange Needed <span class="chip-badge" id="bpCountExchange">0</span></button>
           <button class="filter-chip chip-starred" data-bp-status="starred">Saved / Priority <span class="chip-badge" id="bpCountStarred">0</span></button>
           <button class="filter-chip" data-bp-status="extras">Tradable Extras (&gt;1) <span class="chip-badge" id="bpCountExtras">0</span></button>
+          <button class="filter-chip" data-bp-status="standalone">Standalone / No Series <span class="chip-badge" id="bpCountStandalone">0</span></button>
         </div>
 
         <!-- Tier Chips -->
@@ -179,10 +180,11 @@
       <div class="search-control-hub" id="seriesFilterHub">
         <!-- Status Chips -->
         <div class="filter-scroll-rail" id="seriesStatusPills">
-          <button class="filter-chip active" data-series-status="all">All Gifts <span class="chip-badge" id="seriesCountAll">779</span></button>
+          <button class="filter-chip active" data-series-status="all">All Gifts <span class="chip-badge" id="seriesCountAll">788</span></button>
           <button class="filter-chip" data-series-status="collected">Collected on Wall <span class="chip-badge" id="seriesCountCollected">0</span></button>
-          <button class="filter-chip" data-series-status="missing">Missing from Wall <span class="chip-badge" id="seriesCountMissing">779</span></button>
+          <button class="filter-chip" data-series-status="missing">Missing from Wall <span class="chip-badge" id="seriesCountMissing">788</span></button>
           <button class="filter-chip" data-series-status="in-stock">In Backpack Stock <span class="chip-badge" id="seriesCountInStock">0</span></button>
+          <button class="filter-chip" data-series-status="standalone">Standalone / No Series <span class="chip-badge" id="seriesCountStandalone">0</span></button>
         </div>
 
         <!-- Tier Chips -->
@@ -300,6 +302,7 @@
         <div class="filter-scroll-rail" id="wallStatusPills">
           <button class="filter-chip active" data-wall-status="all">All Collected <span class="chip-badge" id="wallCountCollectedOnly">0</span></button>
           <button class="filter-chip chip-starred" data-wall-status="starred">Starred / Priority <span class="chip-badge" id="wallCountStarredOnly">0</span></button>
+          <button class="filter-chip" data-wall-status="standalone">Standalone / No Series <span class="chip-badge" id="wallCountStandalone">0</span></button>
         </div>
 
         <!-- Tier Chips -->
@@ -850,6 +853,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.2&t=1792493155"></script>
+  <script src="app.js?v=1.0.2&t=1792501014"></script>
 </body>
 </html>

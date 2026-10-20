@@ -1077,6 +1077,7 @@ js_logic = ''';
       this.bpCountExchange = document.getElementById('bpCountExchange');
       this.bpCountStarred = document.getElementById('bpCountStarred');
       this.bpCountExtras = document.getElementById('bpCountExtras');
+      this.bpCountStandalone = document.getElementById('bpCountStandalone');
       this.bpTierPills = document.getElementById('bpTierPills');
 
       this.bpFilterCategory = document.getElementById('bpFilterCategory');
@@ -1107,6 +1108,7 @@ js_logic = ''';
       this.seriesCountCollected = document.getElementById('seriesCountCollected');
       this.seriesCountMissing = document.getElementById('seriesCountMissing');
       this.seriesCountInStock = document.getElementById('seriesCountInStock');
+      this.seriesCountStandalone = document.getElementById('seriesCountStandalone');
       this.seriesTierPills = document.getElementById('seriesTierPills');
 
       this.seriesFilterCategory = document.getElementById('seriesFilterCategory');
@@ -1143,6 +1145,7 @@ js_logic = ''';
       this.wallStatusPills = document.getElementById('wallStatusPills');
       this.wallCountCollectedOnly = document.getElementById('wallCountCollectedOnly');
       this.wallCountStarredOnly = document.getElementById('wallCountStarredOnly');
+      this.wallCountStandalone = document.getElementById('wallCountStandalone');
       this.wallTierPills = document.getElementById('wallTierPills');
 
       this.wallFilterCategory = document.getElementById('wallFilterCategory');
@@ -1877,9 +1880,19 @@ js_logic = ''';
           this.openEditItemModal(item.id);
           break;
         case 'route-series':
-          if (item.seriesId) {
+          if (item.seriesId && this.state.getSeries(item.seriesId)) {
             this.switchTab('tab-series');
             this.openSeriesDrilldown(item.seriesId);
+          } else {
+            this.switchTab('tab-series');
+            this.seriesStatusFilter = 'standalone';
+            if (this.seriesStatusPills) {
+              this.seriesStatusPills.querySelectorAll('.filter-chip').forEach(b => {
+                b.classList.toggle('active', b.dataset.seriesStatus === 'standalone');
+              });
+            }
+            this.seriesRenderedCount = BATCH_SIZE;
+            this.renderSeriesTab();
           }
           break;
       }
@@ -2104,6 +2117,7 @@ js_logic = ''';
       const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
       const wallMissingCount = totalItems - wallCollectedCount;
       const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
+      const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
       const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
 
       if (this.seriesTotalGifts) this.seriesTotalGifts.textContent = totalItems;
@@ -2129,6 +2143,7 @@ js_logic = ''';
       if (this.seriesCountCollected) this.seriesCountCollected.textContent = wallCollectedCount;
       if (this.seriesCountMissing) this.seriesCountMissing.textContent = wallMissingCount;
       if (this.seriesCountInStock) this.seriesCountInStock.textContent = inStockCount;
+      if (this.seriesCountStandalone) this.seriesCountStandalone.textContent = standaloneCount;
     }
 
     updateWallHeaderCounts(collectedGifts) {
@@ -2136,6 +2151,7 @@ js_logic = ''';
       const totalCollected = collectedGifts.length;
       const totalBase = collectedGifts.reduce((s, i) => s + (Number(i.baseValue) || 0), 0);
       const totalMarket = collectedGifts.reduce((s, i) => s + (Number(i.marketWorth) || 0), 0);
+      const standaloneCount = collectedGifts.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
 
       if (this.wallCollectedTotal) this.wallCollectedTotal.textContent = totalCollected;
       if (this.wallBaseTotal) this.wallBaseTotal.textContent = this.formatNumber(totalBase);
@@ -2143,6 +2159,7 @@ js_logic = ''';
 
       if (this.wallCountCollectedOnly) this.wallCountCollectedOnly.textContent = totalCollected;
       if (this.wallCountStarredOnly) this.wallCountStarredOnly.textContent = collectedGifts.filter(i => !!i.starred).length;
+      if (this.wallCountStandalone) this.wallCountStandalone.textContent = standaloneCount;
     }
 
     updateBpHeaderCounts(bpItems) {
@@ -2157,6 +2174,7 @@ js_logic = ''';
       const starredGifts = bpItems.filter(i => !!i.starred);
       const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
       const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
+      const standaloneCount = bpItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
 
       if (this.bpTotalUnits) this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
       if (this.bpUniqueItems) this.bpUniqueItems.textContent = bpItems.length;
@@ -2170,6 +2188,7 @@ js_logic = ''';
       if (this.bpCountExchange) this.bpCountExchange.textContent = exchangeNeededGifts.length;
       if (this.bpCountStarred) this.bpCountStarred.textContent = starredGifts.length;
       if (this.bpCountExtras) this.bpCountExtras.textContent = extrasGifts.length;
+      if (this.bpCountStandalone) this.bpCountStandalone.textContent = standaloneCount;
     }
 
     switchTab(tabId, saveToStorage = true) {
@@ -2231,9 +2250,7 @@ js_logic = ''';
     // TAB CATALOG ROUTING & SCOPING HELPERS
     // ------------------------------------------------------------------
     getSeriesCatalogItems() {
-      return this.state.data.items.filter(i => {
-        return !!(i.categoryId && i.seriesId && this.state.getSeries(i.seriesId));
-      });
+      return this.state.data.items || [];
     }
 
     getWallCatalogItems() {
@@ -2369,14 +2386,24 @@ js_logic = ''';
         items = items.filter(i => !i.wallOwned);
       } else if (this.seriesStatusFilter === 'in-stock') {
         items = items.filter(i => (Number(i.quantity) || 0) > 0);
+      } else if (this.seriesStatusFilter === 'standalone') {
+        items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
       }
 
       if (this.seriesSelectedCategory) {
-        items = items.filter(i => i.categoryId === this.seriesSelectedCategory);
+        if (this.seriesSelectedCategory === '__standalone__') {
+          items = items.filter(i => !i.categoryId);
+        } else {
+          items = items.filter(i => i.categoryId === this.seriesSelectedCategory);
+        }
       }
 
       if (this.seriesSelectedSeries) {
-        items = items.filter(i => i.seriesId === this.seriesSelectedSeries);
+        if (this.seriesSelectedSeries === '__standalone__') {
+          items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
+        } else {
+          items = items.filter(i => i.seriesId === this.seriesSelectedSeries);
+        }
       }
 
       if (this.seriesSelectedTier) {
@@ -2473,7 +2500,7 @@ js_logic = ''';
           <div class="card-badges-row">
             <div class="badges-group-left">
               <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
-              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : '<span class="badge-series badge-standalone" title="Standalone / Non-Series Gift">Standalone</span>'}
             </div>
           </div>
 
@@ -2679,6 +2706,8 @@ js_logic = ''';
 
       if (this.wallStatusFilter === 'starred') {
         items = items.filter(i => !!i.starred);
+      } else if (this.wallStatusFilter === 'standalone') {
+        items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
       }
 
       if (this.wallSelectedCategory) {
@@ -2690,7 +2719,11 @@ js_logic = ''';
       }
 
       if (this.wallSelectedSeries) {
-        items = items.filter(i => i.seriesId === this.wallSelectedSeries);
+        if (this.wallSelectedSeries === '__standalone__') {
+          items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
+        } else {
+          items = items.filter(i => i.seriesId === this.wallSelectedSeries);
+        }
       }
 
       if (this.wallSelectedTier) {
@@ -2775,7 +2808,7 @@ js_logic = ''';
           <div class="card-badges-row">
             <div class="badges-group-left">
               <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
-              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : '<span class="badge-series badge-standalone" title="Standalone / Non-Series Gift">Standalone</span>'}
             </div>
           </div>
 
@@ -2945,6 +2978,8 @@ js_logic = ''';
         items = items.filter(i => !!i.starred);
       } else if (this.bpStatusFilter === 'extras') {
         items = items.filter(i => (Number(i.quantity) || 0) > 1);
+      } else if (this.bpStatusFilter === 'standalone') {
+        items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
       }
 
       if (this.bpSelectedCategory) {
@@ -2956,7 +2991,11 @@ js_logic = ''';
       }
 
       if (this.bpSelectedSeries) {
-        items = items.filter(i => i.seriesId === this.bpSelectedSeries);
+        if (this.bpSelectedSeries === '__standalone__') {
+          items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
+        } else {
+          items = items.filter(i => i.seriesId === this.bpSelectedSeries);
+        }
       }
 
       if (this.bpSelectedTier) {
@@ -3052,7 +3091,7 @@ js_logic = ''';
           <div class="card-badges-row">
             <div class="badges-group-left">
               <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
-              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : ''}
+              ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : '<span class="badge-series badge-standalone" title="Standalone / Non-Series Gift">Standalone</span>'}
               ${isExchangeNeeded ? `<span class="marker-badge-exchange" title="In Backpack but missing on Wall">Exchange Needed</span>` : ''}
             </div>
           </div>
@@ -3173,6 +3212,29 @@ js_logic = ''';
         `;
         this.ledgerSeriesTableBody.appendChild(tr);
       });
+
+      // Standalone / Non-Series Ledger Row
+      const standaloneItems = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
+      if (standaloneItems.length > 0) {
+        const total = standaloneItems.length;
+        const wallCollected = standaloneItems.filter(i => !!i.wallOwned).length;
+        const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
+        const bpUnits = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+        const bpBase = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+
+        const tr = document.createElement('tr');
+        tr.style.background = 'rgba(255, 255, 255, 0.02)';
+        tr.innerHTML = `
+          <td><span class="badge-series badge-standalone">Standalone / No Series</span></td>
+          <td style="color: var(--text-muted); font-size: 11px;">Standalone Base</td>
+          <td class="tabular">${wallCollected} / ${total} (${wallPct}%)</td>
+          <td class="tabular" style="font-weight: 700;">${this.formatNumber(bpUnits)}</td>
+          <td class="tabular">${this.formatNumber(bpBase)}</td>
+          <td class="tabular" style="color: #38bdf8; font-weight: 700;">${this.formatNumber(bpMarket)}</td>
+        `;
+        this.ledgerSeriesTableBody.appendChild(tr);
+      }
 
       this.renderCategoryManagerList();
       this.renderSeriesManagerList();
@@ -3628,6 +3690,15 @@ js_logic = ''';
       if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
       const currentVal = this.seriesFilterCategory.value;
       this.seriesFilterCategory.innerHTML = '<option value="">All Categories</option>';
+
+      const standaloneCatCount = seriesItems.filter(i => !i.categoryId).length;
+      if (standaloneCatCount > 0) {
+        const stOpt = document.createElement('option');
+        stOpt.value = '__standalone__';
+        stOpt.textContent = `Standalone Base (${standaloneCatCount})`;
+        this.seriesFilterCategory.appendChild(stOpt);
+      }
+
       const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
       cats.forEach(c => {
         const count = seriesItems.filter(i => i.categoryId === c.id).length;
@@ -3646,6 +3717,13 @@ js_logic = ''';
       const currentVal = this.seriesFilterSeries.value;
       this.seriesFilterSeries.innerHTML = '<option value="">All Series</option>';
 
+      if (this.seriesSelectedCategory === '__standalone__') {
+        this.seriesFilterSeries.disabled = true;
+        this.seriesFilterSeries.value = '';
+        this.seriesSelectedSeries = '';
+        return;
+      }
+
       this.seriesFilterSeries.disabled = false;
       let seriesList = [...this.state.data.series];
       if (this.seriesSelectedCategory) {
@@ -3662,13 +3740,26 @@ js_logic = ''';
         }
       });
 
-      const exists = seriesList.some(s => s.id === currentVal);
-      if (exists) {
-        this.seriesFilterSeries.value = currentVal;
-        this.seriesSelectedSeries = currentVal;
+      const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+      if (standaloneCount > 0 || !this.seriesSelectedCategory) {
+        const opt = document.createElement('option');
+        opt.value = '__standalone__';
+        opt.textContent = `Standalone / No Series (${standaloneCount})`;
+        this.seriesFilterSeries.appendChild(opt);
+      }
+
+      if (currentVal === '__standalone__') {
+        this.seriesFilterSeries.value = '__standalone__';
+        this.seriesSelectedSeries = '__standalone__';
       } else {
-        this.seriesFilterSeries.value = '';
-        this.seriesSelectedSeries = '';
+        const exists = seriesList.some(s => s.id === currentVal);
+        if (exists) {
+          this.seriesFilterSeries.value = currentVal;
+          this.seriesSelectedSeries = currentVal;
+        } else {
+          this.seriesFilterSeries.value = '';
+          this.seriesSelectedSeries = '';
+        }
       }
     }
 
@@ -3807,13 +3898,26 @@ js_logic = ''';
         }
       });
 
-      const exists = seriesList.some(s => s.id === currentVal);
-      if (exists) {
-        this.wallFilterSeries.value = currentVal;
-        this.wallSelectedSeries = currentVal;
+      const standaloneCount = collectedGifts.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+      if (standaloneCount > 0 || !this.wallSelectedCategory) {
+        const opt = document.createElement('option');
+        opt.value = '__standalone__';
+        opt.textContent = `Standalone / No Series (${standaloneCount})`;
+        this.wallFilterSeries.appendChild(opt);
+      }
+
+      if (currentVal === '__standalone__') {
+        this.wallFilterSeries.value = '__standalone__';
+        this.wallSelectedSeries = '__standalone__';
       } else {
-        this.wallFilterSeries.value = '';
-        this.wallSelectedSeries = '';
+        const exists = seriesList.some(s => s.id === currentVal);
+        if (exists) {
+          this.wallFilterSeries.value = currentVal;
+          this.wallSelectedSeries = currentVal;
+        } else {
+          this.wallFilterSeries.value = '';
+          this.wallSelectedSeries = '';
+        }
       }
     }
 
@@ -3939,13 +4043,26 @@ js_logic = ''';
         }
       });
 
-      const exists = seriesList.some(s => s.id === currentVal);
-      if (exists) {
-        this.bpFilterSeries.value = currentVal;
-        this.bpSelectedSeries = currentVal;
+      const standaloneCount = bpItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+      if (standaloneCount > 0 || !this.bpSelectedCategory) {
+        const opt = document.createElement('option');
+        opt.value = '__standalone__';
+        opt.textContent = `Standalone / No Series (${standaloneCount})`;
+        this.bpFilterSeries.appendChild(opt);
+      }
+
+      if (currentVal === '__standalone__') {
+        this.bpFilterSeries.value = '__standalone__';
+        this.bpSelectedSeries = '__standalone__';
       } else {
-        this.bpFilterSeries.value = '';
-        this.bpSelectedSeries = '';
+        const exists = seriesList.some(s => s.id === currentVal);
+        if (exists) {
+          this.bpFilterSeries.value = currentVal;
+          this.bpSelectedSeries = currentVal;
+        } else {
+          this.bpFilterSeries.value = '';
+          this.bpSelectedSeries = '';
+        }
       }
     }
 
