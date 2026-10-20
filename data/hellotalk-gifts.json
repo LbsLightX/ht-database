@@ -1,6 +1,6 @@
 {
   "version": "1.0.2",
-  "lastExported": 1792482294794,
+  "lastExported": 1792482692045,
   "categories": [
     {
       "id": "cat-basic",
@@ -6550,7 +6550,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6558,7 +6559,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482492796
     },
     {
       "id": "item-doggo-squad-chow-chow-244",
@@ -6573,7 +6574,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6581,7 +6583,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482497782
     },
     {
       "id": "item-doggo-squad-pekingese-245",
@@ -6596,7 +6598,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6604,7 +6607,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482500353
     },
     {
       "id": "item-doggo-squad-samoyed-246",
@@ -6619,7 +6622,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6627,7 +6631,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482506876
     },
     {
       "id": "item-doggo-squad-corgi-247",
@@ -6642,7 +6646,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6650,7 +6655,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482509946
     },
     {
       "id": "item-doggo-squad-german-shepherd-248",
@@ -6665,7 +6670,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6673,7 +6679,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482513043
     },
     {
       "id": "item-doggo-squad-beagle-249",
@@ -6688,7 +6694,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6696,7 +6703,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482520356
     },
     {
       "id": "item-doggo-squad-shiba-inu-250",
@@ -6711,7 +6718,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6719,7 +6727,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482517340
     },
     {
       "id": "item-doggo-squad-poodle-251",
@@ -6734,7 +6742,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6742,7 +6751,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482525966
     },
     {
       "id": "item-doggo-squad-bernese-mountain-dog-252",
@@ -6757,7 +6766,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6765,7 +6775,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482530653
     },
     {
       "id": "item-doggo-squad-tibetan-mastiff-253",
@@ -6780,7 +6790,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6788,7 +6799,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482533239
     },
     {
       "id": "item-butterfly-series-pink-butterfly-254",
@@ -6803,7 +6814,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6811,7 +6823,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482549510
     },
     {
       "id": "item-butterfly-series-blue-butterfly-255",
@@ -6826,7 +6838,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6834,7 +6847,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482551035
     },
     {
       "id": "item-butterfly-series-black-butterfly-256",
@@ -6849,7 +6862,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6857,7 +6871,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482554171
     },
     {
       "id": "item-butterfly-series-yellow-butterfly-257",
@@ -6872,7 +6886,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6880,7 +6895,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482557395
     },
     {
       "id": "item-butterfly-series-purple-butterfly-258",
@@ -6895,7 +6910,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6903,7 +6919,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482558847
     },
     {
       "id": "item-four-seasons-in-bloom-pomegranate-bloom-259",
@@ -6916,9 +6932,10 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6926,7 +6943,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482582886
     },
     {
       "id": "item-four-seasons-in-bloom-narcissus-260",
@@ -6941,7 +6958,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6949,7 +6967,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482586883
     },
     {
       "id": "item-four-seasons-in-bloom-peach-blossom-261",
@@ -6964,7 +6982,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -6972,7 +6991,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482589790
     },
     {
       "id": "item-four-seasons-in-bloom-morningglory-262",
@@ -6985,8 +7004,9 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
+        "wall",
         "series"
       ],
       "tags": [
@@ -6995,7 +7015,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482603504
     },
     {
       "id": "item-four-seasons-in-bloom-lavender-263",
@@ -7008,8 +7028,9 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
+        "wall",
         "series"
       ],
       "tags": [
@@ -7018,7 +7039,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482608936
     },
     {
       "id": "item-four-seasons-in-bloom-osmanthus-264",
@@ -7033,7 +7054,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -7041,7 +7063,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482572664
     },
     {
       "id": "item-four-seasons-in-bloom-lotus-265",
@@ -7054,7 +7076,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
         "series"
       ],
@@ -7064,7 +7086,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482615161
     },
     {
       "id": "item-four-seasons-in-bloom-chrysanthemum-266",
@@ -7077,7 +7099,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
         "series"
       ],
@@ -7087,7 +7109,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482621731
     },
     {
       "id": "item-four-seasons-in-bloom-wintersweet-267",
@@ -7123,7 +7145,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
         "series"
       ],
@@ -7133,7 +7155,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482641578
     },
     {
       "id": "item-four-seasons-in-bloom-peony-269",
@@ -7146,7 +7168,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
         "series"
       ],
@@ -7156,7 +7178,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482638404
     },
     {
       "id": "item-four-seasons-in-bloom-hibiscus-270",
@@ -7169,7 +7191,7 @@
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
-      "tier": "Limited",
+      "tier": "Featured",
       "tabs": [
         "series"
       ],
@@ -7179,7 +7201,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482644408
     },
     {
       "id": "item-humanity-s-adorable-adorable-tortoise-271",
@@ -7194,7 +7216,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -7202,7 +7225,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482668996
     },
     {
       "id": "item-humanity-s-adorable-energetic-hamster-272",
@@ -7217,7 +7240,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -7225,13 +7249,13 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482671691
     },
     {
       "id": "item-humanity-s-adorable-lop-eared-bunny-273",
       "categoryId": "cat-lives",
       "seriesId": "ser-lives-humanity-s-adorable",
-      "name": "Lop-Eared Bunny",
+      "name": "Cuddly Lop-Eared Bunny",
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
@@ -7240,7 +7264,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -7248,7 +7273,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482689167
     },
     {
       "id": "item-humanity-s-adorable-cuddly-ragdoll-cat-274",
@@ -7286,7 +7311,8 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "lives",
@@ -7294,7 +7320,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792482692045
     },
     {
       "id": "item-humanity-s-adorable-energetic-golden-retriever-276",
