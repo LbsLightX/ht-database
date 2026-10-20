@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.2&t=1792501014">
+  <link rel="stylesheet" href="styles.css?v=1.0.2&t=1792504188">
 </head>
 <body>
 
@@ -620,6 +620,7 @@
               <span id="duplicateWarningText"></span>
             </div>
             <button type="button" id="duplicateLoadExistingBtn" class="btn-secondary duplicate-load-btn">Load Existing</button>
+            <button type="button" id="duplicateAutoFillBtn" class="btn-secondary duplicate-load-btn" style="display: none; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border-color: rgba(56, 189, 248, 0.4);">Auto-Fill</button>
           </div>
 
           <!-- Valuation Inputs -->
@@ -663,6 +664,19 @@
             <label class="form-checkbox-label">
               <input type="checkbox" id="editItemDistinctVariant" class="form-checkbox" style="accent-color: #10b981;">
               <span>Distinct Coin/Icon Variant (Valid Duplicate Name in Same Series)</span>
+            </label>
+          </div>
+
+          <!-- Sync to Matching Series (When gift exists across multiple series) -->
+          <div class="form-group" id="editItemSyncMatchingGroup" style="display: none; padding: 10px; background: rgba(56, 189, 248, 0.06); border: 1px solid rgba(56, 189, 248, 0.25); border-radius: var(--radius-sm);">
+            <label class="form-checkbox-label" style="align-items: flex-start; cursor: pointer;">
+              <input type="checkbox" id="editItemSyncMatching" class="form-checkbox" style="accent-color: #38bdf8; margin-top: 2px;">
+              <div>
+                <span id="editItemSyncMatchingLabel" style="color: #38bdf8; font-weight: 600; font-size: 12px;">Sync changes across all matching series</span>
+                <div id="editItemSyncMatchingSubtext" style="font-size: 10px; color: var(--text-muted); margin-top: 2px; line-height: 1.4;">
+                  Applies Name, Tier, and Market Worth to matching series copies. Wall ownership and checklists remain independent.
+                </div>
+              </div>
             </label>
           </div>
 
@@ -853,6 +867,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.2&t=1792501014"></script>
+  <script src="app.js?v=1.0.2&t=1792504188"></script>
 </body>
 </html>

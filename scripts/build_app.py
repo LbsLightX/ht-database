@@ -1182,6 +1182,7 @@ js_logic = ''';
       this.editItemDuplicateAlert = document.getElementById('editItemDuplicateAlert');
       this.duplicateWarningText = document.getElementById('duplicateWarningText');
       this.duplicateLoadExistingBtn = document.getElementById('duplicateLoadExistingBtn');
+      this.duplicateAutoFillBtn = document.getElementById('duplicateAutoFillBtn');
       this.scanDuplicatesBtn = document.getElementById('scanDuplicatesBtn');
       this.duplicateAuditResults = document.getElementById('duplicateAuditResults');
 
@@ -1211,6 +1212,10 @@ js_logic = ''';
       this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
       this.editItemStarred = document.getElementById('editItemStarred');
       this.editItemDistinctVariant = document.getElementById('editItemDistinctVariant');
+      this.editItemSyncMatchingGroup = document.getElementById('editItemSyncMatchingGroup');
+      this.editItemSyncMatching = document.getElementById('editItemSyncMatching');
+      this.editItemSyncMatchingLabel = document.getElementById('editItemSyncMatchingLabel');
+      this.editItemSyncMatchingSubtext = document.getElementById('editItemSyncMatchingSubtext');
       this.editItemTier = document.getElementById('editItemTier');
       this.editItemTierPresets = document.getElementById('editItemTierPresets');
       this.modalDeleteBtn = document.getElementById('modalDeleteBtn');
@@ -4272,6 +4277,8 @@ js_logic = ''';
       this.editItemId.value = '';
       if (this.modalDeleteBtn) this.modalDeleteBtn.style.display = 'none';
       if (this.editItemDuplicateAlert) this.editItemDuplicateAlert.style.display = 'none';
+      if (this.editItemSyncMatchingGroup) this.editItemSyncMatchingGroup.style.display = 'none';
+      if (this.editItemSyncMatching) this.editItemSyncMatching.checked = false;
       this.populateModalCategorySelect('');
       this.editItemName.value = '';
       this.editItemBaseValue.value = '';
@@ -4300,6 +4307,32 @@ js_logic = ''';
       this.editItemId.value = item.id;
       if (this.modalDeleteBtn) this.modalDeleteBtn.style.display = 'inline-flex';
       if (this.editItemDuplicateAlert) this.editItemDuplicateAlert.style.display = 'none';
+
+      // Check for matching gifts in other series to offer cross-series sync
+      const normName = (item.name || '').trim().toLowerCase();
+      const matchingCrossSeries = this.state.data.items.filter(i => 
+        i.id !== item.id && 
+        (i.name || '').trim().toLowerCase() === normName
+      );
+      if (matchingCrossSeries.length > 0 && this.editItemSyncMatchingGroup) {
+        this.editItemSyncMatchingGroup.style.display = 'block';
+        this.editItemSyncMatching.checked = false;
+        if (this.editItemSyncMatchingLabel) {
+          this.editItemSyncMatchingLabel.textContent = `Sync changes across all matching series (${matchingCrossSeries.length} other occurrences)`;
+        }
+        if (this.editItemSyncMatchingSubtext) {
+          const sNames = matchingCrossSeries.map(m => {
+            const s = this.state.getSeries(m.seriesId);
+            return s ? s.name : 'Standalone';
+          });
+          const previewNames = sNames.slice(0, 3).join(', ') + (sNames.length > 3 ? ` +${sNames.length - 3} more` : '');
+          this.editItemSyncMatchingSubtext.textContent = `Applies Name, Tier, and Market Worth to: ${previewNames}. Checklists and wall ownership remain independent.`;
+        }
+      } else if (this.editItemSyncMatchingGroup) {
+        this.editItemSyncMatchingGroup.style.display = 'none';
+        this.editItemSyncMatching.checked = false;
+      }
+
       this.populateModalCategorySelect(item.categoryId || '');
       this.populateModalSeriesSelect(item.categoryId || '', item.seriesId || '');
       this.editItemName.value = item.name || '';
@@ -4507,14 +4540,38 @@ js_logic = ''';
 
       if (id) {
         // Universal confirmation for saving edits to an existing gift
+        const shouldSync = !!(this.editItemSyncMatching && this.editItemSyncMatching.checked);
         this.confirmAction(
           'Confirm Save Changes',
-          `Are you sure you want to save changes to "${itemData.name}"?`,
+          `Are you sure you want to save changes to "${itemData.name}"?${shouldSync ? ' (Will also sync Name, Tier, and Market Worth across matching series).' : ''}`,
           () => {
             const scrollY = window.scrollY;
             this.state.updateItem(id, itemData);
+
+            let syncCount = 0;
+            if (shouldSync) {
+              const normOldName = (existingItem.name || '').trim().toLowerCase();
+              const normNewName = itemData.name.trim().toLowerCase();
+              const matchingCrossSeries = this.state.data.items.filter(i => 
+                i.id !== id && 
+                ((i.name || '').trim().toLowerCase() === normOldName || (i.name || '').trim().toLowerCase() === normNewName)
+              );
+              matchingCrossSeries.forEach(other => {
+                this.state.updateItem(other.id, {
+                  name: itemData.name,
+                  tier: itemData.tier,
+                  marketWorth: itemData.marketWorth
+                });
+              });
+              syncCount = matchingCrossSeries.length;
+            }
+
             this.closeModal('itemModal');
-            this.showToast(`Updated "${itemData.name}"`);
+            if (syncCount > 0) {
+              this.showToast(`Updated "${itemData.name}" & synced across ${syncCount} matching series`);
+            } else {
+              this.showToast(`Updated "${itemData.name}"`);
+            }
             window.scrollTo({ top: scrollY });
           }
         );
@@ -4956,6 +5013,12 @@ js_logic = ''';
         });
       }
 
+      if (this.editItemCategory) {
+        this.editItemCategory.addEventListener('change', () => {
+          this.checkItemDuplicates();
+        });
+      }
+
       if (this.editItemSeries) {
         this.editItemSeries.addEventListener('change', () => {
           this.checkItemDuplicates();
@@ -4977,6 +5040,7 @@ js_logic = ''';
 
       if (!name) {
         this.editItemDuplicateAlert.style.display = 'none';
+        if (this.editItemSyncMatchingGroup) this.editItemSyncMatchingGroup.style.display = 'none';
         return;
       }
 
@@ -5000,6 +5064,7 @@ js_logic = ''';
         const serName = ser ? ser.name : 'Current Series';
         this.duplicateWarningText.innerHTML = `⚠️ Conflict: <strong>"${this.escapeHtml(sameSeriesMatch.name)}"</strong> already exists in <em>${this.escapeHtml(serName)}</em> (${sameSeriesMatch.baseValue} coins).`;
         this.duplicateLoadExistingBtn.style.display = 'inline-block';
+        if (this.duplicateAutoFillBtn) this.duplicateAutoFillBtn.style.display = 'none';
         this.duplicateLoadExistingBtn.onclick = () => {
           this.openEditItemModal(sameSeriesMatch.id);
         };
@@ -5007,22 +5072,61 @@ js_logic = ''';
         return;
       }
 
-      // 2. Cross-series informational note (HelloTalk allows duplicate names in different series)
-      const otherSeriesMatch = items.find(i => 
+      // 2. Cross-series check (Smart Auto-Suggest on Add & Sync Notice on Edit)
+      const otherSeriesMatches = items.filter(i => 
         i.id !== currentId && 
         (i.name || '').trim().toLowerCase() === normName
       );
 
-      if (otherSeriesMatch) {
+      if (otherSeriesMatches.length > 0) {
+        const otherSeriesMatch = otherSeriesMatches[0];
         const ser = this.state.getSeries(otherSeriesMatch.seriesId);
         const serName = ser ? ser.name : 'Another Series';
-        this.duplicateWarningText.innerHTML = `ℹ️ Note: <strong>"${this.escapeHtml(otherSeriesMatch.name)}"</strong> exists in <em>${this.escapeHtml(serName)}</em> (${otherSeriesMatch.baseValue} coins). Duplicate names across different series are valid.`;
-        this.duplicateLoadExistingBtn.style.display = 'none';
-        this.editItemDuplicateAlert.style.display = 'flex';
+
+        if (!currentId) {
+          // ADDING A NEW GIFT: Provide 1-tap Auto-Fill from the catalog match
+          this.duplicateWarningText.innerHTML = `💡 Catalog Match: <strong>"${this.escapeHtml(otherSeriesMatch.name)}"</strong> exists in <em>${this.escapeHtml(serName)}</em> (${otherSeriesMatch.baseValue} coins • ${this.escapeHtml(otherSeriesMatch.tier || 'Standard')}).`;
+          this.duplicateLoadExistingBtn.style.display = 'none';
+          if (this.duplicateAutoFillBtn) {
+            this.duplicateAutoFillBtn.style.display = 'inline-block';
+            this.duplicateAutoFillBtn.onclick = () => {
+              this.editItemName.value = otherSeriesMatch.name;
+              this.editItemBaseValue.value = otherSeriesMatch.baseValue;
+              this.editItemMarketWorth.value = otherSeriesMatch.marketWorth || otherSeriesMatch.baseValue;
+              if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'false';
+              const t = otherSeriesMatch.tier || 'Standard';
+              this.editItemTier.value = t;
+              this.setModalTierPresets(t);
+              if (!this.editItemCategory.value && otherSeriesMatch.categoryId) {
+                this.populateModalCategorySelect(otherSeriesMatch.categoryId);
+                this.populateModalSeriesSelect(otherSeriesMatch.categoryId, otherSeriesMatch.seriesId || '');
+              }
+              this.showToast(`Auto-filled details from "${otherSeriesMatch.name}"`);
+            };
+          }
+          this.editItemDuplicateAlert.style.display = 'flex';
+        } else {
+          // EDITING AN EXISTING GIFT: Informational note & update sync checkbox visibility
+          this.duplicateWarningText.innerHTML = `ℹ️ Shared Gift: <strong>"${this.escapeHtml(otherSeriesMatch.name)}"</strong> also appears in <em>${this.escapeHtml(serName)}</em> (${otherSeriesMatch.baseValue} coins). Check the sync option below to sync changes across series.`;
+          this.duplicateLoadExistingBtn.style.display = 'none';
+          if (this.duplicateAutoFillBtn) this.duplicateAutoFillBtn.style.display = 'none';
+          this.editItemDuplicateAlert.style.display = 'flex';
+
+          if (this.editItemSyncMatchingGroup) {
+            this.editItemSyncMatchingGroup.style.display = 'block';
+            if (this.editItemSyncMatchingLabel) {
+              this.editItemSyncMatchingLabel.textContent = `Sync changes across all matching series (${otherSeriesMatches.length} other occurrences)`;
+            }
+          }
+        }
         return;
       }
 
       this.editItemDuplicateAlert.style.display = 'none';
+      if (this.editItemSyncMatchingGroup) {
+        this.editItemSyncMatchingGroup.style.display = 'none';
+        this.editItemSyncMatching.checked = false;
+      }
     }
 
     scanDuplicates() {
