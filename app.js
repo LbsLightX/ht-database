@@ -6541,7 +6541,7 @@
       "quantity": 0,
       "wallOwned": false,
       "starred": false,
-      "isDistinctVariant": true,
+      "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "series"
@@ -10507,7 +10507,7 @@
       "quantity": 0,
       "wallOwned": false,
       "starred": false,
-      "isDistinctVariant": true,
+      "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "series"
