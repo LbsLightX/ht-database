@@ -4914,116 +4914,124 @@ js_logic = ''';
       this.duplicateAuditResults.innerHTML = '<div style="padding: 10px; color: var(--text-muted);">Auditing catalog gifts...</div>';
 
       const items = this.state.data.items || [];
-      const groups = new Map();
+      const byName = new Map();
 
       items.forEach(item => {
-        const key = (item.seriesId || 'standalone') + ':::' + (item.name || '').trim().toLowerCase();
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(item);
+        const norm = (item.name || '').trim().toLowerCase();
+        if (!norm) return;
+        if (!byName.has(norm)) byName.set(norm, []);
+        byName.get(norm).push(item);
       });
 
-      const duplicateGroups = Array.from(groups.values()).filter(arr => arr.length > 1);
+      const activeConflictGroups = [];
+      const verifiedVariantGroups = [];
+      const crossSeriesSamePrice = [];
+      const crossSeriesDiffPrice = [];
 
-      // Separate true unresolved conflicts from verified distinct variants
-      const activeConflictGroups = duplicateGroups.filter(group => {
-        const allDistinct = group.every(item => item.isDistinctVariant === true);
-        return !allDistinct;
-      });
-      const verifiedVariantGroups = duplicateGroups.filter(group => {
-        return group.every(item => item.isDistinctVariant === true);
-      });
+      byName.forEach(group => {
+        if (group.length <= 1) return;
 
-      if (activeConflictGroups.length === 0) {
-        let verifiedHtml = '';
-        if (verifiedVariantGroups.length > 0) {
-          verifiedHtml = `
-            <div style="margin-top: 10px; padding: 10px 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-              <div style="font-size: 11px; font-weight: 700; color: #a7f3d0; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
-                <span>Verified Distinct Variants (${verifiedVariantGroups.length} Group${verifiedVariantGroups.length > 1 ? 's' : ''}):</span>
-                <span style="font-size: 10px; color: var(--text-muted); font-weight: 400;">Acknowledged &amp; Excluded from Conflicts</span>
-              </div>
-              ${verifiedVariantGroups.map(group => {
-                const sName = this.state.getSeries(group[0].seriesId)?.name || 'Series';
-                return `
-                  <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
-                    <span>• <strong>${this.escapeHtml(group[0].name)}</strong> (${this.escapeHtml(sName)}) — ${group.map(g => g.baseValue + ' coins').join(' / ')}</span>
-                    <button type="button" class="btn-secondary duplicate-unmark-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 10px; padding: 2px 7px;">
-                      Unmark
-                    </button>
-                  </div>
-                `;
-              }).join('')}
-            </div>
-          `;
+        // Subgroup by seriesId
+        const bySeries = new Map();
+        group.forEach(item => {
+          const sid = item.seriesId || 'standalone';
+          if (!bySeries.has(sid)) bySeries.set(sid, []);
+          bySeries.get(sid).push(item);
+        });
+
+        // 1. Same-series duplicates check
+        bySeries.forEach(seriesGroup => {
+          if (seriesGroup.length > 1) {
+            const allDistinct = seriesGroup.every(item => item.isDistinctVariant === true);
+            if (allDistinct) {
+              verifiedVariantGroups.push(seriesGroup);
+            } else {
+              activeConflictGroups.push(seriesGroup);
+            }
+          }
+        });
+
+        // 2. Cross-series check
+        if (bySeries.size > 1) {
+          const distinctValues = new Set(group.map(g => Number(g.baseValue) || 0));
+          if (distinctValues.size === 1) {
+            crossSeriesSamePrice.push({
+              name: group[0].name,
+              baseValue: group[0].baseValue,
+              items: group
+            });
+          } else {
+            crossSeriesDiffPrice.push({
+              name: group[0].name,
+              items: group
+            });
+          }
         }
+      });
 
-        this.duplicateAuditResults.innerHTML = `
+      // Sort cross series alphabetically for clean browsing
+      crossSeriesSamePrice.sort((a, b) => a.name.localeCompare(b.name));
+      crossSeriesDiffPrice.sort((a, b) => a.name.localeCompare(b.name));
+
+      let html = '';
+
+      // --- SECTION 1: SAME-SERIES CONFLICTS & VERIFIED VARIANTS ---
+      if (activeConflictGroups.length === 0) {
+        html += `
           <div style="padding: 10px 12px; background: rgba(16, 185, 129, 0.12); border: 1px solid rgba(16, 185, 129, 0.35); border-radius: var(--radius-sm); color: #34d399; display: flex; align-items: center; gap: 8px;">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><strong>Catalog Integrity Verified:</strong> 0 duplicate conflicts across all series. Total items: ${items.length}.${verifiedVariantGroups.length > 0 ? ` (${verifiedVariantGroups.length} verified distinct variant group acknowledged).` : ''}</span>
+            <span><strong>Catalog Integrity Verified:</strong> 0 duplicate conflicts within any series. Total items: ${items.length}.${verifiedVariantGroups.length > 0 ? ` (${verifiedVariantGroups.length} verified distinct variant group acknowledged).` : ''}</span>
           </div>
-          ${verifiedHtml}
         `;
-
-        this.duplicateAuditResults.querySelectorAll('.duplicate-unmark-btn').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const ids = btn.dataset.groupIds.split(',');
-            ids.forEach(id => {
-              this.state.updateItem(id, { isDistinctVariant: false });
-            });
-            this.showToast('Unmarked distinct variant status.');
-            this.scanDuplicates();
-          });
-        });
-        return;
-      }
-
-      let html = `
-        <div style="margin-bottom: 8px; font-weight: 700; color: #f87171;">
-          Found ${activeConflictGroups.length} unresolved duplicate conflict(s):
-        </div>
-      `;
-
-      activeConflictGroups.forEach(group => {
-        const sample = group[0];
-        const ser = this.state.getSeries(sample.seriesId);
-        const serName = ser ? ser.name : 'Standalone';
-
+      } else {
         html += `
-          <div class="duplicate-audit-group">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
-              <span style="font-weight: 700; color: var(--text-primary);">${this.escapeHtml(sample.name)} (${this.escapeHtml(serName)})</span>
-              <div style="display: flex; gap: 6px; align-items: center;">
-                <button type="button" class="btn-secondary duplicate-mark-valid-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
-                  ✓ Valid Variant
-                </button>
-                <button type="button" class="btn-secondary duplicate-merge-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">
-                  Merge into One
-                </button>
-              </div>
-            </div>
-            ${group.map(g => `
-              <div class="duplicate-item-row">
-                <span style="font-size: 11px; color: var(--text-muted);">
-                  ID: ${this.escapeHtml(g.id)} | Base: ${g.baseValue} coins | Qty: ${g.quantity || 0} | Wall: ${g.wallOwned ? 'Yes' : 'No'} | Tier: ${this.escapeHtml(g.tier || 'Standard')}
-                </span>
-                <button type="button" class="btn-modal-delete" data-delete-id="${g.id}" style="font-size: 10px; padding: 2px 6px;">Delete</button>
-              </div>
-            `).join('')}
+          <div style="margin-bottom: 8px; font-weight: 700; color: #f87171;">
+            ⚠️ Found ${activeConflictGroups.length} unresolved duplicate conflict(s) within the same series:
           </div>
         `;
-      });
+
+        activeConflictGroups.forEach(group => {
+          const sample = group[0];
+          const ser = this.state.getSeries(sample.seriesId);
+          const serName = ser ? ser.name : 'Standalone';
+
+          html += `
+            <div class="duplicate-audit-group">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                <span style="font-weight: 700; color: var(--text-primary);">${this.escapeHtml(sample.name)} (${this.escapeHtml(serName)})</span>
+                <div style="display: flex; gap: 6px; align-items: center;">
+                  <button type="button" class="btn-secondary duplicate-mark-valid-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #34d399; border-color: rgba(52, 211, 153, 0.4);">
+                    ✓ Valid Variant
+                  </button>
+                  <button type="button" class="btn-secondary duplicate-merge-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 11px; padding: 3px 8px; color: #60a5fa; border-color: rgba(96, 165, 250, 0.4);">
+                    Merge into One
+                  </button>
+                </div>
+              </div>
+              ${group.map(g => `
+                <div class="duplicate-item-row">
+                  <span style="font-size: 11px; color: var(--text-muted);">
+                    ID: ${this.escapeHtml(g.id)} | Base: ${g.baseValue} coins | Qty: ${g.quantity || 0} | Wall: ${g.wallOwned ? 'Yes' : 'No'} | Tier: ${this.escapeHtml(g.tier || 'Standard')}
+                  </span>
+                  <button type="button" class="btn-modal-delete" data-delete-id="${g.id}" style="font-size: 10px; padding: 2px 6px;">Delete</button>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        });
+      }
 
       if (verifiedVariantGroups.length > 0) {
         html += `
-          <div style="margin-top: 12px; padding: 8px 10px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
-            <div style="font-size: 11px; font-weight: 700; color: #a7f3d0; margin-bottom: 4px;">
-              Acknowledged Distinct Variants (${verifiedVariantGroups.length}):
+          <div style="margin-top: 10px; padding: 10px 12px; background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm);">
+            <div style="font-size: 11px; font-weight: 700; color: #a7f3d0; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between;">
+              <span>Verified Distinct Variants (${verifiedVariantGroups.length} Group${verifiedVariantGroups.length > 1 ? 's' : ''}):</span>
+              <span style="font-size: 10px; color: var(--text-muted); font-weight: 400;">Acknowledged &amp; Excluded from Conflicts</span>
             </div>
             ${verifiedVariantGroups.map(group => {
               const sName = this.state.getSeries(group[0].seriesId)?.name || 'Series';
               return `
-                <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 0; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
+                <div style="display: flex; justify-content: space-between; align-items: center; padding: 5px 0; font-size: 11px; color: var(--text-muted); border-bottom: 1px solid rgba(255, 255, 255, 0.04);">
                   <span>• <strong>${this.escapeHtml(group[0].name)}</strong> (${this.escapeHtml(sName)}) — ${group.map(g => g.baseValue + ' coins').join(' / ')}</span>
                   <button type="button" class="btn-secondary duplicate-unmark-btn" data-group-ids="${group.map(g => g.id).join(',')}" style="font-size: 10px; padding: 2px 7px;">
                     Unmark
@@ -5032,6 +5040,91 @@ js_logic = ''';
               `;
             }).join('')}
           </div>
+        `;
+      }
+
+      // --- SECTION 2: SHARED CROSS-SERIES SETS (IDENTICAL PRICE) ---
+      if (crossSeriesSamePrice.length > 0) {
+        html += `
+          <details open style="margin-top: 12px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); overflow: hidden; background: rgba(0, 0, 0, 0.2);">
+            <summary style="padding: 9px 12px; font-size: 12px; font-weight: 700; color: #fbbf24; cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; background: rgba(245, 158, 11, 0.06); border-bottom: 1px solid var(--border-subtle);">
+              <span>🔗 Shared Cross-Series Gifts (${crossSeriesSamePrice.length} Sets)</span>
+              <span style="font-size: 10px; font-weight: normal; color: var(--text-muted);">Same Name &amp; Price Across Series (Valid in HelloTalk)</span>
+            </summary>
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+                These gifts appear in multiple event series with identical coin values. HelloTalk treats each series wall checklist independently.
+              </div>
+              ${crossSeriesSamePrice.map(set => {
+                return `
+                  <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
+                      <div style="display: flex; align-items: center; gap: 6px;">
+                        <span style="font-weight: 700; color: var(--text-primary); font-size: 12px;">${this.escapeHtml(set.name)}</span>
+                        <span class="badge" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; font-size: 10px; padding: 1px 6px;">${set.baseValue} coins</span>
+                      </div>
+                      <span style="font-size: 10px; color: var(--text-muted);">${set.items.length} series occurrences</span>
+                    </div>
+                    <div style="display: flex; flex-wrap: wrap; gap: 4px;">
+                      ${set.items.map(item => {
+                        const ser = this.state.getSeries(item.seriesId);
+                        const sName = ser ? ser.name : 'Standalone';
+                        return `
+                          <button type="button" class="duplicate-inspect-btn" data-inspect-id="${item.id}" title="Inspect in ${this.escapeHtml(sName)}" style="background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 4px; padding: 2px 7px; font-size: 10px; color: var(--text-secondary); cursor: pointer; display: inline-flex; align-items: center; gap: 4px;">
+                            <span>${this.escapeHtml(sName)}</span>
+                            <span style="color: var(--text-muted); font-size: 9px;">›</span>
+                          </button>
+                        `;
+                      }).join('')}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </details>
+        `;
+      }
+
+      // --- SECTION 3: CROSS-SERIES PRICE VARIATIONS (DIFF PRICE) ---
+      if (crossSeriesDiffPrice.length > 0) {
+        html += `
+          <details open style="margin-top: 10px; border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); overflow: hidden; background: rgba(0, 0, 0, 0.2);">
+            <summary style="padding: 9px 12px; font-size: 12px; font-weight: 700; color: #60a5fa; cursor: pointer; display: flex; align-items: center; justify-content: space-between; user-select: none; background: rgba(96, 165, 250, 0.06); border-bottom: 1px solid var(--border-subtle);">
+              <span>⚖️ Cross-Series Price Variations (${crossSeriesDiffPrice.length} Sets)</span>
+              <span style="font-size: 10px; font-weight: normal; color: var(--text-muted);">Same Name with Different Prices</span>
+            </summary>
+            <div style="padding: 10px; display: flex; flex-direction: column; gap: 8px;">
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">
+                These gifts share the same name across series but have different coin values (multi-event pricing). Review to ensure values match your HelloTalk live data.
+              </div>
+              ${crossSeriesDiffPrice.map(set => {
+                return `
+                  <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 8px 10px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                      <span style="font-weight: 700; color: #60a5fa; font-size: 12px;">${this.escapeHtml(set.name)}</span>
+                      <span style="font-size: 10px; color: var(--text-muted);">${set.items.length} series variations</span>
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 4px;">
+                      ${set.items.map(item => {
+                        const ser = this.state.getSeries(item.seriesId);
+                        const sName = ser ? ser.name : 'Standalone';
+                        return `
+                          <div style="display: flex; justify-content: space-between; align-items: center; padding: 4px 8px; background: rgba(0, 0, 0, 0.25); border-radius: 4px; font-size: 11px;">
+                            <span style="color: var(--text-secondary);">${this.escapeHtml(sName)}</span>
+                            <div style="display: flex; align-items: center; gap: 8px;">
+                              <span style="color: #fbbf24; font-weight: 700;">${item.baseValue} coins</span>
+                              <span style="font-size: 10px; color: var(--text-muted);">Tier: ${this.escapeHtml(item.tier || 'Standard')}</span>
+                              <button type="button" class="btn-secondary duplicate-inspect-btn" data-inspect-id="${item.id}" style="font-size: 10px; padding: 2px 7px;">Edit</button>
+                            </div>
+                          </div>
+                        `;
+                      }).join('')}
+                    </div>
+                  </div>
+                `;
+              }).join('')}
+            </div>
+          </details>
         `;
       }
 
@@ -5107,6 +5200,14 @@ js_logic = ''';
           this.state.deleteItem(delId);
           this.showToast('Deleted duplicate item');
           this.scanDuplicates();
+        });
+      });
+
+      // Bind inspect / edit buttons
+      this.duplicateAuditResults.querySelectorAll('.duplicate-inspect-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const inspectId = btn.dataset.inspectId;
+          if (inspectId) this.openEditItemModal(inspectId);
         });
       });
     }
