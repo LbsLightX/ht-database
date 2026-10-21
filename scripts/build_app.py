@@ -541,6 +541,37 @@ js_logic = ''';
       return `${prefix}-${Date.now().toString(36)}-${Math.random().toString(36).substr(2, 6)}`;
     }
 
+    // Session Action Journal (Tracks user operations for smart GitHub commit messages)
+    recordAction(action) {
+      try {
+        const raw = localStorage.getItem('ht_session_journal');
+        let journal = raw ? JSON.parse(raw) : [];
+        if (!Array.isArray(journal)) journal = [];
+        journal.push({
+          ...action,
+          timestamp: Date.now()
+        });
+        if (journal.length > 100) journal = journal.slice(-100);
+        localStorage.setItem('ht_session_journal', JSON.stringify(journal));
+      } catch (e) {}
+    }
+
+    getJournal() {
+      try {
+        const raw = localStorage.getItem('ht_session_journal');
+        const journal = raw ? JSON.parse(raw) : [];
+        return Array.isArray(journal) ? journal : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    clearJournal() {
+      try {
+        localStorage.removeItem('ht_session_journal');
+      } catch (e) {}
+    }
+
     // Item Operations
     getItem(id) {
       if (!id) return null;
@@ -596,6 +627,12 @@ js_logic = ''';
       // Prepend to top of master items array
       this.data.items.unshift(newItem);
       this.saveState();
+      this.recordAction({
+        type: 'ADD_GIFT',
+        name: newItem.name,
+        coins: newItem.baseValue,
+        seriesName: this.getSeries(newItem.seriesId)?.name || 'Standalone'
+      });
       return newItem;
     }
 
@@ -603,6 +640,12 @@ js_logic = ''';
       const idx = this.data.items.findIndex(i => i.id === id);
       if (idx !== -1) {
         const cur = this.data.items[idx];
+        const oldName = cur.name;
+        const oldBase = cur.baseValue;
+        const oldMarket = cur.marketWorth;
+        const oldTier = cur.tier;
+        const oldSeriesId = cur.seriesId;
+
         const catId = (itemData.categoryId !== undefined ? itemData.categoryId : cur.categoryId).trim();
         const serId = (itemData.seriesId !== undefined ? itemData.seriesId : cur.seriesId).trim();
         let itemTabs = Array.isArray(itemData.tabs) ? itemData.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [...(cur.tabs || [])];
@@ -660,6 +703,25 @@ js_logic = ''';
           updatedAt: Date.now()
         };
         this.saveState();
+
+        const changedFields = [];
+        if (this.data.items[idx].name !== oldName) changedFields.push('name');
+        if (baseCoins !== oldBase) changedFields.push('baseValue');
+        if (marketCoins !== oldMarket) changedFields.push('marketWorth');
+        if (this.data.items[idx].tier !== oldTier) changedFields.push('tier');
+        if (serId !== oldSeriesId) changedFields.push('series');
+
+        if (changedFields.length > 0) {
+          this.recordAction({
+            type: 'UPDATE_GIFT',
+            name: this.data.items[idx].name,
+            changedFields,
+            oldWorth: oldMarket,
+            newWorth: marketCoins,
+            seriesName: this.getSeries(serId)?.name || 'Standalone'
+          });
+        }
+
         return this.data.items[idx];
       }
       return null;
@@ -670,6 +732,11 @@ js_logic = ''';
       if (idx !== -1) {
         const removed = this.data.items.splice(idx, 1)[0];
         this.saveState();
+        this.recordAction({
+          type: 'DELETE_GIFT',
+          name: removed.name,
+          seriesName: this.getSeries(removed.seriesId)?.name || 'Standalone'
+        });
         return removed;
       }
       return null;
@@ -794,6 +861,10 @@ js_logic = ''';
       };
       this.data.categories.push(newCat);
       this.saveState();
+      this.recordAction({
+        type: 'ADD_CATEGORY',
+        name: newCat.name
+      });
       return newCat;
     }
 
@@ -804,10 +875,16 @@ js_logic = ''';
         if (catData.order !== undefined) cat.order = Number(catData.order);
         if (catData.description !== undefined) cat.description = (catData.description || '').trim();
         this.saveState();
+        this.recordAction({
+          type: 'UPDATE_CATEGORY',
+          name: cat.name
+        });
       }
     }
 
     deleteCategory(id) {
+      const cat = this.getCategory(id);
+      const catName = cat ? cat.name : 'Category';
       this.data.categories = this.data.categories.filter(c => c.id !== id);
       this.data.series.forEach(s => {
         if (s.categoryId === id) s.categoryId = '';
@@ -819,6 +896,10 @@ js_logic = ''';
         }
       });
       this.saveState();
+      this.recordAction({
+        type: 'DELETE_CATEGORY',
+        name: catName
+      });
     }
 
     // Series Operations
@@ -840,6 +921,10 @@ js_logic = ''';
       };
       this.data.series.push(newSeries);
       this.saveState();
+      this.recordAction({
+        type: 'ADD_SERIES',
+        name: newSeries.name
+      });
       return newSeries;
     }
 
@@ -852,15 +937,25 @@ js_logic = ''';
         ser.description = (seriesData.description || '').trim();
         if (seriesData.displayOrder !== undefined) ser.displayOrder = Number(seriesData.displayOrder);
         this.saveState();
+        this.recordAction({
+          type: 'UPDATE_SERIES',
+          name: ser.name
+        });
       }
     }
 
     deleteSeries(id) {
+      const ser = this.getSeries(id);
+      const serName = ser ? ser.name : 'Series';
       this.data.series = this.data.series.filter(s => s.id !== id);
       this.data.items.forEach(i => {
         if (i.seriesId === id) i.seriesId = '';
       });
       this.saveState();
+      this.recordAction({
+        type: 'DELETE_SERIES',
+        name: serName
+      });
     }
 
     // Tier Operations (CRUD & Color Management)
@@ -890,6 +985,10 @@ js_logic = ''';
       if (!this.data.tiers) this.data.tiers = [];
       this.data.tiers.push(newTier);
       this.saveState();
+      this.recordAction({
+        type: 'ADD_TIER',
+        name: newTier.name
+      });
       return newTier;
     }
 
@@ -907,6 +1006,10 @@ js_logic = ''';
         if (tierData.displayOrder !== undefined) tier.displayOrder = Number(tierData.displayOrder);
         if (tierData.description !== undefined) tier.description = (tierData.description || '').trim();
         this.saveState();
+        this.recordAction({
+          type: 'UPDATE_TIER',
+          name: tier.name
+        });
         return tier;
       }
       return null;
@@ -924,6 +1027,10 @@ js_logic = ''';
         }
       });
       this.saveState();
+      this.recordAction({
+        type: 'DELETE_TIER',
+        name: deletedName
+      });
     }
 
     hexToRgb(hex) {
@@ -1371,6 +1478,15 @@ js_logic = ''';
       this.confirmModalMessage = document.getElementById('confirmModalMessage');
       this.confirmAcceptBtn = document.getElementById('confirmAcceptBtn');
       this.confirmCancelBtn = document.getElementById('confirmCancelBtn');
+
+      // GitHub Smart Commit & Deploy Modal
+      this.ghCommitModal = document.getElementById('ghCommitModal');
+      this.ghCommitTitleInput = document.getElementById('ghCommitTitleInput');
+      this.ghCommitExtendedBody = document.getElementById('ghCommitExtendedBody');
+      this.ghCommitSummaryChips = document.getElementById('ghCommitSummaryChips');
+      this.ghCommitResetTitleBtn = document.getElementById('ghCommitResetTitleBtn');
+      this.ghCommitConfirmBtn = document.getElementById('ghCommitConfirmBtn');
+      this.ghCommitCancelBtn = document.getElementById('ghCommitCancelBtn');
 
       this.toastContainer = document.getElementById('toastContainer');
 
@@ -5753,7 +5869,161 @@ js_logic = ''';
         });
       }
 
+      // GitHub Smart Commit Modal Handlers
+      if (this.ghCommitResetTitleBtn) {
+        this.ghCommitResetTitleBtn.addEventListener('click', () => {
+          const smart = this.generateSmartCommitMessage();
+          if (this.ghCommitTitleInput) this.ghCommitTitleInput.value = smart.title;
+          if (this.ghCommitExtendedBody) this.ghCommitExtendedBody.value = smart.body;
+        });
+      }
+
+      if (this.ghCommitCancelBtn) {
+        this.ghCommitCancelBtn.addEventListener('click', () => {
+          this.closeModal('ghCommitModal');
+          this.pendingGhCommitDeploy = null;
+        });
+      }
+
+      if (this.ghCommitConfirmBtn) {
+        this.ghCommitConfirmBtn.addEventListener('click', () => {
+          const title = (this.ghCommitTitleInput?.value || '').trim() || 'chore(catalog): update database via Web Vault';
+          const body = (this.ghCommitExtendedBody?.value || '').trim();
+          const commitMessage = body ? `${title}\n\n${body}` : title;
+          this.closeModal('ghCommitModal');
+          if (typeof this.pendingGhCommitDeploy === 'function') {
+            this.pendingGhCommitDeploy(commitMessage);
+          }
+        });
+      }
+
       updateUI();
+    }
+
+    generateSmartCommitMessage() {
+      const journal = this.state.getJournal();
+      
+      if (!journal || journal.length === 0) {
+        const nowStr = new Date().toISOString().slice(0, 19).replace('T', ' ');
+        return {
+          title: `chore(catalog): update gift database [${nowStr}]`,
+          body: '',
+          chips: [{ label: 'Catalog Sync', type: 'update' }]
+        };
+      }
+
+      const adds = journal.filter(a => a.type === 'ADD_GIFT');
+      const updates = journal.filter(a => a.type === 'UPDATE_GIFT');
+      const deletes = journal.filter(a => a.type === 'DELETE_GIFT');
+      const merges = journal.filter(a => a.type === 'MERGE_DUPLICATES');
+      const seriesAdds = journal.filter(a => a.type === 'ADD_SERIES');
+      const seriesUpdates = journal.filter(a => a.type === 'UPDATE_SERIES');
+      const seriesDeletes = journal.filter(a => a.type === 'DELETE_SERIES');
+      const tierUpdates = journal.filter(a => a.type === 'ADD_TIER' || a.type === 'UPDATE_TIER' || a.type === 'DELETE_TIER');
+      const syncMatches = journal.filter(a => a.type === 'SYNC_MATCHING_GIFTS');
+      const catUpdates = journal.filter(a => a.type === 'ADD_CATEGORY' || a.type === 'DELETE_CATEGORY');
+
+      const chips = [];
+      if (adds.length > 0) chips.push({ label: `+${adds.length} Added`, type: 'add' });
+      if (updates.length > 0) chips.push({ label: `~${updates.length} Updated`, type: 'update' });
+      if (deletes.length > 0) chips.push({ label: `-${deletes.length} Deleted`, type: 'delete' });
+      if (merges.length > 0) chips.push({ label: `${merges.length} Merged`, type: 'update' });
+      if (seriesAdds.length > 0) chips.push({ label: `+${seriesAdds.length} Series`, type: 'series' });
+      if (seriesUpdates.length > 0) chips.push({ label: `~${seriesUpdates.length} Series`, type: 'series' });
+      if (tierUpdates.length > 0) chips.push({ label: `${tierUpdates.length} Tiers`, type: 'update' });
+      if (syncMatches.length > 0) chips.push({ label: `${syncMatches.length} Synced`, type: 'sync' });
+      if (catUpdates.length > 0) chips.push({ label: `${catUpdates.length} Categories`, type: 'series' });
+
+      // Generate conventional commit title
+      let title = '';
+      if (adds.length > 0 && updates.length === 0 && deletes.length === 0 && seriesAdds.length === 0) {
+        const names = [...new Set(adds.map(a => a.name))];
+        const preview = names.slice(0, 2).join(', ') + (names.length > 2 ? ` (+${names.length - 2} more)` : '');
+        title = `feat(catalog): add ${adds.length} gift${adds.length > 1 ? 's' : ''} (${preview})`;
+      } else if (updates.length > 0 && adds.length === 0 && deletes.length === 0 && seriesAdds.length === 0) {
+        const valUpdates = updates.filter(u => u.changedFields && (u.changedFields.includes('marketWorth') || u.changedFields.includes('baseValue')));
+        if (valUpdates.length > 0) {
+          const names = [...new Set(valUpdates.map(u => u.name))];
+          const preview = names.slice(0, 2).join(', ') + (names.length > 2 ? ` (+${names.length - 2} more)` : '');
+          title = `fix(valuation): update market worth for ${preview}`;
+        } else {
+          const names = [...new Set(updates.map(u => u.name))];
+          const preview = names.slice(0, 2).join(', ') + (names.length > 2 ? ` (+${names.length - 2} more)` : '');
+          title = `chore(catalog): update ${updates.length} gift${updates.length > 1 ? 's' : ''} (${preview})`;
+        }
+      } else if (seriesAdds.length > 0 && adds.length === 0 && deletes.length === 0) {
+        const sNames = seriesAdds.map(s => `"${s.name}"`).join(', ');
+        title = `feat(series): add series ${sNames}`;
+      } else if (merges.length > 0 && adds.length === 0 && deletes.length === 0) {
+        title = `refactor(catalog): merge duplicate gifts in series checklists`;
+      } else if (syncMatches.length > 0 && adds.length === 0 && deletes.length === 0) {
+        title = `chore(catalog): cross-series sync for shared gifts`;
+      } else {
+        const parts = [];
+        if (adds.length > 0) parts.push(`add ${adds.length} gift${adds.length > 1 ? 's' : ''}`);
+        if (updates.length > 0) parts.push(`update ${updates.length}`);
+        if (deletes.length > 0) parts.push(`remove ${deletes.length}`);
+        if (seriesAdds.length > 0) parts.push(`add ${seriesAdds.length} series`);
+        if (merges.length > 0) parts.push(`merge ${merges.length} duplicates`);
+        title = `feat(catalog): ${parts.join(', ')}`;
+      }
+
+      // Generate extended detail body
+      const bodyLines = [];
+      adds.forEach(a => {
+        bodyLines.push(`- Added: ${a.name}${a.coins ? ` (${a.coins}c)` : ''}${a.seriesName ? ` [${a.seriesName}]` : ''}`);
+      });
+      updates.forEach(u => {
+        if (u.oldWorth !== undefined && u.newWorth !== undefined && u.oldWorth !== u.newWorth) {
+          bodyLines.push(`- Valuation: ${u.name} (${u.oldWorth}c -> ${u.newWorth}c)`);
+        } else {
+          bodyLines.push(`- Updated: ${u.name}${u.changedFields ? ` (${u.changedFields.join(', ')})` : ''}`);
+        }
+      });
+      deletes.forEach(d => {
+        bodyLines.push(`- Removed: ${d.name} from [${d.seriesName || 'Catalog'}]`);
+      });
+      merges.forEach(m => {
+        bodyLines.push(`- Merged duplicates: ${m.name}${m.seriesName ? ` in [${m.seriesName}]` : ''}`);
+      });
+      seriesAdds.forEach(s => {
+        bodyLines.push(`- New Series: "${s.name}"`);
+      });
+      seriesUpdates.forEach(s => {
+        bodyLines.push(`- Updated Series: "${s.name}"`);
+      });
+      syncMatches.forEach(sm => {
+        bodyLines.push(`- Cross-series sync: updated ${sm.name} across ${sm.count} matching series`);
+      });
+      tierUpdates.forEach(t => {
+        bodyLines.push(`- Tier configuration: ${t.name}`);
+      });
+
+      return {
+        title,
+        body: bodyLines.slice(0, 15).join('\\n') + (bodyLines.length > 15 ? '\\n...and ' + (bodyLines.length - 15) + ' more' : ''),
+        chips
+      };
+    }
+
+    openGhCommitModal(onDeploy) {
+      if (!this.ghCommitModal) return;
+      const smart = this.generateSmartCommitMessage();
+
+      if (this.ghCommitTitleInput) {
+        this.ghCommitTitleInput.value = smart.title;
+      }
+      if (this.ghCommitExtendedBody) {
+        this.ghCommitExtendedBody.value = smart.body;
+      }
+      if (this.ghCommitSummaryChips) {
+        this.ghCommitSummaryChips.innerHTML = smart.chips.map(c => `
+          <span class="gh-chip gh-chip-${c.type}">${this.escapeHtml(c.label)}</span>
+        `).join('');
+      }
+
+      this.pendingGhCommitDeploy = onDeploy;
+      this.openModal('ghCommitModal');
     }
 
     async pushToGitHub() {
@@ -5767,111 +6037,102 @@ js_logic = ''';
         return;
       }
 
-      this.confirmAction(
-        'Commit & Deploy to GitHub Pages',
-        'Push current database changes (Categories, Series, and Gifts) directly to GitHub repo "LbsLightX/ht-database"?\\n\\nThis will trigger GitHub Actions to auto-rebuild and update GitHub Pages.',
-        async () => {
-          const repo = 'LbsLightX/ht-database';
-          const path = 'data/hellotalk-gifts.json';
-          const commitMessage = `Update database via Web Vault [${new Date().toISOString().slice(0, 19).replace('T', ' ')}]`;
-          
-          // Sanitize personal tracking fields from public canonical seed
-          const cleanItems = (this.state.data.items || []).map(item => ({
-            ...item,
-            quantity: 0,
-            backpacks: { lbs: 0, cryptid: 0 },
-            wallOwned: false,
-            starred: false,
-            notes: ''
-          }));
-          const cleanPayload = {
-            ...this.state.data,
-            items: cleanItems
-          };
-          const jsonContent = JSON.stringify(cleanPayload, null, 2);
+      this.openGhCommitModal(async (commitMessage) => {
+        const repo = 'LbsLightX/ht-database';
+        const path = 'data/hellotalk-gifts.json';
+        
+        // Master vault state payload (preserves verified backpacks, wall checklists, and catalog definitions)
+        const payload = {
+          ...this.state.data,
+          lastExported: Date.now()
+        };
+        const jsonContent = JSON.stringify(payload, null, 2);
 
-          const utf8ToBase64 = (str) => {
-            const bytes = new TextEncoder().encode(str);
-            let binStr = '';
-            for (let i = 0; i < bytes.length; i++) {
-              binStr += String.fromCharCode(bytes[i]);
-            }
-            return btoa(binStr);
-          };
-          const base64Content = utf8ToBase64(jsonContent);
-
-          if (this.ghPushBtn) {
-            this.ghPushBtn.disabled = true;
-            this.ghPushBtn.textContent = '⏳ Committing to GitHub...';
+        const utf8ToBase64 = (str) => {
+          const bytes = new TextEncoder().encode(str);
+          let binStr = '';
+          for (let i = 0; i < bytes.length; i++) {
+            binStr += String.fromCharCode(bytes[i]);
           }
-          this.showToast('Connecting to GitHub API...');
+          return btoa(binStr);
+        };
+        const base64Content = utf8ToBase64(jsonContent);
 
-          try {
-            const url = `https://api.github.com/repos/${repo}/contents/${path}`;
+        if (this.ghPushBtn) {
+          this.ghPushBtn.disabled = true;
+          this.ghPushBtn.textContent = '⏳ Committing to GitHub...';
+        }
+        this.showToast('Connecting to GitHub API...');
 
-            // 1. Fetch current file SHA
-            let currentSha = null;
-            const getRes = await fetch(url, {
-              headers: {
-                'Authorization': `Bearer ${token}`,
-                'Accept': 'application/vnd.github.v3+json'
-              }
-            });
+        try {
+          const url = `https://api.github.com/repos/${repo}/contents/${path}`;
 
-            if (getRes.ok) {
-              const getData = await getRes.json();
-              currentSha = getData.sha;
-            } else if (getRes.status === 401) {
-              throw new Error('Invalid or expired GitHub Personal Access Token. Please re-enter a valid token.');
-            } else if (getRes.status === 403) {
-              throw new Error('Permission denied. Ensure your token has "Contents: Read and write" access for repository LbsLightX/ht-database.');
-            } else if (getRes.status !== 404) {
-              const errData = await getRes.json().catch(() => ({}));
-              throw new Error(`Failed to query file info: ${errData.message || getRes.statusText}`);
+          // 1. Fetch current file SHA
+          let currentSha = null;
+          const getRes = await fetch(url, {
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github.v3+json'
             }
+          });
 
-            // 2. Commit updated JSON file
-            const putBody = {
-              message: commitMessage,
-              content: base64Content,
-              branch: 'main'
-            };
-            if (currentSha) {
-              putBody.sha = currentSha;
+          if (getRes.ok) {
+            const getData = await getRes.json();
+            currentSha = getData.sha;
+          } else if (getRes.status === 401) {
+            throw new Error('Invalid or expired GitHub Personal Access Token. Please re-enter a valid token.');
+          } else if (getRes.status === 403) {
+            throw new Error('Permission denied. Ensure your token has "Contents: Read and write" access for repository LbsLightX/ht-database.');
+          } else if (getRes.status !== 404) {
+            const errData = await getRes.json().catch(() => ({}));
+            throw new Error(`Failed to query file info: ${errData.message || getRes.statusText}`);
+          }
+
+          // 2. Commit updated JSON file
+          const putBody = {
+            message: commitMessage,
+            content: base64Content,
+            branch: 'main'
+          };
+          if (currentSha) {
+            putBody.sha = currentSha;
+          }
+
+          const putRes = await fetch(url, {
+            method: 'PUT',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/vnd.github.v3+json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(putBody)
+          });
+
+          if (!putRes.ok) {
+            if (putRes.status === 409) {
+              throw new Error('Conflict detected: Remote repository was modified. Please click "Pull Latest from GitHub" first.');
             }
+            const putErr = await putRes.json().catch(() => ({}));
+            throw new Error(`Failed to commit: ${putErr.message || putRes.statusText}`);
+          }
 
-            const putRes = await fetch(url, {
-              method: 'PUT',
-              headers: {
-                'Authorization': `Bearer ${token}`,
-                'Accept': 'application/vnd.github.v3+json',
-                'Content-Type': 'application/json'
-              },
-              body: JSON.stringify(putBody)
-            });
+          // Clear session journal upon successful GitHub commit
+          this.state.clearJournal();
 
-            if (!putRes.ok) {
-              if (putRes.status === 409) {
-                throw new Error('Conflict detected: Remote repository was modified. Please click "Pull Latest from GitHub" first.');
-              }
-              const putErr = await putRes.json().catch(() => ({}));
-              throw new Error(`Failed to commit: ${putErr.message || putRes.statusText}`);
-            }
-
-            const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-            localStorage.setItem(STORAGE_KEY_LAST_SYNC, nowStr);
-            if (this.ghLastSyncTime) this.ghLastSyncTime.textContent = `Last synced: ${nowStr}`;
-            this.showToast('🚀 Pushed to GitHub! GitHub Pages is building automatically.');
-          } catch (err) {
-            alert('GitHub Sync Error: ' + err.message);
-          } finally {
-            if (this.ghPushBtn) {
-              this.ghPushBtn.disabled = false;
-              this.ghPushBtn.textContent = '🚀 Commit & Deploy to GitHub Pages';
-            }
+          const nowStr = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+          localStorage.setItem(STORAGE_KEY_LAST_SYNC, nowStr);
+          if (this.ghLastSyncTime) this.ghLastSyncTime.textContent = `Last synced: ${nowStr}`;
+          const shortTitle = commitMessage.split('\\n')[0];
+          this.showToast(`🚀 Pushed: "${shortTitle}"! GitHub Pages is deploying.`);
+        } catch (err) {
+          alert('GitHub Sync Error: ' + err.message);
+        } finally {
+          if (this.ghPushBtn) {
+            this.ghPushBtn.disabled = false;
+            this.ghPushBtn.textContent = '🚀 Commit & Deploy to GitHub Pages';
           }
         }
-      );
+      });
     }
 
     async pullFromGitHub() {
