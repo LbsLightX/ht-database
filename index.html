@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.2&t=1792504188">
+  <link rel="stylesheet" href="styles.css?v=1.0.3&t=1792576989">
 </head>
 <body>
 
@@ -55,6 +55,30 @@
     <!-- TAB 1: BACKPACK (ACTIVE INVENTORY & STOCK MANAGEMENT) -->
     <!-- ================================================================== -->
     <section id="tab-backpack" class="tab-pane active" role="tabpanel">
+      <!-- Backpack Account Switcher Bar -->
+      <div class="bp-account-bar">
+        <div class="bp-account-switcher" role="tablist" aria-label="Select Backpack Account">
+          <button type="button" class="bp-account-tab active" data-account="lbs" role="tab" aria-selected="true" id="bpTabBtnLbs">
+            <svg class="bp-account-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path>
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+              <line x1="8" y1="10" x2="16" y2="10"></line>
+            </svg>
+            <span class="bp-account-label">LbsLightX</span>
+            <span class="bp-account-pill-count" id="bpPillCountLbs">0</span>
+          </button>
+          <button type="button" class="bp-account-tab" data-account="cryptid" role="tab" aria-selected="false" id="bpTabBtnCryptid">
+            <svg class="bp-account-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20V10a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"></path>
+              <path d="M9 6V4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2"></path>
+              <line x1="8" y1="10" x2="16" y2="10"></line>
+            </svg>
+            <span class="bp-account-label">CryptidArise</span>
+            <span class="bp-account-pill-count" id="bpPillCountCryptid">0</span>
+          </button>
+        </div>
+      </div>
+
       <!-- Backpack Summary Hero -->
       <div class="summary-hero-row">
         <div class="summary-metric-card">
@@ -635,11 +659,18 @@
             </div>
           </div>
 
-          <!-- Backpack Quantity Input -->
-          <div class="form-group">
-            <label for="editItemQuantity">Backpack Quantity</label>
-            <input type="number" id="editItemQuantity" class="form-input tabular" min="0" placeholder="0">
+          <!-- Dual Account Backpack Quantity Inputs -->
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label for="editItemQuantityLbs">LbsLightX Qty</label>
+              <input type="number" id="editItemQuantityLbs" class="form-input tabular" min="0" placeholder="0">
+            </div>
+            <div class="form-group">
+              <label for="editItemQuantityCryptid">CryptidArise Qty</label>
+              <input type="number" id="editItemQuantityCryptid" class="form-input tabular" min="0" placeholder="0">
+            </div>
           </div>
+          <input type="hidden" id="editItemQuantity">
 
           <!-- Target Tabs Assignment (Multi-Select Pills) -->
           <div class="form-group">
@@ -867,6 +898,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.2&t=1792504188"></script>
+  <script src="app.js?v=1.0.3&t=1792576989"></script>
 </body>
 </html>

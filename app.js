@@ -1,5 +1,5 @@
 /**
- * HelloTalk Gift Database & Vault (v1.0.2)
+ * HelloTalk Gift Database & Vault (v1.0.3)
  */
 
 (() => {
@@ -9,7 +9,7 @@
   const BATCH_SIZE = 60;
 
   const DEFAULT_SEED = {
-  "version": "1.0.2",
+  "version": "1.0.3",
   "lastExported": 1792487738827,
   "categories": [
     {
@@ -853,7 +853,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487738827
+      "updatedAt": 1792487738827,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggwffe-r5evq7",
@@ -872,7 +876,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487708187
+      "updatedAt": 1792487708187,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggvwuh-6vm6mg",
@@ -891,7 +899,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487684105
+      "updatedAt": 1792487684105,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggvhap-fhs1cn",
@@ -910,7 +922,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487663953
+      "updatedAt": 1792487663953,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvgguwrs-zocn0s",
@@ -929,7 +945,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487637352
+      "updatedAt": 1792487637352,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggu7hn-8jga8s",
@@ -948,7 +968,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487604587
+      "updatedAt": 1792487604587,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggt96n-my2o6a",
@@ -967,7 +991,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487560127
+      "updatedAt": 1792487560127,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvggs15q-ipzwts",
@@ -986,7 +1014,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792487503089
+      "updatedAt": 1792487503089,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvgfl3tg-w5wdsd",
@@ -1005,7 +1037,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792485500312
+      "updatedAt": 1792485500312,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvf8ffa4-6khij2",
@@ -1024,7 +1060,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792413011740
+      "updatedAt": 1792413011740,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvf8erkn-pgccd4",
@@ -1043,7 +1083,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792412981016
+      "updatedAt": 1792412981016,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mvf8e2il-os9vpg",
@@ -1062,7 +1106,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792412948551
+      "updatedAt": 1792412948551,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-proud-of-you-1",
@@ -1086,7 +1134,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478989327
+      "updatedAt": 1792478989327,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-perfect-2",
@@ -1110,7 +1162,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478988089
+      "updatedAt": 1792478988089,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-much-better-3",
@@ -1134,7 +1190,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478986297
+      "updatedAt": 1792478986297,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-you-did-it-4",
@@ -1158,7 +1218,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478985172
+      "updatedAt": 1792478985172,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-keep-it-up-5",
@@ -1182,7 +1246,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478983853
+      "updatedAt": 1792478983853,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-good-job-6",
@@ -1206,7 +1274,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792478982614
+      "updatedAt": 1792478982614,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-mystery-gift-7",
@@ -1229,7 +1301,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792402665654
+      "updatedAt": 1792402665654,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-youth-best-teacher-8",
@@ -1252,7 +1328,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792402650442
+      "updatedAt": 1792402650442,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-rocket-9",
@@ -1275,7 +1355,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422013736
+      "updatedAt": 1792422013736,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-hat-10",
@@ -1298,7 +1382,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-heart-paper-plane-11",
@@ -1321,7 +1409,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-rubik-s-cube-12",
@@ -1344,7 +1436,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-key-13",
@@ -1367,7 +1463,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792402685428
+      "updatedAt": 1792402685428,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-symphony-salute-14",
@@ -1390,7 +1490,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792402689746
+      "updatedAt": 1792402689746,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-live-streamer-s-trilogy-celebration-balloon-15",
@@ -1413,7 +1517,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792402680084
+      "updatedAt": 1792402680084,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-treasure-hunter-16",
@@ -1422,14 +1530,15 @@
       "name": "Treasure Hunter",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 49,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -1437,7 +1546,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479148479
+      "updatedAt": 1792479148479,
+      "backpacks": {
+        "lbs": 49,
+        "cryptid": 54
+      }
     },
     {
       "id": "item-gummy-party-super-lucky-17",
@@ -1461,7 +1574,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479149837
+      "updatedAt": 1792479149837,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-happy-4-u-18",
@@ -1485,7 +1602,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479150784
+      "updatedAt": 1792479150784,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-get-well-soon-19",
@@ -1509,7 +1630,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479152593
+      "updatedAt": 1792479152593,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-i-m-here-4-u-20",
@@ -1533,7 +1658,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479153952
+      "updatedAt": 1792479153952,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-thought-of-u-21",
@@ -1557,7 +1686,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479157267
+      "updatedAt": 1792479157267,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-nice-post-22",
@@ -1581,7 +1714,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479158367
+      "updatedAt": 1792479158367,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-flutter-23",
@@ -1605,7 +1742,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479159553
+      "updatedAt": 1792479159553,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-bear-hug-24",
@@ -1629,7 +1770,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479161826
+      "updatedAt": 1792479161826,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-gummy-party-thank-you-feedback-25",
@@ -1652,7 +1797,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-creator-s-gifts-flower-language-fan-26",
@@ -1676,7 +1825,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479174052
+      "updatedAt": 1792479174052,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-creator-s-gifts-film-camera-27",
@@ -1700,7 +1853,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479180811
+      "updatedAt": 1792479180811,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-creator-s-gifts-pearl-gift-box-28",
@@ -1724,7 +1881,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479182264
+      "updatedAt": 1792479182264,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-creator-s-gifts-white-rose-29",
@@ -1733,14 +1894,15 @@
       "name": "White Rose",
       "baseValue": 20,
       "marketWorth": 20,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -1748,7 +1910,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479186802
+      "updatedAt": 1792479186802,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-creator-s-gifts-feather-notebook-30",
@@ -1757,14 +1923,15 @@
       "name": "Feather Notebook",
       "baseValue": 30,
       "marketWorth": 30,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -1772,7 +1939,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479191247
+      "updatedAt": 1792479191247,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-creator-s-gifts-thank-you-letter-31",
@@ -1796,7 +1967,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479192635
+      "updatedAt": 1792479192635,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-creator-s-gifts-blossoms-books-32",
@@ -1819,7 +1994,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792402963831
+      "updatedAt": 1792402963831,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-double-salute-cannon-33",
@@ -1843,7 +2022,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479203103
+      "updatedAt": 1792479203103,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-party-card-34",
@@ -1852,14 +2035,15 @@
       "name": "Party Card",
       "baseValue": 1,
       "marketWorth": 1,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -1867,7 +2051,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479204828
+      "updatedAt": 1792479204828,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-happy-anniversary-to-the-celebration-35",
@@ -1890,7 +2078,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422267900
+      "updatedAt": 1792422267900,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-ht-trophy-36",
@@ -1913,7 +2105,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792403020342
+      "updatedAt": 1792403020342,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-anniversary-37",
@@ -1936,7 +2132,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422231183
+      "updatedAt": 1792422231183,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-golden-piano-38",
@@ -1959,7 +2159,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792403060673
+      "updatedAt": 1792403060673,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-fairy-tale-bear-39",
@@ -1982,7 +2186,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792403052983
+      "updatedAt": 1792403052983,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-magic-bun-40",
@@ -2005,7 +2213,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422253714
+      "updatedAt": 1792422253714,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-anniversary-cat-magician-41",
@@ -2028,7 +2240,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792403046366
+      "updatedAt": 1792403046366,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-magic-wand-42",
@@ -2038,13 +2254,14 @@
       "baseValue": 59,
       "marketWorth": 59,
       "quantity": 0,
-      "wallOwned": false,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -2052,7 +2269,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479253667
+      "updatedAt": 1792479253667,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-happy-birthday-birthday-balloon-43",
@@ -2061,14 +2282,15 @@
       "name": "Birthday Balloon",
       "baseValue": 99,
       "marketWorth": 99,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "basic",
@@ -2076,7 +2298,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479254918
+      "updatedAt": 1792479254918,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-gift-box-44",
@@ -2100,7 +2326,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479257085
+      "updatedAt": 1792479257085,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-bouquet-45",
@@ -2123,7 +2353,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422296936
+      "updatedAt": 1792422296936,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-dinner-46",
@@ -2146,7 +2380,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792403091797
+      "updatedAt": 1792403091797,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-jewel-47",
@@ -2169,7 +2407,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422304070
+      "updatedAt": 1792422304070,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-birthday-birthday-party-hall-48",
@@ -2192,7 +2434,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792403084987
+      "updatedAt": 1792403084987,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-crystal-shell-49",
@@ -2216,7 +2462,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479309570
+      "updatedAt": 1792479309570,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-crystallove-50",
@@ -2240,7 +2490,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792479317968
+      "updatedAt": 1792479317968,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-gem-hearts-51",
@@ -2264,7 +2518,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479323865
+      "updatedAt": 1792479323865,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-dream-bottle-52",
@@ -2288,7 +2546,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479326949
+      "updatedAt": 1792479326949,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-lilyperfume-53",
@@ -2312,7 +2574,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479331315
+      "updatedAt": 1792479331315,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-mylove-54",
@@ -2335,7 +2601,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-crystal-flower-55",
@@ -2358,7 +2628,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-feather-56",
@@ -2381,7 +2655,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-star-wish-57",
@@ -2404,7 +2682,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-luminous-heart-s-melody-floral-path-58",
@@ -2427,7 +2709,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-rose-orb-59",
@@ -2451,7 +2737,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479361658
+      "updatedAt": 1792479361658,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-heartspark-60",
@@ -2460,14 +2750,15 @@
       "name": "HeartSpark",
       "baseValue": 99,
       "marketWorth": 99,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "emotion",
@@ -2475,7 +2766,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479360525
+      "updatedAt": 1792479360525,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 3
+      }
     },
     {
       "id": "item-romantic-vow-wish-gift-61",
@@ -2484,14 +2779,15 @@
       "name": "Wish Gift",
       "baseValue": 200,
       "marketWorth": 200,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "emotion",
@@ -2499,7 +2795,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479363552
+      "updatedAt": 1792479363552,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-flowers-for-you-62",
@@ -2522,7 +2822,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422492043
+      "updatedAt": 1792422492043,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-fancy-boat-63",
@@ -2545,7 +2849,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-heart-garden-64",
@@ -2568,7 +2876,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-romantic-vow-heart-castle-65",
@@ -2591,7 +2903,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-cute-bag-66",
@@ -2615,7 +2931,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479394315
+      "updatedAt": 1792479394315,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-lipstick-67",
@@ -2639,7 +2959,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479395920
+      "updatedAt": 1792479395920,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-heartspark-68",
@@ -2649,13 +2973,13 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
-      "wallOwned": false,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "series"
+        "series",
+        "wall"
       ],
       "tags": [
         "emotion",
@@ -2663,7 +2987,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479401952
+      "updatedAt": 1792479401952,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-gilded-ruby-heart-69",
@@ -2687,7 +3015,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479412513
+      "updatedAt": 1792479412513,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-mystery-gift-70",
@@ -2710,7 +3042,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792422574369
+      "updatedAt": 1792422574369,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-cute-cam-71",
@@ -2733,7 +3069,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-love-card-72",
@@ -2756,7 +3096,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-diamond-heart-73",
@@ -2779,7 +3123,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-collections-of-hearts-heartmatch-74",
@@ -2802,7 +3150,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479433571
+      "updatedAt": 1792479433571,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-bear-hug-75",
@@ -2811,14 +3163,15 @@
       "name": "Bear Hug",
       "baseValue": 100,
       "marketWorth": 100,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "emotion",
@@ -2826,7 +3179,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479451282
+      "updatedAt": 1792479451282,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-ballrose-76",
@@ -2849,7 +3206,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422634228
+      "updatedAt": 1792422634228,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-cutevow-77",
@@ -2872,7 +3233,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-mistsweet-78",
@@ -2895,7 +3260,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422662380
+      "updatedAt": 1792422662380,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-heart-crit-79",
@@ -2918,7 +3287,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-flower-bear-80",
@@ -2941,7 +3314,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422714503
+      "updatedAt": 1792422714503,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-music-cake-81",
@@ -2964,7 +3341,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422706777
+      "updatedAt": 1792422706777,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-echoes-of-love-love-plane-82",
@@ -2987,7 +3368,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-photo-booth-83",
@@ -3010,7 +3395,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-tape-deck-84",
@@ -3033,7 +3422,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-flip-phone-85",
@@ -3042,14 +3435,15 @@
       "name": "flip phone",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 9,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "modern",
@@ -3057,7 +3451,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792422821025
+      "updatedAt": 1792422821025,
+      "backpacks": {
+        "lbs": 9,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-back-to-the-millennium-retro-pc-86",
@@ -3080,7 +3478,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-disco-87",
@@ -3103,7 +3505,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479647647
+      "updatedAt": 1792479647647,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-skateware-88",
@@ -3126,7 +3532,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479658969
+      "updatedAt": 1792479658969,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-gachapon-89",
@@ -3149,7 +3559,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-karaoke-90",
@@ -3172,7 +3586,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792479670043
+      "updatedAt": 1792479670043,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-back-to-the-millennium-cute-pixel-pet-91",
@@ -3195,7 +3613,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-sunset-ride-92",
@@ -3219,7 +3641,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422945216
+      "updatedAt": 1792422945216,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-star-sports-car-93",
@@ -3243,7 +3669,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792422949000
+      "updatedAt": 1792422949000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-f1-car-94",
@@ -3267,7 +3697,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792422960537
+      "updatedAt": 1792422960537,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-lux-ride-95",
@@ -3291,7 +3725,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792422965857
+      "updatedAt": 1792422965857,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-coin-racer-96",
@@ -3300,14 +3738,15 @@
       "name": "Coin Racer",
       "baseValue": 99,
       "marketWorth": 99,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 3,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "modern",
@@ -3315,7 +3754,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792422971049
+      "updatedAt": 1792422971049,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-mystery-gift-97",
@@ -3338,7 +3781,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423081054
+      "updatedAt": 1792423081054,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-thunder-racing-98",
@@ -3361,7 +3808,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-fire-tiger-99",
@@ -3384,7 +3835,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792422987057
+      "updatedAt": 1792422987057,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-convertible-100",
@@ -3407,7 +3862,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792422998323
+      "updatedAt": 1792422998323,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-tech-car-101",
@@ -3430,7 +3889,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-pink-car-102",
@@ -3453,7 +3916,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-luxgarage-103",
@@ -3476,7 +3943,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792423027860
+      "updatedAt": 1792423027860,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-goldwing-racer-104",
@@ -3499,7 +3970,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792423057268
+      "updatedAt": 1792423057268,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-roaring-engine-luxury-sports-car-105",
@@ -3522,7 +3997,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-starbearcase-106",
@@ -3531,14 +4010,15 @@
       "name": "StarBearCase",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 5,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "modern",
@@ -3546,7 +4026,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792423095853
+      "updatedAt": 1792423095853,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-ready-to-go-travel-holiday-107",
@@ -3570,7 +4054,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792423108808
+      "updatedAt": 1792423108808,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-holiday-dove-108",
@@ -3579,14 +4067,15 @@
       "name": "Holiday Dove",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "modern",
@@ -3594,7 +4083,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423114174
+      "updatedAt": 1792423114174,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 3
+      }
     },
     {
       "id": "item-ready-to-go-golden-plane-109",
@@ -3603,14 +4096,15 @@
       "name": "golden plane",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "modern",
@@ -3618,7 +4112,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792423118532
+      "updatedAt": 1792423118532,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 3
+      }
     },
     {
       "id": "item-ready-to-go-airplane-110",
@@ -3642,7 +4140,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792423123802
+      "updatedAt": 1792423123802,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-minicruise-111",
@@ -3666,7 +4168,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423128532
+      "updatedAt": 1792423128532,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-playful-parade-112",
@@ -3689,7 +4195,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423203279
+      "updatedAt": 1792423203279,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-laser-backpack-113",
@@ -3712,7 +4222,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792423170369
+      "updatedAt": 1792423170369,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-travel-bus-114",
@@ -3735,7 +4249,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792423174078
+      "updatedAt": 1792423174078,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-go-travel-115",
@@ -3758,7 +4276,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792423168904
+      "updatedAt": 1792423168904,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-globecase-116",
@@ -3781,7 +4303,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-lazy-holiday-117",
@@ -3804,7 +4330,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ready-to-go-good-holiday-118",
@@ -3827,7 +4357,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-flycrown-119",
@@ -3851,7 +4385,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423224037
+      "updatedAt": 1792423224037,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-gold-crown-120",
@@ -3875,7 +4413,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792423233122
+      "updatedAt": 1792423233122,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-mystery-gift-121",
@@ -3898,7 +4440,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792423279832
+      "updatedAt": 1792423279832,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-star-gala-122",
@@ -3921,7 +4467,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-award-123",
@@ -3944,7 +4494,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-dragon-throne-124",
@@ -3967,7 +4521,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792423256019
+      "updatedAt": 1792423256019,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-glory-crystal-125",
@@ -3990,7 +4548,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-the-road-to-fame-golden-piano-126",
@@ -4013,7 +4575,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-wonderland-127",
@@ -4037,7 +4603,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792479955236
+      "updatedAt": 1792479955236,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-time-seal-128",
@@ -4061,7 +4631,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480796372
+      "updatedAt": 1792480796372,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-ruby-necklace-129",
@@ -4085,7 +4659,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792479965318
+      "updatedAt": 1792479965318,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-heart-gem-130",
@@ -4109,7 +4687,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479967238
+      "updatedAt": 1792479967238,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-mystery-gift-131",
@@ -4132,7 +4714,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792479975233
+      "updatedAt": 1792479975233,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-magic-hat-132",
@@ -4156,7 +4742,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792479985017
+      "updatedAt": 1792479985017,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-sweet-treats-133",
@@ -4180,7 +4770,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792479990935
+      "updatedAt": 1792479990935,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wonderland-dream-poker-hat-134",
@@ -4204,7 +4798,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792479996014
+      "updatedAt": 1792479996014,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-aladdin-s-lamp-135",
@@ -4227,7 +4825,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-anansi-the-spider-136",
@@ -4250,7 +4852,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-paul-bunyan-137",
@@ -4273,7 +4879,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-peter-and-the-wolf-138",
@@ -4296,7 +4906,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-the-little-mermaid-139",
@@ -4319,7 +4933,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-jack-and-the-beanstalk-140",
@@ -4342,7 +4960,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-robin-hood-141",
@@ -4365,7 +4987,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-maui-lifting-the-land-142",
@@ -4388,7 +5014,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-the-cowherd-and-the-weaver-girl-143",
@@ -4411,7 +5041,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-urashima-tar-144",
@@ -4434,7 +5068,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-little-red-riding-hood-145",
@@ -4457,7 +5095,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-momotaro-146",
@@ -4480,7 +5122,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-story-club-sun-wukong-147",
@@ -4503,7 +5149,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-poker-148",
@@ -4527,7 +5177,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480758447
+      "updatedAt": 1792480758447,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-monopoly-149",
@@ -4551,7 +5205,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480746265
+      "updatedAt": 1792480746265,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-mancala-150",
@@ -4574,7 +5232,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480769866
+      "updatedAt": 1792480769866,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-checkers-151",
@@ -4597,7 +5259,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480767283
+      "updatedAt": 1792480767283,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-go-152",
@@ -4620,7 +5286,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480761213
+      "updatedAt": 1792480761213,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-uno-153",
@@ -4643,7 +5313,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480754895
+      "updatedAt": 1792480754895,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-xiangqi-154",
@@ -4666,7 +5340,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480743711
+      "updatedAt": 1792480743711,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-mahjong-155",
@@ -4689,7 +5367,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480752411
+      "updatedAt": 1792480752411,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-wings-of-chess-156",
@@ -4712,7 +5394,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480774089
+      "updatedAt": 1792480774089,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-loter-a-157",
@@ -4735,7 +5421,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-little-square-board-shogi-158",
@@ -4758,7 +5448,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480749505
+      "updatedAt": 1792480749505,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-girl-with-a-pearl-earring-159",
@@ -4782,7 +5476,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792480252055
+      "updatedAt": 1792480252055,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-dwelling-in-the-fuchun-mountains-160",
@@ -4805,7 +5503,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-the-starry-night-161",
@@ -4828,7 +5530,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-the-great-wave-off-kanagawa-162",
@@ -4851,7 +5557,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-american-gothic-163",
@@ -4874,7 +5584,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-impression-sunrise-164",
@@ -4897,7 +5611,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-portrait-with-thorn-necklace-and-hummingbird-165",
@@ -4920,7 +5638,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792480241229
+      "updatedAt": 1792480241229,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-mona-lisa-166",
@@ -4943,7 +5665,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-famous-paintings-guernica-167",
@@ -4966,7 +5692,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-lotus-pipa-168",
@@ -4990,7 +5720,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792480262460
+      "updatedAt": 1792480262460,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-floraflute-169",
@@ -5014,7 +5748,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480264603
+      "updatedAt": 1792480264603,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-guzheng-170",
@@ -5037,7 +5775,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-bianzhong-171",
@@ -5060,7 +5802,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-floralflute-172",
@@ -5083,7 +5829,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-suona-173",
@@ -5106,7 +5856,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480703485
+      "updatedAt": 1792480703485,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-sheng-174",
@@ -5129,7 +5883,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480707673
+      "updatedAt": 1792480707673,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-erhu-175",
@@ -5152,7 +5910,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-drum-176",
@@ -5175,7 +5937,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480701043
+      "updatedAt": 1792480701043,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eastern-musical-instrument-xun-177",
@@ -5198,7 +5964,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480697943
+      "updatedAt": 1792480697943,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-magicconch-178",
@@ -5207,14 +5977,15 @@
       "name": "MagicConch",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 8,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "fantasy",
@@ -5222,7 +5993,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480870118
+      "updatedAt": 1792480870118,
+      "backpacks": {
+        "lbs": 8,
+        "cryptid": 12
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-fairy-boat-179",
@@ -5246,7 +6021,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792480877112
+      "updatedAt": 1792480877112,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-cloudfeather-180",
@@ -5270,7 +6049,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792480879109
+      "updatedAt": 1792480879109,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-moon-butterfly-crown-181",
@@ -5294,7 +6077,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480885058
+      "updatedAt": 1792480885058,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-magic-gate-182",
@@ -5317,7 +6104,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792480923486
+      "updatedAt": 1792480923486,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-butterfly-bloom-183",
@@ -5340,7 +6131,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-dreamcatcher-184",
@@ -5363,7 +6158,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-hourglass-185",
@@ -5386,7 +6185,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-celebration-in-the-clouds-186",
@@ -5409,7 +6212,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480931673
+      "updatedAt": 1792480931673,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glimmering-hidden-paradise-ice-castle-187",
@@ -5432,7 +6239,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-starmoon-bottle-188",
@@ -5455,7 +6266,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480948334
+      "updatedAt": 1792480948334,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-timepiece-189",
@@ -5478,7 +6293,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-chronowing-190",
@@ -5501,7 +6320,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-spellbook-191",
@@ -5524,7 +6347,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-magic-hat-192",
@@ -5547,7 +6374,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-star-train-193",
@@ -5570,7 +6401,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792480978337
+      "updatedAt": 1792480978337,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-starry-garden-194",
@@ -5593,7 +6428,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-galaxy-rose-195",
@@ -5616,7 +6455,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-stellar-mirage-196",
@@ -5639,7 +6482,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-galaxy-drink-197",
@@ -5662,7 +6509,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-galaxy-book-198",
@@ -5685,7 +6536,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-river-journey-star-phonograph-199",
@@ -5708,7 +6563,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-lumibutterfly-200",
@@ -5732,7 +6591,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792481074517
+      "updatedAt": 1792481074517,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-phantom-feather-201",
@@ -5756,7 +6619,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481079779
+      "updatedAt": 1792481079779,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-time-watch-202",
@@ -5780,7 +6647,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792481073468
+      "updatedAt": 1792481073468,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-galaxy-gift-203",
@@ -5803,7 +6674,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481087327
+      "updatedAt": 1792481087327,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-swan-teacup-204",
@@ -5826,7 +6701,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481090544
+      "updatedAt": 1792481090544,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-bottle-summer-205",
@@ -5849,7 +6728,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-gilded-aviary-206",
@@ -5872,7 +6755,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481107132
+      "updatedAt": 1792481107132,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-wandering-in-wonderland-dreamstarcar-207",
@@ -5895,7 +6782,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-blue-gun-208",
@@ -5904,14 +6795,15 @@
       "name": "Blue Gun",
       "baseValue": 20,
       "marketWorth": 20,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "fantasy",
@@ -5919,7 +6811,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792481166858
+      "updatedAt": 1792481166858,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyberbike-209",
@@ -5943,7 +6839,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481174023
+      "updatedAt": 1792481174023,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-star-sports-car-210",
@@ -5967,7 +6867,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792481180013
+      "updatedAt": 1792481180013,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyber-guitar-211",
@@ -5991,7 +6895,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792481186790
+      "updatedAt": 1792481186790,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-fantasy-box-212",
@@ -6015,7 +6923,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792481191963
+      "updatedAt": 1792481191963,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyber-wand-213",
@@ -6039,7 +6951,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792481196688
+      "updatedAt": 1792481196688,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-supernova-helmet-214",
@@ -6062,7 +6978,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481207012
+      "updatedAt": 1792481207012,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-starship-anthem-215",
@@ -6085,7 +7005,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792481214194
+      "updatedAt": 1792481214194,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyber-moto-216",
@@ -6108,7 +7032,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyber-backpack-217",
@@ -6131,7 +7059,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-cyberrush-218",
@@ -6154,7 +7086,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-ii-thunder-racing-219",
@@ -6177,7 +7113,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-disc-220",
@@ -6186,14 +7126,15 @@
       "name": "Cyber Disc",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 16,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "fantasy",
@@ -6201,7 +7142,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480375594
+      "updatedAt": 1792480375594,
+      "backpacks": {
+        "lbs": 16,
+        "cryptid": 6
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-microphone-221",
@@ -6210,14 +7155,15 @@
       "name": "Cyber Microphone",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 5,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "fantasy",
@@ -6225,7 +7171,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480378645
+      "updatedAt": 1792480378645,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-dagger-222",
@@ -6234,14 +7184,15 @@
       "name": "Cyber Dagger",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "fantasy",
@@ -6249,7 +7200,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792480379910
+      "updatedAt": 1792480379910,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-supernova-armor-223",
@@ -6273,7 +7228,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792480370073
+      "updatedAt": 1792480370073,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-space-rocket-224",
@@ -6297,7 +7256,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792481136675
+      "updatedAt": 1792481136675,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-racer-225",
@@ -6321,7 +7284,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792480364142
+      "updatedAt": 1792480364142,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-storm-226",
@@ -6344,7 +7311,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792481153432
+      "updatedAt": 1792481153432,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-warrior-227",
@@ -6367,7 +7338,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-love-228",
@@ -6390,7 +7365,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cool-shades-229",
@@ -6413,7 +7392,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-time-train-230",
@@ -6436,7 +7419,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cyber-frenzy-i-cyber-bear-231",
@@ -6459,7 +7446,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-flamenco-dress-232",
@@ -6483,7 +7474,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482179355
+      "updatedAt": 1792482179355,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-swedish-folk-costume-233",
@@ -6506,7 +7501,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482154421
+      "updatedAt": 1792482154421,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-egyptian-pharaoh-outfit-234",
@@ -6529,7 +7528,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482140703
+      "updatedAt": 1792482140703,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-court-dress-235",
@@ -6552,7 +7555,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482115688
+      "updatedAt": 1792482115688,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-white-bridal-veil-236",
@@ -6576,7 +7583,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482022643
+      "updatedAt": 1792482022643,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-lion-ring-237",
@@ -6600,7 +7611,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482028548
+      "updatedAt": 1792482028548,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-rose-scepter-238",
@@ -6609,14 +7624,15 @@
       "name": "Rose Scepter",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "apparel",
@@ -6624,7 +7640,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482020605
+      "updatedAt": 1792482020605,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-court-dress-239",
@@ -6647,7 +7667,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-white-suit-240",
@@ -6670,7 +7694,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-amulet-241",
@@ -6693,7 +7721,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mysterious-europe-star-crown-242",
@@ -6716,7 +7748,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792482039361
+      "updatedAt": 1792482039361,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-alaskan-malamute-243",
@@ -6740,7 +7776,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482492796
+      "updatedAt": 1792482492796,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-chow-chow-244",
@@ -6764,7 +7804,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482497782
+      "updatedAt": 1792482497782,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-pekingese-245",
@@ -6788,7 +7832,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482500353
+      "updatedAt": 1792482500353,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-samoyed-246",
@@ -6812,7 +7860,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482506876
+      "updatedAt": 1792482506876,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-corgi-247",
@@ -6836,7 +7888,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482509946
+      "updatedAt": 1792482509946,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-german-shepherd-248",
@@ -6860,7 +7916,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482513043
+      "updatedAt": 1792482513043,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-beagle-249",
@@ -6869,14 +7929,15 @@
       "name": "Beagle",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -6884,7 +7945,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482520356
+      "updatedAt": 1792482520356,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 6
+      }
     },
     {
       "id": "item-doggo-squad-shiba-inu-250",
@@ -6908,7 +7973,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482517340
+      "updatedAt": 1792482517340,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-poodle-251",
@@ -6932,7 +8001,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482525966
+      "updatedAt": 1792482525966,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-bernese-mountain-dog-252",
@@ -6956,7 +8029,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482530653
+      "updatedAt": 1792482530653,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-doggo-squad-tibetan-mastiff-253",
@@ -6965,14 +8042,15 @@
       "name": "Tibetan Mastiff",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -6980,7 +8058,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482533239
+      "updatedAt": 1792482533239,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-butterfly-series-pink-butterfly-254",
@@ -7004,7 +8086,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482549510
+      "updatedAt": 1792482549510,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-butterfly-series-blue-butterfly-255",
@@ -7013,14 +8099,15 @@
       "name": "blue butterfly",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 3,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7028,7 +8115,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482551035
+      "updatedAt": 1792482551035,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-butterfly-series-black-butterfly-256",
@@ -7037,14 +8128,15 @@
       "name": "Black Butterfly",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 65,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7052,7 +8144,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482554171
+      "updatedAt": 1792482554171,
+      "backpacks": {
+        "lbs": 65,
+        "cryptid": 57
+      }
     },
     {
       "id": "item-butterfly-series-yellow-butterfly-257",
@@ -7061,14 +8157,15 @@
       "name": "Yellow Butterfly",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7076,7 +8173,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482557395
+      "updatedAt": 1792482557395,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-butterfly-series-purple-butterfly-258",
@@ -7085,14 +8186,15 @@
       "name": "Purple Butterfly",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 26,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7100,7 +8202,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482558847
+      "updatedAt": 1792482558847,
+      "backpacks": {
+        "lbs": 26,
+        "cryptid": 42
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-pomegranate-bloom-259",
@@ -7109,14 +8215,15 @@
       "name": "Pomegranate Bloom",
       "baseValue": 199,
       "marketWorth": 199,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7124,7 +8231,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482582886
+      "updatedAt": 1792482582886,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-narcissus-260",
@@ -7148,7 +8259,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482586883
+      "updatedAt": 1792482586883,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-peach-blossom-261",
@@ -7172,7 +8287,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482589790
+      "updatedAt": 1792482589790,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-morningglory-262",
@@ -7196,7 +8315,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482603504
+      "updatedAt": 1792482603504,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-lavender-263",
@@ -7220,7 +8343,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482608936
+      "updatedAt": 1792482608936,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-osmanthus-264",
@@ -7244,7 +8371,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482572664
+      "updatedAt": 1792482572664,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-lotus-265",
@@ -7267,7 +8398,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482615161
+      "updatedAt": 1792482615161,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-chrysanthemum-266",
@@ -7290,7 +8425,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482621731
+      "updatedAt": 1792482621731,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-wintersweet-267",
@@ -7313,7 +8452,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-camellia-268",
@@ -7336,7 +8479,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482641578
+      "updatedAt": 1792482641578,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-peony-269",
@@ -7359,7 +8506,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482638404
+      "updatedAt": 1792482638404,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-in-bloom-hibiscus-270",
@@ -7382,7 +8533,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482644408
+      "updatedAt": 1792482644408,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-humanity-s-adorable-adorable-tortoise-271",
@@ -7391,14 +8546,15 @@
       "name": "Adorable Tortoise",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7406,7 +8562,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482668996
+      "updatedAt": 1792482668996,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 3
+      }
     },
     {
       "id": "item-humanity-s-adorable-energetic-hamster-272",
@@ -7415,14 +8575,15 @@
       "name": "Energetic Hamster",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7430,7 +8591,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482671691
+      "updatedAt": 1792482671691,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-humanity-s-adorable-lop-eared-bunny-273",
@@ -7454,7 +8619,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482689167
+      "updatedAt": 1792482689167,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-humanity-s-adorable-cuddly-ragdoll-cat-274",
@@ -7477,7 +8646,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-humanity-s-adorable-playful-parrot-275",
@@ -7486,14 +8659,15 @@
       "name": "Playful Parrot",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "lives",
@@ -7501,7 +8675,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482692045
+      "updatedAt": 1792482692045,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-humanity-s-adorable-energetic-golden-retriever-276",
@@ -7524,7 +8702,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-doggy-coins-277",
@@ -7548,7 +8730,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483047526
+      "updatedAt": 1792483047526,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-toast-xc-278",
@@ -7572,7 +8758,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483052496
+      "updatedAt": 1792483052496,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-puppy-279",
@@ -7596,7 +8786,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483059273
+      "updatedAt": 1792483059273,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-bee-puppy-280",
@@ -7620,7 +8814,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483066724
+      "updatedAt": 1792483066724,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-mystery-gift-281",
@@ -7643,7 +8841,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483083433
+      "updatedAt": 1792483083433,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-hot-dog-282",
@@ -7666,7 +8868,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483089462
+      "updatedAt": 1792483089462,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-shibaframe-283",
@@ -7689,7 +8895,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-dog-king-284",
@@ -7712,7 +8922,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-energetic-golden-retriever-285",
@@ -7735,7 +8949,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-paws-of-attraction-sweet-dreams-puppy-286",
@@ -7758,7 +8976,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-fateflower-287",
@@ -7782,7 +9004,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483017488
+      "updatedAt": 1792483017488,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-spring-blessing-288",
@@ -7806,7 +9032,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483019616
+      "updatedAt": 1792483019616,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-mystery-gift-289",
@@ -7829,7 +9059,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483037980
+      "updatedAt": 1792483037980,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-flower-gift-box-290",
@@ -7852,7 +9086,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483029882
+      "updatedAt": 1792483029882,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-floral-cradle-291",
@@ -7875,7 +9113,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-springtime-wishes-butterfly-blossoms-292",
@@ -7898,7 +9140,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792483033546
+      "updatedAt": 1792483033546,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-spring-flower-bushes-293",
@@ -7922,7 +9168,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482980501
+      "updatedAt": 1792482980501,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-spring-bag-294",
@@ -7946,7 +9196,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482992881
+      "updatedAt": 1792482992881,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-holiday-travel-295",
@@ -7970,7 +9224,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482998317
+      "updatedAt": 1792482998317,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-mystery-gift-296",
@@ -7993,7 +9251,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482974941
+      "updatedAt": 1792482974941,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-bloom-bee-297",
@@ -8016,7 +9278,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-spring-wildflowers-terrarium-298",
@@ -8039,7 +9305,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483006728
+      "updatedAt": 1792483006728,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-stargaze-cat-299",
@@ -8063,7 +9333,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792482935715
+      "updatedAt": 1792482935715,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-mystery-gift-300",
@@ -8086,7 +9360,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482959254
+      "updatedAt": 1792482959254,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-cat-melody-301",
@@ -8109,7 +9387,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-teacup-cat-302",
@@ -8132,7 +9414,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-wish-cat-303",
@@ -8155,7 +9441,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-star-wish-cat-land-autumn-love-304",
@@ -8178,7 +9468,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-heart-full-of-felicity-heart-cat-305",
@@ -8202,7 +9496,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482909529
+      "updatedAt": 1792482909529,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-heart-full-of-felicity-creamy-cat-306",
@@ -8226,7 +9524,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482906791
+      "updatedAt": 1792482906791,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-heart-full-of-felicity-mystery-gift-307",
@@ -8249,7 +9551,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482926175
+      "updatedAt": 1792482926175,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-heart-full-of-felicity-snuggling-sweetie-308",
@@ -8272,7 +9578,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482916904
+      "updatedAt": 1792482916904,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-a-heart-full-of-felicity-fish-cat-309",
@@ -8295,7 +9605,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-tulip-310",
@@ -8319,7 +9633,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482832581
+      "updatedAt": 1792482832581,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-rose-311",
@@ -8343,7 +9661,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482828771
+      "updatedAt": 1792482828771,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-daisy-312",
@@ -8366,7 +9688,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482817435
+      "updatedAt": 1792482817435,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-gypsophila-313",
@@ -8389,7 +9715,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482836118
+      "updatedAt": 1792482836118,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-iris-314",
@@ -8412,7 +9742,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482840548
+      "updatedAt": 1792482840548,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-starry-flowers-starry-narcissus-315",
@@ -8435,7 +9769,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482823220
+      "updatedAt": 1792482823220,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-panda-brew-316",
@@ -8459,7 +9797,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792482767780
+      "updatedAt": 1792482767780,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-panda-bamboo-317",
@@ -8483,7 +9825,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792482765591
+      "updatedAt": 1792482765591,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-meltypanda-318",
@@ -8506,7 +9852,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-lazy-panda-319",
@@ -8529,7 +9879,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-panda-bath-320",
@@ -8552,7 +9906,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-swing-panda-321",
@@ -8575,7 +9933,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-panda-tea-322",
@@ -8598,7 +9960,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792482795615
+      "updatedAt": 1792482795615,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-panda-panda-pack-323",
@@ -8621,7 +9987,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-autumn-scarf-324",
@@ -8630,14 +10000,15 @@
       "name": "Autumn Scarf",
       "baseValue": 30,
       "marketWorth": 30,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8645,7 +10016,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483682403
+      "updatedAt": 1792483682403,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-small-ginkgo-umbrella-325",
@@ -8654,14 +10029,15 @@
       "name": "Small Ginkgo Umbrella",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 6,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8669,7 +10045,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483689643
+      "updatedAt": 1792483689643,
+      "backpacks": {
+        "lbs": 6,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-corn-bouquet-326",
@@ -8678,14 +10058,15 @@
       "name": "Corn Bouquet",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8693,7 +10074,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483694999
+      "updatedAt": 1792483694999,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 4
+      }
     },
     {
       "id": "item-autumn-delights-grape-basket-327",
@@ -8702,14 +10087,15 @@
       "name": "Grape Basket",
       "baseValue": 15,
       "marketWorth": 15,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 32,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8717,7 +10103,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483698037
+      "updatedAt": 1792483698037,
+      "backpacks": {
+        "lbs": 32,
+        "cryptid": 10
+      }
     },
     {
       "id": "item-autumn-delights-lucky-conker-328",
@@ -8741,7 +10131,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483700529
+      "updatedAt": 1792483700529,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-chestnut-pal-329",
@@ -8750,14 +10144,15 @@
       "name": "Chestnut Pal",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 9,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8765,7 +10160,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483703363
+      "updatedAt": 1792483703363,
+      "backpacks": {
+        "lbs": 9,
+        "cryptid": 13
+      }
     },
     {
       "id": "item-autumn-delights-halfmoon-pancake-330",
@@ -8774,14 +10173,15 @@
       "name": "Halfmoon Pancake",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 3,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -8789,7 +10189,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483707349
+      "updatedAt": 1792483707349,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-fall-wreath-331",
@@ -8813,7 +10217,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483711783
+      "updatedAt": 1792483711783,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-autumn-delights-moon-reed-332",
@@ -8837,7 +10245,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483714016
+      "updatedAt": 1792483714016,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-galaxy-333",
@@ -8860,7 +10272,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-sun-334",
@@ -8883,7 +10299,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-earth-335",
@@ -8906,7 +10326,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-saturn-336",
@@ -8929,7 +10353,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483647637
+      "updatedAt": 1792483647637,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-mercury-337",
@@ -8952,7 +10380,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483640875
+      "updatedAt": 1792483640875,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-nepture-338",
@@ -8975,7 +10407,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-venus-339",
@@ -8998,7 +10434,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-jupiter-340",
@@ -9021,7 +10461,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-mars-341",
@@ -9044,7 +10488,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cosmic-galaxy-uranus-342",
@@ -9067,7 +10515,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-vinicunca-343",
@@ -9091,7 +10543,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792483587568
+      "updatedAt": 1792483587568,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-tianshan-mountains-344",
@@ -9114,7 +10570,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-barcelona-345",
@@ -9137,7 +10597,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-nice-346",
@@ -9160,7 +10624,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-florence-347",
@@ -9183,7 +10651,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-great-barrier-reef-348",
@@ -9206,7 +10678,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-uyuni-salt-flats-349",
@@ -9229,7 +10705,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-kyoto-maple-350",
@@ -9252,7 +10732,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-ticket-to-the-wonderland-finnish-aurora-351",
@@ -9275,7 +10759,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-monet-s-garden-352",
@@ -9284,14 +10772,15 @@
       "name": "Monet's Garden",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 25,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -9299,7 +10788,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483499411
+      "updatedAt": 1792483499411,
+      "backpacks": {
+        "lbs": 25,
+        "cryptid": 24
+      }
     },
     {
       "id": "item-world-garden-stamp-villa-d-este-garden-353",
@@ -9323,7 +10816,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483504118
+      "updatedAt": 1792483504118,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-the-butchart-gardens-354",
@@ -9332,14 +10829,15 @@
       "name": "The Butchart Gardens",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -9347,7 +10845,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483507733
+      "updatedAt": 1792483507733,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-kirstenbosch-national-botanical-garden-355",
@@ -9356,14 +10858,15 @@
       "name": "Kirstenbosch National Botanical Garden",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -9371,7 +10874,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483520481
+      "updatedAt": 1792483520481,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-royal-botanic-garden-sydney-356",
@@ -9395,7 +10902,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483525873
+      "updatedAt": 1792483525873,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-versailles-gardens-357",
@@ -9418,7 +10929,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-sch-nbrunn-palace-garden-358",
@@ -9441,7 +10956,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-humble-administrator-s-garden-359",
@@ -9464,7 +10983,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483553615
+      "updatedAt": 1792483553615,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-yanggu-temple-360",
@@ -9487,7 +11010,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-singapore-botanic-gardens-361",
@@ -9510,7 +11037,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-longwood-gardens-362",
@@ -9533,7 +11064,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-garden-stamp-rio-de-janeiro-botanical-garden-363",
@@ -9556,7 +11091,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483576650
+      "updatedAt": 1792483576650,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-sahara-desert-364",
@@ -9580,7 +11119,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792483452745
+      "updatedAt": 1792483452745,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-iguazu-falls-365",
@@ -9603,7 +11146,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-mountain-at-sunrise-366",
@@ -9626,7 +11173,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792483469753
+      "updatedAt": 1792483469753,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-blue-ice-cave-367",
@@ -9649,7 +11200,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-uluru-368",
@@ -9672,7 +11227,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-li-river-369",
@@ -9695,7 +11254,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-grand-canyon-370",
@@ -9718,7 +11281,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-white-cliffs-371",
@@ -9741,7 +11308,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-mount-kilimanjaro-372",
@@ -9764,7 +11335,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-beautiful-earth-maldives-atolls-373",
@@ -9787,7 +11362,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-travel-tickets-paris-trip-374",
@@ -9811,7 +11390,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483430918
+      "updatedAt": 1792483430918,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-travel-tickets-shanghai-trip-375",
@@ -9835,7 +11418,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483429789
+      "updatedAt": 1792483429789,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-travel-tickets-new-york-trip-376",
@@ -9859,7 +11446,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483425712
+      "updatedAt": 1792483425712,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-travel-tickets-egypt-trip-377",
@@ -9883,7 +11474,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483428707
+      "updatedAt": 1792483428707,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-travel-tickets-tokyo-trip-378",
@@ -9906,7 +11501,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483422581
+      "updatedAt": 1792483422581,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-the-great-wall-379",
@@ -9929,7 +11528,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-chich-n-itz-380",
@@ -9952,7 +11555,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-machu-picchu-381",
@@ -9975,7 +11582,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-colosseum-382",
@@ -9998,7 +11609,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-embrace-rio-383",
@@ -10021,7 +11636,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-world-cultural-heritage-taj-mahal-384",
@@ -10044,7 +11663,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-petal-spin-385",
@@ -10068,7 +11691,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483296238
+      "updatedAt": 1792483296238,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakurabell-386",
@@ -10092,7 +11719,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792483298493
+      "updatedAt": 1792483298493,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-fuji-sakura-387",
@@ -10116,7 +11747,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792483305890
+      "updatedAt": 1792483305890,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-cherry-fall-388",
@@ -10140,7 +11775,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483311563
+      "updatedAt": 1792483311563,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-blossom-omamori-389",
@@ -10164,7 +11803,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483329251
+      "updatedAt": 1792483329251,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-japanese-flower-tea-390",
@@ -10173,14 +11816,15 @@
       "name": "Japanese Flower Tea",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "home",
@@ -10188,7 +11832,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483332399
+      "updatedAt": 1792483332399,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakura-ice-cream-391",
@@ -10212,7 +11860,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483334777
+      "updatedAt": 1792483334777,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakura-tea-392",
@@ -10236,7 +11888,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483341307
+      "updatedAt": 1792483341307,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakurafall-393",
@@ -10259,7 +11915,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakura-view-394",
@@ -10282,7 +11942,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792483357178
+      "updatedAt": 1792483357178,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sakura-drink-395",
@@ -10305,7 +11969,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cherry-blossom-sunny-doll-396",
@@ -10328,7 +11996,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-water-nest-397",
@@ -10352,7 +12024,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483237256
+      "updatedAt": 1792483237256,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-lotus-lamp-398",
@@ -10376,7 +12052,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483239270
+      "updatedAt": 1792483239270,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-circle-fan-399",
@@ -10400,7 +12080,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483241631
+      "updatedAt": 1792483241631,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-lotus-pipa-400",
@@ -10424,7 +12108,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483247239
+      "updatedAt": 1792483247239,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-pavilion-401",
@@ -10448,7 +12136,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483254378
+      "updatedAt": 1792483254378,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-lotus-dreamscape-floral-fan-402",
@@ -10471,7 +12163,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-spring-403",
@@ -10495,7 +12191,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483177239
+      "updatedAt": 1792483177239,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-summer-lotus-404",
@@ -10518,7 +12218,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792483219880
+      "updatedAt": 1792483219880,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-autumn-405",
@@ -10541,7 +12245,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-four-seasons-snowglobe-406",
@@ -10564,7 +12272,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792483186366
+      "updatedAt": 1792483186366,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-choco-box-407",
@@ -10588,7 +12300,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483957106
+      "updatedAt": 1792483957106,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-chocostick-408",
@@ -10612,7 +12328,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483961151
+      "updatedAt": 1792483961151,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-candy-chocolate-409",
@@ -10622,13 +12342,14 @@
       "baseValue": 10,
       "marketWorth": 10,
       "quantity": 0,
-      "wallOwned": false,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10636,7 +12357,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484056471
+      "updatedAt": 1792484056471,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-chocolate-feast-chocoheart-410",
@@ -10645,14 +12370,15 @@
       "name": "ChocoHeart",
       "baseValue": 1,
       "marketWorth": 1,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 10,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10660,7 +12386,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483967020
+      "updatedAt": 1792483967020,
+      "backpacks": {
+        "lbs": 10,
+        "cryptid": 5
+      }
     },
     {
       "id": "item-chocolate-feast-hot-cocoa-411",
@@ -10683,7 +12413,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484024069
+      "updatedAt": 1792484024069,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-mystery-gift-412",
@@ -10706,7 +12440,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792483994117
+      "updatedAt": 1792483994117,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-sweetchoco-413",
@@ -10729,7 +12467,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-luckychoco-414",
@@ -10752,7 +12494,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-chocolate-415",
@@ -10776,7 +12522,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484035113
+      "updatedAt": 1792484035113,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-chocolate-gelato-416",
@@ -10799,7 +12549,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484047171
+      "updatedAt": 1792484047171,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chocolate-feast-dessert-zodiac-417",
@@ -10822,7 +12576,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-dondurma-418",
@@ -10831,14 +12589,15 @@
       "name": "Dondurma",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 53,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10846,7 +12605,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484071248
+      "updatedAt": 1792484071248,
+      "backpacks": {
+        "lbs": 53,
+        "cryptid": 8
+      }
     },
     {
       "id": "item-pixel-ice-cream-kulfi-popsicle-419",
@@ -10855,14 +12618,15 @@
       "name": "Kulfi Popsicle",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10870,7 +12634,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484075817
+      "updatedAt": 1792484075817,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 4
+      }
     },
     {
       "id": "item-pixel-ice-cream-gelato-420",
@@ -10879,14 +12647,15 @@
       "name": "Gelato",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 29,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10894,7 +12663,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484077819
+      "updatedAt": 1792484077819,
+      "backpacks": {
+        "lbs": 29,
+        "cryptid": 27
+      }
     },
     {
       "id": "item-pixel-ice-cream-waffle-ice-cream-421",
@@ -10903,14 +12676,15 @@
       "name": "Waffle Ice Cream",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 65,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10918,7 +12692,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484081531
+      "updatedAt": 1792484081531,
+      "backpacks": {
+        "lbs": 65,
+        "cryptid": 57
+      }
     },
     {
       "id": "item-pixel-ice-cream-banana-split-422",
@@ -10927,14 +12705,15 @@
       "name": "Banana Split",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10942,7 +12721,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484087471
+      "updatedAt": 1792484087471,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-shaved-ice-423",
@@ -10966,7 +12749,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484091479
+      "updatedAt": 1792484091479,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-puluoda-ice-cream-424",
@@ -10975,14 +12762,15 @@
       "name": "Puluoda Ice Cream",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 6,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -10990,7 +12778,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484098200
+      "updatedAt": 1792484098200,
+      "backpacks": {
+        "lbs": 6,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-pixel-ice-cream-guizhou-bingjiang-425",
@@ -11014,7 +12806,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484134926
+      "updatedAt": 1792484134926,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-maple-syrup-ice-cream-426",
@@ -11038,7 +12834,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484136483
+      "updatedAt": 1792484136483,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-a-a-ice-cream-427",
@@ -11062,7 +12862,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484137583
+      "updatedAt": 1792484137583,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-mango-ice-cream-428",
@@ -11085,7 +12889,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-pixel-ice-cream-croissant-ice-cream-429",
@@ -11108,7 +12916,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484169345
+      "updatedAt": 1792484169345,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-coconut-ice-cream-430",
@@ -11117,14 +12929,15 @@
       "name": "Coconut Ice Cream",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11132,7 +12945,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484189461
+      "updatedAt": 1792484189461,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-gelato-431",
@@ -11142,7 +12959,7 @@
       "baseValue": 10,
       "marketWorth": 10,
       "quantity": 0,
-      "wallOwned": false,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
@@ -11156,7 +12973,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484192204
+      "updatedAt": 1792484192204,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-chinese-style-ice-dessert-432",
@@ -11180,7 +13001,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484202294
+      "updatedAt": 1792484202294,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-cream-soda-433",
@@ -11189,14 +13014,15 @@
       "name": "Cream Soda",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11204,7 +13030,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484206885
+      "updatedAt": 1792484206885,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 4
+      }
     },
     {
       "id": "item-global-ice-cream-festival-sundae-434",
@@ -11214,13 +13044,14 @@
       "baseValue": 39,
       "marketWorth": 39,
       "quantity": 0,
-      "wallOwned": false,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11228,7 +13059,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484210020
+      "updatedAt": 1792484210020,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-global-ice-cream-festival-affogato-435",
@@ -11252,7 +13087,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484214315
+      "updatedAt": 1792484214315,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-frozen-yogurt-ice-cream-436",
@@ -11261,14 +13100,15 @@
       "name": "Frozen Yogurt Ice Cream",
       "baseValue": 79,
       "marketWorth": 79,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11276,7 +13116,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484221703
+      "updatedAt": 1792484221703,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-bread-ice-cream-437",
@@ -11285,14 +13129,15 @@
       "name": "Bread Ice Cream",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11300,7 +13145,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484224797
+      "updatedAt": 1792484224797,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-durian-ice-cream-438",
@@ -11324,7 +13173,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484228667
+      "updatedAt": 1792484228667,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-chinese-ice-pop-439",
@@ -11333,14 +13186,15 @@
       "name": "Old-School Chinese Ice Pop",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 14,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11348,7 +13202,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484246576
+      "updatedAt": 1792484246576,
+      "backpacks": {
+        "lbs": 14,
+        "cryptid": 30
+      }
     },
     {
       "id": "item-global-ice-cream-festival-99-flake-440",
@@ -11357,14 +13215,15 @@
       "name": "99 Flake",
       "baseValue": 99,
       "marketWorth": 99,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11372,7 +13231,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484253194
+      "updatedAt": 1792484253194,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-french-parfait-441",
@@ -11396,7 +13259,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484256527
+      "updatedAt": 1792484256527,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-fruitpop-442",
@@ -11420,7 +13287,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484259057
+      "updatedAt": 1792484259057,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-global-ice-cream-festival-chocolate-gelato-443",
@@ -11443,7 +13314,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484266007
+      "updatedAt": 1792484266007,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-americano-444",
@@ -11467,7 +13342,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484287342
+      "updatedAt": 1792484287342,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-coffeepour-445",
@@ -11491,7 +13370,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484292580
+      "updatedAt": 1792484292580,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-coffeelove-446",
@@ -11500,14 +13383,15 @@
       "name": "CoffeeLove",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11515,7 +13399,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484295581
+      "updatedAt": 1792484295581,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-green-tea-447",
@@ -11539,7 +13427,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484298743
+      "updatedAt": 1792484298743,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-hot-cocoa-448",
@@ -11563,7 +13455,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484303276
+      "updatedAt": 1792484303276,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-afternoon-tea-time-rose-latte-449",
@@ -11586,7 +13482,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-choco-box-450",
@@ -11610,7 +13510,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484913853
+      "updatedAt": 1792484913853,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-donut-451",
@@ -11634,7 +13538,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484920557
+      "updatedAt": 1792484920557,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-cookie-452",
@@ -11658,7 +13566,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484908870
+      "updatedAt": 1792484908870,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-afternoon-tea-453",
@@ -11682,7 +13594,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484927180
+      "updatedAt": 1792484927180,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-strawberry-pudding-454",
@@ -11706,7 +13622,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484930253
+      "updatedAt": 1792484930253,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-swissroll-455",
@@ -11730,7 +13650,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484938411
+      "updatedAt": 1792484938411,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-sweetcake-456",
@@ -11753,7 +13677,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-baguette-457",
@@ -11777,7 +13705,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484948211
+      "updatedAt": 1792484948211,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-pumpkin-pie-458",
@@ -11800,7 +13732,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-spring-tea-459",
@@ -11823,7 +13759,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-dessert-table-460",
@@ -11846,7 +13786,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484961989
+      "updatedAt": 1792484961989,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-desserts-rose-ice-cream-461",
@@ -11869,7 +13813,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-luxury-wine-box-462",
@@ -11893,7 +13841,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792484860555
+      "updatedAt": 1792484860555,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-cheers-463",
@@ -11917,7 +13869,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484864469
+      "updatedAt": 1792484864469,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-cocktail-464",
@@ -11941,7 +13897,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484866673
+      "updatedAt": 1792484866673,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-icy-golden-goblet-465",
@@ -11950,14 +13910,15 @@
       "name": "Icy Golden Goblet",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -11965,7 +13926,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484870840
+      "updatedAt": 1792484870840,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-red-wine-466",
@@ -11988,7 +13953,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-champagne-467",
@@ -12011,7 +13980,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792484878605
+      "updatedAt": 1792484878605,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-colorful-glass-468",
@@ -12034,7 +14007,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-alcoholic-beverages-astro-champagne-469",
@@ -12057,7 +14034,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484888835
+      "updatedAt": 1792484888835,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-margarita-470",
@@ -12066,14 +14047,15 @@
       "name": "Margarita",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -12081,7 +14063,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484821496
+      "updatedAt": 1792484821496,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-mai-tai-471",
@@ -12105,7 +14091,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484806555
+      "updatedAt": 1792484806555,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-pina-colada-472",
@@ -12129,7 +14119,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484829697
+      "updatedAt": 1792484829697,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-aperol-spritz-473",
@@ -12153,7 +14147,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484828473
+      "updatedAt": 1792484828473,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-mojito-474",
@@ -12177,7 +14175,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484815449
+      "updatedAt": 1792484815449,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-old-fashioned-475",
@@ -12201,7 +14203,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484800733
+      "updatedAt": 1792484800733,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-lemon-drop-martini-476",
@@ -12210,14 +14216,15 @@
       "name": "Lemon Drop Martini",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -12225,7 +14232,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484822595
+      "updatedAt": 1792484822595,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-cocktail-journey-singapore-sling-477",
@@ -12249,7 +14260,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484793722
+      "updatedAt": 1792484793722,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-zombie-cocktail-478",
@@ -12273,7 +14288,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792484785540
+      "updatedAt": 1792484785540,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-godfather-479",
@@ -12296,7 +14315,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484781738
+      "updatedAt": 1792484781738,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-sunset-stars-480",
@@ -12319,7 +14342,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484774249
+      "updatedAt": 1792484774249,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-cocktail-journey-negroni-481",
@@ -12342,7 +14369,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484762784
+      "updatedAt": 1792484762784,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-friedchicken-482",
@@ -12366,7 +14397,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484614407
+      "updatedAt": 1792484614407,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-taco-483",
@@ -12390,7 +14425,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484612171
+      "updatedAt": 1792484612171,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-burger-484",
@@ -12414,7 +14453,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484609830
+      "updatedAt": 1792484609830,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-big-burger-485",
@@ -12438,7 +14481,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484606787
+      "updatedAt": 1792484606787,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-cola-486",
@@ -12447,14 +14494,15 @@
       "name": "Cola",
       "baseValue": 35,
       "marketWorth": 35,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 19,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "delicious",
@@ -12462,7 +14510,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484599316
+      "updatedAt": 1792484599316,
+      "backpacks": {
+        "lbs": 19,
+        "cryptid": 11
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-fries-487",
@@ -12486,7 +14538,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484597418
+      "updatedAt": 1792484597418,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-hot-dog-488",
@@ -12510,7 +14566,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484591724
+      "updatedAt": 1792484591724,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-eggs-benedict-489",
@@ -12533,7 +14593,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484580809
+      "updatedAt": 1792484580809,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-lobster-roll-490",
@@ -12556,7 +14620,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484562255
+      "updatedAt": 1792484562255,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-best-friend-491",
@@ -12579,7 +14647,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484551515
+      "updatedAt": 1792484551515,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-flavors-of-the-american-continent-lunch-492",
@@ -12602,7 +14674,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-cantonese-sweet-soup-493",
@@ -12626,7 +14702,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484469823
+      "updatedAt": 1792484469823,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-tangyuan-494",
@@ -12650,7 +14730,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484475057
+      "updatedAt": 1792484475057,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-sunflower-seeds-495",
@@ -12674,7 +14758,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484476316
+      "updatedAt": 1792484476316,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-qiegao-496",
@@ -12698,7 +14786,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792484480218
+      "updatedAt": 1792484480218,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-stinky-tofu-497",
@@ -12722,7 +14814,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484482026
+      "updatedAt": 1792484482026,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-chinese-xiaolongbao-498",
@@ -12746,7 +14842,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484492115
+      "updatedAt": 1792484492115,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-grilled-oysters-499",
@@ -12769,7 +14869,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484505963
+      "updatedAt": 1792484505963,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-hot-pot-lamb-500",
@@ -12792,7 +14896,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-luosifen-501",
@@ -12815,7 +14923,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484511274
+      "updatedAt": 1792484511274,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-rock-sugar-pear-502",
@@ -12838,7 +14950,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484525327
+      "updatedAt": 1792484525327,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-spring-roll-503",
@@ -12861,7 +14977,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-chinese-flavor-i-jiaozi-504",
@@ -12884,7 +15004,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792484523165
+      "updatedAt": 1792484523165,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-germany-triumphant-return-505",
@@ -12908,7 +15032,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485087634
+      "updatedAt": 1792485087634,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-germany-germany-golden-cup-506",
@@ -12932,7 +15060,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485083588
+      "updatedAt": 1792485083588,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-germany-munich-beer-507",
@@ -12956,7 +15088,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485086136
+      "updatedAt": 1792485086136,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-german-sausage-platter-508",
@@ -12980,7 +15116,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485134526
+      "updatedAt": 1792485134526,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-aromatic-apple-pie-509",
@@ -13004,7 +15144,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485132864
+      "updatedAt": 1792485132864,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-golden-roast-whole-chicken-510",
@@ -13028,7 +15172,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485126640
+      "updatedAt": 1792485126640,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-crispy-roasted-pork-knuckle-511",
@@ -13052,7 +15200,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485124283
+      "updatedAt": 1792485124283,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-munich-beer-512",
@@ -13076,7 +15228,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485118911
+      "updatedAt": 1792485118911,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-munich-carnival-night-513",
@@ -13099,7 +15255,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485112939
+      "updatedAt": 1792485112939,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-golden-cup-celebration-514",
@@ -13122,7 +15282,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485107315
+      "updatedAt": 1792485107315,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-oktoberfest-beer-barrel-515",
@@ -13145,7 +15309,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-popcorn-516",
@@ -13154,14 +15322,15 @@
       "name": "Popcorn",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 3,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13169,7 +15338,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485202165
+      "updatedAt": 1792485202165,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-cat-popcorn-517",
@@ -13193,7 +15366,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485196910
+      "updatedAt": 1792485196910,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-entry-ticket-518",
@@ -13202,14 +15379,15 @@
       "name": "Entry Ticket",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13217,7 +15395,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485200375
+      "updatedAt": 1792485200375,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-happy-film-festival-movie-corn-519",
@@ -13241,7 +15423,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485207220
+      "updatedAt": 1792485207220,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-glasses-520",
@@ -13265,7 +15451,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485208833
+      "updatedAt": 1792485208833,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-love-record-521",
@@ -13289,7 +15479,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485214927
+      "updatedAt": 1792485214927,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-film-projector-522",
@@ -13312,7 +15506,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485242227
+      "updatedAt": 1792485242227,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-film-projector-523",
@@ -13335,7 +15533,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485220519
+      "updatedAt": 1792485220519,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-happy-film-festival-love-memories-524",
@@ -13358,7 +15560,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-bubblemaker-525",
@@ -13382,7 +15588,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485280914
+      "updatedAt": 1792485280914,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-star-unicorn-526",
@@ -13406,7 +15616,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485282228
+      "updatedAt": 1792485282228,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-book-of-childhood-wonder-527",
@@ -13429,7 +15643,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485334952
+      "updatedAt": 1792485334952,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-balloonpals-528",
@@ -13452,7 +15670,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-gachapon-529",
@@ -13475,7 +15697,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-fun-park-530",
@@ -13498,7 +15724,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-love-city-531",
@@ -13521,7 +15751,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-dream-park-532",
@@ -13544,7 +15778,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-carousel-533",
@@ -13567,7 +15805,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-childhood-dreamland-garden-spy-534",
@@ -13590,7 +15832,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-rabbit-lantern-535",
@@ -13614,7 +15860,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485358660
+      "updatedAt": 1792485358660,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-jaderabbit-536",
@@ -13638,7 +15888,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485360958
+      "updatedAt": 1792485360958,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-basket-cake-537",
@@ -13662,7 +15916,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485370427
+      "updatedAt": 1792485370427,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-mooncake-538",
@@ -13671,14 +15929,15 @@
       "name": "Mooncake",
       "baseValue": 66,
       "marketWorth": 66,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13686,7 +15945,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485372664
+      "updatedAt": 1792485372664,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-osmanthus-tea-539",
@@ -13709,7 +15972,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485381242
+      "updatedAt": 1792485381242,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-moonglow-540",
@@ -13732,7 +15999,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-bunny-moon-541",
@@ -13755,7 +16026,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-moonlight-542",
@@ -13778,7 +16053,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-mid-autumn-festival-moonbunny-543",
@@ -13801,7 +16080,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485405159
+      "updatedAt": 1792485405159,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-flying-together-544",
@@ -13825,7 +16108,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792485598090
+      "updatedAt": 1792485598090,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-magpie-545",
@@ -13849,7 +16136,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485602065
+      "updatedAt": 1792485602065,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-qixi-sachet-546",
@@ -13858,14 +16149,15 @@
       "name": "Qixi Sachet",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 21,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13873,7 +16165,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485605865
+      "updatedAt": 1792485605865,
+      "backpacks": {
+        "lbs": 21,
+        "cryptid": 23
+      }
     },
     {
       "id": "item-qixi-festival-qixi-jade-ring-547",
@@ -13882,14 +16178,15 @@
       "name": "Qixi Jade Ring",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13897,7 +16194,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485608957
+      "updatedAt": 1792485608957,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 23
+      }
     },
     {
       "id": "item-qixi-festival-love-drum-548",
@@ -13921,7 +16222,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485617817
+      "updatedAt": 1792485617817,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-love-lantern-549",
@@ -13930,14 +16235,15 @@
       "name": "Love Lantern",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 13,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -13945,7 +16251,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485623308
+      "updatedAt": 1792485623308,
+      "backpacks": {
+        "lbs": 13,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-bird-lamp-550",
@@ -13968,7 +16278,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485631622
+      "updatedAt": 1792485631622,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-jadeyearn-551",
@@ -13992,7 +16306,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485637757
+      "updatedAt": 1792485637757,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-kitty-love-552",
@@ -14015,7 +16333,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-qixi-wish-553",
@@ -14038,7 +16360,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-qixi-festival-person-in-book-554",
@@ -14061,7 +16387,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485666443
+      "updatedAt": 1792485666443,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-lion-dance-555",
@@ -14085,7 +16415,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485683969
+      "updatedAt": 1792485683969,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-blast-556",
@@ -14109,7 +16443,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485688908
+      "updatedAt": 1792485688908,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-koi-lantern-557",
@@ -14118,14 +16456,15 @@
       "name": "Koi lantern",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -14133,7 +16472,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485693742
+      "updatedAt": 1792485693742,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-new-year-greetings-mystery-gift-558",
@@ -14156,7 +16499,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792485791637
+      "updatedAt": 1792485791637,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-lionspirit-559",
@@ -14179,7 +16526,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-lucky-koi-560",
@@ -14202,7 +16553,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-luckypanda-561",
@@ -14225,7 +16580,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485787288
+      "updatedAt": 1792485787288,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-luckyfeast-562",
@@ -14248,7 +16607,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-lucky-bag-563",
@@ -14271,7 +16634,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-lunarsnack-564",
@@ -14294,7 +16661,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485759941
+      "updatedAt": 1792485759941,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-glowfest-565",
@@ -14317,7 +16688,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-new-year-greetings-luckycoins-566",
@@ -14340,7 +16715,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-egypt-567",
@@ -14363,7 +16742,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-switzerland-568",
@@ -14386,7 +16769,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-belgium-569",
@@ -14409,7 +16796,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-spain-570",
@@ -14432,7 +16823,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-brazil-571",
@@ -14455,7 +16850,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-england-572",
@@ -14478,7 +16877,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-morocco-573",
@@ -14501,7 +16904,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-france-574",
@@ -14524,7 +16931,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-argentina-575",
@@ -14547,7 +16958,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-norway-576",
@@ -14570,7 +16985,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-glory-commemoration-glory-of-cape-verde-577",
@@ -14593,7 +17012,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-golden-header-578",
@@ -14616,7 +17039,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-blue-miracle-579",
@@ -14639,7 +17066,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-last-minute-580",
@@ -14662,7 +17093,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-flying-strike-581",
@@ -14685,7 +17120,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-last-gasp-equalizer-582",
@@ -14708,7 +17147,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-solo-run-583",
@@ -14731,7 +17174,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-samba-storm-584",
@@ -14754,7 +17201,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-8-legendary-goals-century-run-585",
@@ -14777,7 +17228,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-multicolored-cord-586",
@@ -14801,7 +17256,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485984523
+      "updatedAt": 1792485984523,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-cute-rice-587",
@@ -14825,7 +17284,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485981295
+      "updatedAt": 1792485981295,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-rice-ride-588",
@@ -14848,7 +17311,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-rice-boat-589",
@@ -14871,7 +17338,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-zongzi-590",
@@ -14894,7 +17365,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-zongzi-aroma-dream-591",
@@ -14917,7 +17392,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485952426
+      "updatedAt": 1792485952426,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-summer-with-kitty-592",
@@ -14940,7 +17419,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792485931577
+      "updatedAt": 1792485931577,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-dragon-boat-festival-rabbit-boat-593",
@@ -14963,7 +17446,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792485979944
+      "updatedAt": 1792485979944,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-bronze-medal-594",
@@ -14987,7 +17474,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486165614
+      "updatedAt": 1792486165614,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-silver-medal-595",
@@ -14996,14 +17487,15 @@
       "name": "Silver medal",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15011,7 +17503,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486163485
+      "updatedAt": 1792486163485,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-football-golden-cup-596",
@@ -15035,7 +17531,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486171483
+      "updatedAt": 1792486171483,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-beer-cheers-597",
@@ -15059,7 +17559,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486176666
+      "updatedAt": 1792486176666,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-foul-598",
@@ -15083,7 +17587,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486179277
+      "updatedAt": 1792486179277,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-gold-medal-599",
@@ -15107,7 +17615,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486181162
+      "updatedAt": 1792486181162,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-i-m-champion-600",
@@ -15130,7 +17642,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-snack-bucket-601",
@@ -15153,7 +17669,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486192115
+      "updatedAt": 1792486192115,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-champions-night-602",
@@ -15176,7 +17696,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-thunderbolt-shot-603",
@@ -15199,7 +17723,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iv-cat-cheer-team-604",
@@ -15222,7 +17750,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486213153
+      "updatedAt": 1792486213153,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-color-fizz-605",
@@ -15231,14 +17763,15 @@
       "name": "Color Fizz",
       "baseValue": 99,
       "marketWorth": 99,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 5,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15246,7 +17779,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486311236
+      "updatedAt": 1792486311236,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 4
+      }
     },
     {
       "id": "item-football-match-iii-successful-save-606",
@@ -15270,7 +17807,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486313964
+      "updatedAt": 1792486313964,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-shot-607",
@@ -15293,7 +17834,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486322520
+      "updatedAt": 1792486322520,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-goal-moment-608",
@@ -15316,7 +17861,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-goal-609",
@@ -15339,7 +17888,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-defensive-master-610",
@@ -15362,7 +17915,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-trophy-pendant-611",
@@ -15385,7 +17942,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486335069
+      "updatedAt": 1792486335069,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-kick-off-612",
@@ -15408,7 +17969,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-we-are-the-champions-613",
@@ -15431,7 +17996,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-iii-world-cup-night-614",
@@ -15454,7 +18023,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-netherlands-football-flower-shop-615",
@@ -15478,7 +18051,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486358965
+      "updatedAt": 1792486358965,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-netherlands-netherlands-gold-cup-616",
@@ -15501,7 +18078,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-netherlands-orange-lion-617",
@@ -15524,7 +18105,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486364072
+      "updatedAt": 1792486364072,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-usa-freedom-torch-618",
@@ -15533,14 +18118,15 @@
       "name": "Freedom Torch",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 15,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15548,7 +18134,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486391720
+      "updatedAt": 1792486391720,
+      "backpacks": {
+        "lbs": 15,
+        "cryptid": 6
+      }
     },
     {
       "id": "item-go-usa-victory-619",
@@ -15557,14 +18147,15 @@
       "name": "Victory",
       "baseValue": 79,
       "marketWorth": 79,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15572,7 +18163,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486394019
+      "updatedAt": 1792486394019,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 6
+      }
     },
     {
       "id": "item-go-usa-star-fondant-cookies-620",
@@ -15596,7 +18191,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486398887
+      "updatedAt": 1792486398887,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-usa-fierce-eagle-621",
@@ -15619,7 +18218,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486406555
+      "updatedAt": 1792486406555,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-usa-championship-trophy-622",
@@ -15642,7 +18245,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486409607
+      "updatedAt": 1792486409607,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-france-france-gold-cup-623",
@@ -15666,7 +18273,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486429837
+      "updatedAt": 1792486429837,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-france-gallic-rooster-624",
@@ -15690,7 +18301,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486431025
+      "updatedAt": 1792486431025,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-france-iron-tower-football-625",
@@ -15713,7 +18328,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486422595
+      "updatedAt": 1792486422595,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-england-bells-of-celebration-626",
@@ -15722,14 +18341,15 @@
       "name": "Bells of Celebration",
       "baseValue": 89,
       "marketWorth": 89,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15737,7 +18357,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486452595
+      "updatedAt": 1792486452595,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-england-victory-crown-627",
@@ -15761,7 +18385,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486453655
+      "updatedAt": 1792486453655,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-england-england-gold-cup-628",
@@ -15784,7 +18412,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-england-football-cheers-629",
@@ -15807,7 +18439,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-england-lion-of-england-630",
@@ -15830,7 +18466,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486445244
+      "updatedAt": 1792486445244,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-brazil-football-stage-631",
@@ -15854,7 +18494,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486478604
+      "updatedAt": 1792486478604,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-brazil-golden-sun-632",
@@ -15878,7 +18522,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486480814
+      "updatedAt": 1792486480814,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-brazil-we-can-win-633",
@@ -15901,7 +18549,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486489708
+      "updatedAt": 1792486489708,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-brazil-eternal-blaze-634",
@@ -15924,7 +18576,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486492564
+      "updatedAt": 1792486492564,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-brazil-crown-of-the-setting-sun-635",
@@ -15947,7 +18603,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486494966
+      "updatedAt": 1792486494966,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-argentina-tango-636",
@@ -15956,14 +18616,15 @@
       "name": "Tango",
       "baseValue": 89,
       "marketWorth": 89,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -15971,7 +18632,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486515080
+      "updatedAt": 1792486515080,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-argentina-argentina-golden-cup-637",
@@ -15995,7 +18660,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486517588
+      "updatedAt": 1792486517588,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-argentina-football-star-638",
@@ -16018,7 +18687,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-argentina-gauchos-639",
@@ -16041,7 +18714,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486523737
+      "updatedAt": 1792486523737,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-go-argentina-tierra-del-fuego-640",
@@ -16065,7 +18742,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486512318
+      "updatedAt": 1792486512318,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-love-of-the-champions-champion-football-641",
@@ -16088,7 +18769,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-love-of-the-champions-champion-wish-ball-642",
@@ -16111,7 +18796,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-love-of-the-champions-champion-necklace-643",
@@ -16134,7 +18823,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-love-of-the-champions-champion-basket-644",
@@ -16157,7 +18850,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-love-of-the-champions-championship-crystal-cup-645",
@@ -16180,7 +18877,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-korean-pendant-646",
@@ -16204,7 +18905,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486745513
+      "updatedAt": 1792486745513,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-egypt-pendant-647",
@@ -16228,7 +18933,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486748916
+      "updatedAt": 1792486748916,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-france-pendant-648",
@@ -16237,14 +18946,15 @@
       "name": "France Pendant",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 38,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16252,7 +18962,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486750454
+      "updatedAt": 1792486750454,
+      "backpacks": {
+        "lbs": 38,
+        "cryptid": 8
+      }
     },
     {
       "id": "item-football-keychain-ii-morocco-pendant-649",
@@ -16261,14 +18975,15 @@
       "name": "Morocco Pendant",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 23,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16276,7 +18991,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486751380
+      "updatedAt": 1792486751380,
+      "backpacks": {
+        "lbs": 23,
+        "cryptid": 8
+      }
     },
     {
       "id": "item-football-keychain-ii-belgium-pendant-650",
@@ -16285,14 +19004,15 @@
       "name": "Belgium Pendant",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16300,7 +19020,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486753351
+      "updatedAt": 1792486753351,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-football-keychain-ii-mexico-pendant-651",
@@ -16309,14 +19033,15 @@
       "name": "Mexico Pendant",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 7,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16324,7 +19049,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486752327
+      "updatedAt": 1792486752327,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-football-keychain-ii-argentina-pendant-652",
@@ -16347,7 +19076,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486728391
+      "updatedAt": 1792486728391,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-brazil-pendant-653",
@@ -16370,7 +19103,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486735278
+      "updatedAt": 1792486735278,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-german-football-654",
@@ -16393,7 +19130,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486725799
+      "updatedAt": 1792486725799,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-ii-american-pendant-655",
@@ -16416,7 +19157,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-japan-pendant-656",
@@ -16440,7 +19185,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486773942
+      "updatedAt": 1792486773942,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-colombian-pendant-657",
@@ -16463,7 +19212,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-netherlands-pendant-658",
@@ -16487,7 +19240,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486780261
+      "updatedAt": 1792486780261,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-spain-pendant-659",
@@ -16511,7 +19268,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486783153
+      "updatedAt": 1792486783153,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-iran-pendant-660",
@@ -16520,14 +19281,15 @@
       "name": "Iran Pendant",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 5,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16535,7 +19297,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486785655
+      "updatedAt": 1792486785655,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-football-keychain-i-croatia-pendant-661",
@@ -16559,7 +19325,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486788847
+      "updatedAt": 1792486788847,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-australia-pendant-662",
@@ -16582,7 +19352,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486793021
+      "updatedAt": 1792486793021,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-england-pendant-663",
@@ -16605,7 +19379,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486770400
+      "updatedAt": 1792486770400,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-canada-pendant-664",
@@ -16628,7 +19406,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-keychain-i-portugal-pendant-665",
@@ -16651,7 +19433,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-dribble-past-666",
@@ -16675,7 +19461,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486854959
+      "updatedAt": 1792486854959,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-no-1-balloon-667",
@@ -16699,7 +19489,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486884953
+      "updatedAt": 1792486884953,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ball-confetti-cannon-668",
@@ -16708,14 +19502,15 @@
       "name": "Football confetti cannon",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 51,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16723,7 +19518,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486883348
+      "updatedAt": 1792486883348,
+      "backpacks": {
+        "lbs": 51,
+        "cryptid": 44
+      }
     },
     {
       "id": "item-football-match-football-match-669",
@@ -16747,7 +19546,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486867453
+      "updatedAt": 1792486867453,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-pass-670",
@@ -16771,7 +19574,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486862419
+      "updatedAt": 1792486862419,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-tackle-671",
@@ -16795,7 +19602,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486856695
+      "updatedAt": 1792486856695,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-football-fireworks-672",
@@ -16804,14 +19615,15 @@
       "name": "Football fireworks",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16819,7 +19631,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486851435
+      "updatedAt": 1792486851435,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 2
+      }
     },
     {
       "id": "item-football-match-winning-moment-673",
@@ -16842,7 +19658,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-forward-scores-674",
@@ -16865,7 +19685,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-bicycle-kick-675",
@@ -16888,7 +19712,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-goal-676",
@@ -16911,7 +19739,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486833349
+      "updatedAt": 1792486833349,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-wonder-goal-677",
@@ -16934,7 +19766,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792486818543
+      "updatedAt": 1792486818543,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-go-go-goal-678",
@@ -16943,14 +19779,15 @@
       "name": "GO GO GOAL",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -16958,7 +19795,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486916589
+      "updatedAt": 1792486916589,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-2-yellow-cards-679",
@@ -16982,7 +19823,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486913323
+      "updatedAt": 1792486913323,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-little-horn-680",
@@ -16991,14 +19836,15 @@
       "name": "Little Horn",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 10,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -17006,7 +19852,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486909494
+      "updatedAt": 1792486909494,
+      "backpacks": {
+        "lbs": 10,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-sliding-celebration-681",
@@ -17030,7 +19880,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486905877
+      "updatedAt": 1792486905877,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-chill-beer-joy-682",
@@ -17054,7 +19908,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486897633
+      "updatedAt": 1792486897633,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-soccer-683",
@@ -17078,7 +19936,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486922043
+      "updatedAt": 1792486922043,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-football-gift-box-684",
@@ -17101,7 +19963,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486931091
+      "updatedAt": 1792486931091,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-football-coronation-685",
@@ -17124,7 +19990,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792486933848
+      "updatedAt": 1792486933848,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-football-match-ii-1-yellow-card-686",
@@ -17147,7 +20017,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-songkran-festival-songkran-687",
@@ -17171,7 +20045,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487044771
+      "updatedAt": 1792487044771,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-songkran-festival-water-gun-party-688",
@@ -17195,7 +20073,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487049967
+      "updatedAt": 1792487049967,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-songkran-festival-songkran-festival-girl-689",
@@ -17218,7 +20100,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-songkran-festival-throwing-water-bowl-690",
@@ -17241,7 +20127,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487065578
+      "updatedAt": 1792487065578,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-venice-carnival-night-of-the-canal-691",
@@ -17265,7 +20155,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792487080823
+      "updatedAt": 1792487080823,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-venice-carnival-snack-basket-692",
@@ -17274,14 +20168,15 @@
       "name": "Snack basket",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 17,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -17289,7 +20184,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792487082337
+      "updatedAt": 1792487082337,
+      "backpacks": {
+        "lbs": 17,
+        "cryptid": 8
+      }
     },
     {
       "id": "item-venice-carnival-mask-693",
@@ -17313,7 +20212,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792487083667
+      "updatedAt": 1792487083667,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-venice-carnival-queen-mask-694",
@@ -17322,14 +20225,15 @@
       "name": "Queen Mask",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -17337,7 +20241,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792487085109
+      "updatedAt": 1792487085109,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 1
+      }
     },
     {
       "id": "item-venice-carnival-volta-carnival-mask-695",
@@ -17360,7 +20268,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487079223
+      "updatedAt": 1792487079223,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-easter-happy-easter-696",
@@ -17383,7 +20295,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-easter-easter-bunny-697",
@@ -17406,7 +20322,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487117003
+      "updatedAt": 1792487117003,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-easter-newborn-bunny-698",
@@ -17429,7 +20349,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487122829
+      "updatedAt": 1792487122829,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-easter-bunny-violinist-699",
@@ -17452,7 +20376,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487125305
+      "updatedAt": 1792487125305,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-taurus-700",
@@ -17476,7 +20404,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792487155228
+      "updatedAt": 1792487155228,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-pisces-701",
@@ -17500,7 +20432,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792487157419
+      "updatedAt": 1792487157419,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-virgo-702",
@@ -17524,7 +20460,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792487159044
+      "updatedAt": 1792487159044,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-leo-703",
@@ -17533,14 +20473,15 @@
       "name": "Leo",
       "baseValue": 1000,
       "marketWorth": 1000,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 1,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Luxury",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -17548,7 +20489,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792487144740
+      "updatedAt": 1792487144740,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-libra-704",
@@ -17572,7 +20517,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792487145800
+      "updatedAt": 1792487145800,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-cancer-705",
@@ -17581,14 +20530,15 @@
       "name": "Cancer",
       "baseValue": 500,
       "marketWorth": 500,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 4,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -17596,7 +20546,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792487149864
+      "updatedAt": 1792487149864,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-aries-706",
@@ -17619,7 +20573,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-gemini-707",
@@ -17642,7 +20600,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-aquarius-708",
@@ -17665,7 +20627,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-capricorn-709",
@@ -17688,7 +20654,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-scorpio-710",
@@ -17711,7 +20681,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-rare-zodiac-set-sagittarius-711",
@@ -17734,7 +20708,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-ketupat-712",
@@ -17758,7 +20736,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412819201
+      "updatedAt": 1792412819201,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-eid-feast-713",
@@ -17782,7 +20764,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792487210019
+      "updatedAt": 1792487210019,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-star-moon-lantern-714",
@@ -17806,7 +20792,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412838704
+      "updatedAt": 1792412838704,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-ramadan-lantern-715",
@@ -17829,7 +20819,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412784281
+      "updatedAt": 1792412784281,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-glazed-glass-lantern-716",
@@ -17852,7 +20846,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1729000000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-shawarma-717",
@@ -17875,7 +20873,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412766621
+      "updatedAt": 1792412766621,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-moonboat-718",
@@ -17898,7 +20900,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412756373
+      "updatedAt": 1792412756373,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-ramadanlight-719",
@@ -17921,7 +20927,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412747373
+      "updatedAt": 1792412747373,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-iftar-720",
@@ -17944,7 +20954,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412737351
+      "updatedAt": 1792412737351,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-gilded-decor-721",
@@ -17967,7 +20981,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412725218
+      "updatedAt": 1792412725218,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-eid-al-fitr-starry-dream-722",
@@ -17990,7 +21008,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412710482
+      "updatedAt": 1792412710482,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-holi-gulal-723",
@@ -18014,7 +21036,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792412850890
+      "updatedAt": 1792412850890,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-holi-elephant-724",
@@ -18037,7 +21063,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412630784
+      "updatedAt": 1792412630784,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-holi-happy-holi-725",
@@ -18060,7 +21090,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412622829
+      "updatedAt": 1792412622829,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-holi-holi-726",
@@ -18083,7 +21117,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412614558
+      "updatedAt": 1792412614558,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-holi-holi-girl-727",
@@ -18106,7 +21144,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412605706
+      "updatedAt": 1792412605706,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-st-patrick-s-day-shamrock-badge-728",
@@ -18130,7 +21172,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412515846
+      "updatedAt": 1792412515846,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-st-patrick-s-day-leprechaun-729",
@@ -18153,7 +21199,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412527026
+      "updatedAt": 1792412527026,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-st-patrick-s-day-emerald-festival-730",
@@ -18176,7 +21226,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412523457
+      "updatedAt": 1792412523457,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-april-fools-day-april-fool-731",
@@ -18199,7 +21253,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412489712
+      "updatedAt": 1792412489712,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-april-fools-day-jokerballoon-732",
@@ -18222,7 +21280,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412485969
+      "updatedAt": 1792412485969,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-april-fools-day-prank-hammer-733",
@@ -18245,7 +21307,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412472674
+      "updatedAt": 1792412472674,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-april-fools-day-pirate-barrel-734",
@@ -18268,7 +21334,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412465713
+      "updatedAt": 1792412465713,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-winter-reunion-festival-tangyuan-735",
@@ -18292,7 +21362,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412360504
+      "updatedAt": 1792412360504,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-winter-reunion-festival-warm-warm-lantern-736",
@@ -18316,7 +21390,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412428758
+      "updatedAt": 1792412428758,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-winter-reunion-festival-winter-solstice-737",
@@ -18340,7 +21418,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412401342
+      "updatedAt": 1792412401342,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-winter-reunion-festival-jiaozi-738",
@@ -18363,7 +21445,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412414069
+      "updatedAt": 1792412414069,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-winter-reunion-festival-laba-festival-739",
@@ -18386,7 +21472,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412420987
+      "updatedAt": 1792412420987,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-epiphany-king-cake-740",
@@ -18395,14 +21485,15 @@
       "name": "King cake",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 0,
-      "wallOwned": false,
+      "quantity": 2,
+      "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "series",
-        "wall"
+        "wall",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -18410,7 +21501,11 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792412334640
+      "updatedAt": 1792412334640,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-epiphany-gilt-pile-741",
@@ -18433,7 +21528,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412318604
+      "updatedAt": 1792412318604,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-epiphany-the-three-kings-gifts-742",
@@ -18456,7 +21555,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412324939
+      "updatedAt": 1792412324939,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-leo-743",
@@ -18480,7 +21583,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412218059
+      "updatedAt": 1792412218059,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-sagittarius-744",
@@ -18503,7 +21610,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412221637
+      "updatedAt": 1792412221637,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-scorpio-745",
@@ -18526,7 +21637,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412225403
+      "updatedAt": 1792412225403,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-libra-746",
@@ -18549,7 +21664,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412261759
+      "updatedAt": 1792412261759,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-virgo-747",
@@ -18572,7 +21691,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412258462
+      "updatedAt": 1792412258462,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-aquarius-748",
@@ -18595,7 +21718,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412255425
+      "updatedAt": 1792412255425,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-pisces-749",
@@ -18618,7 +21745,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412251900
+      "updatedAt": 1792412251900,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-cancer-750",
@@ -18641,7 +21772,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412243982
+      "updatedAt": 1792412243982,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-aries-751",
@@ -18664,7 +21799,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412240356
+      "updatedAt": 1792412240356,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-capricorn-752",
@@ -18687,7 +21826,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412236153
+      "updatedAt": 1792412236153,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-taurus-753",
@@ -18710,7 +21853,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412230427
+      "updatedAt": 1792412230427,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-constellation-gifts-star-whisper-gemini-754",
@@ -18733,7 +21880,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412232986
+      "updatedAt": 1792412232986,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-christmas-xmaswreath-755",
@@ -18756,7 +21907,11 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792412136983
+      "updatedAt": 1792412136983,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-christmas-xmasbell-756",
@@ -18779,7 +21934,11 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792412127589
+      "updatedAt": 1792412127589,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-christmas-sleigh-757",
@@ -18802,7 +21961,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412115207
+      "updatedAt": 1792412115207,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-christmas-xmas-globe-758",
@@ -18825,7 +21988,11 @@
         "collection"
       ],
       "notes": "",
-      "updatedAt": 1792412090590
+      "updatedAt": 1792412090590,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-christmas-xmas-eve-759",
@@ -18848,7 +22015,11 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1792412099142
+      "updatedAt": 1792412099142,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-indian-sari-760",
@@ -18867,7 +22038,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-traditional-thai-clothing-761",
@@ -18886,7 +22061,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-mongolian-robe-762",
@@ -18905,7 +22084,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-hanbok-763",
@@ -18924,7 +22107,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-kebaya-764",
@@ -18943,7 +22130,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-vietnamese-o-d-i-765",
@@ -18962,7 +22153,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-hanfu-766",
@@ -18981,7 +22176,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-japanese-kimono-767",
@@ -19000,7 +22199,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1729300000000
+      "updatedAt": 1729300000000,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-american-clothing-768",
@@ -19019,7 +22222,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482294794
+      "updatedAt": 1792482294794,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-ivy-style-769",
@@ -19038,7 +22245,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482207638
+      "updatedAt": 1792482207638,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-samba-dress-770",
@@ -19057,7 +22268,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482213938
+      "updatedAt": 1792482213938,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-vintage-swing-skirt-771",
@@ -19076,7 +22291,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482225977
+      "updatedAt": 1792482225977,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-flapper-dress-772",
@@ -19095,7 +22314,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482235669
+      "updatedAt": 1792482235669,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-mexican-catrina-773",
@@ -19114,7 +22337,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482244725
+      "updatedAt": 1792482244725,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-straw-hat-shawl-774",
@@ -19133,7 +22360,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482253651
+      "updatedAt": 1792482253651,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-cowgirl-outfit-775",
@@ -19152,7 +22383,11 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482264692
+      "updatedAt": 1792482264692,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
     },
     {
       "id": "item-select-world-war-street-hip-hop-776",
@@ -19171,7 +22406,2363 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792482273017
+      "updatedAt": 1792482273017,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
+    },
+    {
+      "id": "item-std-welcome-47af88",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Welcome",
+      "baseValue": 0,
+      "marketWorth": 0,
+      "quantity": 219,
+      "backpacks": {
+        "lbs": 219,
+        "cryptid": 87
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-popcorn-dc0bcc",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Popcorn",
+      "baseValue": 0,
+      "marketWorth": 0,
+      "quantity": 162,
+      "backpacks": {
+        "lbs": 162,
+        "cryptid": 78
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-sun-75063a",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Sun",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 22,
+      "backpacks": {
+        "lbs": 22,
+        "cryptid": 10
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-sea-bottle-2a6f69",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Sea Bottle",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-star-8212e3",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Star",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-lovestrike-744da4",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "LoveStrike",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 5,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 39
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-disco-pony-001df3",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Disco Pony",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 17,
+      "backpacks": {
+        "lbs": 17,
+        "cryptid": 14
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-rose-c52c12",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Rose",
+      "baseValue": 2,
+      "marketWorth": 2,
+      "quantity": 64,
+      "backpacks": {
+        "lbs": 64,
+        "cryptid": 241
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-music-box-b3de3f",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Music Box",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-little-star-96445b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Little Star",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 26,
+      "backpacks": {
+        "lbs": 26,
+        "cryptid": 19
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-shinyheart-402c36",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "ShinyHeart",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-jasmine-jelly-d8d072",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Jasmine jelly",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 4,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 4
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-miniufo-f532b9",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "MiniUFO",
+      "baseValue": 100,
+      "marketWorth": 100,
+      "quantity": 5,
+      "backpacks": {
+        "lbs": 5,
+        "cryptid": 5
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-maple-glow-d9f1bc",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Maple Glow",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-sweet-float-bc4ad2",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Sweet Float",
+      "baseValue": 89,
+      "marketWorth": 89,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-peachjuice-9cffb9",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "PeachJuice",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-sunlit-bouquet-02a8ad",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Sunlit Bouquet",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-game-console-d73904",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "game console",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 6
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-firecracker-e7dd92",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Firecracker",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-star-bag-4e681a",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Star Bag",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 4
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-handlebar-mustache-cowboy-fb04b4",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Handlebar-mustache cowboy",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 9,
+      "backpacks": {
+        "lbs": 9,
+        "cryptid": 8
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-candyapple-a5f3ed",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "CandyApple",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-flower-d90685",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Flower",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-cute-persimmon-b49396",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Cute Persimmon",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-fingerheart-e1ddcb",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Fingerheart",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 11,
+      "backpacks": {
+        "lbs": 11,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-harmonix-7200ec",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Harmonix",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 5
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-blessing-0dc98b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Blessing",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 116,
+      "backpacks": {
+        "lbs": 116,
+        "cryptid": 81
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-lovebattery-150ecd",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "LoveBattery",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-light-stick-277416",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Light Stick",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 9,
+      "backpacks": {
+        "lbs": 9,
+        "cryptid": 35
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-snowflake-90b91c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Snowflake",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-ramen-4dc842",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Ramen",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-duet-cat-b20b55",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Duet Cat",
+      "baseValue": 500,
+      "marketWorth": 500,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-wings-39eb59",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Wings",
+      "baseValue": 0,
+      "marketWorth": 0,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-seasidealbum-0cc36c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "SeasideAlbum",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 10,
+      "backpacks": {
+        "lbs": 10,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-star-ship-e2aa07",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Star Ship",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-love-call-76f482",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Love Call",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-faith-book-a52666",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Faith Book",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 4,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-concert-ticket-4a309d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Concert Ticket",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-lollipop-39d2e8",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Lollipop",
+      "baseValue": 0,
+      "marketWorth": 0,
+      "quantity": 6,
+      "backpacks": {
+        "lbs": 6,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-rose-bouquet-2bf936",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Rose Bouquet",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 4
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-passionate-love-delivery-c07f6c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Passionate Love Delivery",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 18,
+      "backpacks": {
+        "lbs": 18,
+        "cryptid": 23
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-moon-sprite-47e249",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Moon Sprite",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-tinycastle-d5dc3e",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "TinyCastle",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-angel-crystal-ball-3a155d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Angel Crystal Ball",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-fate-echo-647413",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Fate Echo",
+      "baseValue": 100,
+      "marketWorth": 100,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-bearheart-964ced",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Bearheart",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-starlight-drum-f071a4",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Starlight Drum",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-pink-moto-b225e5",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Pink Moto",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 6,
+      "backpacks": {
+        "lbs": 6,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-chill-time-bad0b7",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Chill Time",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-night-penguin-5b57aa",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Night Penguin",
+      "baseValue": 100,
+      "marketWorth": 100,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-flip-flops-1adb37",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Flip-flops",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 8,
+      "backpacks": {
+        "lbs": 8,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-kiwibird-147a20",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "KiwiBird",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 21,
+      "backpacks": {
+        "lbs": 21,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-jelly-octo-bb41cb",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Jelly Octo",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-iced-cola-91ebfd",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Iced Cola",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 22,
+      "backpacks": {
+        "lbs": 22,
+        "cryptid": 8
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-sofa-1d0b8d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Sofa",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-carnival-headdress-3ea4ab",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Carnival Headdress",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-banner-f3364c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Banner",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 95,
+      "backpacks": {
+        "lbs": 95,
+        "cryptid": 132
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-music-album-b5dcad",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Music Album",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-corridor-pavilion-423b4c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Corridor Pavilion",
+      "baseValue": 50,
+      "marketWorth": 50,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-aegean-7e897a",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Aegean",
+      "baseValue": 5000,
+      "marketWorth": 5000,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-star-wish-jar-2fb056",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Star Wish Jar",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 14,
+      "backpacks": {
+        "lbs": 14,
+        "cryptid": 8
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-princess-violin-0834d9",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Princess Violin",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-kite-812a7d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Kite",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-hairpin-8a5c2a",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Hairpin",
+      "baseValue": 60,
+      "marketWorth": 60,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-tomato-0ee2f6",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Tomato",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 48,
+      "backpacks": {
+        "lbs": 48,
+        "cryptid": 30
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-arctic-breeze-f2215c",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Arctic Breeze",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 3
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-hot-dog-d46747",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Hot dog",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-pink-shutter-9f44bd",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "pink shutter",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 4,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-page-blooms-9a8cbb",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Page Blooms",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-starry-moon-whisper-9d9c89",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Starry Moon Whisper",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-dream-chest-234e13",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Dream Chest",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-cash-gun-2f9237",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Cash gun",
+      "baseValue": 79,
+      "marketWorth": 79,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-goddess-crown-f34976",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Goddess Crown",
+      "baseValue": 89,
+      "marketWorth": 89,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-candy-cane-2f72a2",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Candy cane",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-magic-tome-72ef09",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Magic Tome",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-good-fortune-has-arrived-e5e4b3",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Good fortune has arrived",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 4,
+      "backpacks": {
+        "lbs": 4,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-rabbit-wine-db2c53",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Rabbit Wine",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-birthday-ode-b45e5d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Birthday Ode",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 7,
+      "backpacks": {
+        "lbs": 7,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-hishi-mochi-3b544e",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Hishi mochi",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-jewel-box-6592f2",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Jewel Box",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-hide-one-s-love-81e889",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Hide one's love",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-calligraphy-cba833",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Calligraphy",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-deer-isle-song-e6205b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Deer Isle Song",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-star-pouch-b7a76d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Star Pouch",
+      "baseValue": 120,
+      "marketWorth": 120,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-fairy-wings-a21444",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Fairy Wings",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-mood-shaker-91f6ea",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Mood Shaker",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-basketball-star-60209b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Basketball Star",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-bamboo-dragonfly-be6424",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Bamboo Dragonfly",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 2,
+      "backpacks": {
+        "lbs": 2,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-fashion-watch-aecff8",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Fashion Watch",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 3,
+      "backpacks": {
+        "lbs": 3,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-paris-brest-e38789",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Paris Brest",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-lemon-tart-250742",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Lemon Tart",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-glimstar-ab045b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "GlimStar",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-fruitplanet-321b7d",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "FruitPlanet",
+      "baseValue": 200,
+      "marketWorth": 200,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-give-you-a-like-23b8ac",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Give you a like",
+      "baseValue": 9,
+      "marketWorth": 9,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 10
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-tea-pot-402bf7",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Tea Pot",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 2
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-paper-crane-76947b",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Paper Crane",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 12
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-spring-hue-c5d109",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Spring Hue",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 1
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
+    },
+    {
+      "id": "item-std-ruyi-scepter-6d7af1",
+      "categoryId": "cat-basic",
+      "seriesId": "",
+      "name": "Ruyi scepter",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 5
+      },
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792500000000
     }
   ],
   "tiers": [
@@ -19322,6 +24913,13 @@
               const serId = String(item.seriesId ?? '').trim();
               const isWallOwned = typeof item.wallOwned === 'boolean' ? item.wallOwned : false;
               const rawQty = Math.max(0, Math.floor(Number(item.quantity) || 0));
+              const backpacksObj = (item.backpacks && typeof item.backpacks === 'object') ? {
+                lbs: Math.max(0, Math.floor(Number(item.backpacks.lbs) || 0)),
+                cryptid: Math.max(0, Math.floor(Number(item.backpacks.cryptid) || 0))
+              } : {
+                lbs: rawQty,
+                cryptid: 0
+              };
 
               let itemTabs = Array.isArray(item.tabs) ? item.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [];
               if (catId && serId && !itemTabs.includes('series')) {
@@ -19330,16 +24928,18 @@
               if (isWallOwned && !itemTabs.includes('wall')) {
                 itemTabs.push('wall');
               }
-              if (rawQty > 0 && !itemTabs.includes('backpack')) {
+              const hasAnyBpStock = (backpacksObj.lbs > 0 || backpacksObj.cryptid > 0);
+              if (hasAnyBpStock && !itemTabs.includes('backpack')) {
                 itemTabs.push('backpack');
               }
               itemTabs = [...new Set(itemTabs)];
 
               const finalWallOwned = isWallOwned || itemTabs.includes('wall');
-              let finalQty = rawQty;
-              if (itemTabs.includes('backpack') && finalQty === 0) {
+              let finalQty = backpacksObj.lbs;
+              if (itemTabs.includes('backpack') && finalQty === 0 && backpacksObj.cryptid === 0) {
                 finalQty = 1;
-              } else if (!itemTabs.includes('backpack') && finalQty > 0) {
+                backpacksObj.lbs = 1;
+              } else if (!itemTabs.includes('backpack') && hasAnyBpStock) {
                 itemTabs.push('backpack');
               }
 
@@ -19355,6 +24955,7 @@
                 baseValue: baseCoins,
                 marketWorth: marketCoins,
                 quantity: finalQty,
+                backpacks: backpacksObj,
                 wallOwned: finalWallOwned,
                 starred: typeof item.starred === 'boolean' ? item.starred : false,
                 isDistinctVariant: typeof item.isDistinctVariant === 'boolean' ? item.isDistinctVariant : !!(DEFAULT_SEED.items && DEFAULT_SEED.items.find(si => si.id === item.id)?.isDistinctVariant),
@@ -19441,6 +25042,7 @@
 
               if (Array.isArray(DEFAULT_SEED.items)) {
                 const seedMap = new Map(DEFAULT_SEED.items.map(si => [si.id, si]));
+                const isVersionUpgrade = (parsed.version !== APP_VERSION);
                 safeItems.forEach(item => {
                   const seed = seedMap.get(item.id);
                   if (seed) {
@@ -19451,6 +25053,45 @@
                     const isExempt = itemTierLower.includes('limited') || itemTierLower.includes('mystery');
                     if (!isExempt && seed.tier && seed.tier !== item.tier) {
                       item.tier = seed.tier;
+                    }
+                    // Reconcile official seed backpack quantities & wall ownership
+                    if (isVersionUpgrade) {
+                      if (seed.backpacks) {
+                        item.backpacks = {
+                          lbs: Number(seed.backpacks.lbs) || 0,
+                          cryptid: Number(seed.backpacks.cryptid) || 0
+                        };
+                        item.quantity = item.backpacks.lbs;
+                      }
+                      if (seed.wallOwned) {
+                        item.wallOwned = true;
+                      }
+                      const hasStock = ((item.backpacks?.lbs || 0) > 0 || (item.backpacks?.cryptid || 0) > 0);
+                      if (hasStock && !item.tabs.includes('backpack')) {
+                        item.tabs.push('backpack');
+                      } else if (!hasStock) {
+                        item.tabs = item.tabs.filter(t => t !== 'backpack');
+                      }
+                      if (item.wallOwned && !item.tabs.includes('wall')) {
+                        item.tabs.push('wall');
+                      }
+                    } else {
+                      if (seed.backpacks) {
+                        const curLbs = item.backpacks ? Number(item.backpacks.lbs) || 0 : 0;
+                        const curCryptid = item.backpacks ? Number(item.backpacks.cryptid) || 0 : 0;
+                        if (curLbs === 0 && curCryptid === 0 && ((seed.backpacks.lbs || 0) > 0 || (seed.backpacks.cryptid || 0) > 0)) {
+                          item.backpacks = {
+                            lbs: Number(seed.backpacks.lbs) || 0,
+                            cryptid: Number(seed.backpacks.cryptid) || 0
+                          };
+                          item.quantity = item.backpacks.lbs;
+                          if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
+                        }
+                      }
+                      if (seed.wallOwned && !item.wallOwned) {
+                        item.wallOwned = true;
+                        if (!item.tabs.includes('wall')) item.tabs.push('wall');
+                      }
                     }
                   } else if (!item.marketWorth || item.marketWorth <= 0) {
                     item.marketWorth = item.baseValue;
@@ -19468,9 +25109,10 @@
                       name: String(seedItem.name || '').trim(),
                       baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
                       marketWorth: Math.max(0, Number(seedItem.marketWorth) || Number(seedItem.baseValue) || 0),
-                      quantity: 0,
-                      wallOwned: false,
-                      starred: false,
+                      quantity: seedItem.quantity || 0,
+                      backpacks: seedItem.backpacks ? { ...seedItem.backpacks } : { lbs: 0, cryptid: 0 },
+                      wallOwned: !!seedItem.wallOwned,
+                      starred: !!seedItem.starred,
                       tier: String(seedItem.tier || 'Standard').trim(),
                       tabs: Array.isArray(seedItem.tabs) ? [...seedItem.tabs] : (seedItem.seriesId ? ['series'] : []),
                       tags: Array.isArray(seedItem.tags) ? [...seedItem.tags] : [],
@@ -19790,13 +25432,32 @@
         if (catId && serId && !itemTabs.includes('series')) {
           itemTabs.push('series');
         }
+
+        let backpacksObj = cur.backpacks && typeof cur.backpacks === 'object' ? {
+          lbs: Math.max(0, Math.floor(Number(cur.backpacks.lbs) || 0)),
+          cryptid: Math.max(0, Math.floor(Number(cur.backpacks.cryptid) || 0))
+        } : { lbs: Number(cur.quantity) || 0, cryptid: 0 };
+
+        if (itemData.backpacks && typeof itemData.backpacks === 'object') {
+          backpacksObj.lbs = Math.max(0, Math.floor(Number(itemData.backpacks.lbs) || 0));
+          backpacksObj.cryptid = Math.max(0, Math.floor(Number(itemData.backpacks.cryptid) || 0));
+        } else if (itemData.quantity !== undefined) {
+          backpacksObj.lbs = Math.max(0, Math.floor(Number(itemData.quantity) || 0));
+        }
+
+        const hasAnyBpStock = (backpacksObj.lbs > 0 || backpacksObj.cryptid > 0);
+        if (hasAnyBpStock && !itemTabs.includes('backpack')) {
+          itemTabs.push('backpack');
+        } else if (!hasAnyBpStock && itemTabs.includes('backpack')) {
+          itemTabs = itemTabs.filter(t => t !== 'backpack');
+        }
         itemTabs = [...new Set(itemTabs)];
 
         const wallOwned = itemTabs.includes('wall') || (itemData.wallOwned !== undefined ? !!itemData.wallOwned : !!cur.wallOwned);
-        let qty = 0;
-        if (itemTabs.includes('backpack')) {
-          const reqQty = Number(itemData.quantity !== undefined ? itemData.quantity : cur.quantity);
-          qty = reqQty > 0 ? Math.floor(reqQty) : 1;
+        let qty = backpacksObj.lbs;
+        if (itemTabs.includes('backpack') && qty === 0 && backpacksObj.cryptid === 0) {
+          qty = 1;
+          backpacksObj.lbs = 1;
         }
 
         const baseCoins = Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0);
@@ -19811,6 +25472,7 @@
           baseValue: baseCoins,
           marketWorth: marketCoins,
           quantity: qty,
+          backpacks: backpacksObj,
           wallOwned,
           starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
           isDistinctVariant: itemData.isDistinctVariant !== undefined ? !!itemData.isDistinctVariant : !!cur.isDistinctVariant,
@@ -19853,12 +25515,21 @@
       return false;
     }
 
-    incrementQuantity(id, delta) {
+    incrementQuantity(id, delta, account = 'lbs') {
       const item = this.getItem(id);
       if (item) {
         if (!Array.isArray(item.tabs)) item.tabs = [];
-        item.quantity = Math.max(0, (item.quantity || 0) + delta);
-        if (item.quantity === 0) {
+        if (!item.backpacks || typeof item.backpacks !== 'object') {
+          item.backpacks = { lbs: Number(item.quantity) || 0, cryptid: 0 };
+        }
+        const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
+        const curAccQty = Number(item.backpacks[acc]) || 0;
+        const newAccQty = Math.max(0, curAccQty + delta);
+        item.backpacks[acc] = newAccQty;
+        item.quantity = Number(item.backpacks.lbs) || 0;
+        
+        const hasAnyBpStock = (Number(item.backpacks.lbs) || 0) > 0 || (Number(item.backpacks.cryptid) || 0) > 0;
+        if (!hasAnyBpStock) {
           item.tabs = item.tabs.filter(t => t !== 'backpack');
         } else {
           if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
@@ -19879,21 +25550,38 @@
       return false;
     }
 
-    toggleItemTab(id, tabName) {
+    toggleItemTab(id, tabName, account = 'lbs') {
       const item = this.getItem(id);
       if (!item) return { success: false, reason: 'Gift not found' };
       if (!Array.isArray(item.tabs)) {
         item.tabs = [];
         if (item.categoryId && item.seriesId) item.tabs.push('series');
         if (item.wallOwned) item.tabs.push('wall');
-        if ((Number(item.quantity) || 0) > 0) item.tabs.push('backpack');
+        if ((Number(item.quantity) || 0) > 0 || (item.backpacks && ((item.backpacks.lbs || 0) > 0 || (item.backpacks.cryptid || 0) > 0))) {
+          item.tabs.push('backpack');
+        }
       }
+      if (!item.backpacks || typeof item.backpacks !== 'object') {
+        item.backpacks = { lbs: Number(item.quantity) || 0, cryptid: 0 };
+      }
+      const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
       const t = String(tabName || '').toLowerCase().trim();
       const hasTab = item.tabs.includes(t);
       if (hasTab) {
-        item.tabs = item.tabs.filter(x => x !== t);
-        if (t === 'wall') item.wallOwned = false;
-        if (t === 'backpack') item.quantity = 0;
+        if (t === 'wall') {
+          item.tabs = item.tabs.filter(x => x !== t);
+          item.wallOwned = false;
+        } else if (t === 'backpack') {
+          item.backpacks[acc] = 0;
+          if ((Number(item.backpacks.lbs) || 0) === 0 && (Number(item.backpacks.cryptid) || 0) === 0) {
+            item.tabs = item.tabs.filter(x => x !== 'backpack');
+            item.quantity = 0;
+          } else {
+            item.quantity = Number(item.backpacks.lbs) || 0;
+          }
+        } else {
+          item.tabs = item.tabs.filter(x => x !== t);
+        }
       } else {
         if (t === 'series') {
           if (!item.categoryId || !item.seriesId || !this.getSeries(item.seriesId)) {
@@ -19903,7 +25591,8 @@
         item.tabs.push(t);
         if (t === 'wall') item.wallOwned = true;
         if (t === 'backpack') {
-          item.quantity = Math.max(1, item.quantity || 1);
+          item.backpacks[acc] = Math.max(1, item.backpacks[acc] || 1);
+          item.quantity = Number(item.backpacks.lbs) || 0;
         }
       }
       item.updatedAt = Date.now();
@@ -20228,6 +25917,13 @@
       this.globalSearchQuery = '';
 
       // Tab 1: Backpack Inventory Filter State (Default Active Tab)
+      this.activeBackpackAccount = 'lbs';
+      try {
+        const savedAccount = localStorage.getItem('hellotalk_active_backpack');
+        if (savedAccount === 'lbs' || savedAccount === 'cryptid') {
+          this.activeBackpackAccount = savedAccount;
+        }
+      } catch (e) {}
       this.bpStatusFilter = 'all'; // all, in-stock, exchange-needed, starred, extras
       this.bpSelectedCategory = '';
       this.bpSelectedSeries = '';
@@ -20296,6 +25992,11 @@
       // ----------------------------------------------------------------
       // Tab 1: Backpack Inventory References
       // ----------------------------------------------------------------
+      this.bpAccountSwitcher = document.querySelector('.bp-account-switcher');
+      this.bpAccountTabs = document.querySelectorAll('.bp-account-tab');
+      this.bpPillCountLbs = document.getElementById('bpPillCountLbs');
+      this.bpPillCountCryptid = document.getElementById('bpPillCountCryptid');
+
       this.bpTotalUnits = document.getElementById('bpTotalUnits');
       this.bpUniqueItems = document.getElementById('bpUniqueItems');
       this.bpMarketWorth = document.getElementById('bpMarketWorth');
@@ -20441,6 +26142,8 @@
       this.editItemBaseValue = document.getElementById('editItemBaseValue');
       this.editItemMarketWorth = document.getElementById('editItemMarketWorth');
       this.editItemQuantity = document.getElementById('editItemQuantity');
+      this.editItemQuantityLbs = document.getElementById('editItemQuantityLbs');
+      this.editItemQuantityCryptid = document.getElementById('editItemQuantityCryptid');
       this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
       this.editItemStarred = document.getElementById('editItemStarred');
       this.editItemDistinctVariant = document.getElementById('editItemDistinctVariant');
@@ -20814,8 +26517,19 @@
       });
 
       // ----------------------------------------------------------------
-      // Tab 3: Backpack Events
+      // Tab 3: Backpack Events & Account Switcher
       // ----------------------------------------------------------------
+      if (this.bpAccountTabs) {
+        this.bpAccountTabs.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const acc = btn.dataset.account;
+            if (acc && acc !== this.activeBackpackAccount) {
+              this.switchBackpackAccount(acc);
+            }
+          });
+        });
+      }
+
       this.bpStatusPills.addEventListener('click', (e) => {
         const btn = e.target.closest('.filter-chip');
         if (!btn || !btn.dataset.bpStatus) return;
@@ -21272,14 +26986,15 @@
     }
 
     handleCardToggleBp(item, card) {
-      const res = this.state.toggleItemTab(item.id, 'backpack');
+      const res = this.state.toggleItemTab(item.id, 'backpack', this.activeBackpackAccount);
       if (!res.success) {
         this.showToast(res.reason || 'Could not update Backpack tab');
         return;
       }
 
-      const qty = Number(item.quantity) || 0;
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const activeQty = this.getItemQuantity(item, this.activeBackpackAccount);
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
         const btnBp = c.querySelector('.tag-bp');
@@ -21288,7 +27003,7 @@
           btnBp.title = isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack';
           btnBp.innerHTML = `
             ${TAG_ICONS.backpack}
-            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
+            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${activeQty > 0 ? ` (${activeQty})` : ''}</span>
           `;
         }
       });
@@ -21300,8 +27015,8 @@
     }
 
     handleCardQtyChange(item, card, delta) {
-      this.state.incrementQuantity(item.id, delta);
-      const newQty = Number(item.quantity) || 0;
+      this.state.incrementQuantity(item.id, delta, this.activeBackpackAccount);
+      const newQty = this.getItemQuantity(item, this.activeBackpackAccount);
 
       if (newQty > 0) {
         const qtySpan = card.querySelector('.stepper-qty');
@@ -21332,8 +27047,9 @@
       document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
         const btnBp = c.querySelector('.tag-bp');
         if (btnBp) {
-          btnBp.classList.toggle('is-active', newQty > 0);
-          btnBp.title = newQty > 0 ? 'In Backpack (Click to remove)' : 'Add to Backpack';
+          const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+          btnBp.classList.toggle('is-active', hasAnyBp);
+          btnBp.title = hasAnyBp ? 'In Backpack (Click to remove)' : 'Add to Backpack';
           btnBp.innerHTML = `
             ${TAG_ICONS.backpack}
             <span>${this.escapeHtml(this.state.getTagName('backpack'))}${newQty > 0 ? ` (${newQty})` : ''}</span>
@@ -21348,12 +27064,45 @@
       }
     }
 
+    getItemQuantity(item, account = this.activeBackpackAccount) {
+      if (!item) return 0;
+      if (item.backpacks && typeof item.backpacks === 'object') {
+        const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
+        return Math.max(0, Math.floor(Number(item.backpacks[acc]) || 0));
+      }
+      return (account === 'lbs') ? Math.max(0, Math.floor(Number(item.quantity) || 0)) : 0;
+    }
+
+    switchBackpackAccount(account) {
+      this.activeBackpackAccount = account;
+      try {
+        localStorage.setItem('hellotalk_active_backpack', account);
+      } catch (e) {}
+
+      if (this.bpAccountTabs) {
+        this.bpAccountTabs.forEach(btn => {
+          const isActive = btn.dataset.account === account;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      this.bpRenderedCount = BATCH_SIZE;
+      this.renderBackpackTab();
+      this.updateSeriesHeaderCounts();
+      if (this.currentTab === 'tab-series') this.renderSeriesTab();
+      if (this.currentTab === 'tab-wall') this.renderWallTab();
+      if (this.currentTab === 'tab-portfolio') this.renderPortfolioTab();
+
+      this.showToast(`Switched to ${account === 'lbs' ? 'LbsLightX' : 'CryptidArise'} Backpack`);
+    }
+
     updateSeriesHeaderCounts(seriesItems) {
       if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
       const totalItems = seriesItems.length;
       const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
       const wallMissingCount = totalItems - wallCollectedCount;
-      const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
+      const inStockCount = seriesItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0).length;
       const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
       const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
 
@@ -21401,17 +27150,24 @@
 
     updateBpHeaderCounts(bpItems) {
       if (!bpItems) bpItems = this.getBackpackCatalogItems();
-      const totalUnits = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-      const totalBaseWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-      const totalMarketWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const allItems = this.state.data.items || [];
+      const totalUnits = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+      const totalBaseWorth = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+      const totalMarketWorth = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
       const netSpread = totalMarketWorth - totalBaseWorth;
       const spreadSign = netSpread > 0 ? '+' : '';
 
       const exchangeNeededGifts = bpItems.filter(i => !i.wallOwned);
       const starredGifts = bpItems.filter(i => !!i.starred);
-      const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
-      const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
+      const inStockExact1 = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
+      const extrasGifts = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 1);
       const standaloneCount = bpItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+
+      // Update switcher pill badges
+      const lbsItemsCount = allItems.filter(i => this.getItemQuantity(i, 'lbs') > 0).length;
+      const cryptidItemsCount = allItems.filter(i => this.getItemQuantity(i, 'cryptid') > 0).length;
+      if (this.bpPillCountLbs) this.bpPillCountLbs.textContent = lbsItemsCount;
+      if (this.bpPillCountCryptid) this.bpPillCountCryptid.textContent = cryptidItemsCount;
 
       if (this.bpTotalUnits) this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
       if (this.bpUniqueItems) this.bpUniqueItems.textContent = bpItems.length;
@@ -21496,9 +27252,9 @@
       });
     }
 
-    getBackpackCatalogItems() {
-      return this.state.data.items.filter(i => {
-        return (Number(i.quantity) || 0) > 0;
+    getBackpackCatalogItems(account = this.activeBackpackAccount) {
+      return (this.state.data.items || []).filter(i => {
+        return this.getItemQuantity(i, account) > 0;
       });
     }
 
@@ -21718,8 +27474,9 @@
       const isOwned = !!item.wallOwned;
       const isStarred = !!item.starred;
       const ser = this.state.getSeries(item.seriesId);
-      const qty = Number(item.quantity) || 0;
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       card.dataset.id = item.id;
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
@@ -22026,9 +27783,10 @@
       const card = document.createElement('div');
       const isStarred = !!item.starred;
       const ser = this.state.getSeries(item.seriesId);
-      const qty = Number(item.quantity) || 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
       const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       // On Wall tab, all displayed items are owned -> tier glow active!
       card.dataset.id = item.id;
@@ -22149,8 +27907,8 @@
         this.bpScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
       }
 
-      const subBase = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-      const subMarket = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const subBase = filtered.reduce((s, i) => s + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+      const subMarket = filtered.reduce((s, i) => s + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
       if (this.bpResultsCount) this.bpResultsCount.textContent = `Showing ${toRender.length} of ${filtered.length} inventory gifts`;
       if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = `Held Base: ${this.formatNumber(subBase)} // Market: ${this.formatNumber(subMarket)}`;
@@ -22208,13 +27966,13 @@
       }
 
       if (this.bpStatusFilter === 'in-stock') {
-        items = items.filter(i => (Number(i.quantity) || 0) === 1);
+        items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
       } else if (this.bpStatusFilter === 'exchange-needed') {
         items = items.filter(i => !i.wallOwned);
       } else if (this.bpStatusFilter === 'starred') {
         items = items.filter(i => !!i.starred);
       } else if (this.bpStatusFilter === 'extras') {
-        items = items.filter(i => (Number(i.quantity) || 0) > 1);
+        items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 1);
       } else if (this.bpStatusFilter === 'standalone') {
         items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
       }
@@ -22245,8 +28003,8 @@
         const bBase = b.baseValue || 0;
         const aWorth = a.marketWorth || 0;
         const bWorth = b.marketWorth || 0;
-        const aQty = a.quantity || 0;
-        const bQty = b.quantity || 0;
+        const aQty = this.getItemQuantity(a, this.activeBackpackAccount);
+        const bQty = this.getItemQuantity(b, this.activeBackpackAccount);
         const aTotalWorth = aQty * aWorth;
         const bTotalWorth = bQty * bWorth;
 
@@ -22304,7 +28062,7 @@
     createBackpackCard(item) {
       const tierInfo = this.getTierInfo(item.tier);
       const card = document.createElement('div');
-      const qty = Number(item.quantity) || 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
       const isOwned = qty > 0;
       const isStarred = !!item.starred;
       const isExchangeNeeded = qty > 0 && !item.wallOwned;
@@ -22399,7 +28157,7 @@
         const info = this.getTierInfo(i.tier);
         const entry = tierMap.get(info.name) || { name: info.name, info, count: 0, ownedUnits: 0, baseVal: 0, marketVal: 0 };
         entry.count++;
-        const qty = Number(i.quantity) || 0;
+        const qty = this.getItemQuantity(i, this.activeBackpackAccount);
         entry.ownedUnits += qty;
         entry.baseVal += (Number(i.baseValue) || 0) * qty;
         entry.marketVal += (Number(i.marketWorth) || 0) * qty;
@@ -22434,9 +28192,9 @@
         const total = sItems.length;
         const wallCollected = sItems.filter(i => !!i.wallOwned).length;
         const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
-        const bpUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-        const bpBase = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-        const bpMarket = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+        const bpUnits = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+        const bpBase = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -22456,9 +28214,9 @@
         const total = standaloneItems.length;
         const wallCollected = standaloneItems.filter(i => !!i.wallOwned).length;
         const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
-        const bpUnits = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-        const bpBase = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-        const bpMarket = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+        const bpUnits = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+        const bpBase = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
         const tr = document.createElement('tr');
         tr.style.background = 'rgba(255, 255, 255, 0.02)';
@@ -23516,7 +29274,9 @@
       this.editItemBaseValue.value = '';
       this.editItemMarketWorth.value = '';
       if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'true';
-      this.editItemQuantity.value = '1';
+      if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = this.activeBackpackAccount === 'lbs' ? '1' : '';
+      if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = this.activeBackpackAccount === 'cryptid' ? '1' : '';
+      if (this.editItemQuantity) this.editItemQuantity.value = '1';
       this.editItemStarred.checked = false;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = false;
       this.editItemTier.value = 'Standard';
@@ -23571,7 +29331,13 @@
       this.editItemBaseValue.value = item.baseValue !== undefined ? item.baseValue : 0;
       this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : (item.baseValue !== undefined ? item.baseValue : '');
       if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'false';
-      this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
+
+      const lbsQty = this.getItemQuantity(item, 'lbs');
+      const cryptidQty = this.getItemQuantity(item, 'cryptid');
+      if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = lbsQty > 0 ? lbsQty : '';
+      if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = cryptidQty > 0 ? cryptidQty : '';
+      if (this.editItemQuantity) this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
+
       this.editItemStarred.checked = !!item.starred;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = !!item.isDistinctVariant;
 
@@ -23582,7 +29348,8 @@
       if (item.wallOwned && !itemTabs.includes('wall')) {
         itemTabs.push('wall');
       }
-      if ((Number(item.quantity) || 0) > 0 && !itemTabs.includes('backpack')) {
+      const hasAnyBp = lbsQty > 0 || cryptidQty > 0 || (Number(item.quantity) || 0) > 0;
+      if (hasAnyBp && !itemTabs.includes('backpack')) {
         itemTabs.push('backpack');
       }
       this.setModalSelectedTabs(itemTabs);
@@ -23640,7 +29407,9 @@
       const name = this.toSmartTitleCase(rawName);
       const rawBase = this.editItemBaseValue.value.trim();
       const rawMarket = this.editItemMarketWorth.value.trim();
-      const rawQty = this.editItemQuantity.value.trim();
+      const rawQtyLbs = this.editItemQuantityLbs ? this.editItemQuantityLbs.value.trim() : '';
+      const rawQtyCryptid = this.editItemQuantityCryptid ? this.editItemQuantityCryptid.value.trim() : '';
+      const rawQty = this.editItemQuantity ? this.editItemQuantity.value.trim() : '';
       const categoryId = this.editItemCategory.value.trim();
       const seriesId = this.editItemSeries.value.trim();
       const selectedTabs = this.getModalSelectedTabs();
@@ -23682,14 +29451,30 @@
         }
       }
 
-      let qty = (rawQty !== '' && !isNaN(Number(rawQty))) ? Math.max(0, Math.floor(Number(rawQty))) : 0;
+      let qtyLbs = (rawQtyLbs !== '' && !isNaN(Number(rawQtyLbs))) ? Math.max(0, Math.floor(Number(rawQtyLbs))) : 0;
+      let qtyCryptid = (rawQtyCryptid !== '' && !isNaN(Number(rawQtyCryptid))) ? Math.max(0, Math.floor(Number(rawQtyCryptid))) : 0;
+
+      if (rawQtyLbs === '' && rawQtyCryptid === '' && rawQty !== '' && !isNaN(Number(rawQty))) {
+        if (this.activeBackpackAccount === 'cryptid') {
+          qtyCryptid = Math.max(0, Math.floor(Number(rawQty)));
+        } else {
+          qtyLbs = Math.max(0, Math.floor(Number(rawQty)));
+        }
+      }
+
       if (effectiveTabs.includes('backpack')) {
-        if (qty <= 0) {
-          qty = 1;
-          this.editItemQuantity.value = '1';
+        if (qtyLbs <= 0 && qtyCryptid <= 0) {
+          if (this.activeBackpackAccount === 'cryptid') {
+            qtyCryptid = 1;
+            if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = '1';
+          } else {
+            qtyLbs = 1;
+            if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = '1';
+          }
         }
       } else {
-        qty = 0;
+        qtyLbs = 0;
+        qtyCryptid = 0;
       }
 
       const isWallOwned = effectiveTabs.includes('wall');
@@ -23700,7 +29485,8 @@
         name,
         baseValue: baseCoins,
         marketWorth: marketCoins,
-        quantity: qty,
+        quantity: qtyLbs,
+        backpacks: { lbs: qtyLbs, cryptid: qtyCryptid },
         wallOwned: isWallOwned,
         starred: this.editItemStarred.checked,
         isDistinctVariant: this.editItemDistinctVariant ? this.editItemDistinctVariant.checked : (existingItem ? !!existingItem.isDistinctVariant : false),
@@ -23722,22 +29508,30 @@
       if (duplicateMatch) {
         if (duplicateMatch.baseValue === baseCoins) {
           // Exact duplicate in same series with matching coins: prompt to merge stock
+          const activeMergeQty = (this.activeBackpackAccount === 'cryptid') ? qtyCryptid : qtyLbs;
           this.confirmAction(
             'Duplicate Gift Detected',
             `A gift named "${duplicateMatch.name}" with ${baseCoins} coins already exists in this series.
 
-Would you like to merge stock (${qty} units) and collection status into the existing gift instead of creating a duplicate?`,
+Would you like to merge stock (${activeMergeQty} units) and collection status into the existing gift instead of creating a duplicate?`,
             () => {
               const scrollY = window.scrollY;
-              const mergedQty = (Number(duplicateMatch.quantity) || 0) + qty;
+              const dupLbs = this.getItemQuantity(duplicateMatch, 'lbs');
+              const dupCryptid = this.getItemQuantity(duplicateMatch, 'cryptid');
+              const mergedBackpacks = {
+                lbs: dupLbs + qtyLbs,
+                cryptid: dupCryptid + qtyCryptid
+              };
+              const mergedQty = mergedBackpacks.lbs;
               const mergedWall = duplicateMatch.wallOwned || isWallOwned;
               const mergedStarred = duplicateMatch.starred || this.editItemStarred.checked;
               const mergedTabs = Array.isArray(duplicateMatch.tabs) ? [...duplicateMatch.tabs] : [];
               if (mergedWall && !mergedTabs.includes('wall')) mergedTabs.push('wall');
-              if (mergedQty > 0 && !mergedTabs.includes('backpack')) mergedTabs.push('backpack');
+              if ((mergedBackpacks.lbs > 0 || mergedBackpacks.cryptid > 0) && !mergedTabs.includes('backpack')) mergedTabs.push('backpack');
 
               this.state.updateItem(duplicateMatch.id, {
                 quantity: mergedQty,
+                backpacks: mergedBackpacks,
                 wallOwned: mergedWall,
                 starred: mergedStarred,
                 tabs: mergedTabs
@@ -24812,6 +30606,7 @@ Do you want to save "${name}" as a distinct coin variation with ${baseCoins} coi
           const cleanItems = (this.state.data.items || []).map(item => ({
             ...item,
             quantity: 0,
+            backpacks: { lbs: 0, cryptid: 0 },
             wallOwned: false,
             starred: false,
             notes: ''

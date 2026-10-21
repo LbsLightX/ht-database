@@ -90,6 +90,13 @@ js_logic = ''';
               const serId = String(item.seriesId ?? '').trim();
               const isWallOwned = typeof item.wallOwned === 'boolean' ? item.wallOwned : false;
               const rawQty = Math.max(0, Math.floor(Number(item.quantity) || 0));
+              const backpacksObj = (item.backpacks && typeof item.backpacks === 'object') ? {
+                lbs: Math.max(0, Math.floor(Number(item.backpacks.lbs) || 0)),
+                cryptid: Math.max(0, Math.floor(Number(item.backpacks.cryptid) || 0))
+              } : {
+                lbs: rawQty,
+                cryptid: 0
+              };
 
               let itemTabs = Array.isArray(item.tabs) ? item.tabs.map(t => String(t).toLowerCase().trim()).filter(Boolean) : [];
               if (catId && serId && !itemTabs.includes('series')) {
@@ -98,16 +105,18 @@ js_logic = ''';
               if (isWallOwned && !itemTabs.includes('wall')) {
                 itemTabs.push('wall');
               }
-              if (rawQty > 0 && !itemTabs.includes('backpack')) {
+              const hasAnyBpStock = (backpacksObj.lbs > 0 || backpacksObj.cryptid > 0);
+              if (hasAnyBpStock && !itemTabs.includes('backpack')) {
                 itemTabs.push('backpack');
               }
               itemTabs = [...new Set(itemTabs)];
 
               const finalWallOwned = isWallOwned || itemTabs.includes('wall');
-              let finalQty = rawQty;
-              if (itemTabs.includes('backpack') && finalQty === 0) {
+              let finalQty = backpacksObj.lbs;
+              if (itemTabs.includes('backpack') && finalQty === 0 && backpacksObj.cryptid === 0) {
                 finalQty = 1;
-              } else if (!itemTabs.includes('backpack') && finalQty > 0) {
+                backpacksObj.lbs = 1;
+              } else if (!itemTabs.includes('backpack') && hasAnyBpStock) {
                 itemTabs.push('backpack');
               }
 
@@ -123,6 +132,7 @@ js_logic = ''';
                 baseValue: baseCoins,
                 marketWorth: marketCoins,
                 quantity: finalQty,
+                backpacks: backpacksObj,
                 wallOwned: finalWallOwned,
                 starred: typeof item.starred === 'boolean' ? item.starred : false,
                 isDistinctVariant: typeof item.isDistinctVariant === 'boolean' ? item.isDistinctVariant : !!(DEFAULT_SEED.items && DEFAULT_SEED.items.find(si => si.id === item.id)?.isDistinctVariant),
@@ -209,6 +219,7 @@ js_logic = ''';
 
               if (Array.isArray(DEFAULT_SEED.items)) {
                 const seedMap = new Map(DEFAULT_SEED.items.map(si => [si.id, si]));
+                const isVersionUpgrade = (parsed.version !== APP_VERSION);
                 safeItems.forEach(item => {
                   const seed = seedMap.get(item.id);
                   if (seed) {
@@ -219,6 +230,45 @@ js_logic = ''';
                     const isExempt = itemTierLower.includes('limited') || itemTierLower.includes('mystery');
                     if (!isExempt && seed.tier && seed.tier !== item.tier) {
                       item.tier = seed.tier;
+                    }
+                    // Reconcile official seed backpack quantities & wall ownership
+                    if (isVersionUpgrade) {
+                      if (seed.backpacks) {
+                        item.backpacks = {
+                          lbs: Number(seed.backpacks.lbs) || 0,
+                          cryptid: Number(seed.backpacks.cryptid) || 0
+                        };
+                        item.quantity = item.backpacks.lbs;
+                      }
+                      if (seed.wallOwned) {
+                        item.wallOwned = true;
+                      }
+                      const hasStock = ((item.backpacks?.lbs || 0) > 0 || (item.backpacks?.cryptid || 0) > 0);
+                      if (hasStock && !item.tabs.includes('backpack')) {
+                        item.tabs.push('backpack');
+                      } else if (!hasStock) {
+                        item.tabs = item.tabs.filter(t => t !== 'backpack');
+                      }
+                      if (item.wallOwned && !item.tabs.includes('wall')) {
+                        item.tabs.push('wall');
+                      }
+                    } else {
+                      if (seed.backpacks) {
+                        const curLbs = item.backpacks ? Number(item.backpacks.lbs) || 0 : 0;
+                        const curCryptid = item.backpacks ? Number(item.backpacks.cryptid) || 0 : 0;
+                        if (curLbs === 0 && curCryptid === 0 && ((seed.backpacks.lbs || 0) > 0 || (seed.backpacks.cryptid || 0) > 0)) {
+                          item.backpacks = {
+                            lbs: Number(seed.backpacks.lbs) || 0,
+                            cryptid: Number(seed.backpacks.cryptid) || 0
+                          };
+                          item.quantity = item.backpacks.lbs;
+                          if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
+                        }
+                      }
+                      if (seed.wallOwned && !item.wallOwned) {
+                        item.wallOwned = true;
+                        if (!item.tabs.includes('wall')) item.tabs.push('wall');
+                      }
                     }
                   } else if (!item.marketWorth || item.marketWorth <= 0) {
                     item.marketWorth = item.baseValue;
@@ -236,9 +286,10 @@ js_logic = ''';
                       name: String(seedItem.name || '').trim(),
                       baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
                       marketWorth: Math.max(0, Number(seedItem.marketWorth) || Number(seedItem.baseValue) || 0),
-                      quantity: 0,
-                      wallOwned: false,
-                      starred: false,
+                      quantity: seedItem.quantity || 0,
+                      backpacks: seedItem.backpacks ? { ...seedItem.backpacks } : { lbs: 0, cryptid: 0 },
+                      wallOwned: !!seedItem.wallOwned,
+                      starred: !!seedItem.starred,
                       tier: String(seedItem.tier || 'Standard').trim(),
                       tabs: Array.isArray(seedItem.tabs) ? [...seedItem.tabs] : (seedItem.seriesId ? ['series'] : []),
                       tags: Array.isArray(seedItem.tags) ? [...seedItem.tags] : [],
@@ -558,13 +609,32 @@ js_logic = ''';
         if (catId && serId && !itemTabs.includes('series')) {
           itemTabs.push('series');
         }
+
+        let backpacksObj = cur.backpacks && typeof cur.backpacks === 'object' ? {
+          lbs: Math.max(0, Math.floor(Number(cur.backpacks.lbs) || 0)),
+          cryptid: Math.max(0, Math.floor(Number(cur.backpacks.cryptid) || 0))
+        } : { lbs: Number(cur.quantity) || 0, cryptid: 0 };
+
+        if (itemData.backpacks && typeof itemData.backpacks === 'object') {
+          backpacksObj.lbs = Math.max(0, Math.floor(Number(itemData.backpacks.lbs) || 0));
+          backpacksObj.cryptid = Math.max(0, Math.floor(Number(itemData.backpacks.cryptid) || 0));
+        } else if (itemData.quantity !== undefined) {
+          backpacksObj.lbs = Math.max(0, Math.floor(Number(itemData.quantity) || 0));
+        }
+
+        const hasAnyBpStock = (backpacksObj.lbs > 0 || backpacksObj.cryptid > 0);
+        if (hasAnyBpStock && !itemTabs.includes('backpack')) {
+          itemTabs.push('backpack');
+        } else if (!hasAnyBpStock && itemTabs.includes('backpack')) {
+          itemTabs = itemTabs.filter(t => t !== 'backpack');
+        }
         itemTabs = [...new Set(itemTabs)];
 
         const wallOwned = itemTabs.includes('wall') || (itemData.wallOwned !== undefined ? !!itemData.wallOwned : !!cur.wallOwned);
-        let qty = 0;
-        if (itemTabs.includes('backpack')) {
-          const reqQty = Number(itemData.quantity !== undefined ? itemData.quantity : cur.quantity);
-          qty = reqQty > 0 ? Math.floor(reqQty) : 1;
+        let qty = backpacksObj.lbs;
+        if (itemTabs.includes('backpack') && qty === 0 && backpacksObj.cryptid === 0) {
+          qty = 1;
+          backpacksObj.lbs = 1;
         }
 
         const baseCoins = Math.max(0, Number(itemData.baseValue !== undefined ? itemData.baseValue : cur.baseValue) || 0);
@@ -579,6 +649,7 @@ js_logic = ''';
           baseValue: baseCoins,
           marketWorth: marketCoins,
           quantity: qty,
+          backpacks: backpacksObj,
           wallOwned,
           starred: itemData.starred !== undefined ? !!itemData.starred : !!cur.starred,
           isDistinctVariant: itemData.isDistinctVariant !== undefined ? !!itemData.isDistinctVariant : !!cur.isDistinctVariant,
@@ -621,12 +692,21 @@ js_logic = ''';
       return false;
     }
 
-    incrementQuantity(id, delta) {
+    incrementQuantity(id, delta, account = 'lbs') {
       const item = this.getItem(id);
       if (item) {
         if (!Array.isArray(item.tabs)) item.tabs = [];
-        item.quantity = Math.max(0, (item.quantity || 0) + delta);
-        if (item.quantity === 0) {
+        if (!item.backpacks || typeof item.backpacks !== 'object') {
+          item.backpacks = { lbs: Number(item.quantity) || 0, cryptid: 0 };
+        }
+        const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
+        const curAccQty = Number(item.backpacks[acc]) || 0;
+        const newAccQty = Math.max(0, curAccQty + delta);
+        item.backpacks[acc] = newAccQty;
+        item.quantity = Number(item.backpacks.lbs) || 0;
+        
+        const hasAnyBpStock = (Number(item.backpacks.lbs) || 0) > 0 || (Number(item.backpacks.cryptid) || 0) > 0;
+        if (!hasAnyBpStock) {
           item.tabs = item.tabs.filter(t => t !== 'backpack');
         } else {
           if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
@@ -647,21 +727,38 @@ js_logic = ''';
       return false;
     }
 
-    toggleItemTab(id, tabName) {
+    toggleItemTab(id, tabName, account = 'lbs') {
       const item = this.getItem(id);
       if (!item) return { success: false, reason: 'Gift not found' };
       if (!Array.isArray(item.tabs)) {
         item.tabs = [];
         if (item.categoryId && item.seriesId) item.tabs.push('series');
         if (item.wallOwned) item.tabs.push('wall');
-        if ((Number(item.quantity) || 0) > 0) item.tabs.push('backpack');
+        if ((Number(item.quantity) || 0) > 0 || (item.backpacks && ((item.backpacks.lbs || 0) > 0 || (item.backpacks.cryptid || 0) > 0))) {
+          item.tabs.push('backpack');
+        }
       }
+      if (!item.backpacks || typeof item.backpacks !== 'object') {
+        item.backpacks = { lbs: Number(item.quantity) || 0, cryptid: 0 };
+      }
+      const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
       const t = String(tabName || '').toLowerCase().trim();
       const hasTab = item.tabs.includes(t);
       if (hasTab) {
-        item.tabs = item.tabs.filter(x => x !== t);
-        if (t === 'wall') item.wallOwned = false;
-        if (t === 'backpack') item.quantity = 0;
+        if (t === 'wall') {
+          item.tabs = item.tabs.filter(x => x !== t);
+          item.wallOwned = false;
+        } else if (t === 'backpack') {
+          item.backpacks[acc] = 0;
+          if ((Number(item.backpacks.lbs) || 0) === 0 && (Number(item.backpacks.cryptid) || 0) === 0) {
+            item.tabs = item.tabs.filter(x => x !== 'backpack');
+            item.quantity = 0;
+          } else {
+            item.quantity = Number(item.backpacks.lbs) || 0;
+          }
+        } else {
+          item.tabs = item.tabs.filter(x => x !== t);
+        }
       } else {
         if (t === 'series') {
           if (!item.categoryId || !item.seriesId || !this.getSeries(item.seriesId)) {
@@ -671,7 +768,8 @@ js_logic = ''';
         item.tabs.push(t);
         if (t === 'wall') item.wallOwned = true;
         if (t === 'backpack') {
-          item.quantity = Math.max(1, item.quantity || 1);
+          item.backpacks[acc] = Math.max(1, item.backpacks[acc] || 1);
+          item.quantity = Number(item.backpacks.lbs) || 0;
         }
       }
       item.updatedAt = Date.now();
@@ -996,6 +1094,13 @@ js_logic = ''';
       this.globalSearchQuery = '';
 
       // Tab 1: Backpack Inventory Filter State (Default Active Tab)
+      this.activeBackpackAccount = 'lbs';
+      try {
+        const savedAccount = localStorage.getItem('hellotalk_active_backpack');
+        if (savedAccount === 'lbs' || savedAccount === 'cryptid') {
+          this.activeBackpackAccount = savedAccount;
+        }
+      } catch (e) {}
       this.bpStatusFilter = 'all'; // all, in-stock, exchange-needed, starred, extras
       this.bpSelectedCategory = '';
       this.bpSelectedSeries = '';
@@ -1064,6 +1169,11 @@ js_logic = ''';
       // ----------------------------------------------------------------
       // Tab 1: Backpack Inventory References
       // ----------------------------------------------------------------
+      this.bpAccountSwitcher = document.querySelector('.bp-account-switcher');
+      this.bpAccountTabs = document.querySelectorAll('.bp-account-tab');
+      this.bpPillCountLbs = document.getElementById('bpPillCountLbs');
+      this.bpPillCountCryptid = document.getElementById('bpPillCountCryptid');
+
       this.bpTotalUnits = document.getElementById('bpTotalUnits');
       this.bpUniqueItems = document.getElementById('bpUniqueItems');
       this.bpMarketWorth = document.getElementById('bpMarketWorth');
@@ -1209,6 +1319,8 @@ js_logic = ''';
       this.editItemBaseValue = document.getElementById('editItemBaseValue');
       this.editItemMarketWorth = document.getElementById('editItemMarketWorth');
       this.editItemQuantity = document.getElementById('editItemQuantity');
+      this.editItemQuantityLbs = document.getElementById('editItemQuantityLbs');
+      this.editItemQuantityCryptid = document.getElementById('editItemQuantityCryptid');
       this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
       this.editItemStarred = document.getElementById('editItemStarred');
       this.editItemDistinctVariant = document.getElementById('editItemDistinctVariant');
@@ -1582,8 +1694,19 @@ js_logic = ''';
       });
 
       // ----------------------------------------------------------------
-      // Tab 3: Backpack Events
+      // Tab 3: Backpack Events & Account Switcher
       // ----------------------------------------------------------------
+      if (this.bpAccountTabs) {
+        this.bpAccountTabs.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const acc = btn.dataset.account;
+            if (acc && acc !== this.activeBackpackAccount) {
+              this.switchBackpackAccount(acc);
+            }
+          });
+        });
+      }
+
       this.bpStatusPills.addEventListener('click', (e) => {
         const btn = e.target.closest('.filter-chip');
         if (!btn || !btn.dataset.bpStatus) return;
@@ -2040,14 +2163,15 @@ js_logic = ''';
     }
 
     handleCardToggleBp(item, card) {
-      const res = this.state.toggleItemTab(item.id, 'backpack');
+      const res = this.state.toggleItemTab(item.id, 'backpack', this.activeBackpackAccount);
       if (!res.success) {
         this.showToast(res.reason || 'Could not update Backpack tab');
         return;
       }
 
-      const qty = Number(item.quantity) || 0;
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const activeQty = this.getItemQuantity(item, this.activeBackpackAccount);
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
         const btnBp = c.querySelector('.tag-bp');
@@ -2056,7 +2180,7 @@ js_logic = ''';
           btnBp.title = isInBackpack ? 'In Backpack (Click to remove)' : 'Add to Backpack';
           btnBp.innerHTML = `
             ${TAG_ICONS.backpack}
-            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${qty > 0 ? ` (${qty})` : ''}</span>
+            <span>${this.escapeHtml(this.state.getTagName('backpack'))}${activeQty > 0 ? ` (${activeQty})` : ''}</span>
           `;
         }
       });
@@ -2068,8 +2192,8 @@ js_logic = ''';
     }
 
     handleCardQtyChange(item, card, delta) {
-      this.state.incrementQuantity(item.id, delta);
-      const newQty = Number(item.quantity) || 0;
+      this.state.incrementQuantity(item.id, delta, this.activeBackpackAccount);
+      const newQty = this.getItemQuantity(item, this.activeBackpackAccount);
 
       if (newQty > 0) {
         const qtySpan = card.querySelector('.stepper-qty');
@@ -2100,8 +2224,9 @@ js_logic = ''';
       document.querySelectorAll(`.gift-card[data-id="${item.id}"]`).forEach(c => {
         const btnBp = c.querySelector('.tag-bp');
         if (btnBp) {
-          btnBp.classList.toggle('is-active', newQty > 0);
-          btnBp.title = newQty > 0 ? 'In Backpack (Click to remove)' : 'Add to Backpack';
+          const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+          btnBp.classList.toggle('is-active', hasAnyBp);
+          btnBp.title = hasAnyBp ? 'In Backpack (Click to remove)' : 'Add to Backpack';
           btnBp.innerHTML = `
             ${TAG_ICONS.backpack}
             <span>${this.escapeHtml(this.state.getTagName('backpack'))}${newQty > 0 ? ` (${newQty})` : ''}</span>
@@ -2116,12 +2241,45 @@ js_logic = ''';
       }
     }
 
+    getItemQuantity(item, account = this.activeBackpackAccount) {
+      if (!item) return 0;
+      if (item.backpacks && typeof item.backpacks === 'object') {
+        const acc = (account === 'cryptid') ? 'cryptid' : 'lbs';
+        return Math.max(0, Math.floor(Number(item.backpacks[acc]) || 0));
+      }
+      return (account === 'lbs') ? Math.max(0, Math.floor(Number(item.quantity) || 0)) : 0;
+    }
+
+    switchBackpackAccount(account) {
+      this.activeBackpackAccount = account;
+      try {
+        localStorage.setItem('hellotalk_active_backpack', account);
+      } catch (e) {}
+
+      if (this.bpAccountTabs) {
+        this.bpAccountTabs.forEach(btn => {
+          const isActive = btn.dataset.account === account;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
+      this.bpRenderedCount = BATCH_SIZE;
+      this.renderBackpackTab();
+      this.updateSeriesHeaderCounts();
+      if (this.currentTab === 'tab-series') this.renderSeriesTab();
+      if (this.currentTab === 'tab-wall') this.renderWallTab();
+      if (this.currentTab === 'tab-portfolio') this.renderPortfolioTab();
+
+      this.showToast(`Switched to ${account === 'lbs' ? 'LbsLightX' : 'CryptidArise'} Backpack`);
+    }
+
     updateSeriesHeaderCounts(seriesItems) {
       if (!seriesItems) seriesItems = this.getSeriesCatalogItems();
       const totalItems = seriesItems.length;
       const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
       const wallMissingCount = totalItems - wallCollectedCount;
-      const inStockCount = seriesItems.filter(i => (Number(i.quantity) || 0) > 0).length;
+      const inStockCount = seriesItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0).length;
       const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
       const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
 
@@ -2169,17 +2327,24 @@ js_logic = ''';
 
     updateBpHeaderCounts(bpItems) {
       if (!bpItems) bpItems = this.getBackpackCatalogItems();
-      const totalUnits = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-      const totalBaseWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-      const totalMarketWorth = bpItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const allItems = this.state.data.items || [];
+      const totalUnits = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+      const totalBaseWorth = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+      const totalMarketWorth = bpItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
       const netSpread = totalMarketWorth - totalBaseWorth;
       const spreadSign = netSpread > 0 ? '+' : '';
 
       const exchangeNeededGifts = bpItems.filter(i => !i.wallOwned);
       const starredGifts = bpItems.filter(i => !!i.starred);
-      const inStockExact1 = bpItems.filter(i => (Number(i.quantity) || 0) === 1);
-      const extrasGifts = bpItems.filter(i => (Number(i.quantity) || 0) > 1);
+      const inStockExact1 = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
+      const extrasGifts = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 1);
       const standaloneCount = bpItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+
+      // Update switcher pill badges
+      const lbsItemsCount = allItems.filter(i => this.getItemQuantity(i, 'lbs') > 0).length;
+      const cryptidItemsCount = allItems.filter(i => this.getItemQuantity(i, 'cryptid') > 0).length;
+      if (this.bpPillCountLbs) this.bpPillCountLbs.textContent = lbsItemsCount;
+      if (this.bpPillCountCryptid) this.bpPillCountCryptid.textContent = cryptidItemsCount;
 
       if (this.bpTotalUnits) this.bpTotalUnits.textContent = this.formatNumber(totalUnits);
       if (this.bpUniqueItems) this.bpUniqueItems.textContent = bpItems.length;
@@ -2264,9 +2429,9 @@ js_logic = ''';
       });
     }
 
-    getBackpackCatalogItems() {
-      return this.state.data.items.filter(i => {
-        return (Number(i.quantity) || 0) > 0;
+    getBackpackCatalogItems(account = this.activeBackpackAccount) {
+      return (this.state.data.items || []).filter(i => {
+        return this.getItemQuantity(i, account) > 0;
       });
     }
 
@@ -2486,8 +2651,9 @@ js_logic = ''';
       const isOwned = !!item.wallOwned;
       const isStarred = !!item.starred;
       const ser = this.state.getSeries(item.seriesId);
-      const qty = Number(item.quantity) || 0;
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       card.dataset.id = item.id;
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
@@ -2794,9 +2960,10 @@ js_logic = ''';
       const card = document.createElement('div');
       const isStarred = !!item.starred;
       const ser = this.state.getSeries(item.seriesId);
-      const qty = Number(item.quantity) || 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
       const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
-      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || qty > 0;
+      const hasAnyBp = this.getItemQuantity(item, 'lbs') > 0 || this.getItemQuantity(item, 'cryptid') > 0;
+      const isInBackpack = (Array.isArray(item.tabs) ? item.tabs.includes('backpack') : false) || hasAnyBp;
 
       // On Wall tab, all displayed items are owned -> tier glow active!
       card.dataset.id = item.id;
@@ -2917,8 +3084,8 @@ js_logic = ''';
         this.bpScrollSentinel.style.display = (toRender.length < filtered.length) ? 'block' : 'none';
       }
 
-      const subBase = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-      const subMarket = filtered.reduce((s, i) => s + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+      const subBase = filtered.reduce((s, i) => s + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+      const subMarket = filtered.reduce((s, i) => s + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
       if (this.bpResultsCount) this.bpResultsCount.textContent = `Showing ${toRender.length} of ${filtered.length} inventory gifts`;
       if (this.bpResultsAggregate) this.bpResultsAggregate.textContent = `Held Base: ${this.formatNumber(subBase)} // Market: ${this.formatNumber(subMarket)}`;
@@ -2976,13 +3143,13 @@ js_logic = ''';
       }
 
       if (this.bpStatusFilter === 'in-stock') {
-        items = items.filter(i => (Number(i.quantity) || 0) === 1);
+        items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
       } else if (this.bpStatusFilter === 'exchange-needed') {
         items = items.filter(i => !i.wallOwned);
       } else if (this.bpStatusFilter === 'starred') {
         items = items.filter(i => !!i.starred);
       } else if (this.bpStatusFilter === 'extras') {
-        items = items.filter(i => (Number(i.quantity) || 0) > 1);
+        items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 1);
       } else if (this.bpStatusFilter === 'standalone') {
         items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
       }
@@ -3013,8 +3180,8 @@ js_logic = ''';
         const bBase = b.baseValue || 0;
         const aWorth = a.marketWorth || 0;
         const bWorth = b.marketWorth || 0;
-        const aQty = a.quantity || 0;
-        const bQty = b.quantity || 0;
+        const aQty = this.getItemQuantity(a, this.activeBackpackAccount);
+        const bQty = this.getItemQuantity(b, this.activeBackpackAccount);
         const aTotalWorth = aQty * aWorth;
         const bTotalWorth = bQty * bWorth;
 
@@ -3072,7 +3239,7 @@ js_logic = ''';
     createBackpackCard(item) {
       const tierInfo = this.getTierInfo(item.tier);
       const card = document.createElement('div');
-      const qty = Number(item.quantity) || 0;
+      const qty = this.getItemQuantity(item, this.activeBackpackAccount);
       const isOwned = qty > 0;
       const isStarred = !!item.starred;
       const isExchangeNeeded = qty > 0 && !item.wallOwned;
@@ -3167,7 +3334,7 @@ js_logic = ''';
         const info = this.getTierInfo(i.tier);
         const entry = tierMap.get(info.name) || { name: info.name, info, count: 0, ownedUnits: 0, baseVal: 0, marketVal: 0 };
         entry.count++;
-        const qty = Number(i.quantity) || 0;
+        const qty = this.getItemQuantity(i, this.activeBackpackAccount);
         entry.ownedUnits += qty;
         entry.baseVal += (Number(i.baseValue) || 0) * qty;
         entry.marketVal += (Number(i.marketWorth) || 0) * qty;
@@ -3202,9 +3369,9 @@ js_logic = ''';
         const total = sItems.length;
         const wallCollected = sItems.filter(i => !!i.wallOwned).length;
         const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
-        const bpUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-        const bpBase = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-        const bpMarket = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+        const bpUnits = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+        const bpBase = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
         const tr = document.createElement('tr');
         tr.innerHTML = `
@@ -3224,9 +3391,9 @@ js_logic = ''';
         const total = standaloneItems.length;
         const wallCollected = standaloneItems.filter(i => !!i.wallOwned).length;
         const wallPct = total > 0 ? ((wallCollected / total) * 100).toFixed(0) : '0';
-        const bpUnits = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
-        const bpBase = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.baseValue) || 0), 0);
-        const bpMarket = standaloneItems.reduce((sum, i) => sum + (Number(i.quantity) || 0) * (Number(i.marketWorth) || 0), 0);
+        const bpUnits = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
+        const bpBase = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.baseValue) || 0), 0);
+        const bpMarket = standaloneItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount) * (Number(i.marketWorth) || 0), 0);
 
         const tr = document.createElement('tr');
         tr.style.background = 'rgba(255, 255, 255, 0.02)';
@@ -4284,7 +4451,9 @@ js_logic = ''';
       this.editItemBaseValue.value = '';
       this.editItemMarketWorth.value = '';
       if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'true';
-      this.editItemQuantity.value = '1';
+      if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = this.activeBackpackAccount === 'lbs' ? '1' : '';
+      if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = this.activeBackpackAccount === 'cryptid' ? '1' : '';
+      if (this.editItemQuantity) this.editItemQuantity.value = '1';
       this.editItemStarred.checked = false;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = false;
       this.editItemTier.value = 'Standard';
@@ -4339,7 +4508,13 @@ js_logic = ''';
       this.editItemBaseValue.value = item.baseValue !== undefined ? item.baseValue : 0;
       this.editItemMarketWorth.value = (item.marketWorth !== undefined && Number(item.marketWorth) > 0) ? item.marketWorth : (item.baseValue !== undefined ? item.baseValue : '');
       if (this.editItemMarketWorth) this.editItemMarketWorth.dataset.autoFilled = 'false';
-      this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
+
+      const lbsQty = this.getItemQuantity(item, 'lbs');
+      const cryptidQty = this.getItemQuantity(item, 'cryptid');
+      if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = lbsQty > 0 ? lbsQty : '';
+      if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = cryptidQty > 0 ? cryptidQty : '';
+      if (this.editItemQuantity) this.editItemQuantity.value = (item.quantity !== undefined && Number(item.quantity) > 0) ? item.quantity : '';
+
       this.editItemStarred.checked = !!item.starred;
       if (this.editItemDistinctVariant) this.editItemDistinctVariant.checked = !!item.isDistinctVariant;
 
@@ -4350,7 +4525,8 @@ js_logic = ''';
       if (item.wallOwned && !itemTabs.includes('wall')) {
         itemTabs.push('wall');
       }
-      if ((Number(item.quantity) || 0) > 0 && !itemTabs.includes('backpack')) {
+      const hasAnyBp = lbsQty > 0 || cryptidQty > 0 || (Number(item.quantity) || 0) > 0;
+      if (hasAnyBp && !itemTabs.includes('backpack')) {
         itemTabs.push('backpack');
       }
       this.setModalSelectedTabs(itemTabs);
@@ -4408,7 +4584,9 @@ js_logic = ''';
       const name = this.toSmartTitleCase(rawName);
       const rawBase = this.editItemBaseValue.value.trim();
       const rawMarket = this.editItemMarketWorth.value.trim();
-      const rawQty = this.editItemQuantity.value.trim();
+      const rawQtyLbs = this.editItemQuantityLbs ? this.editItemQuantityLbs.value.trim() : '';
+      const rawQtyCryptid = this.editItemQuantityCryptid ? this.editItemQuantityCryptid.value.trim() : '';
+      const rawQty = this.editItemQuantity ? this.editItemQuantity.value.trim() : '';
       const categoryId = this.editItemCategory.value.trim();
       const seriesId = this.editItemSeries.value.trim();
       const selectedTabs = this.getModalSelectedTabs();
@@ -4450,14 +4628,30 @@ js_logic = ''';
         }
       }
 
-      let qty = (rawQty !== '' && !isNaN(Number(rawQty))) ? Math.max(0, Math.floor(Number(rawQty))) : 0;
+      let qtyLbs = (rawQtyLbs !== '' && !isNaN(Number(rawQtyLbs))) ? Math.max(0, Math.floor(Number(rawQtyLbs))) : 0;
+      let qtyCryptid = (rawQtyCryptid !== '' && !isNaN(Number(rawQtyCryptid))) ? Math.max(0, Math.floor(Number(rawQtyCryptid))) : 0;
+
+      if (rawQtyLbs === '' && rawQtyCryptid === '' && rawQty !== '' && !isNaN(Number(rawQty))) {
+        if (this.activeBackpackAccount === 'cryptid') {
+          qtyCryptid = Math.max(0, Math.floor(Number(rawQty)));
+        } else {
+          qtyLbs = Math.max(0, Math.floor(Number(rawQty)));
+        }
+      }
+
       if (effectiveTabs.includes('backpack')) {
-        if (qty <= 0) {
-          qty = 1;
-          this.editItemQuantity.value = '1';
+        if (qtyLbs <= 0 && qtyCryptid <= 0) {
+          if (this.activeBackpackAccount === 'cryptid') {
+            qtyCryptid = 1;
+            if (this.editItemQuantityCryptid) this.editItemQuantityCryptid.value = '1';
+          } else {
+            qtyLbs = 1;
+            if (this.editItemQuantityLbs) this.editItemQuantityLbs.value = '1';
+          }
         }
       } else {
-        qty = 0;
+        qtyLbs = 0;
+        qtyCryptid = 0;
       }
 
       const isWallOwned = effectiveTabs.includes('wall');
@@ -4468,7 +4662,8 @@ js_logic = ''';
         name,
         baseValue: baseCoins,
         marketWorth: marketCoins,
-        quantity: qty,
+        quantity: qtyLbs,
+        backpacks: { lbs: qtyLbs, cryptid: qtyCryptid },
         wallOwned: isWallOwned,
         starred: this.editItemStarred.checked,
         isDistinctVariant: this.editItemDistinctVariant ? this.editItemDistinctVariant.checked : (existingItem ? !!existingItem.isDistinctVariant : false),
@@ -4490,20 +4685,28 @@ js_logic = ''';
       if (duplicateMatch) {
         if (duplicateMatch.baseValue === baseCoins) {
           // Exact duplicate in same series with matching coins: prompt to merge stock
+          const activeMergeQty = (this.activeBackpackAccount === 'cryptid') ? qtyCryptid : qtyLbs;
           this.confirmAction(
             'Duplicate Gift Detected',
-            `A gift named "${duplicateMatch.name}" with ${baseCoins} coins already exists in this series.\n\nWould you like to merge stock (${qty} units) and collection status into the existing gift instead of creating a duplicate?`,
+            `A gift named "${duplicateMatch.name}" with ${baseCoins} coins already exists in this series.\n\nWould you like to merge stock (${activeMergeQty} units) and collection status into the existing gift instead of creating a duplicate?`,
             () => {
               const scrollY = window.scrollY;
-              const mergedQty = (Number(duplicateMatch.quantity) || 0) + qty;
+              const dupLbs = this.getItemQuantity(duplicateMatch, 'lbs');
+              const dupCryptid = this.getItemQuantity(duplicateMatch, 'cryptid');
+              const mergedBackpacks = {
+                lbs: dupLbs + qtyLbs,
+                cryptid: dupCryptid + qtyCryptid
+              };
+              const mergedQty = mergedBackpacks.lbs;
               const mergedWall = duplicateMatch.wallOwned || isWallOwned;
               const mergedStarred = duplicateMatch.starred || this.editItemStarred.checked;
               const mergedTabs = Array.isArray(duplicateMatch.tabs) ? [...duplicateMatch.tabs] : [];
               if (mergedWall && !mergedTabs.includes('wall')) mergedTabs.push('wall');
-              if (mergedQty > 0 && !mergedTabs.includes('backpack')) mergedTabs.push('backpack');
+              if ((mergedBackpacks.lbs > 0 || mergedBackpacks.cryptid > 0) && !mergedTabs.includes('backpack')) mergedTabs.push('backpack');
 
               this.state.updateItem(duplicateMatch.id, {
                 quantity: mergedQty,
+                backpacks: mergedBackpacks,
                 wallOwned: mergedWall,
                 starred: mergedStarred,
                 tabs: mergedTabs
@@ -5576,6 +5779,7 @@ js_logic = ''';
           const cleanItems = (this.state.data.items || []).map(item => ({
             ...item,
             quantity: 0,
+            backpacks: { lbs: 0, cryptid: 0 },
             wallOwned: false,
             starred: false,
             notes: ''
