@@ -3364,10 +3364,11 @@ js_logic = ''';
         const bTotalWorth = bQty * bWorth;
 
         switch (this.bpSortMethod) {
-          case 'base-desc':
-          case 'worth-desc': return (bQty * bBase) - (aQty * aBase) || (bBase - aBase);
-          case 'base-asc': return (aQty * aBase) - (bQty * bBase) || (aBase - bBase);
-          case 'qty-desc': return bQty - aQty || ((bQty * bBase) - (aQty * aBase));
+          case 'base-desc': return (bBase - aBase) || (bQty - aQty) || (a.name || '').localeCompare(b.name || '');
+          case 'base-asc': return (aBase - bBase) || (bQty - aQty) || (a.name || '').localeCompare(b.name || '');
+          case 'total-desc':
+          case 'worth-desc': return ((bQty * bBase) - (aQty * aBase)) || (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
+          case 'qty-desc': return (bQty - aQty) || (bBase - aBase) || (a.name || '').localeCompare(b.name || '');
           case 'series-order': {
             const aSer = this.state.getSeries(a.seriesId);
             const bSer = this.state.getSeries(b.seriesId);
