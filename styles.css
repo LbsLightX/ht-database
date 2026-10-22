@@ -2175,6 +2175,54 @@ body.modal-open .search-add-btn {
   border-color: rgba(234, 179, 8, 0.35);
 }
 
+/* ====================================================================
+   SHARED BACKPACK BADGE & QUICK COPY ACTIONS
+   ==================================================================== */
+.chip-shared.active {
+  background-color: rgba(168, 85, 247, 0.2) !important;
+  color: #c084fc !important;
+  border-color: rgba(168, 85, 247, 0.45) !important;
+}
+
+.badge-shared {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: var(--radius-pill);
+  background: rgba(168, 85, 247, 0.15);
+  color: #c084fc;
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  letter-spacing: 0.2px;
+}
+
+.tag-copy-account {
+  color: #38bdf8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  background: rgba(56, 189, 248, 0.08) !important;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tag-copy-account:hover {
+  background: rgba(56, 189, 248, 0.2) !important;
+  border-color: rgba(56, 189, 248, 0.55) !important;
+  color: #fff !important;
+}
+
+.tag-other-qty {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-subtle);
+  background: transparent;
+  pointer-events: none;
+}
+
+
 
 
 

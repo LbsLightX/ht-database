@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.3&t=1792620348">
+  <link rel="stylesheet" href="styles.css?v=1.0.3&t=1792644096">
 </head>
 <body>
 
@@ -105,6 +105,7 @@
         <!-- Status Chips -->
         <div class="filter-scroll-rail" id="bpStatusPills">
           <button class="filter-chip active" data-bp-status="all">All Inventory <span class="chip-badge" id="bpCountAll">0</span></button>
+          <button class="filter-chip chip-shared" data-bp-status="shared">Shared (Both) <span class="chip-badge" id="bpCountShared">0</span></button>
           <button class="filter-chip" data-bp-status="in-stock">In Stock (=1) <span class="chip-badge" id="bpCountInStock">0</span></button>
           <button class="filter-chip chip-exchange" data-bp-status="exchange-needed">Exchange Needed <span class="chip-badge" id="bpCountExchange">0</span></button>
           <button class="filter-chip chip-starred" data-bp-status="starred">Saved / Priority <span class="chip-badge" id="bpCountStarred">0</span></button>
@@ -670,6 +671,14 @@
               <input type="number" id="editItemQuantityCryptid" class="form-input tabular" min="0" placeholder="0">
             </div>
           </div>
+          <div style="display: flex; gap: 8px; margin-top: -6px; margin-bottom: 12px;">
+            <button type="button" id="editItemCopyLbsToCryptid" class="preset-btn" style="font-size: 11px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px;">
+              → Copy to Cryptid
+            </button>
+            <button type="button" id="editItemCopyCryptidToLbs" class="preset-btn" style="font-size: 11px; padding: 4px 10px; display: inline-flex; align-items: center; gap: 4px;">
+              ← Copy to LBS
+            </button>
+          </div>
           <input type="hidden" id="editItemQuantity">
 
           <!-- Target Tabs Assignment (Multi-Select Pills) -->
@@ -935,6 +944,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.3&t=1792620348"></script>
+  <script src="app.js?v=1.0.3&t=1792644096"></script>
 </body>
 </html>

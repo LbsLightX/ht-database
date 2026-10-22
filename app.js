@@ -26104,6 +26104,15 @@
       this.bpPillCountLbs = document.getElementById('bpPillCountLbs');
       this.bpPillCountCryptid = document.getElementById('bpPillCountCryptid');
 
+      // Instantly sync active backpack tab buttons with saved activeBackpackAccount
+      if (this.bpAccountTabs) {
+        this.bpAccountTabs.forEach(btn => {
+          const isActive = btn.dataset.account === this.activeBackpackAccount;
+          btn.classList.toggle('active', isActive);
+          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+      }
+
       this.bpTotalUnits = document.getElementById('bpTotalUnits');
       this.bpUniqueItems = document.getElementById('bpUniqueItems');
       this.bpMarketWorth = document.getElementById('bpMarketWorth');
@@ -26113,6 +26122,7 @@
 
       this.bpStatusPills = document.getElementById('bpStatusPills');
       this.bpCountAll = document.getElementById('bpCountAll');
+      this.bpCountShared = document.getElementById('bpCountShared');
       this.bpCountInStock = document.getElementById('bpCountInStock');
       this.bpCountExchange = document.getElementById('bpCountExchange');
       this.bpCountStarred = document.getElementById('bpCountStarred');
@@ -26251,6 +26261,8 @@
       this.editItemQuantity = document.getElementById('editItemQuantity');
       this.editItemQuantityLbs = document.getElementById('editItemQuantityLbs');
       this.editItemQuantityCryptid = document.getElementById('editItemQuantityCryptid');
+      this.editItemCopyLbsToCryptid = document.getElementById('editItemCopyLbsToCryptid');
+      this.editItemCopyCryptidToLbs = document.getElementById('editItemCopyCryptidToLbs');
       this.editItemTabsPresets = document.getElementById('editItemTabsPresets');
       this.editItemStarred = document.getElementById('editItemStarred');
       this.editItemDistinctVariant = document.getElementById('editItemDistinctVariant');
@@ -26639,10 +26651,30 @@
         this.bpAccountTabs.forEach(btn => {
           btn.addEventListener('click', () => {
             const acc = btn.dataset.account;
-            if (acc && acc !== this.activeBackpackAccount) {
+            if (acc) {
               this.switchBackpackAccount(acc);
             }
           });
+        });
+      }
+
+      if (this.editItemCopyLbsToCryptid) {
+        this.editItemCopyLbsToCryptid.addEventListener('click', () => {
+          const lbsVal = Math.max(1, Math.floor(Number(this.editItemQuantityLbs?.value) || 1));
+          if (this.editItemQuantityCryptid) {
+            this.editItemQuantityCryptid.value = lbsVal;
+          }
+          this.showToast(`Copied ${lbsVal} unit${lbsVal > 1 ? 's' : ''} to CryptidArise`);
+        });
+      }
+
+      if (this.editItemCopyCryptidToLbs) {
+        this.editItemCopyCryptidToLbs.addEventListener('click', () => {
+          const cryVal = Math.max(1, Math.floor(Number(this.editItemQuantityCryptid?.value) || 1));
+          if (this.editItemQuantityLbs) {
+            this.editItemQuantityLbs.value = cryVal;
+          }
+          this.showToast(`Copied ${cryVal} unit${cryVal > 1 ? 's' : ''} to LbsLightX`);
         });
       }
 
@@ -26962,7 +26994,24 @@
             this.renderSeriesTab();
           }
           break;
+        case 'copy-to-account':
+          this.handleCardCopyToAccount(item, actionBtn.dataset.targetAccount);
+          break;
       }
+    }
+
+    handleCardCopyToAccount(item, targetAccount) {
+      const acc = (targetAccount === 'cryptid') ? 'cryptid' : 'lbs';
+      const targetLabel = (acc === 'cryptid') ? 'CryptidArise' : 'LbsLightX';
+
+      this.state.incrementQuantity(item.id, 1, acc);
+      if (!item.wallOwned) {
+        this.state.updateItem(item.id, { wallOwned: true });
+      }
+      this.showToast(`Copied "${item.name}" to ${targetLabel} (1 unit)`);
+      this.updateBpHeaderCounts();
+      this.updateSeriesHeaderCounts();
+      this.renderBackpackTab();
     }
 
     handleCardToggleStar(item, card) {
@@ -27278,6 +27327,7 @@
       const inStockExact1 = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
       const extrasGifts = bpItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 1);
       const standaloneCount = bpItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
+      const sharedGifts = bpItems.filter(i => this.getItemQuantity(i, 'lbs') > 0 && this.getItemQuantity(i, 'cryptid') > 0);
 
       // Update switcher pill badges
       const lbsItemsCount = allItems.filter(i => this.getItemQuantity(i, 'lbs') > 0).length;
@@ -27293,6 +27343,7 @@
       if (this.bpExchangeMarkerCount) this.bpExchangeMarkerCount.textContent = exchangeNeededGifts.length;
 
       if (this.bpCountAll) this.bpCountAll.textContent = bpItems.length;
+      if (this.bpCountShared) this.bpCountShared.textContent = sharedGifts.length;
       if (this.bpCountInStock) this.bpCountInStock.textContent = inStockExact1.length;
       if (this.bpCountExchange) this.bpCountExchange.textContent = exchangeNeededGifts.length;
       if (this.bpCountStarred) this.bpCountStarred.textContent = starredGifts.length;
@@ -28081,7 +28132,9 @@
         });
       }
 
-      if (this.bpStatusFilter === 'in-stock') {
+      if (this.bpStatusFilter === 'shared') {
+        items = items.filter(i => this.getItemQuantity(i, 'lbs') > 0 && this.getItemQuantity(i, 'cryptid') > 0);
+      } else if (this.bpStatusFilter === 'in-stock') {
         items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) === 1);
       } else if (this.bpStatusFilter === 'exchange-needed') {
         items = items.filter(i => !i.wallOwned);
@@ -28186,6 +28239,14 @@
       const isInSeries = (Array.isArray(item.tabs) ? item.tabs.includes('series') : false) && !!(item.categoryId && item.seriesId && this.state.getSeries(item.seriesId));
       const isWallOwned = !!item.wallOwned;
 
+      const lbsQty = this.getItemQuantity(item, 'lbs');
+      const cryptidQty = this.getItemQuantity(item, 'cryptid');
+      const isShared = (lbsQty > 0 && cryptidQty > 0);
+      const isLbsActive = (this.activeBackpackAccount === 'lbs');
+      const otherAccount = isLbsActive ? 'cryptid' : 'lbs';
+      const otherAccountLabel = isLbsActive ? 'Cryptid' : 'LBS';
+      const otherQty = isLbsActive ? cryptidQty : lbsQty;
+
       card.dataset.id = item.id;
       card.className = `gift-card ${isOwned ? 'is-owned ' + tierInfo.cardClass : ''}`;
       if (isOwned) {
@@ -28203,6 +28264,7 @@
             <div class="badges-group-left">
               <span class="tier-badge ${tierInfo.className}" style="color: ${tierInfo.color}; background-color: ${tierInfo.bg}; border-color: ${tierInfo.border};">${this.escapeHtml(tierInfo.name)}</span>
               ${ser ? `<span class="badge-series" title="Series: ${this.escapeHtml(ser.name)}">${this.escapeHtml(ser.name)}</span>` : '<span class="badge-series badge-standalone" title="Standalone / Non-Series Gift">Standalone</span>'}
+              ${isShared ? `<span class="badge-shared" title="Present in both backpacks: LBS (${lbsQty}) · Cryptid (${cryptidQty})">✦ Shared</span>` : ''}
               ${isExchangeNeeded ? `<span class="marker-badge-exchange" title="In Backpack but missing on Wall">Exchange Needed</span>` : ''}
             </div>
           </div>
@@ -28246,6 +28308,16 @@
               <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
               <span>${this.escapeHtml(this.state.getTagName('series'))}</span>
             </button>
+            ${otherQty === 0 ? `
+              <button type="button" class="btn-context-tag tag-copy-account" data-action="copy-to-account" data-target-account="${otherAccount}" title="Copy to ${otherAccountLabel}'s backpack">
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                <span>Copy to ${otherAccountLabel}</span>
+              </button>
+            ` : `
+              <span class="btn-context-tag tag-other-qty" title="${otherAccountLabel} has ${otherQty} in backpack">
+                <span>${otherAccountLabel}: ${otherQty}</span>
+              </span>
+            `}
           </div>
         </div>
       `;
