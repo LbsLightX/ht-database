@@ -109,9 +109,11 @@ js_logic = ''';
               if (hasAnyBpStock && !itemTabs.includes('backpack')) {
                 itemTabs.push('backpack');
               }
-              itemTabs = [...new Set(itemTabs)];
-
               const finalWallOwned = isWallOwned || itemTabs.includes('wall');
+              if (finalWallOwned && !itemTabs.includes('wall')) {
+                itemTabs.push('wall');
+              }
+              itemTabs = [...new Set(itemTabs)];
               let finalQty = backpacksObj.lbs;
               if (itemTabs.includes('backpack') && finalQty === 0 && backpacksObj.cryptid === 0) {
                 finalQty = 1;
@@ -234,14 +236,21 @@ js_logic = ''';
                     // Reconcile official seed backpack quantities & wall ownership
                     if (isVersionUpgrade) {
                       if (seed.backpacks) {
+                        const curLbs = item.backpacks ? Number(item.backpacks.lbs) || 0 : 0;
+                        const curCryptid = item.backpacks ? Number(item.backpacks.cryptid) || 0 : 0;
+                        const seedLbs = Number(seed.backpacks.lbs) || 0;
+                        const seedCryptid = Number(seed.backpacks.cryptid) || 0;
                         item.backpacks = {
-                          lbs: Number(seed.backpacks.lbs) || 0,
-                          cryptid: Number(seed.backpacks.cryptid) || 0
+                          lbs: Math.max(curLbs, seedLbs),
+                          cryptid: Math.max(curCryptid, seedCryptid)
                         };
                         item.quantity = item.backpacks.lbs;
                       }
-                      if (seed.wallOwned) {
+                      if (seed.wallOwned || (Array.isArray(seed.tabs) && seed.tabs.includes('wall')) || item.wallOwned || (Array.isArray(item.tabs) && item.tabs.includes('wall'))) {
                         item.wallOwned = true;
+                        if (!item.tabs.includes('wall')) {
+                          item.tabs.push('wall');
+                        }
                       }
                       const hasStock = ((item.backpacks?.lbs || 0) > 0 || (item.backpacks?.cryptid || 0) > 0);
                       if (hasStock && !item.tabs.includes('backpack')) {
@@ -265,7 +274,7 @@ js_logic = ''';
                           if (!item.tabs.includes('backpack')) item.tabs.push('backpack');
                         }
                       }
-                      if (seed.wallOwned && !item.wallOwned) {
+                      if ((seed.wallOwned || (Array.isArray(seed.tabs) && seed.tabs.includes('wall'))) && !item.wallOwned) {
                         item.wallOwned = true;
                         if (!item.tabs.includes('wall')) item.tabs.push('wall');
                       }
@@ -286,9 +295,9 @@ js_logic = ''';
                       name: String(seedItem.name || '').trim(),
                       baseValue: Math.max(0, Number(seedItem.baseValue) || 0),
                       marketWorth: Math.max(0, Number(seedItem.marketWorth) || Number(seedItem.baseValue) || 0),
-                      quantity: seedItem.quantity || 0,
+                      quantity: seedItem.quantity || (seedItem.backpacks?.lbs || 0),
                       backpacks: seedItem.backpacks ? { ...seedItem.backpacks } : { lbs: 0, cryptid: 0 },
-                      wallOwned: !!seedItem.wallOwned,
+                      wallOwned: !!seedItem.wallOwned || (Array.isArray(seedItem.tabs) && seedItem.tabs.includes('wall')),
                       starred: !!seedItem.starred,
                       tier: String(seedItem.tier || 'Standard').trim(),
                       tabs: Array.isArray(seedItem.tabs) ? [...seedItem.tabs] : (seedItem.seriesId ? ['series'] : []),
