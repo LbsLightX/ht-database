@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792743177339,
+  "lastExported": 1792751139837,
   "categories": [
     {
       "id": "cat-basic",
@@ -1096,7 +1096,7 @@
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": false,
+      "starred": true,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
@@ -1106,7 +1106,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792743177337
+      "updatedAt": 1792743453859
     },
     {
       "id": "item-mvkmnwk6-ifhk9e",
@@ -18512,7 +18512,7 @@
       "quantity": 1,
       "backpacks": {
         "lbs": 1,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -18524,7 +18524,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792751056730
     },
     {
       "id": "item-std-deer-isle-song-e6205b",
@@ -18533,9 +18533,9 @@
       "name": "Deer Isle Song",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 2,
+      "quantity": 1,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 1,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -18549,7 +18549,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792738723438
+      "updatedAt": 1792751108520
     },
     {
       "id": "item-eastern-musical-instrument-lotus-pipa-168",
@@ -20194,7 +20194,7 @@
       "quantity": 5,
       "backpacks": {
         "lbs": 5,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -20211,7 +20211,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792423095853
+      "updatedAt": 1792751081059
     },
     {
       "id": "item-wonderland-dream-ruby-necklace-129",
@@ -20248,19 +20248,18 @@
       "name": "Playful Parrot",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "lives",
@@ -20268,7 +20267,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733774805
+      "updatedAt": 1792750947621
     },
     {
       "id": "item-world-garden-stamp-longwood-gardens-362",
@@ -20645,7 +20644,7 @@
       "quantity": 2,
       "backpacks": {
         "lbs": 2,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -20662,7 +20661,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792487085109
+      "updatedAt": 1792751043263
     },
     {
       "id": "item-eid-al-fitr-glazed-glass-lantern-716",
@@ -21489,7 +21488,7 @@
       "quantity": 7,
       "backpacks": {
         "lbs": 7,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -21506,7 +21505,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486753351
+      "updatedAt": 1792750969257
     },
     {
       "id": "item-football-keychain-ii-mexico-pendant-651",
@@ -21753,7 +21752,7 @@
       "quantity": 1,
       "backpacks": {
         "lbs": 1,
-        "cryptid": 2
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -21765,7 +21764,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792750988305
     },
     {
       "id": "item-std-dream-chest-234e13",
@@ -22360,19 +22359,18 @@
       "name": "Tibetan Mastiff",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "lives",
@@ -22380,7 +22378,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733878081
+      "updatedAt": 1792750909058
     },
     {
       "id": "item-autumn-delights-corn-bouquet-326",
@@ -24121,7 +24119,7 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 12
+        "cryptid": 11
       },
       "wallOwned": true,
       "starred": false,
@@ -24133,7 +24131,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792750873311
     },
     {
       "id": "item-desserts-baguette-457",
@@ -24501,22 +24499,21 @@
       "name": "Firecracker",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733722793
+      "updatedAt": 1792750844335
     },
     {
       "id": "item-std-snowflake-90b91c",
@@ -25628,22 +25625,21 @@
       "name": "Sunlit Bouquet",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733702027
+      "updatedAt": 1792750821252
     },
     {
       "id": "item-std-star-bag-4e681a",
@@ -25727,19 +25723,18 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733659713
+      "updatedAt": 1792750777713
     },
     {
       "id": "item-std-ruyi-scepter-6d7af1",
