@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792739622537,
+  "lastExported": 1792741008104,
   "categories": [
     {
       "id": "cat-basic",
@@ -863,6 +863,38 @@
       "badge": "",
       "description": "World Dessert Shop Collection series under delicious",
       "displayOrder": 100
+    },
+    {
+      "id": "ser-mvknpiw8-hy7a88",
+      "categoryId": "cat-celebration",
+      "name": "Halloween I",
+      "badge": "",
+      "description": "Halloween I Collection series under Celebration.",
+      "displayOrder": 101
+    },
+    {
+      "id": "ser-mvknpiw9-yqfu51",
+      "categoryId": "cat-celebration",
+      "name": "Halloween II",
+      "badge": "",
+      "description": "Halloween II Collection series under Celebration.",
+      "displayOrder": 102
+    },
+    {
+      "id": "ser-mvknpiw9-eqbk5q",
+      "categoryId": "cat-celebration",
+      "name": "Halloween III",
+      "badge": "",
+      "description": "Halloween III Collection series under Celebration.",
+      "displayOrder": 103
+    },
+    {
+      "id": "ser-mvknpiw9-2ftyyo",
+      "categoryId": "cat-celebration",
+      "name": "Letters from the...",
+      "badge": "",
+      "description": "Letters from the... Collection series under Celebration.",
+      "displayOrder": 104
     }
   ],
   "items": [
@@ -26108,6 +26140,1202 @@
       "tags": [],
       "notes": "",
       "updatedAt": 1792739096843
+    },
+    {
+      "id": "item-mvknpiw9-hwa4sj",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "MagicBroom",
+      "baseValue": 39,
+      "marketWorth": 39,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ici51w",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Witch Hat",
+      "baseValue": 89,
+      "marketWorth": 89,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-97mv85",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "JackOLantern",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-3giehs",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Ghost",
+      "baseValue": 799,
+      "marketWorth": 799,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ikj4hw",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Casper",
+      "baseValue": 29,
+      "marketWorth": 29,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-10v60u",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "CandyCat",
+      "baseValue": 1599,
+      "marketWorth": 1599,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-p3kd09",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Pumpkin Wand",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-6b34oi",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Candy broom",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-uf88z7",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Spook",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-e617zl",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Weird Box",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-umrb0d",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Cute Spook",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-55jik1",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Pumpkin Pail",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-5s4wro",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw8-hy7a88",
+      "name": "Bubble Ghost",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ny0tmq",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Mystic Castle",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-88wuv7",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Halloween Book",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-bp1wf3",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Ghost Cruise",
+      "baseValue": 4999,
+      "marketWorth": 4999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-prpbxl",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Hallow Trip",
+      "baseValue": 6999,
+      "marketWorth": 6999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-x3a99j",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "HauntedPark",
+      "baseValue": 9999,
+      "marketWorth": 9999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-h142rt",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Skeletons",
+      "baseValue": 9999,
+      "marketWorth": 9999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-8a2y3j",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Spooky Egg",
+      "baseValue": 4999,
+      "marketWorth": 4999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-s41ih6",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Candygram",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-n2eayi",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Lil Spook",
+      "baseValue": 2000,
+      "marketWorth": 2000,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-tkt390",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Candy Ghost",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-hrsgaq",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Pumpkin",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-n0ci77",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Halloween",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-0c4jjp",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-yqfu51",
+      "name": "Sugar-Sprinkling Girl",
+      "baseValue": 6599,
+      "marketWorth": 6599,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ho9blx",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "pumpkin castle",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-sqom5k",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Lord Skeleton",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-en9aid",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "pumpkin envelope",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-sn0kts",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "sweet tomb",
+      "baseValue": 59,
+      "marketWorth": 59,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-8fdfgv",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Pumpkin Candy",
+      "baseValue": 109,
+      "marketWorth": 109,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-obp0zj",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Halloween Sweetness",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-j4a5yq",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Ghost Kitty",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ag720q",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Ghost Hall",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-czq5u6",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "ghost candelabra",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ehb1lp",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "magic cauldron feast",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-lzqyq3",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Trick Night",
+      "baseValue": 2399,
+      "marketWorth": 2399,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-wjnuxv",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Witch Broom",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-1awtrm",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "Ghost Candy",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-b6ghmk",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-eqbk5q",
+      "name": "pumpkin candy drop",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-uqiaga",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Platform Postcard",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-6gyfjj",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Island Post",
+      "baseValue": 89,
+      "marketWorth": 89,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-9cfeyx",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Passionate Love Delivery",
+      "baseValue": 15,
+      "marketWorth": 15,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": true,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-ckpac3",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Winter Letter",
+      "baseValue": 120,
+      "marketWorth": 120,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-gy8o33",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Love Note",
+      "baseValue": 20,
+      "marketWorth": 20,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-5u6th5",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": true,
+      "tier": "Mystery Gift",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-oce1kf",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Coconut Env",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-g2hn9u",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "LoveLetters",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-6r4eio",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Chubby love pigeon",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-wgkfjb",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Love Mail",
+      "baseValue": 799,
+      "marketWorth": 799,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-qaqqld",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "The Rose Letter",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
+    },
+    {
+      "id": "item-mvknpiw9-er4m1f",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvknpiw9-2ftyyo",
+      "name": "Love Letter",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792741008104
     }
   ],
   "tiers": [
