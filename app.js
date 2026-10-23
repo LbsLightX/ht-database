@@ -10,7 +10,7 @@
 
   const DEFAULT_SEED = {
   "version": "1.0.4",
-  "lastExported": 1792743177339,
+  "lastExported": 1792752661495,
   "categories": [
     {
       "id": "cat-basic",
@@ -1106,7 +1106,7 @@
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": false,
+      "starred": true,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
@@ -1116,7 +1116,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792743177337
+      "updatedAt": 1792743453859
     },
     {
       "id": "item-mvkmnwk6-ifhk9e",
@@ -18522,7 +18522,7 @@
       "quantity": 1,
       "backpacks": {
         "lbs": 1,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -18534,7 +18534,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792751056730
     },
     {
       "id": "item-std-deer-isle-song-e6205b",
@@ -18543,9 +18543,9 @@
       "name": "Deer Isle Song",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 2,
+      "quantity": 1,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 1,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -18559,7 +18559,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792738723438
+      "updatedAt": 1792751108520
     },
     {
       "id": "item-eastern-musical-instrument-lotus-pipa-168",
@@ -20204,7 +20204,7 @@
       "quantity": 5,
       "backpacks": {
         "lbs": 5,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -20221,7 +20221,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792423095853
+      "updatedAt": 1792751081059
     },
     {
       "id": "item-wonderland-dream-ruby-necklace-129",
@@ -20258,19 +20258,18 @@
       "name": "Playful Parrot",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "lives",
@@ -20278,7 +20277,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733774805
+      "updatedAt": 1792750947621
     },
     {
       "id": "item-world-garden-stamp-longwood-gardens-362",
@@ -20655,7 +20654,7 @@
       "quantity": 2,
       "backpacks": {
         "lbs": 2,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -20672,7 +20671,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792487085109
+      "updatedAt": 1792751043263
     },
     {
       "id": "item-eid-al-fitr-glazed-glass-lantern-716",
@@ -21499,7 +21498,7 @@
       "quantity": 7,
       "backpacks": {
         "lbs": 7,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -21516,7 +21515,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792486753351
+      "updatedAt": 1792750969257
     },
     {
       "id": "item-football-keychain-ii-mexico-pendant-651",
@@ -21763,7 +21762,7 @@
       "quantity": 1,
       "backpacks": {
         "lbs": 1,
-        "cryptid": 2
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -21775,7 +21774,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792750988305
     },
     {
       "id": "item-std-dream-chest-234e13",
@@ -22370,19 +22369,18 @@
       "name": "Tibetan Mastiff",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "lives",
@@ -22390,7 +22388,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733878081
+      "updatedAt": 1792750909058
     },
     {
       "id": "item-autumn-delights-corn-bouquet-326",
@@ -23153,19 +23151,18 @@
       "name": "Blue Gun",
       "baseValue": 20,
       "marketWorth": 20,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "fantasy",
@@ -23173,7 +23170,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733819137
+      "updatedAt": 1792752088862
     },
     {
       "id": "item-std-maple-glow-d9f1bc",
@@ -23614,9 +23611,9 @@
       "name": "Kirstenbosch National Botanical Garden",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 2,
+      "quantity": 1,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 1,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -23634,7 +23631,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483520481
+      "updatedAt": 1792752283042
     },
     {
       "id": "item-world-garden-stamp-singapore-botanic-gardens-361",
@@ -24131,7 +24128,7 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 12
+        "cryptid": 11
       },
       "wallOwned": true,
       "starred": false,
@@ -24143,7 +24140,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792750873311
     },
     {
       "id": "item-desserts-baguette-457",
@@ -24511,22 +24508,21 @@
       "name": "Firecracker",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733722793
+      "updatedAt": 1792750844335
     },
     {
       "id": "item-std-snowflake-90b91c",
@@ -25638,22 +25634,21 @@
       "name": "Sunlit Bouquet",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733702027
+      "updatedAt": 1792750821252
     },
     {
       "id": "item-std-star-bag-4e681a",
@@ -25737,19 +25732,18 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792733659713
+      "updatedAt": 1792750777713
     },
     {
       "id": "item-std-ruyi-scepter-6d7af1",
@@ -29604,7 +29598,7 @@
         this.wallCountStarredOnly.textContent = starCount;
       }
       if (this.bpCountStarred) {
-        const bpStarCount = this.state.data.items.filter(i => (Number(i.quantity) || 0) > 0 && !!i.starred).length;
+        const bpStarCount = this.state.data.items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0 && !!i.starred).length;
         this.bpCountStarred.textContent = bpStarCount;
       }
 
@@ -29673,7 +29667,7 @@
           }
 
           const exchangeBadge = c.querySelector('.marker-badge-exchange');
-          const qty = Number(item.quantity) || 0;
+          const qty = this.getItemQuantity(item, this.activeBackpackAccount);
           const isExchangeNeeded = qty > 0 && !isOwned;
           if (isExchangeNeeded && !exchangeBadge) {
             const badgesLeft = c.querySelector('.badges-group-left');
@@ -30267,7 +30261,7 @@
       const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === seriesId);
       const total = sItems.length;
       const collected = sItems.filter(i => !!i.wallOwned).length;
-      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const totalUnits = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
       const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
 
       if (this.drillProgressText) this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;

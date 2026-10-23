@@ -2215,7 +2215,7 @@ js_logic = ''';
         this.wallCountStarredOnly.textContent = starCount;
       }
       if (this.bpCountStarred) {
-        const bpStarCount = this.state.data.items.filter(i => (Number(i.quantity) || 0) > 0 && !!i.starred).length;
+        const bpStarCount = this.state.data.items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0 && !!i.starred).length;
         this.bpCountStarred.textContent = bpStarCount;
       }
 
@@ -2284,7 +2284,7 @@ js_logic = ''';
           }
 
           const exchangeBadge = c.querySelector('.marker-badge-exchange');
-          const qty = Number(item.quantity) || 0;
+          const qty = this.getItemQuantity(item, this.activeBackpackAccount);
           const isExchangeNeeded = qty > 0 && !isOwned;
           if (isExchangeNeeded && !exchangeBadge) {
             const badgesLeft = c.querySelector('.badges-group-left');
@@ -2878,7 +2878,7 @@ js_logic = ''';
       const sItems = this.getSeriesCatalogItems().filter(i => i.seriesId === seriesId);
       const total = sItems.length;
       const collected = sItems.filter(i => !!i.wallOwned).length;
-      const totalUnits = sItems.reduce((sum, i) => sum + (Number(i.quantity) || 0), 0);
+      const totalUnits = sItems.reduce((sum, i) => sum + this.getItemQuantity(i, this.activeBackpackAccount), 0);
       const pct = total > 0 ? ((collected / total) * 100).toFixed(0) : '0';
 
       if (this.drillProgressText) this.drillProgressText.textContent = `${collected} / ${total} Collected on Wall (${pct}%)`;
