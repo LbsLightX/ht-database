@@ -26245,7 +26245,6 @@
       this.seriesCountCollected = document.getElementById('seriesCountCollected');
       this.seriesCountMissing = document.getElementById('seriesCountMissing');
       this.seriesCountInStock = document.getElementById('seriesCountInStock');
-      this.seriesCountStandalone = document.getElementById('seriesCountStandalone');
       this.seriesTierPills = document.getElementById('seriesTierPills');
 
       this.seriesFilterCategory = document.getElementById('seriesFilterCategory');
@@ -27070,15 +27069,7 @@
             this.switchTab('tab-series');
             this.openSeriesDrilldown(item.seriesId);
           } else {
-            this.switchTab('tab-series');
-            this.seriesStatusFilter = 'standalone';
-            if (this.seriesStatusPills) {
-              this.seriesStatusPills.querySelectorAll('.filter-chip').forEach(b => {
-                b.classList.toggle('active', b.dataset.seriesStatus === 'standalone');
-              });
-            }
-            this.seriesRenderedCount = BATCH_SIZE;
-            this.renderSeriesTab();
+            this.showToast('This gift is standalone and does not belong to any series.');
           }
           break;
         case 'copy-to-account':
@@ -27355,7 +27346,6 @@
       const wallCollectedCount = seriesItems.filter(i => !!i.wallOwned).length;
       const wallMissingCount = totalItems - wallCollectedCount;
       const inStockCount = seriesItems.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0).length;
-      const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
       const completionPct = totalItems > 0 ? ((wallCollectedCount / totalItems) * 100).toFixed(1) : '0.0';
 
       if (this.seriesTotalGifts) this.seriesTotalGifts.textContent = totalItems;
@@ -27381,7 +27371,6 @@
       if (this.seriesCountCollected) this.seriesCountCollected.textContent = wallCollectedCount;
       if (this.seriesCountMissing) this.seriesCountMissing.textContent = wallMissingCount;
       if (this.seriesCountInStock) this.seriesCountInStock.textContent = inStockCount;
-      if (this.seriesCountStandalone) this.seriesCountStandalone.textContent = standaloneCount;
     }
 
     updateWallHeaderCounts(collectedGifts) {
@@ -27497,7 +27486,7 @@
     // TAB CATALOG ROUTING & SCOPING HELPERS
     // ------------------------------------------------------------------
     getSeriesCatalogItems() {
-      return this.state.data.items || [];
+      return (this.state.data.items || []).filter(i => !!(i.seriesId && this.state.getSeries(i.seriesId)));
     }
 
     getWallCatalogItems() {
@@ -27632,25 +27621,15 @@
       } else if (this.seriesStatusFilter === 'missing') {
         items = items.filter(i => !i.wallOwned);
       } else if (this.seriesStatusFilter === 'in-stock') {
-        items = items.filter(i => (Number(i.quantity) || 0) > 0);
-      } else if (this.seriesStatusFilter === 'standalone') {
-        items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
+        items = items.filter(i => this.getItemQuantity(i, this.activeBackpackAccount) > 0);
       }
 
       if (this.seriesSelectedCategory) {
-        if (this.seriesSelectedCategory === '__standalone__') {
-          items = items.filter(i => !i.categoryId);
-        } else {
-          items = items.filter(i => i.categoryId === this.seriesSelectedCategory);
-        }
+        items = items.filter(i => i.categoryId === this.seriesSelectedCategory);
       }
 
       if (this.seriesSelectedSeries) {
-        if (this.seriesSelectedSeries === '__standalone__') {
-          items = items.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId));
-        } else {
-          items = items.filter(i => i.seriesId === this.seriesSelectedSeries);
-        }
+        items = items.filter(i => i.seriesId === this.seriesSelectedSeries);
       }
 
       if (this.seriesSelectedTier) {
@@ -28962,14 +28941,6 @@
       const currentVal = this.seriesFilterCategory.value;
       this.seriesFilterCategory.innerHTML = '<option value="">All Categories</option>';
 
-      const standaloneCatCount = seriesItems.filter(i => !i.categoryId).length;
-      if (standaloneCatCount > 0) {
-        const stOpt = document.createElement('option');
-        stOpt.value = '__standalone__';
-        stOpt.textContent = `Standalone Base (${standaloneCatCount})`;
-        this.seriesFilterCategory.appendChild(stOpt);
-      }
-
       const cats = [...this.state.data.categories].sort((a, b) => (a.order || 0) - (b.order || 0));
       cats.forEach(c => {
         const count = seriesItems.filter(i => i.categoryId === c.id).length;
@@ -28988,13 +28959,6 @@
       const currentVal = this.seriesFilterSeries.value;
       this.seriesFilterSeries.innerHTML = '<option value="">All Series</option>';
 
-      if (this.seriesSelectedCategory === '__standalone__') {
-        this.seriesFilterSeries.disabled = true;
-        this.seriesFilterSeries.value = '';
-        this.seriesSelectedSeries = '';
-        return;
-      }
-
       this.seriesFilterSeries.disabled = false;
       let seriesList = [...this.state.data.series];
       if (this.seriesSelectedCategory) {
@@ -29011,26 +28975,13 @@
         }
       });
 
-      const standaloneCount = seriesItems.filter(i => !i.seriesId || !this.state.getSeries(i.seriesId)).length;
-      if (standaloneCount > 0 || !this.seriesSelectedCategory) {
-        const opt = document.createElement('option');
-        opt.value = '__standalone__';
-        opt.textContent = `Standalone / No Series (${standaloneCount})`;
-        this.seriesFilterSeries.appendChild(opt);
-      }
-
-      if (currentVal === '__standalone__') {
-        this.seriesFilterSeries.value = '__standalone__';
-        this.seriesSelectedSeries = '__standalone__';
+      const exists = seriesList.some(s => s.id === currentVal);
+      if (exists) {
+        this.seriesFilterSeries.value = currentVal;
+        this.seriesSelectedSeries = currentVal;
       } else {
-        const exists = seriesList.some(s => s.id === currentVal);
-        if (exists) {
-          this.seriesFilterSeries.value = currentVal;
-          this.seriesSelectedSeries = currentVal;
-        } else {
-          this.seriesFilterSeries.value = '';
-          this.seriesSelectedSeries = '';
-        }
+        this.seriesFilterSeries.value = '';
+        this.seriesSelectedSeries = '';
       }
     }
 

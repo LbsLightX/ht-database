@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1792735344">
+  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1792735877">
 </head>
 <body>
 
@@ -172,20 +172,20 @@
     </section>
 
     <!-- ================================================================== -->
-    <!-- TAB 2: SERIES (MASTER CATALOG FOR ALL 779 GIFTS & 95 SERIES) -->
+    <!-- TAB 2: SERIES (DEDICATED SERIES CATALOG FOR 788 GIFTS & 95 SERIES) -->
     <!-- ================================================================== -->
     <section id="tab-series" class="tab-pane" role="tabpanel">
-      <!-- Master Catalog Summary Hero -->
+      <!-- Series Catalog Summary Hero -->
       <div class="summary-hero-row">
         <div class="summary-metric-card">
-          <div class="metric-label">Master Catalog</div>
-          <div class="metric-val" id="seriesTotalGifts">779</div>
+          <div class="metric-label">Series Gifts</div>
+          <div class="metric-val" id="seriesTotalGifts">788</div>
           <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;"><span id="seriesTotalCount">95</span> Active Series</div>
         </div>
 
         <div class="summary-metric-card">
           <div class="metric-label">Wall Collected Progress</div>
-          <div class="metric-val" id="seriesWallProgressRatio">0 / 779</div>
+          <div class="metric-val" id="seriesWallProgressRatio">0 / 788</div>
           <div class="progress-track">
             <div class="progress-bar-fill" id="seriesWallProgressBar" style="width: 0%;"></div>
           </div>
@@ -206,11 +206,10 @@
       <div class="search-control-hub" id="seriesFilterHub">
         <!-- Status Chips -->
         <div class="filter-scroll-rail" id="seriesStatusPills">
-          <button class="filter-chip active" data-series-status="all">All Gifts <span class="chip-badge" id="seriesCountAll">788</span></button>
+          <button class="filter-chip active" data-series-status="all">All Series Gifts <span class="chip-badge" id="seriesCountAll">788</span></button>
           <button class="filter-chip" data-series-status="collected">Collected on Wall <span class="chip-badge" id="seriesCountCollected">0</span></button>
           <button class="filter-chip" data-series-status="missing">Missing from Wall <span class="chip-badge" id="seriesCountMissing">788</span></button>
           <button class="filter-chip" data-series-status="in-stock">In Backpack Stock <span class="chip-badge" id="seriesCountInStock">0</span></button>
-          <button class="filter-chip" data-series-status="standalone">Standalone / No Series <span class="chip-badge" id="seriesCountStandalone">0</span></button>
         </div>
 
         <!-- Tier Chips -->
@@ -945,6 +944,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.4&t=1792735344"></script>
+  <script src="app.js?v=1.0.4&t=1792735877"></script>
 </body>
 </html>
