@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792776465726,
+  "lastExported": 1792777217440,
   "categories": [
     {
       "id": "cat-basic",
@@ -21720,7 +21720,7 @@
       "quantity": 7,
       "backpacks": {
         "lbs": 7,
-        "cryptid": 2
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -21732,7 +21732,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792777210737
     },
     {
       "id": "item-std-page-blooms-9a8cbb",
@@ -21840,7 +21840,7 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 2
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -21852,7 +21852,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792777183172
     },
     {
       "id": "item-flavors-of-the-american-continent-cola-486",
@@ -25307,7 +25307,7 @@
       "quantity": 3,
       "backpacks": {
         "lbs": 3,
-        "cryptid": 2
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -25324,7 +25324,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482551035
+      "updatedAt": 1792777199144
     },
     {
       "id": "item-butterfly-series-black-butterfly-256",
@@ -25394,7 +25394,7 @@
       "quantity": 26,
       "backpacks": {
         "lbs": 26,
-        "cryptid": 42
+        "cryptid": 41
       },
       "wallOwned": true,
       "starred": false,
@@ -25411,7 +25411,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792482558847
+      "updatedAt": 1792777193847
     },
     {
       "id": "item-autumn-delights-small-ginkgo-umbrella-325",
