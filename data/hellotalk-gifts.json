@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792738135575,
+  "lastExported": 1792738386717,
   "categories": [
     {
       "id": "cat-basic",
@@ -21503,7 +21503,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792734184885
+      "updatedAt": 1792738312689
     },
     {
       "id": "item-live-streamer-s-trilogy-heart-paper-plane-11",
@@ -21846,7 +21846,7 @@
       "id": "item-world-garden-stamp-sch-nbrunn-palace-garden-358",
       "categoryId": "cat-home",
       "seriesId": "ser-home-world-garden-stamp",
-      "name": "Schönbrunn Palace Garden",
+      "name": "Schönbrunn Palace Gardens",
       "baseValue": 29,
       "marketWorth": 29,
       "quantity": 0,
@@ -21867,7 +21867,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1792738312670
     },
     {
       "id": "item-cherry-blossom-sakura-ice-cream-391",
