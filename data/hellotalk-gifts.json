@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792767966184,
+  "lastExported": 1792768368028,
   "categories": [
     {
       "id": "cat-basic",
@@ -20028,19 +20028,18 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792765655640
+      "updatedAt": 1792768354591
     },
     {
       "id": "item-springtime-wishes-fateflower-287",
@@ -20186,7 +20185,7 @@
       "quantity": 4,
       "backpacks": {
         "lbs": 4,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -20203,7 +20202,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792767617286
+      "updatedAt": 1792768245234
     },
     {
       "id": "item-wonderland-dream-ruby-necklace-129",
