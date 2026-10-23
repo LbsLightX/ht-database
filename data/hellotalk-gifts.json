@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792751139837,
+  "lastExported": 1792752661495,
   "categories": [
     {
       "id": "cat-basic",
@@ -23141,19 +23141,18 @@
       "name": "Blue Gun",
       "baseValue": 20,
       "marketWorth": 20,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
-      "starred": true,
+      "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "fantasy",
@@ -23161,7 +23160,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792733819137
+      "updatedAt": 1792752088862
     },
     {
       "id": "item-std-maple-glow-d9f1bc",
@@ -23602,9 +23601,9 @@
       "name": "Kirstenbosch National Botanical Garden",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 2,
+      "quantity": 1,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 1,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -23622,7 +23621,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483520481
+      "updatedAt": 1792752283042
     },
     {
       "id": "item-world-garden-stamp-singapore-botanic-gardens-361",
