@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792736925037,
+  "lastExported": 1792737450046,
   "categories": [
     {
       "id": "cat-basic",
@@ -831,9 +831,189 @@
       "badge": "",
       "description": "Realm of Celestial Romance Series under Art",
       "displayOrder": 96
+    },
+    {
+      "id": "ser-mvklc187-5u1nb8",
+      "categoryId": "cat-fantasy",
+      "name": "Atlast of Dreambuilt Wonders",
+      "badge": "",
+      "description": "Atlast of Dreambuilt Wonders. Collection series under fantasy.",
+      "displayOrder": 97
     }
   ],
   "items": [
+    {
+      "id": "item-mvkll2uy-f1uv19",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Mystery Gift",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Mystery Gift",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737441466
+    },
+    {
+      "id": "item-mvklkfi7-pczhg1",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Sky City",
+      "baseValue": 10000,
+      "marketWorth": 10000,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Collection",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737411200
+    },
+    {
+      "id": "item-mvklip9f-udn9xd",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Cottage",
+      "baseValue": 5000,
+      "marketWorth": 5000,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series",
+        "wall"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737371942
+    },
+    {
+      "id": "item-mvkli0pl-iitkl4",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Ice Castle",
+      "baseValue": 1299,
+      "marketWorth": 1299,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737298713
+    },
+    {
+      "id": "item-mvklgltx-gk3jxt",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "TreeHouse",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737232773
+    },
+    {
+      "id": "item-mvklg3a1-6mlf3u",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Rose Temple",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737208729
+    },
+    {
+      "id": "item-mvklfd2w-255bwd",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Mermaid Castle",
+      "baseValue": 1999,
+      "marketWorth": 1999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737174776
+    },
+    {
+      "id": "item-mvkleon6-9setmd",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Cloud Lodge",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737143106
+    },
+    {
+      "id": "item-mvkldvtu-wk99rd",
+      "categoryId": "cat-fantasy",
+      "seriesId": "ser-mvklc187-5u1nb8",
+      "name": "Sea Quest",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737105763
+    },
     {
       "id": "item-mvkl9ta6-94hnc6",
       "categoryId": "cat-art",
@@ -842,6 +1022,10 @@
       "baseValue": 599,
       "marketWorth": 599,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -861,6 +1045,10 @@
       "baseValue": 899,
       "marketWorth": 899,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -880,6 +1068,10 @@
       "baseValue": 49,
       "marketWorth": 49,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -899,6 +1091,10 @@
       "baseValue": 1099,
       "marketWorth": 1099,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -918,6 +1114,10 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -937,6 +1137,10 @@
       "baseValue": 69,
       "marketWorth": 69,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -956,6 +1160,10 @@
       "baseValue": 599,
       "marketWorth": 599,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -975,6 +1183,10 @@
       "baseValue": 599,
       "marketWorth": 599,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -994,6 +1206,10 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1013,6 +1229,10 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1032,6 +1252,10 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1051,6 +1275,10 @@
       "baseValue": 69,
       "marketWorth": 69,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
