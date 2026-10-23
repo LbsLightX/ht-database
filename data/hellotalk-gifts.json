@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792737450046,
+  "lastExported": 1792738135575,
   "categories": [
     {
       "id": "cat-basic",
@@ -839,9 +839,247 @@
       "badge": "",
       "description": "Atlast of Dreambuilt Wonders. Collection series under fantasy.",
       "displayOrder": 97
+    },
+    {
+      "id": "ser-mvklqmfk-4jgf94",
+      "categoryId": "cat-lives",
+      "name": "Underwater world",
+      "badge": "",
+      "description": "Underwater world Collection Series Under Lives",
+      "displayOrder": 98
     }
   ],
   "items": [
+    {
+      "id": "item-mvklzavd-d6y9nl",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "A Cherished Letter",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series",
+        "wall"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738123765
+    },
+    {
+      "id": "item-mvklyony-hmp45e",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Dream Dol",
+      "baseValue": 1000,
+      "marketWorth": 1000,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738076255
+    },
+    {
+      "id": "item-mvkly9h5-rlhgom",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Whale Isle",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738056569
+    },
+    {
+      "id": "item-mvklxw2u-nh4ua4",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Whale Castle",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738039206
+    },
+    {
+      "id": "item-mvklx5u9-08egan",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Gift of the Sea",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738005201
+    },
+    {
+      "id": "item-mvklw1pm-2bxgjc",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Dolphins",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Luxury",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737953194
+    },
+    {
+      "id": "item-mvklvkkx-j8ou05",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Dream Jellyfish",
+      "baseValue": 600,
+      "marketWorth": 600,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737930993
+    },
+    {
+      "id": "item-mvkluudi-on3h91",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Whale Crystal",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737897030
+    },
+    {
+      "id": "item-mvkltozl-qsmudl",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Pearl Oys",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series",
+        "wall"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792738129549
+    },
+    {
+      "id": "item-mvklt6g4-oy3yyx",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Twin Dolphins Circling the Moon",
+      "baseValue": 999,
+      "marketWorth": 999,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737819364
+    },
+    {
+      "id": "item-mvklsa0k-139h91",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Star Shell Ride",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737777332
+    },
+    {
+      "id": "item-mvklrgtn-j809yn",
+      "categoryId": "cat-lives",
+      "seriesId": "ser-mvklqmfk-4jgf94",
+      "name": "Glass Jellyfish",
+      "baseValue": 100,
+      "marketWorth": 100,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792737739499
+    },
     {
       "id": "item-mvkll2uy-f1uv19",
       "categoryId": "cat-fantasy",
@@ -12891,7 +13129,7 @@
       },
       "wallOwned": false,
       "starred": false,
-      "isDistinctVariant": false,
+      "isDistinctVariant": true,
       "tier": "Featured",
       "tabs": [
         "series"
@@ -12902,7 +13140,7 @@
         "limited"
       ],
       "notes": "",
-      "updatedAt": 1792482638404
+      "updatedAt": 1792737607975
     },
     {
       "id": "item-four-seasons-in-bloom-hibiscus-270",
