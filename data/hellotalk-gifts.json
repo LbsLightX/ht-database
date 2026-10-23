@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792768836551,
+  "lastExported": 1792776465726,
   "categories": [
     {
       "id": "cat-basic",
@@ -898,6 +898,29 @@
     }
   ],
   "items": [
+    {
+      "id": "item-mvl8mlcq-e3pqha",
+      "categoryId": "",
+      "seriesId": "",
+      "name": "Golden Swan",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "backpack"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792776143258
+    },
     {
       "id": "item-mvkmvpap-nvhnx7",
       "categoryId": "cat-delicious",
@@ -1868,7 +1891,7 @@
         "cryptid": 0
       },
       "wallOwned": false,
-      "starred": false,
+      "starred": true,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
@@ -1876,7 +1899,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792737143106
+      "updatedAt": 1792773236216
     },
     {
       "id": "item-mvkldvtu-wk99rd",
@@ -1891,7 +1914,7 @@
         "cryptid": 0
       },
       "wallOwned": false,
-      "starred": false,
+      "starred": true,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
@@ -1899,7 +1922,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792737105763
+      "updatedAt": 1792773222668
     },
     {
       "id": "item-mvkl9ta6-94hnc6",
@@ -19531,9 +19554,9 @@
       "name": "Gold Medal",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 0,
+      "quantity": 2,
       "backpacks": {
-        "lbs": 0,
+        "lbs": 2,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -19542,7 +19565,8 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series"
+        "series",
+        "backpack"
       ],
       "tags": [
         "celebration",
@@ -19550,7 +19574,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792486181162
+      "updatedAt": 1792776404796
     },
     {
       "id": "item-football-match-ii-go-go-goal-678",
@@ -24157,9 +24181,9 @@
       "name": "Eclair",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 4,
+      "quantity": 9,
       "backpacks": {
-        "lbs": 4,
+        "lbs": 9,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -24173,7 +24197,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768653102
+      "updatedAt": 1792776454580
     },
     {
       "id": "item-cyber-frenzy-i-cyber-disc-220",
