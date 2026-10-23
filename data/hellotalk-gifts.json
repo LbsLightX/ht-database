@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792734417900,
+  "lastExported": 1792736925037,
   "categories": [
     {
       "id": "cat-basic",
@@ -823,9 +823,245 @@
       "badge": "Collection",
       "description": "Christmas collection series under Celebration.",
       "displayOrder": 95
+    },
+    {
+      "id": "ser-mvkkzea4-45g1fv",
+      "categoryId": "cat-art",
+      "name": "Realm of Celestial Romance",
+      "badge": "",
+      "description": "Realm of Celestial Romance Series under Art",
+      "displayOrder": 96
     }
   ],
   "items": [
+    {
+      "id": "item-mvkl9ta6-94hnc6",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Moon Among the Clouds",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736915838
+    },
+    {
+      "id": "item-mvkl93m5-nndth8",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Sky Lantern Wish",
+      "baseValue": 899,
+      "marketWorth": 899,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736882573
+    },
+    {
+      "id": "item-mvkl8lqn-cump9v",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Green Mountain Fan",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736859407
+    },
+    {
+      "id": "item-mvkl83up-q1u6w8",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Blue Robe in Misty Rain",
+      "baseValue": 1099,
+      "marketWorth": 1099,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736836225
+    },
+    {
+      "id": "item-mvkl76qp-1fzik0",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Jade Flute Among Falling Blossoms",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736793313
+    },
+    {
+      "id": "item-mvkl6ce3-gfc03h",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Bag of Love",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736753979
+    },
+    {
+      "id": "item-mvkl5w4g-cwmb4v",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Frost Dragon",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736732896
+    },
+    {
+      "id": "item-mvkl5gfy-ka3g8k",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Cloudstride Immortal Deer",
+      "baseValue": 599,
+      "marketWorth": 599,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736712574
+    },
+    {
+      "id": "item-mvkl3yav-hpla86",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Azure Cloud Immortal Robe",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736642407
+    },
+    {
+      "id": "item-mvkl3c6b-gduxif",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Salted Fish Swordfight",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736613731
+    },
+    {
+      "id": "item-mvkl2d57-odkdpv",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Azure Cloud Spiritblade",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736568332
+    },
+    {
+      "id": "item-mvkl17qm-l0fegn",
+      "categoryId": "cat-art",
+      "seriesId": "ser-mvkkzea4-45g1fv",
+      "name": "Spirit-Gathering Gourd",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1792736514671
+    },
     {
       "id": "item-alcoholic-beverages-champagne-467",
       "categoryId": "cat-delicious",
