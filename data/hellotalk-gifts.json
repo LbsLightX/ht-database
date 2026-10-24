@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792822459782,
+  "lastExported": 1792822802998,
   "categories": [
     {
       "id": "cat-basic",
@@ -15328,9 +15328,9 @@
       "name": "Star Pouch",
       "baseValue": 120,
       "marketWorth": 120,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -15338,12 +15338,11 @@
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768701269
+      "updatedAt": 1792822516070
     },
     {
       "id": "item-alcoholic-beverages-cocktail-464",
@@ -19126,9 +19125,9 @@
       "name": "Cyber Dagger",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -19137,8 +19136,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "fantasy",
@@ -19146,7 +19144,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792768703964
+      "updatedAt": 1792822521797
     },
     {
       "id": "item-humanity-s-adorable-energetic-hamster-272",
@@ -22568,7 +22566,7 @@
       "quantity": 6,
       "backpacks": {
         "lbs": 6,
-        "cryptid": 2
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -22585,7 +22583,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484098200
+      "updatedAt": 1792822556162
     },
     {
       "id": "item-desserts-pumpkin-pie-458",
@@ -22652,7 +22650,7 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -22660,8 +22658,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "delicious",
@@ -22669,7 +22666,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792822254117
+      "updatedAt": 1792822543101
     },
     {
       "id": "item-flavors-of-the-american-continent-friedchicken-482",
@@ -24577,19 +24574,18 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 2
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792822445122
+      "updatedAt": 1792822538164
     },
     {
       "id": "item-std-star-wish-jar-2fb056",
@@ -25464,10 +25460,10 @@
       "name": "Dondurma",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 53,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 53,
-        "cryptid": 8
+        "lbs": 0,
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
@@ -25475,8 +25471,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "delicious",
@@ -25484,7 +25479,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484071248
+      "updatedAt": 1792822724001
     },
     {
       "id": "item-alcoholic-beverages-icy-golden-goblet-465",
