@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792797249848,
+  "lastExported": 1792822459782,
   "categories": [
     {
       "id": "cat-basic",
@@ -906,6 +906,10 @@
       "baseValue": 29,
       "marketWorth": 29,
       "quantity": 1,
+      "backpacks": {
+        "lbs": 1,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1135,9 +1139,9 @@
       "name": "Lemon Tart",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 3,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 3,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -1146,12 +1150,11 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768702573
+      "updatedAt": 1792822286356
     },
     {
       "id": "item-mvkmnwk6-ifhk9e",
@@ -18527,9 +18530,9 @@
       "name": "Rabbit Wine",
       "baseValue": 69,
       "marketWorth": 69,
-      "quantity": 2,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -18537,12 +18540,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822380171
     },
     {
       "id": "item-std-hishi-mochi-3b544e",
@@ -20368,9 +20370,9 @@
       "name": "Banana Split",
       "baseValue": 49,
       "marketWorth": 49,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -20379,8 +20381,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "delicious",
@@ -20388,7 +20389,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792768705870
+      "updatedAt": 1792822374523
     },
     {
       "id": "item-pixel-ice-cream-mango-ice-cream-428",
@@ -21762,9 +21763,9 @@
       "name": "Page Blooms",
       "baseValue": 39,
       "marketWorth": 39,
-      "quantity": 2,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -21772,12 +21773,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822331563
     },
     {
       "id": "item-std-starry-moon-whisper-9d9c89",
@@ -22125,9 +22125,9 @@
       "name": "Starlight Drum",
       "baseValue": 30,
       "marketWorth": 30,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -22135,12 +22135,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768709311
+      "updatedAt": 1792822423977
     },
     {
       "id": "item-std-carnival-headdress-3ea4ab",
@@ -22650,9 +22649,9 @@
       "name": "Lemon Drop Martini",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 1
       },
       "wallOwned": true,
@@ -22670,7 +22669,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792484822595
+      "updatedAt": 1792822254117
     },
     {
       "id": "item-flavors-of-the-american-continent-friedchicken-482",
@@ -22948,9 +22947,9 @@
       "name": "Cute Persimmon",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 2,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -22958,12 +22957,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822231064
     },
     {
       "id": "item-std-ramen-4dc842",
@@ -23044,9 +23042,9 @@
       "name": "Jelly Octo",
       "baseValue": 29,
       "marketWorth": 29,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -23054,12 +23052,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768710408
+      "updatedAt": 1792822435345
     },
     {
       "id": "item-std-candy-cane-2f72a2",
@@ -23229,9 +23226,9 @@
       "name": "Chill Time",
       "baseValue": 20,
       "marketWorth": 20,
-      "quantity": 3,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 3,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -23239,12 +23236,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822410422
     },
     {
       "id": "item-std-flip-flops-1adb37",
@@ -23522,9 +23518,9 @@
       "name": "Cyber Microphone",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 5,
+      "quantity": 1,
       "backpacks": {
-        "lbs": 5,
+        "lbs": 1,
         "cryptid": 2
       },
       "wallOwned": true,
@@ -23542,7 +23538,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792480378645
+      "updatedAt": 1792822243565
     },
     {
       "id": "item-doggo-squad-alaskan-malamute-243",
@@ -23608,9 +23604,9 @@
       "name": "Halfmoon Pancake",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 3,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 3,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -23619,8 +23615,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "home",
@@ -23628,7 +23623,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792483707349
+      "updatedAt": 1792822396424
     },
     {
       "id": "item-world-garden-stamp-kirstenbosch-national-botanical-garden-355",
@@ -24579,9 +24574,9 @@
       "name": "KiwiBird",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 21,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 21,
+        "lbs": 0,
         "cryptid": 2
       },
       "wallOwned": true,
@@ -24594,7 +24589,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822445122
     },
     {
       "id": "item-std-star-wish-jar-2fb056",
@@ -25160,9 +25155,9 @@
       "name": "Love Lantern",
       "baseValue": 9,
       "marketWorth": 9,
-      "quantity": 13,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 13,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -25171,8 +25166,7 @@
       "tier": "Standard",
       "tabs": [
         "wall",
-        "series",
-        "backpack"
+        "series"
       ],
       "tags": [
         "celebration",
@@ -25180,7 +25174,7 @@
         "standard"
       ],
       "notes": "",
-      "updatedAt": 1792485623308
+      "updatedAt": 1792822353377
     },
     {
       "id": "item-std-give-you-a-like-23b8ac",
@@ -25586,9 +25580,9 @@
       "name": "Sea Bottle",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 3,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 3,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -25596,12 +25590,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822217505
     },
     {
       "id": "item-std-music-box-b3de3f",
@@ -25610,9 +25603,9 @@
       "name": "Music Box",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 3,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 3,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -25620,12 +25613,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822205611
     },
     {
       "id": "item-std-little-star-96445b",
@@ -25729,9 +25721,9 @@
       "name": "Bamboo Dragonfly",
       "baseValue": 5,
       "marketWorth": 5,
-      "quantity": 2,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 0,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -25739,12 +25731,11 @@
       "isDistinctVariant": false,
       "tier": "Standard",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792822325809
     },
     {
       "id": "item-std-glimstar-ab045b",
