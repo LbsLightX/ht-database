@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792822802998,
+  "lastExported": 1792823290933,
   "categories": [
     {
       "id": "cat-basic",
@@ -10202,22 +10202,21 @@
       "name": "Duet Cat",
       "baseValue": 500,
       "marketWorth": 500,
-      "quantity": 1,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 1,
-        "cryptid": 1
+        "lbs": 0,
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792823101614
     },
     {
       "id": "item-happy-anniversary-to-the-celebration-35",
@@ -13255,19 +13254,18 @@
       "quantity": 0,
       "backpacks": {
         "lbs": 0,
-        "cryptid": 1
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792823079114
     },
     {
       "id": "item-mvf8e2il-os9vpg",
@@ -15602,22 +15600,21 @@
       "name": "MiniUFO",
       "baseValue": 100,
       "marketWorth": 100,
-      "quantity": 5,
+      "quantity": 0,
       "backpacks": {
-        "lbs": 5,
-        "cryptid": 5
+        "lbs": 0,
+        "cryptid": 0
       },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
       "tier": "Featured",
       "tabs": [
-        "wall",
-        "backpack"
+        "wall"
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792500000000
+      "updatedAt": 1792823065764
     },
     {
       "id": "item-std-fate-echo-647413",
@@ -19575,9 +19572,9 @@
       "name": "Gold Medal",
       "baseValue": 59,
       "marketWorth": 59,
-      "quantity": 2,
+      "quantity": 3,
       "backpacks": {
-        "lbs": 2,
+        "lbs": 3,
         "cryptid": 0
       },
       "wallOwned": true,
@@ -19595,7 +19592,7 @@
         "featured"
       ],
       "notes": "",
-      "updatedAt": 1792776404796
+      "updatedAt": 1792823196652
     },
     {
       "id": "item-football-match-ii-go-go-goal-678",
@@ -23294,10 +23291,10 @@
       "name": "Cheer Squad",
       "baseValue": 19,
       "marketWorth": 19,
-      "quantity": 1,
+      "quantity": 3,
       "backpacks": {
-        "lbs": 1,
-        "cryptid": 0
+        "lbs": 3,
+        "cryptid": 1
       },
       "wallOwned": true,
       "starred": false,
@@ -23309,7 +23306,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792768714144
+      "updatedAt": 1792823249524
     },
     {
       "id": "item-echoes-of-youth-proud-of-you-1",
@@ -24194,10 +24191,10 @@
       "name": "Eclair",
       "baseValue": 10,
       "marketWorth": 10,
-      "quantity": 9,
+      "quantity": 12,
       "backpacks": {
-        "lbs": 9,
-        "cryptid": 0
+        "lbs": 12,
+        "cryptid": 2
       },
       "wallOwned": true,
       "starred": false,
@@ -24210,7 +24207,7 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1792776454580
+      "updatedAt": 1792823267506
     },
     {
       "id": "item-cyber-frenzy-i-cyber-disc-220",
