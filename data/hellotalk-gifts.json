@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1792823290933,
+  "lastExported": 1793177385994,
   "categories": [
     {
       "id": "cat-basic",
@@ -895,9 +895,232 @@
       "badge": "",
       "description": "Letters from the World Collection series under Celebration.",
       "displayOrder": 104
+    },
+    {
+      "id": "ser-mvrvblvp-qo84d9",
+      "categoryId": "cat-celebration",
+      "name": "Halloween IV",
+      "badge": "",
+      "description": "Halloween IV Collection series under celebration.",
+      "displayOrder": 105
     }
   ],
   "items": [
+    {
+      "id": "item-mvrviimd-g6i87l",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Mischievous Black Cat",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177381320
+    },
+    {
+      "id": "item-mvrvhbcu-9gsps6",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Storybook Town",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177325246
+    },
+    {
+      "id": "item-mvrvgpo4-ti7m2i",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Heartfelt Ghost",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177297140
+    },
+    {
+      "id": "item-mvrvgd2t-lwh4xq",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Explorer Lamp",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177280821
+    },
+    {
+      "id": "item-mvrvfle9-5go1eb",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Halloween Music Box",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177244945
+    },
+    {
+      "id": "item-mvrvetbj-5rfjfk",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Magic Lamp Shadow",
+      "baseValue": 99,
+      "marketWorth": 99,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177208559
+    },
+    {
+      "id": "item-mvrvehea-6gip21",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Sugarwing Bat",
+      "baseValue": 5,
+      "marketWorth": 5,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177193106
+    },
+    {
+      "id": "item-mvrve2zw-63rx83",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Pumpkin Meow",
+      "baseValue": 19,
+      "marketWorth": 19,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177174444
+    },
+    {
+      "id": "item-mvrvdj44-h8hch1",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Cat Moon Mystery Box",
+      "baseValue": 66,
+      "marketWorth": 66,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177148676
+    },
+    {
+      "id": "item-mvrvcw72-79ajpm",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Monster Chest",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177118974
+    },
+    {
+      "id": "item-mvrvcgyy-tr767k",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvrvblvp-qo84d9",
+      "name": "Warm Meow Lamp",
+      "baseValue": 88,
+      "marketWorth": 88,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "wall",
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793177099242
+    },
     {
       "id": "item-mvll695i-5pha5g",
       "categoryId": "",
