@@ -1199,7 +1199,7 @@ js_logic = ''';
       this.state = new VaultState();
 
       // Active Navigation Tab: Persisted in localStorage
-      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio'];
+      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio', 'tab-valuation'];
       let savedTab = null;
       try {
         savedTab = localStorage.getItem('hellotalk_active_tab');
@@ -1247,6 +1247,12 @@ js_logic = ''';
       this._cachedSeriesFiltered = null;
       this._cachedWallFiltered = null;
       this._cachedBpFiltered = null;
+
+      // Tab 5: Valuation & Cube Calculator State
+      this.valStorageKey = 'ht_cube_valuation_history_v1';
+      this.valItems = [];
+      this.valHistorySearchQuery = '';
+      this.valHistory = this.loadValuationHistory();
 
       this.initDomReferences();
       this.applyThemeColors();
@@ -1525,6 +1531,34 @@ js_logic = ''';
       this.tagModalColorPicker = document.getElementById('tagModalColorPicker');
       this.tagModalColorHex = document.getElementById('tagModalColorHex');
       this.tagModalPreviewBadge = document.getElementById('tagModalPreviewBadge');
+
+      // ----------------------------------------------------------------
+      // Tab 5: Valuation & Cube Calculator References
+      // ----------------------------------------------------------------
+      this.valChestName = document.getElementById('valChestName');
+      this.valChestCost = document.getElementById('valChestCost');
+      this.valCashoutRate = document.getElementById('valCashoutRate');
+      this.valChestPresets = document.getElementById('valChestPresets');
+      this.valAddItemBtn = document.getElementById('valAddItemBtn');
+      this.valResetItemsBtn = document.getElementById('valResetItemsBtn');
+      this.valItemsList = document.getElementById('valItemsList');
+      this.valResultsCard = document.getElementById('valResultsCard');
+      this.valMetricTotalFace = document.getElementById('valMetricTotalFace');
+      this.valMetricChestCost = document.getElementById('valMetricChestCost');
+      this.valMetricTotalFused = document.getElementById('valMetricTotalFused');
+      this.valMetricFloorFused = document.getElementById('valMetricFloorFused');
+      this.valMetricTotalDiamonds = document.getElementById('valMetricTotalDiamonds');
+      this.valMetricProfitLoss = document.getElementById('valMetricProfitLoss');
+      this.valMetricRoiSub = document.getElementById('valMetricRoiSub');
+      this.valTableBody = document.getElementById('valTableBody');
+      this.valSaveHistoryBtn = document.getElementById('valSaveHistoryBtn');
+      this.valCopyTradeBtn = document.getElementById('valCopyTradeBtn');
+      this.valHistorySearchInput = document.getElementById('valHistorySearchInput');
+      this.valHistoryClearSearchBtn = document.getElementById('valHistoryClearSearchBtn');
+      this.valHistoryList = document.getElementById('valHistoryList');
+      this.valHistoryCountLabel = document.getElementById('valHistoryCountLabel');
+      this.valClearHistoryBtn = document.getElementById('valClearHistoryBtn');
+      this.valCatalogDatalist = document.getElementById('valCatalogDatalist');
     }
 
     applyThemeColors() {
@@ -2131,6 +2165,99 @@ js_logic = ''';
       if (this.seriesGiftsGrid) this.seriesGiftsGrid.addEventListener('click', handleGridClick);
       if (this.wallGrid) this.wallGrid.addEventListener('click', handleGridClick);
       if (this.drillGiftsGrid) this.drillGiftsGrid.addEventListener('click', handleGridClick);
+
+      // ----------------------------------------------------------------
+      // Tab 5: Valuation Calculator Event Listeners
+      // ----------------------------------------------------------------
+      if (this.valChestCost) {
+        this.valChestCost.addEventListener('input', () => {
+          this.syncChestPresetButtons();
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valCashoutRate) {
+        this.valCashoutRate.addEventListener('input', () => {
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valChestPresets) {
+        this.valChestPresets.addEventListener('click', (e) => {
+          const btn = e.target.closest('.val-preset-chip');
+          if (!btn || !btn.dataset.cost) return;
+          if (this.valChestCost) {
+            this.valChestCost.value = btn.dataset.cost;
+            this.syncChestPresetButtons();
+            this.recalculateAndRenderValuation();
+          }
+        });
+      }
+
+      if (this.valAddItemBtn) {
+        this.valAddItemBtn.addEventListener('click', () => {
+          this.addValuationItemRow();
+        });
+      }
+
+      if (this.valResetItemsBtn) {
+        this.valResetItemsBtn.addEventListener('click', () => {
+          this.initValuationDefaults(true);
+        });
+      }
+
+      if (this.valSaveHistoryBtn) {
+        this.valSaveHistoryBtn.addEventListener('click', () => {
+          this.saveValuationToHistory();
+        });
+      }
+
+      if (this.valCopyTradeBtn) {
+        this.valCopyTradeBtn.addEventListener('click', () => {
+          this.copyTradePost();
+        });
+      }
+
+      if (this.valHistorySearchInput) {
+        this.valHistorySearchInput.addEventListener('input', (e) => {
+          this.valHistorySearchQuery = e.target.value;
+          if (this.valHistoryClearSearchBtn) {
+            this.valHistoryClearSearchBtn.style.display = this.valHistorySearchQuery ? 'block' : 'none';
+          }
+          this.renderValuationHistory();
+        });
+      }
+
+      if (this.valHistoryClearSearchBtn) {
+        this.valHistoryClearSearchBtn.addEventListener('click', () => {
+          this.valHistorySearchQuery = '';
+          if (this.valHistorySearchInput) this.valHistorySearchInput.value = '';
+          this.valHistoryClearSearchBtn.style.display = 'none';
+          this.renderValuationHistory();
+        });
+      }
+
+      if (this.valClearHistoryBtn) {
+        this.valClearHistoryBtn.addEventListener('click', () => {
+          this.clearAllValuationHistory();
+        });
+      }
+
+      if (this.valHistoryList) {
+        this.valHistoryList.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-history-action]');
+          if (!btn) return;
+          const action = btn.dataset.historyAction;
+          const id = btn.dataset.id;
+          if (action === 'load') {
+            this.loadValuationFromHistory(id);
+          } else if (action === 'copy') {
+            this.copyTradePost(id);
+          } else if (action === 'delete') {
+            this.deleteValuationHistory(id);
+          }
+        });
+      }
     }
 
     handleCardAction(e) {
@@ -2558,6 +2685,7 @@ js_logic = ''';
         case 'tab-wall': this.renderWallTab(); break;
         case 'tab-backpack': this.renderBackpackTab(); break;
         case 'tab-portfolio': this.renderPortfolioTab(); break;
+        case 'tab-valuation': this.renderValuationTab(); break;
       }
     }
 
@@ -4029,6 +4157,602 @@ js_logic = ''';
         this.renderAll();
         this.showToast('Tag order updated');
       });
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 5: VALUATION & CUBE CALCULATOR ENGINE
+    // ------------------------------------------------------------------
+    initValuationDefaults(force = false) {
+      if (force || !this.valItems || this.valItems.length === 0) {
+        this.valItems = [
+          { id: 'vrow_1', name: '', faceValue: 100, quantity: 2, tierOverride: 'auto' },
+          { id: 'vrow_2', name: '', faceValue: 80, quantity: 1, tierOverride: 'auto' },
+          { id: 'vrow_3', name: '', faceValue: 40, quantity: 2, tierOverride: 'auto' }
+        ];
+        if (this.valChestCost) this.valChestCost.value = '4000';
+        if (this.valCashoutRate) this.valCashoutRate.value = '56';
+        if (this.valChestName) this.valChestName.value = '';
+      }
+      this.syncChestPresetButtons();
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    syncChestPresetButtons() {
+      if (!this.valChestPresets || !this.valChestCost) return;
+      const currentCost = String(this.valChestCost.value).trim();
+      const chips = this.valChestPresets.querySelectorAll('.val-preset-chip');
+      chips.forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.cost === currentCost);
+      });
+    }
+
+    addValuationItemRow(name = '', faceValue = 60, quantity = 1, tierOverride = 'auto') {
+      const newId = 'vrow_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+      this.valItems.push({ id: newId, name, faceValue, quantity, tierOverride });
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    deleteValuationItemRow(rowId) {
+      if (this.valItems.length <= 1) {
+        this.showToast('Cube must have at least 1 gift drop.');
+        return;
+      }
+      this.valItems = this.valItems.filter(r => r.id !== rowId);
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    renderValuationTab() {
+      if (this.valCatalogDatalist && this.state && this.state.data && Array.isArray(this.state.data.items)) {
+        const unique = new Map();
+        this.state.data.items.forEach(it => {
+          if (it.name && !unique.has(it.name)) {
+            unique.set(it.name, it.baseValue || 0);
+          }
+        });
+        this.valCatalogDatalist.innerHTML = Array.from(unique.entries())
+          .map(([name, coins]) => `<option value="${this.escapeHtml(name)}" data-coins="${coins}">${this.escapeHtml(name)} (${coins}c)</option>`)
+          .join('');
+      }
+
+      if (!this.valItems || this.valItems.length === 0) {
+        this.initValuationDefaults();
+      } else {
+        this.renderValuationItemsList();
+        this.recalculateAndRenderValuation();
+      }
+      this.renderValuationHistory();
+    }
+
+    renderValuationItemsList() {
+      if (!this.valItemsList) return;
+      this.valItemsList.innerHTML = '';
+
+      const sortedIndexes = [...this.valItems]
+        .map((it, idx) => ({ idx, faceVal: Number(it.faceValue) || 0 }))
+        .sort((a, b) => b.faceVal - a.faceVal);
+
+      const rankMap = new Map();
+      let currentRank = 1;
+      sortedIndexes.forEach((entry, i) => {
+        if (i > 0 && entry.faceVal < sortedIndexes[i - 1].faceVal) {
+          currentRank = i + 1;
+        }
+        rankMap.set(entry.idx, currentRank);
+      });
+
+      this.valItems.forEach((item, index) => {
+        const rank = rankMap.get(index) || (index + 1);
+        const row = document.createElement('div');
+        row.className = 'val-item-row';
+        row.dataset.rowId = item.id;
+
+        const rankBadgeClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+
+        row.innerHTML = `
+          <div class="val-row-rank-badge ${rankBadgeClass}" title="Rank #${rank} (Auto-ranked by coin face value)">
+            #${rank}
+          </div>
+          <div>
+            <input type="text" class="val-item-input val-item-name-input" list="valCatalogDatalist" placeholder="Gift Name (Catalog or Custom)" value="${this.escapeHtml(item.name || '')}" autocomplete="off">
+          </div>
+          <div>
+            <input type="number" class="val-item-input val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}">
+          </div>
+          <div>
+            <input type="number" class="val-item-input val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}">
+          </div>
+          <div>
+            <select class="val-item-select val-item-tier-select">
+              <option value="auto" ${item.tierOverride === 'auto' ? 'selected' : ''}>Auto (Rank #${rank})</option>
+              <option value="rank1" ${item.tierOverride === 'rank1' ? 'selected' : ''}>Rank 1 (Trophy 2.8x-3.6x)</option>
+              <option value="rank2_3" ${item.tierOverride === 'rank2_3' ? 'selected' : ''}>Rank 2-3 (High 2.3x-2.6x)</option>
+              <option value="rank4_plus" ${item.tierOverride === 'rank4_plus' ? 'selected' : ''}>Rank 4+ (Mid 2.0x)</option>
+              <option value="base" ${item.tierOverride === 'base' ? 'selected' : ''}>Base (Floor 1.79x)</option>
+            </select>
+          </div>
+          <div>
+            <button type="button" class="val-row-del-btn" title="Remove this gift drop">&times;</button>
+          </div>
+        `;
+
+        const nameInput = row.querySelector('.val-item-name-input');
+        const coinsInput = row.querySelector('.val-item-coins-input');
+        const qtyInput = row.querySelector('.val-item-qty-input');
+        const tierSelect = row.querySelector('.val-item-tier-select');
+        const delBtn = row.querySelector('.val-row-del-btn');
+
+        nameInput.addEventListener('input', () => {
+          item.name = nameInput.value;
+          if (this.state && this.state.data && Array.isArray(this.state.data.items)) {
+            const match = this.state.data.items.find(it => it.name && it.name.toLowerCase() === item.name.toLowerCase());
+            if (match && match.baseValue) {
+              item.faceValue = match.baseValue;
+              coinsInput.value = match.baseValue;
+            }
+          }
+          this.recalculateAndRenderValuation();
+        });
+
+        coinsInput.addEventListener('input', () => {
+          item.faceValue = Math.max(1, parseInt(coinsInput.value) || 1);
+          this.recalculateAndRenderValuation();
+        });
+
+        qtyInput.addEventListener('input', () => {
+          item.quantity = Math.max(1, parseInt(qtyInput.value) || 1);
+          this.recalculateAndRenderValuation();
+        });
+
+        tierSelect.addEventListener('change', () => {
+          item.tierOverride = tierSelect.value;
+          this.recalculateAndRenderValuation();
+        });
+
+        delBtn.addEventListener('click', () => {
+          this.deleteValuationItemRow(item.id);
+        });
+
+        this.valItemsList.appendChild(row);
+      });
+    }
+
+    calculateValuation() {
+      const chestCost = Math.max(0, parseFloat(this.valChestCost ? this.valChestCost.value : 0) || 0);
+      const rawRate = Math.min(100, Math.max(1, parseFloat(this.valCashoutRate ? this.valCashoutRate.value : 56) || 56));
+      const cashoutRate = rawRate / 100;
+      const breakevenMultiplier = 1 / cashoutRate;
+
+      const sortedRows = [...this.valItems].map((it, idx) => ({ ...it, originalIdx: idx }))
+        .sort((a, b) => (Number(b.faceValue) || 0) - (Number(a.faceValue) || 0));
+
+      let currentRank = 1;
+      sortedRows.forEach((row, i) => {
+        if (i > 0 && (Number(row.faceValue) || 0) < (Number(sortedRows[i - 1].faceValue) || 0)) {
+          currentRank = i + 1;
+        }
+        row.autoRank = currentRank;
+      });
+
+      const calculatedItems = sortedRows.map(item => {
+        const faceVal = Math.max(1, Number(item.faceValue) || 1);
+        const qty = Math.max(1, parseInt(item.quantity) || 1);
+        const rank = item.autoRank;
+        const unitBreakevenFloor = Math.ceil(faceVal / cashoutRate);
+
+        let targetMultiplier = 1.8;
+        if (item.tierOverride && item.tierOverride !== 'auto') {
+          switch (item.tierOverride) {
+            case 'rank1': targetMultiplier = (chestCost >= 8000) ? 3.6 : (chestCost >= 6000) ? 3.2 : 2.8; break;
+            case 'rank2_3': targetMultiplier = (chestCost >= 8000) ? 2.6 : 2.3; break;
+            case 'rank4_plus': targetMultiplier = 2.0; break;
+            case 'base': targetMultiplier = breakevenMultiplier; break;
+          }
+        } else {
+          if (rank === 1) {
+            targetMultiplier = (chestCost >= 8000) ? 3.6 : (chestCost >= 6000) ? 3.2 : 2.8;
+          } else if (rank <= 3) {
+            targetMultiplier = (chestCost >= 8000) ? 2.6 : 2.3;
+          } else if (rank <= 5) {
+            targetMultiplier = 2.0;
+          } else {
+            targetMultiplier = Math.max(1.8, breakevenMultiplier);
+          }
+        }
+
+        const rawAskingUnit = Math.max(unitBreakevenFloor, faceVal * targetMultiplier);
+        let snappedUnitFused = Math.max(100, Math.ceil(rawAskingUnit / 100) * 100);
+        if (snappedUnitFused < unitBreakevenFloor) {
+          snappedUnitFused = Math.ceil(unitBreakevenFloor / 100) * 100;
+        }
+
+        const totalItemFused = snappedUnitFused * qty;
+        const unitNetDiamonds = Math.floor(snappedUnitFused * cashoutRate);
+        const totalItemDiamonds = unitNetDiamonds * qty;
+        const unitMargin = unitNetDiamonds - faceVal;
+        const totalItemMargin = unitMargin * qty;
+        const paymentSuggestion = this.getPaymentBreakdown(snappedUnitFused);
+
+        return {
+          ...item,
+          faceVal,
+          qty,
+          rank,
+          unitBreakevenFloor,
+          targetMultiplier,
+          snappedUnitFused,
+          totalItemFused,
+          unitNetDiamonds,
+          totalItemDiamonds,
+          unitMargin,
+          totalItemMargin,
+          paymentSuggestion
+        };
+      });
+
+      const totalFaceValue = calculatedItems.reduce((acc, it) => acc + (it.faceVal * it.qty), 0);
+      const totalAskingFused = calculatedItems.reduce((acc, it) => acc + it.totalItemFused, 0);
+      const totalFloorFused = calculatedItems.reduce((acc, it) => acc + (it.unitBreakevenFloor * it.qty), 0);
+      const totalNetDiamonds = calculatedItems.reduce((acc, it) => acc + it.totalItemDiamonds, 0);
+      const overallProfit = totalNetDiamonds - chestCost;
+      const roiPercent = chestCost > 0 ? ((overallProfit / chestCost) * 100).toFixed(1) : '0';
+
+      return {
+        chestCost,
+        cashoutRate,
+        items: calculatedItems,
+        totalFaceValue,
+        totalAskingFused,
+        totalFloorFused,
+        totalNetDiamonds,
+        overallProfit,
+        roiPercent
+      };
+    }
+
+    recalculateAndRenderValuation() {
+      const results = this.calculateValuation();
+      if (!results) return;
+
+      if (this.valMetricTotalFace) this.valMetricTotalFace.textContent = `${this.formatNumber(results.totalFaceValue)} c`;
+      if (this.valMetricChestCost) this.valMetricChestCost.textContent = this.formatNumber(results.chestCost);
+      if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = this.formatNumber(results.totalAskingFused);
+      if (this.valFloorFused) this.valFloorFused.textContent = this.formatNumber(results.totalFloorFused);
+      if (this.valMetricFloorFused) this.valMetricFloorFused.textContent = this.formatNumber(results.totalFloorFused);
+      if (this.valMetricTotalDiamonds) this.valMetricTotalDiamonds.textContent = `${this.formatNumber(results.totalNetDiamonds)} D`;
+
+      if (this.valMetricProfitLoss) {
+        const sign = results.overallProfit >= 0 ? '+' : '';
+        this.valMetricProfitLoss.textContent = `${sign}${this.formatNumber(results.overallProfit)} D`;
+        this.valMetricProfitLoss.className = 'metric-val ' + (results.overallProfit >= 0 ? 'val-margin-profit' : 'val-margin-loss');
+      }
+
+      if (this.valMetricRoiSub) {
+        const sign = results.overallProfit >= 0 ? '+' : '';
+        this.valMetricRoiSub.textContent = `ROI vs Chest: ${sign}${results.roiPercent}%`;
+        this.valMetricRoiSub.style.color = results.overallProfit >= 0 ? '#34d399' : '#f87171';
+      }
+
+      if (this.valTableBody) {
+        this.valTableBody.innerHTML = '';
+        results.items.forEach(it => {
+          const tr = document.createElement('tr');
+          const rankPrefix = it.rank === 1 ? '👑 #1' : it.rank === 2 ? '⭐ #2' : it.rank === 3 ? '🥉 #3' : `#${it.rank}`;
+          const displayName = it.name ? this.escapeHtml(it.name) : `Drop #${it.rank}`;
+          const marginSign = it.unitMargin >= 0 ? '+' : '';
+          const marginClass = it.unitMargin >= 0 ? 'val-margin-profit' : 'val-margin-loss';
+
+          tr.innerHTML = `
+            <td>
+              <span style="font-weight: 700; color: ${it.rank === 1 ? '#facc15' : it.rank === 2 ? '#cbd5e1' : it.rank === 3 ? '#fb923c' : 'var(--text-secondary)'}; margin-right: 4px;">${rankPrefix}</span>
+              <strong>${displayName}</strong>
+            </td>
+            <td class="tabular">${this.formatNumber(it.faceVal)} c</td>
+            <td class="tabular">${it.qty}x</td>
+            <td class="tabular" style="font-weight: 700; color: #38bdf8;">${this.formatNumber(it.snappedUnitFused)} Fused</td>
+            <td class="tabular" style="font-weight: 700;">${this.formatNumber(it.totalItemFused)}</td>
+            <td class="tabular">${this.formatNumber(it.unitNetDiamonds)} D <span style="font-size: 10px; color: var(--text-muted);">(${this.formatNumber(it.totalItemDiamonds)} total)</span></td>
+            <td class="tabular ${marginClass}">${marginSign}${this.formatNumber(it.unitMargin)} D</td>
+            <td><code style="font-size: 11px; background: rgba(255, 255, 255, 0.05); padding: 2px 6px; border-radius: 4px; color: #a5f3fc;">${it.paymentSuggestion}</code></td>
+          `;
+          this.valTableBody.appendChild(tr);
+        });
+      }
+    }
+
+    getPaymentBreakdown(amount) {
+      if (!amount || amount <= 0) return '0 Fused';
+      const denoms = [2000, 1000, 500, 200, 100];
+      let remaining = amount;
+      const parts = [];
+      for (const d of denoms) {
+        if (remaining >= d) {
+          const count = Math.floor(remaining / d);
+          remaining %= d;
+          parts.push(`${count}x ${d}`);
+        }
+      }
+      if (remaining > 0) parts.push(`+${remaining}`);
+      return parts.join(' + ') || `${amount} Fused`;
+    }
+
+    // ------------------------------------------------------------------
+    // TAB 5: VALUATION HISTORY & SEARCH ENGINE
+    // ------------------------------------------------------------------
+    loadValuationHistory() {
+      try {
+        const raw = localStorage.getItem(this.valStorageKey);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    saveValuationToHistory() {
+      const results = this.calculateValuation();
+      if (!results) return;
+
+      const userTitle = this.valChestName ? this.valChestName.value.trim() : '';
+      const topItem = results.items[0];
+      const defaultTitle = `${this.formatNumber(results.chestCost)}c Cube${topItem && topItem.name ? ' (' + topItem.name + ')' : ''}`;
+      const finalTitle = userTitle || defaultTitle;
+
+      const record = {
+        id: 'val_rec_' + Date.now(),
+        title: finalTitle,
+        chestCost: results.chestCost,
+        cashoutRate: results.cashoutRate,
+        items: this.valItems.map(it => ({ ...it })),
+        summary: {
+          totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
+          totalFaceValue: results.totalFaceValue,
+          totalAskingFused: results.totalAskingFused,
+          totalNetDiamonds: results.totalNetDiamonds,
+          overallProfit: results.overallProfit,
+          roiPercent: results.roiPercent
+        },
+        savedAt: new Date().toLocaleString('en-US', {
+          month: 'short', day: 'numeric', year: 'numeric',
+          hour: '2-digit', minute: '2-digit'
+        })
+      };
+
+      this.valHistory.unshift(record);
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify(this.valHistory));
+      } catch (e) {}
+
+      this.renderValuationHistory();
+      this.showToast(`Saved "${finalTitle}" to history!`);
+    }
+
+    renderValuationHistory() {
+      if (!this.valHistoryList) return;
+      this.valHistoryList.innerHTML = '';
+
+      let list = Array.isArray(this.valHistory) ? this.valHistory : [];
+      const totalCount = list.length;
+
+      if (this.valHistorySearchQuery) {
+        const q = this.valHistorySearchQuery.toLowerCase().trim();
+        list = list.filter(h => {
+          const matchTitle = (h.title || '').toLowerCase().includes(q);
+          const matchCost = String(h.chestCost || '').includes(q);
+          const matchItems = Array.isArray(h.items) && h.items.some(it => 
+            (it.name || '').toLowerCase().includes(q) || String(it.faceValue || '').includes(q)
+          );
+          return matchTitle || matchCost || matchItems;
+        });
+      }
+
+      if (this.valHistoryCountLabel) {
+        if (this.valHistorySearchQuery) {
+          this.valHistoryCountLabel.textContent = `Showing ${list.length} of ${totalCount} saved cubes`;
+        } else {
+          this.valHistoryCountLabel.textContent = `${totalCount} saved cube${totalCount === 1 ? '' : 's'} in history`;
+        }
+      }
+
+      if (list.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'val-history-empty';
+        empty.innerHTML = this.valHistorySearchQuery
+          ? `No saved cubes match "<strong>${this.escapeHtml(this.valHistorySearchQuery)}</strong>".`
+          : 'No saved cubes yet. Configure a chest above and click <strong>"Save Cube to History"</strong>.';
+        this.valHistoryList.appendChild(empty);
+        return;
+      }
+
+      list.forEach(rec => {
+        const card = document.createElement('div');
+        card.className = 'val-history-card';
+        card.dataset.id = rec.id;
+
+        const isProfit = (rec.summary?.overallProfit ?? 0) >= 0;
+        const profitSign = isProfit ? '+' : '';
+        const profitClass = isProfit ? 'val-margin-profit' : 'val-margin-loss';
+
+        const dropTagsHtml = (rec.items || []).map(it => {
+          const label = it.name ? `${it.name} (${it.faceValue}c x${it.quantity})` : `${it.faceValue}c x${it.quantity}`;
+          return `<span class="val-drop-tag">${this.escapeHtml(label)}</span>`;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="val-history-card-header">
+            <div>
+              <h4 class="val-history-title">${this.escapeHtml(rec.title)}</h4>
+              <span class="val-history-date">${rec.savedAt || 'Recently saved'}</span>
+            </div>
+            <div class="val-history-badges">
+              <span class="val-history-chip">Chest: <strong>${this.formatNumber(rec.chestCost)} c</strong></span>
+              <span class="val-history-chip ${profitClass}">Spread: <strong>${profitSign}${this.formatNumber(rec.summary?.overallProfit ?? 0)} D</strong> (${profitSign}${rec.summary?.roiPercent ?? 0}%)</span>
+            </div>
+          </div>
+
+          <div class="val-history-drops">
+            ${dropTagsHtml}
+          </div>
+
+          <div class="val-history-footer">
+            <div class="val-history-stats">
+              Asking: <strong style="color: #38bdf8;">${this.formatNumber(rec.summary?.totalAskingFused ?? 0)} Fused</strong> &rarr; Net Diamonds: <strong style="color: #c084fc;">${this.formatNumber(rec.summary?.totalNetDiamonds ?? 0)} D</strong>
+            </div>
+            <div class="val-history-actions">
+              <button type="button" class="btn-primary" data-history-action="load" data-id="${rec.id}" style="font-size: 11px; padding: 4px 10px;" title="Load this cube into the calculator">
+                🔄 Load
+              </button>
+              <button type="button" class="btn-secondary" data-history-action="copy" data-id="${rec.id}" style="font-size: 11px; padding: 4px 10px;" title="Copy trading post text to clipboard">
+                📋 Copy
+              </button>
+              <button type="button" class="btn-secondary" data-history-action="delete" data-id="${rec.id}" style="font-size: 11px; padding: 4px 10px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);" title="Delete this history record">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+
+        this.valHistoryList.appendChild(card);
+      });
+    }
+
+    loadValuationFromHistory(id) {
+      const record = this.valHistory.find(r => r.id === id);
+      if (!record) return;
+
+      if (this.valChestName) this.valChestName.value = record.title || '';
+      if (this.valChestCost) this.valChestCost.value = record.chestCost || 4000;
+      if (this.valCashoutRate) this.valCashoutRate.value = Math.round((record.cashoutRate || 0.56) * 100);
+
+      this.valItems = Array.isArray(record.items) ? record.items.map(it => ({ ...it })) : [];
+      this.syncChestPresetButtons();
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+
+      if (this.valResultsCard) {
+        this.valResultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      this.showToast(`Loaded "${record.title}" into calculator!`);
+    }
+
+    deleteValuationHistory(id) {
+      const record = this.valHistory.find(r => r.id === id);
+      const title = record ? record.title : 'Record';
+      this.valHistory = this.valHistory.filter(r => r.id !== id);
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify(this.valHistory));
+      } catch (e) {}
+      this.renderValuationHistory();
+      this.showToast(`Deleted "${title}" from history.`);
+    }
+
+    clearAllValuationHistory() {
+      if (!this.valHistory || this.valHistory.length === 0) return;
+      if (!confirm('Are you sure you want to clear all saved cube calculation history?')) return;
+      this.valHistory = [];
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify([]));
+      } catch (e) {}
+      this.renderValuationHistory();
+      this.showToast('All valuation history cleared.');
+    }
+
+    copyTradePost(historyId = null) {
+      let title = '';
+      let chestCost = 0;
+      let cashoutRate = 0.56;
+      let items = [];
+      let summary = null;
+
+      if (historyId) {
+        const record = this.valHistory.find(r => r.id === historyId);
+        if (record) {
+          title = record.title;
+          chestCost = record.chestCost;
+          cashoutRate = record.cashoutRate || 0.56;
+          items = record.items || [];
+          summary = record.summary;
+        }
+      }
+
+      if (!summary) {
+        const results = this.calculateValuation();
+        if (!results) return;
+        title = (this.valChestName && this.valChestName.value.trim()) || `${results.chestCost}c Cube`;
+        chestCost = results.chestCost;
+        cashoutRate = results.cashoutRate;
+        items = results.items;
+        summary = {
+          totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
+          totalAskingFused: results.totalAskingFused,
+          totalNetDiamonds: results.totalNetDiamonds,
+          overallProfit: results.overallProfit,
+          roiPercent: results.roiPercent
+        };
+      }
+
+      const postLines = [
+        `✨ ${title.toUpperCase()} — FUSED GIFT TRADE LIST ✨`,
+        `📦 Chest Unlock Cost: ${this.formatNumber(chestCost)} Coins`,
+        `💎 Cashout Guarantee: ${Math.round(cashoutRate * 100)}% Net Diamonds`,
+        '',
+        `🎯 ASKING PRICES (Clean Flat Denominations):`
+      ];
+
+      items.forEach((it, i) => {
+        const rankIcon = (it.rank === 1 || i === 0) ? '👑' : (it.rank === 2 || i === 1) ? '⭐' : '🔹';
+        const nameStr = it.name ? it.name : `Drop #${it.rank || (i + 1)}`;
+        const unitFused = it.snappedUnitFused || Math.ceil((it.faceValue || 100) * 2 / 100) * 100;
+        const qty = it.quantity || it.qty || 1;
+        const totalFused = unitFused * qty;
+        const totalStr = qty > 1 ? ` (${this.formatNumber(totalFused)} total)` : '';
+        const payCombo = it.paymentSuggestion || this.getPaymentBreakdown(unitFused);
+
+        postLines.push(`• ${rankIcon} ${nameStr} (${it.faceValue || it.faceVal}c) x${qty} ➔ ${this.formatNumber(unitFused)} Fused each${totalStr} | Pay: ${payCombo}`);
+      });
+
+      const isProfit = (summary.overallProfit ?? 0) >= 0;
+      const profitSign = isProfit ? '+' : '';
+
+      postLines.push('');
+      postLines.push(`📊 CUBE YIELD SUMMARY:`);
+      postLines.push(`• Total Drops: ${summary.totalDrops || items.length} units`);
+      postLines.push(`• Total Asking: ${this.formatNumber(summary.totalAskingFused)} Fused Coins`);
+      postLines.push(`• Net Diamond Return: ${this.formatNumber(summary.totalNetDiamonds)} Diamonds`);
+      postLines.push(`• Net Margin vs Chest: ${profitSign}${this.formatNumber(summary.overallProfit)} D (${profitSign}${summary.roiPercent}%)`);
+      postLines.push('');
+      postLines.push(`Verified via HelloTalk Database & Valuation Suite`);
+
+      const text = postLines.join('\\n');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          this.showToast('📋 Copied formatted trade post to clipboard!');
+        }).catch(() => {
+          this.fallbackCopyText(text);
+        });
+      } else {
+        this.fallbackCopyText(text);
+      }
+    }
+
+    fallbackCopyText(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        this.showToast('📋 Copied formatted trade post to clipboard!');
+      } catch (e) {
+        this.showToast('Could not auto-copy. Please copy manually.');
+      }
+      document.body.removeChild(ta);
     }
 
     // ------------------------------------------------------------------

@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1792763886">
+  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1793263158">
 </head>
 <body>
 
@@ -541,10 +541,193 @@
       </div>
     </section>
 
+    <!-- ================================================================== -->
+    <!-- TAB 5: VALUATION & CUBE CALCULATOR -->
+    <!-- ================================================================== -->
+    <section id="tab-valuation" class="tab-pane" role="tabpanel">
+      <!-- Valuation Hero Header -->
+      <div class="val-hero-header">
+        <div class="val-hero-title-row">
+          <div class="val-hero-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+              <line x1="8" y1="6" x2="16" y2="6"></line>
+              <line x1="16" y1="14" x2="16" y2="18"></line>
+              <path d="M16 10h.01"></path>
+              <path d="M12 10h.01"></path>
+              <path d="M8 10h.01"></path>
+              <path d="M12 14h.01"></path>
+              <path d="M8 14h.01"></path>
+              <path d="M12 18h.01"></path>
+              <path d="M8 18h.01"></path>
+            </svg>
+          </div>
+          <div>
+            <h2 class="val-hero-title">Cube &amp; Fused Valuation Calculator</h2>
+            <p class="val-hero-subtitle">Event Chest Valuation • 56% Diamond Cashout Floor • Market Snapping</p>
+          </div>
+        </div>
+        <div class="val-hero-tags">
+          <span class="val-tag-pill">Payout Rate: <strong>56% Net Diamonds</strong></span>
+          <span class="val-tag-pill">Breakeven: <strong>~1.7857x Floor</strong></span>
+          <span class="val-tag-pill">Snapping: <strong>Flat 100s Marketplace</strong></span>
+        </div>
+      </div>
+
+      <!-- Main Config & Item Builder Card -->
+      <div class="val-card">
+        <div class="val-card-header">
+          <h3 class="val-card-title">1. Cube &amp; Spending Setup</h3>
+          <span class="val-card-subtitle">Set chest unlock cost and event parameters</span>
+        </div>
+
+        <div class="val-form-grid">
+          <div class="val-form-group">
+            <label class="val-label" for="valChestName">Cube / Event Name</label>
+            <input type="text" id="valChestName" class="search-input" placeholder="e.g. Halloween 4k Cube, Cyberpunk 6k Chest" autocomplete="off">
+          </div>
+
+          <div class="val-form-group">
+            <label class="val-label" for="valChestCost">Chest Unlock Cost (Coins)</label>
+            <input type="number" id="valChestCost" class="search-input" placeholder="e.g. 4000" min="0" step="1" value="4000">
+            <div class="val-presets-row" id="valChestPresets">
+              <button type="button" class="val-preset-chip" data-cost="2999">2,999</button>
+              <button type="button" class="val-preset-chip" data-cost="3999">3,999</button>
+              <button type="button" class="val-preset-chip active" data-cost="4000">4,000</button>
+              <button type="button" class="val-preset-chip" data-cost="4999">4,999</button>
+              <button type="button" class="val-preset-chip" data-cost="6000">6,000</button>
+              <button type="button" class="val-preset-chip" data-cost="8000">8,000</button>
+              <button type="button" class="val-preset-chip" data-cost="12000">12,000</button>
+            </div>
+          </div>
+
+          <div class="val-form-group">
+            <label class="val-label" for="valCashoutRate">Cashout Payout Rate (%)</label>
+            <input type="number" id="valCashoutRate" class="search-input" value="56" min="1" max="100" step="1">
+            <span class="val-input-hint">Standard HelloTalk payout rate is 56% (Multiplier: 0.56)</span>
+          </div>
+        </div>
+
+        <!-- Dynamic Drop Items Builder -->
+        <div class="val-items-section">
+          <div class="val-items-header">
+            <div>
+              <h4 class="val-items-title">2. Cube Drop Pool Items</h4>
+              <span class="val-card-subtitle">Items automatically rank descending by coin face value</span>
+            </div>
+            <div class="val-items-actions">
+              <button type="button" id="valAddItemBtn" class="btn-primary" style="font-size: 11px; padding: 6px 12px;">+ Add Gift</button>
+              <button type="button" id="valResetItemsBtn" class="btn-secondary" style="font-size: 11px; padding: 6px 12px;">Reset</button>
+            </div>
+          </div>
+
+          <datalist id="valCatalogDatalist"></datalist>
+
+          <div class="val-items-list" id="valItemsList">
+            <!-- Dynamic rows injected here -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Live Calculation Results Card -->
+      <div class="val-card" id="valResultsCard">
+        <div class="val-card-header">
+          <h3 class="val-card-title">3. Valuation &amp; Market Output</h3>
+          <span class="val-card-subtitle">Recommended asking prices &amp; profit breakdown</span>
+        </div>
+
+        <!-- Summary Metrics Row -->
+        <div class="summary-hero-row" style="margin-bottom: 16px;">
+          <div class="summary-metric-card">
+            <div class="metric-label">Total Drops Face Value</div>
+            <div class="metric-val" id="valMetricTotalFace">0 c</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Chest: <span id="valMetricChestCost">4,000</span> c</div>
+          </div>
+          <div class="summary-metric-card">
+            <div class="metric-label">Total Asking (Fused)</div>
+            <div class="metric-val" id="valMetricTotalFused" style="color: #38bdf8;">0</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Floor: <span id="valMetricFloorFused">0</span> Fused</div>
+          </div>
+          <div class="summary-metric-card">
+            <div class="metric-label">Net Diamonds Received</div>
+            <div class="metric-val" id="valMetricTotalDiamonds" style="color: #a855f7;">0 D</div>
+            <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Rate: 56% net cashout</div>
+          </div>
+          <div class="summary-metric-card">
+            <div class="metric-label">Net Cube Profit / Loss</div>
+            <div class="metric-val" id="valMetricProfitLoss">0 D</div>
+            <div style="font-size: 10px; margin-top: 3px;" id="valMetricRoiSub">ROI: 0%</div>
+          </div>
+        </div>
+
+        <!-- Detailed Breakdown Table -->
+        <div class="val-table-wrapper">
+          <table class="val-table">
+            <thead>
+              <tr>
+                <th>Rank &amp; Item</th>
+                <th>Face Value</th>
+                <th>Qty</th>
+                <th>Asking Price (Unit)</th>
+                <th>Total Asking</th>
+                <th>Net Diamonds</th>
+                <th>Unit Margin</th>
+                <th>Payment Suggestion</th>
+              </tr>
+            </thead>
+            <tbody id="valTableBody">
+              <!-- Rendered items breakdown -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="val-results-actions">
+          <button type="button" id="valSaveHistoryBtn" class="btn-primary" style="font-size: 12px; padding: 9px 18px;">
+            💾 Save Cube to History
+          </button>
+          <button type="button" id="valCopyTradeBtn" class="btn-secondary" style="font-size: 12px; padding: 9px 18px;">
+            📋 Copy Trade Post
+          </button>
+        </div>
+      </div>
+
+      <!-- History & Search Section -->
+      <div class="val-card">
+        <div class="val-card-header">
+          <div style="display: flex; align-items: center; justify-content: space-between; width: 100%; flex-wrap: wrap; gap: 8px;">
+            <div>
+              <h3 class="val-card-title">Saved Cubes &amp; Valuation History</h3>
+              <span class="val-card-subtitle" id="valHistoryCountLabel">0 saved cubes in history</span>
+            </div>
+            <button type="button" id="valClearHistoryBtn" class="btn-secondary" style="font-size: 11px; padding: 5px 10px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">
+              Clear All History
+            </button>
+          </div>
+        </div>
+
+        <!-- History Search Bar -->
+        <div class="val-history-search-row">
+          <div class="search-box-row" style="flex: 1;">
+            <svg class="search-icon-svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="valHistorySearchInput" class="search-input" placeholder="Search saved cubes by name, gift, or coins (e.g. 'Halloween', 'Dragon', '4999', '100')..." autocomplete="off">
+            <button id="valHistoryClearSearchBtn" class="search-clear-btn" style="display: none;">&times;</button>
+          </div>
+        </div>
+
+        <!-- History Cards Container -->
+        <div class="val-history-list" id="valHistoryList">
+          <!-- Injected saved history cards -->
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- ==================================================================== -->
-  <!-- BOTTOM NAVIGATION DOCK (ENFORCED ORDER: BACKPACK, SERIES, WALL, PORTFOLIO) -->
+  <!-- BOTTOM NAVIGATION DOCK (ENFORCED ORDER: BACKPACK, SERIES, WALL, PORTFOLIO, VALUATION) -->
   <!-- ==================================================================== -->
   <nav class="bottom-nav-dock">
     <div class="dock-pill">
@@ -584,6 +767,22 @@
           <line x1="6" y1="20" x2="6" y2="14"></line>
         </svg>
         <span>Portfolio</span>
+      </button>
+
+      <button class="dock-item" data-tab="tab-valuation" id="navTabValuation">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+          <line x1="8" y1="6" x2="16" y2="6"></line>
+          <line x1="16" y1="14" x2="16" y2="18"></line>
+          <path d="M16 10h.01"></path>
+          <path d="M12 10h.01"></path>
+          <path d="M8 10h.01"></path>
+          <path d="M12 14h.01"></path>
+          <path d="M8 14h.01"></path>
+          <path d="M12 18h.01"></path>
+          <path d="M8 18h.01"></path>
+        </svg>
+        <span>Valuation</span>
       </button>
     </div>
   </nav>
@@ -944,6 +1143,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.4&t=1792763886"></script>
+  <script src="app.js?v=1.0.4&t=1793263158"></script>
 </body>
 </html>
