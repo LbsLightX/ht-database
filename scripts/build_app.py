@@ -2655,7 +2655,7 @@ js_logic = ''';
 
     switchTab(tabId, saveToStorage = true) {
       if (!tabId) return;
-      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio'];
+      const validTabs = ['tab-backpack', 'tab-series', 'tab-wall', 'tab-portfolio', 'tab-valuation'];
       if (!validTabs.includes(tabId)) return;
       this.currentTab = tabId;
 
@@ -2706,6 +2706,7 @@ js_logic = ''';
       this.renderWallTab();
       this.renderBackpackTab();
       this.renderPortfolioTab();
+      if (this.currentTab === 'tab-valuation') this.renderValuationTab();
       this.populateCategorySelects();
     }
 
@@ -4419,7 +4420,6 @@ js_logic = ''';
       if (this.valMetricTotalFace) this.valMetricTotalFace.textContent = `${this.formatNumber(results.totalFaceValue)} c`;
       if (this.valMetricChestCost) this.valMetricChestCost.textContent = this.formatNumber(results.chestCost);
       if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = this.formatNumber(results.totalAskingFused);
-      if (this.valFloorFused) this.valFloorFused.textContent = this.formatNumber(results.totalFloorFused);
       if (this.valMetricFloorFused) this.valMetricFloorFused.textContent = this.formatNumber(results.totalFloorFused);
       if (this.valMetricTotalDiamonds) this.valMetricTotalDiamonds.textContent = `${this.formatNumber(results.totalNetDiamonds)} D`;
 
