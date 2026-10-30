@@ -28872,6 +28872,12 @@
       this._cachedWallFiltered = null;
       this._cachedBpFiltered = null;
 
+      // Portfolio Chest ROI & Fused Valuation Studio State
+      this.valStorageKey = 'ht_portfolio_calc_history_v1';
+      this.valItems = [];
+      this.valHistorySearchQuery = '';
+      this.valHistory = this.loadValuationHistory();
+
       this.initDomReferences();
       this.applyThemeColors();
       this.bindEvents();
@@ -29149,6 +29155,37 @@
       this.tagModalColorPicker = document.getElementById('tagModalColorPicker');
       this.tagModalColorHex = document.getElementById('tagModalColorHex');
       this.tagModalPreviewBadge = document.getElementById('tagModalPreviewBadge');
+
+      // ----------------------------------------------------------------
+      // Portfolio Valuation Studio References
+      // ----------------------------------------------------------------
+      this.valStudioCard = document.getElementById('portfolioValuationStudio');
+      this.valModeSelect = document.getElementById('valModeSelect');
+      this.valModeDesc = document.getElementById('valModeDesc');
+      this.valChestCost = document.getElementById('valChestCost');
+      this.valChestPresets = document.getElementById('valChestPresets');
+      this.valCoinRebate = document.getElementById('valCoinRebate');
+      this.valTargetMargin = document.getElementById('valTargetMargin');
+      this.valAddItemBtn = document.getElementById('valAddItemBtn');
+      this.valResetItemsBtn = document.getElementById('valResetItemsBtn');
+      this.valCatalogDatalist = document.getElementById('valCatalogDatalist');
+      this.valItemsList = document.getElementById('valItemsList');
+      this.valMetricNetOutlay = document.getElementById('valMetricNetOutlay');
+      this.valMetricRawCost = document.getElementById('valMetricRawCost');
+      this.valMetricRebate = document.getElementById('valMetricRebate');
+      this.valMetricTotalFused = document.getElementById('valMetricTotalFused');
+      this.valMetricFloorFused = document.getElementById('valMetricFloorFused');
+      this.valMetricTotalDiamonds = document.getElementById('valMetricTotalDiamonds');
+      this.valMetricProfitLoss = document.getElementById('valMetricProfitLoss');
+      this.valMetricRoiSub = document.getElementById('valMetricRoiSub');
+      this.valTableBody = document.getElementById('valTableBody');
+      this.valCopyTradeBtn = document.getElementById('valCopyTradeBtn');
+      this.valSaveHistoryBtn = document.getElementById('valSaveHistoryBtn');
+      this.valHistoryCountLabel = document.getElementById('valHistoryCountLabel');
+      this.valClearHistoryBtn = document.getElementById('valClearHistoryBtn');
+      this.valHistorySearchInput = document.getElementById('valHistorySearchInput');
+      this.valHistoryClearSearchBtn = document.getElementById('valHistoryClearSearchBtn');
+      this.valHistoryList = document.getElementById('valHistoryList');
     }
 
     applyThemeColors() {
@@ -29755,6 +29792,116 @@
       if (this.seriesGiftsGrid) this.seriesGiftsGrid.addEventListener('click', handleGridClick);
       if (this.wallGrid) this.wallGrid.addEventListener('click', handleGridClick);
       if (this.drillGiftsGrid) this.drillGiftsGrid.addEventListener('click', handleGridClick);
+
+      // ----------------------------------------------------------------
+      // Portfolio Valuation Studio Listeners
+      // ----------------------------------------------------------------
+      if (this.valChestCost) {
+        this.valChestCost.addEventListener('input', () => {
+          this.syncChestPresetButtons();
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valChestPresets) {
+        this.valChestPresets.addEventListener('click', (e) => {
+          const btn = e.target.closest('.val-preset-chip');
+          if (!btn || !btn.dataset.cost) return;
+          if (this.valChestCost) {
+            this.valChestCost.value = btn.dataset.cost;
+            this.syncChestPresetButtons();
+            this.recalculateAndRenderValuation();
+          }
+        });
+      }
+
+      if (this.valCoinRebate) {
+        this.valCoinRebate.addEventListener('input', () => {
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valTargetMargin) {
+        this.valTargetMargin.addEventListener('input', () => {
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valModeSelect) {
+        this.valModeSelect.addEventListener('change', () => {
+          if (this.valModeDesc) {
+            this.valModeDesc.textContent = this.valModeSelect.value === 'solo'
+              ? 'Volume clearance mode: rewards priced directly off the 0.602 conversion floor for quick turnover.'
+              : 'Dynamic scarcity mode: bottleneck items (1-of-1) carry premiums while volume items sell at discount.';
+          }
+          this.recalculateAndRenderValuation();
+        });
+      }
+
+      if (this.valAddItemBtn) {
+        this.valAddItemBtn.addEventListener('click', () => {
+          this.addValuationItemRow();
+        });
+      }
+
+      if (this.valResetItemsBtn) {
+        this.valResetItemsBtn.addEventListener('click', () => {
+          this.initValuationDefaults(true);
+        });
+      }
+
+      if (this.valCopyTradeBtn) {
+        this.valCopyTradeBtn.addEventListener('click', () => {
+          this.copyTradePost();
+        });
+      }
+
+      if (this.valSaveHistoryBtn) {
+        this.valSaveHistoryBtn.addEventListener('click', () => {
+          this.saveValuationToHistory();
+        });
+      }
+
+      if (this.valClearHistoryBtn) {
+        this.valClearHistoryBtn.addEventListener('click', () => {
+          this.clearAllValuationHistory();
+        });
+      }
+
+      if (this.valHistorySearchInput) {
+        this.valHistorySearchInput.addEventListener('input', (e) => {
+          this.valHistorySearchQuery = e.target.value;
+          if (this.valHistoryClearSearchBtn) {
+            this.valHistoryClearSearchBtn.style.display = this.valHistorySearchQuery ? 'block' : 'none';
+          }
+          this.renderValuationHistory();
+        });
+      }
+
+      if (this.valHistoryClearSearchBtn) {
+        this.valHistoryClearSearchBtn.addEventListener('click', () => {
+          this.valHistorySearchQuery = '';
+          if (this.valHistorySearchInput) this.valHistorySearchInput.value = '';
+          this.valHistoryClearSearchBtn.style.display = 'none';
+          this.renderValuationHistory();
+        });
+      }
+
+      if (this.valHistoryList) {
+        this.valHistoryList.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-history-action]');
+          if (!btn) return;
+          const action = btn.dataset.historyAction;
+          const id = btn.dataset.id;
+          if (action === 'load') {
+            this.loadValuationFromHistory(id);
+          } else if (action === 'copy') {
+            this.copyTradePost(id);
+          } else if (action === 'delete') {
+            this.deleteValuationHistory(id);
+          }
+        });
+      }
     }
 
     handleCardAction(e) {
@@ -31213,6 +31360,612 @@
       this.renderSeriesManagerList();
       this.renderTierManagerList();
       this.renderTagManagerList();
+      this.renderPortfolioValuationStudio();
+    }
+
+    // ------------------------------------------------------------------
+    // PORTFOLIO: CHEST ROI & FUSED VALUATION STUDIO ENGINE
+    // ------------------------------------------------------------------
+    initValuationDefaults(force = false) {
+      if (force || !this.valItems || this.valItems.length === 0) {
+        this.valItems = [
+          { id: 'vrow_1', name: 'Mischievous Black Cat', faceValue: 399, quantity: 1, isScrap: false },
+          { id: 'vrow_2', name: 'Storybook Town', faceValue: 299, quantity: 2, isScrap: false },
+          { id: 'vrow_3', name: 'Heartfelt Ghost', faceValue: 19, quantity: 3, isScrap: false }
+        ];
+        if (this.valChestCost) this.valChestCost.value = '4000';
+        if (this.valCoinRebate) this.valCoinRebate.value = '0';
+        if (this.valTargetMargin) this.valTargetMargin.value = '20';
+        if (this.valModeSelect) this.valModeSelect.value = 'voiceroom';
+      }
+      this.syncChestPresetButtons();
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    syncChestPresetButtons() {
+      if (!this.valChestPresets || !this.valChestCost) return;
+      const currentCost = String(this.valChestCost.value).trim();
+      const chips = this.valChestPresets.querySelectorAll('.val-preset-chip');
+      chips.forEach(chip => {
+        chip.classList.toggle('active', chip.dataset.cost === currentCost);
+      });
+    }
+
+    addValuationItemRow(name = '', faceValue = 99, quantity = 1, isScrap = false) {
+      const newId = 'vrow_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
+      this.valItems.push({ id: newId, name, faceValue, quantity, isScrap });
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    deleteValuationItemRow(rowId) {
+      if (this.valItems.length <= 1) {
+        this.showToast('Drop pool must have at least 1 item.');
+        return;
+      }
+      this.valItems = this.valItems.filter(r => r.id !== rowId);
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+    }
+
+    renderPortfolioValuationStudio() {
+      if (this.valCatalogDatalist && this.state && this.state.data && Array.isArray(this.state.data.items)) {
+        const unique = new Map();
+        this.state.data.items.forEach(it => {
+          if (it.name && !unique.has(it.name)) {
+            unique.set(it.name, it.baseValue || 0);
+          }
+        });
+        this.valCatalogDatalist.innerHTML = Array.from(unique.entries())
+          .map(([name, coins]) => `<option value="${this.escapeHtml(name)}" data-coins="${coins}">${this.escapeHtml(name)} (${coins}c)</option>`)
+          .join('');
+      }
+
+      if (!this.valItems || this.valItems.length === 0) {
+        this.initValuationDefaults();
+      } else {
+        this.renderValuationItemsList();
+        this.recalculateAndRenderValuation();
+      }
+      this.renderValuationHistory();
+    }
+
+    renderValuationItemsList() {
+      if (!this.valItemsList) return;
+      this.valItemsList.innerHTML = '';
+
+      const sortedIndexes = [...this.valItems]
+        .map((it, idx) => ({ idx, faceVal: Number(it.faceValue) || 0 }))
+        .sort((a, b) => b.faceVal - a.faceVal);
+
+      const rankMap = new Map();
+      let currentRank = 1;
+      sortedIndexes.forEach((entry, i) => {
+        if (i > 0 && entry.faceVal < sortedIndexes[i - 1].faceVal) {
+          currentRank = i + 1;
+        }
+        rankMap.set(entry.idx, currentRank);
+      });
+
+      this.valItems.forEach((item, index) => {
+        const rank = rankMap.get(index) || (index + 1);
+        const row = document.createElement('div');
+        row.className = 'val-item-row';
+        row.dataset.rowId = item.id;
+
+        const rankBadgeClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+
+        row.innerHTML = `
+          <div class="val-row-rank-badge ${rankBadgeClass}" title="Rank #${rank} (Auto-ranked by coin value)">
+            #${rank}
+          </div>
+          <div>
+            <input type="text" class="val-item-input val-item-name-input" list="valCatalogDatalist" placeholder="Gift Name (Catalog or Custom)" value="${this.escapeHtml(item.name || '')}" autocomplete="off">
+          </div>
+          <div>
+            <input type="number" class="val-item-input val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}">
+          </div>
+          <div>
+            <input type="number" class="val-item-input val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}">
+          </div>
+          <div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 4px;">
+            <label style="display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: var(--text-muted); cursor: pointer;" title="Micro-Scrap: exclude from premium scarcity allocation">
+              <input type="checkbox" class="val-item-scrap-check" ${item.isScrap ? 'checked' : ''} style="accent-color: #f59e0b;">
+              <span>Scrap</span>
+            </label>
+          </div>
+          <div>
+            <button type="button" class="val-row-del-btn" title="Remove this gift drop">&times;</button>
+          </div>
+        `;
+
+        const nameInput = row.querySelector('.val-item-name-input');
+        const coinsInput = row.querySelector('.val-item-coins-input');
+        const qtyInput = row.querySelector('.val-item-qty-input');
+        const scrapCheck = row.querySelector('.val-item-scrap-check');
+        const delBtn = row.querySelector('.val-row-del-btn');
+
+        nameInput.addEventListener('input', () => {
+          item.name = nameInput.value;
+          if (this.state && this.state.data && Array.isArray(this.state.data.items)) {
+            const match = this.state.data.items.find(it => it.name && it.name.toLowerCase() === item.name.toLowerCase());
+            if (match && match.baseValue) {
+              item.faceValue = match.baseValue;
+              coinsInput.value = match.baseValue;
+            }
+          }
+          this.recalculateAndRenderValuation();
+        });
+
+        coinsInput.addEventListener('input', () => {
+          item.faceValue = Math.max(1, parseInt(coinsInput.value) || 1);
+          this.recalculateAndRenderValuation();
+        });
+
+        qtyInput.addEventListener('input', () => {
+          item.quantity = Math.max(1, parseInt(qtyInput.value) || 1);
+          this.recalculateAndRenderValuation();
+        });
+
+        scrapCheck.addEventListener('change', () => {
+          item.isScrap = scrapCheck.checked;
+          this.recalculateAndRenderValuation();
+        });
+
+        delBtn.addEventListener('click', () => {
+          this.deleteValuationItemRow(item.id);
+        });
+
+        this.valItemsList.appendChild(row);
+      });
+    }
+
+    calculateValuation() {
+      const chestCost = Math.max(0, parseFloat(this.valChestCost ? this.valChestCost.value : 0) || 0);
+      const coinRebate = Math.max(0, parseFloat(this.valCoinRebate ? this.valCoinRebate.value : 0) || 0);
+      const targetMarginPct = Math.max(0, parseFloat(this.valTargetMargin ? this.valTargetMargin.value : 20) || 0) / 100;
+      const mode = this.valModeSelect ? this.valModeSelect.value : 'voiceroom';
+      const M_EFF = 0.602;
+
+      const netOutlay = Math.max(0, chestCost - coinRebate);
+      const totalRevenueTarget = Math.ceil((netOutlay / M_EFF) * (1 + targetMarginPct));
+
+      const sortedRows = [...this.valItems].map((it, idx) => ({ ...it, originalIdx: idx }))
+        .sort((a, b) => (Number(b.faceValue) || 0) - (Number(a.faceValue) || 0));
+
+      let currentRank = 1;
+      sortedRows.forEach((row, i) => {
+        if (i > 0 && (Number(row.faceValue) || 0) < (Number(sortedRows[i - 1].faceValue) || 0)) {
+          currentRank = i + 1;
+        }
+        row.autoRank = currentRank;
+      });
+
+      const activeItems = sortedRows.filter(it => !it.isScrap);
+      let totalWeight = 0;
+      activeItems.forEach(it => {
+        const faceVal = Math.max(1, Number(it.faceValue) || 1);
+        const qty = Math.max(1, parseInt(it.quantity) || 1);
+        it.weight = (faceVal / Math.sqrt(qty)) * qty;
+        totalWeight += it.weight;
+      });
+
+      const calculatedItems = sortedRows.map(it => {
+        const faceVal = Math.max(1, Number(it.faceValue) || 1);
+        const qty = Math.max(1, parseInt(it.quantity) || 1);
+        const rank = it.autoRank;
+        const unitBreakevenFloor = Math.ceil(faceVal / M_EFF);
+
+        let rawUnitFused = unitBreakevenFloor;
+
+        if (it.isScrap) {
+          rawUnitFused = 100;
+        } else if (mode === 'voiceroom') {
+          if (totalWeight > 0) {
+            const itemRevenueShare = totalRevenueTarget * (it.weight / totalWeight);
+            rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil(itemRevenueShare / qty));
+          } else {
+            rawUnitFused = Math.max(unitBreakevenFloor, faceVal * 2.0);
+          }
+        } else {
+          rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil((faceVal / M_EFF) * (1 + targetMarginPct)));
+        }
+
+        let snappedUnitFused = Math.max(100, Math.ceil(rawUnitFused / 100) * 100);
+        if (snappedUnitFused < unitBreakevenFloor && !it.isScrap) {
+          snappedUnitFused = Math.ceil(unitBreakevenFloor / 100) * 100;
+        }
+
+        const totalItemFused = snappedUnitFused * qty;
+        const instantD = Math.floor(snappedUnitFused * 0.14);
+        const delayedD = Math.floor(snappedUnitFused * 0.42);
+        const bonusD = Math.floor(delayedD * 0.10);
+        const unitNetDiamonds = instantD + delayedD + bonusD;
+        const totalItemDiamonds = unitNetDiamonds * qty;
+        const unitMargin = unitNetDiamonds - faceVal;
+        const totalItemMargin = unitMargin * qty;
+        const paymentSuggestion = this.getPaymentBreakdown(snappedUnitFused);
+
+        return {
+          ...it,
+          faceVal,
+          qty,
+          rank,
+          unitBreakevenFloor,
+          snappedUnitFused,
+          totalItemFused,
+          unitNetDiamonds,
+          totalItemDiamonds,
+          unitMargin,
+          totalItemMargin,
+          paymentSuggestion
+        };
+      });
+
+      const totalAskingFused = calculatedItems.reduce((acc, it) => acc + it.totalItemFused, 0);
+      const totalFloorFused = calculatedItems.reduce((acc, it) => acc + (it.unitBreakevenFloor * it.qty), 0);
+      const totalNetDiamonds = calculatedItems.reduce((acc, it) => acc + it.totalItemDiamonds, 0);
+      const overallProfit = (totalNetDiamonds + coinRebate) - chestCost;
+      const roiPercent = netOutlay > 0 ? ((overallProfit / netOutlay) * 100).toFixed(1) : '0';
+
+      return {
+        chestCost,
+        coinRebate,
+        netOutlay,
+        mode,
+        targetMarginPct,
+        items: calculatedItems,
+        totalAskingFused,
+        totalFloorFused,
+        totalNetDiamonds,
+        overallProfit,
+        roiPercent
+      };
+    }
+
+    recalculateAndRenderValuation() {
+      const results = this.calculateValuation();
+      if (!results) return;
+
+      if (this.valMetricNetOutlay) this.valMetricNetOutlay.textContent = `${this.formatNumber(results.netOutlay)} c`;
+      if (this.valMetricRawCost) this.valMetricRawCost.textContent = this.formatNumber(results.chestCost);
+      if (this.valMetricRebate) this.valMetricRebate.textContent = this.formatNumber(results.coinRebate);
+      if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = this.formatNumber(results.totalAskingFused);
+      if (this.valMetricFloorFused) this.valMetricFloorFused.textContent = this.formatNumber(results.totalFloorFused);
+      if (this.valMetricTotalDiamonds) this.valMetricTotalDiamonds.textContent = `${this.formatNumber(results.totalNetDiamonds)} D`;
+
+      if (this.valMetricProfitLoss) {
+        const sign = results.overallProfit >= 0 ? '+' : '';
+        this.valMetricProfitLoss.textContent = `${sign}${this.formatNumber(results.overallProfit)} D`;
+        this.valMetricProfitLoss.className = 'metric-val ' + (results.overallProfit >= 0 ? 'val-margin-profit' : 'val-margin-loss');
+      }
+
+      if (this.valMetricRoiSub) {
+        const sign = results.overallProfit >= 0 ? '+' : '';
+        this.valMetricRoiSub.textContent = `ROI vs Net Spend: ${sign}${results.roiPercent}%`;
+        this.valMetricRoiSub.style.color = results.overallProfit >= 0 ? '#34d399' : '#f87171';
+      }
+
+      if (this.valTableBody) {
+        this.valTableBody.innerHTML = '';
+        results.items.forEach(it => {
+          const tr = document.createElement('tr');
+          const rankPrefix = it.rank === 1 ? '👑 #1' : it.rank === 2 ? '⭐ #2' : it.rank === 3 ? '🥉 #3' : `#${it.rank}`;
+          const displayName = it.name ? this.escapeHtml(it.name) : `Drop #${it.rank}`;
+          const marginSign = it.unitMargin >= 0 ? '+' : '';
+          const marginClass = it.unitMargin >= 0 ? 'val-margin-profit' : 'val-margin-loss';
+          const scrapBadge = it.isScrap ? '<span style="font-size: 9.5px; padding: 1px 4px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-radius: 3px; margin-left: 4px;">Scrap</span>' : '';
+
+          tr.innerHTML = `
+            <td>
+              <span style="font-weight: 700; color: ${it.rank === 1 ? '#facc15' : it.rank === 2 ? '#cbd5e1' : it.rank === 3 ? '#fb923c' : 'var(--text-secondary)'}; margin-right: 4px;">${rankPrefix}</span>
+              <strong>${displayName}</strong>${scrapBadge}
+            </td>
+            <td class="tabular">${this.formatNumber(it.faceVal)} c</td>
+            <td class="tabular">${it.qty}x</td>
+            <td class="tabular" style="font-weight: 700; color: #38bdf8;">${this.formatNumber(it.snappedUnitFused)} Fused</td>
+            <td class="tabular" style="font-weight: 700;">${this.formatNumber(it.totalItemFused)}</td>
+            <td class="tabular">${this.formatNumber(it.unitNetDiamonds)} D <span style="font-size: 10px; color: var(--text-muted);">(${this.formatNumber(it.totalItemDiamonds)} total)</span></td>
+            <td class="tabular ${marginClass}">${marginSign}${this.formatNumber(it.unitMargin)} D</td>
+            <td><code style="font-size: 11px; background: rgba(255, 255, 255, 0.05); padding: 2px 6px; border-radius: 4px; color: #a5f3fc;">${it.paymentSuggestion}</code></td>
+          `;
+          this.valTableBody.appendChild(tr);
+        });
+      }
+    }
+
+    getPaymentBreakdown(amount) {
+      if (!amount || amount <= 0) return '0 Fused';
+      const denoms = [2000, 1000, 500, 200, 100];
+      let remaining = amount;
+      const parts = [];
+      for (const d of denoms) {
+        if (remaining >= d) {
+          const count = Math.floor(remaining / d);
+          remaining %= d;
+          parts.push(`${count}x ${d}`);
+        }
+      }
+      if (remaining > 0) parts.push(`+${remaining}`);
+      return parts.join(' + ') || `${amount} Fused`;
+    }
+
+    // ------------------------------------------------------------------
+    // PORTFOLIO VALUATION HISTORY STORAGE & SEARCH
+    // ------------------------------------------------------------------
+    loadValuationHistory() {
+      try {
+        const raw = localStorage.getItem(this.valStorageKey);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed)) return parsed;
+        }
+      } catch (e) {}
+      return [];
+    }
+
+    saveValuationToHistory() {
+      const results = this.calculateValuation();
+      if (!results) return;
+
+      const topItem = results.items[0];
+      const autoTitle = `${this.formatNumber(results.chestCost)}c Chest${results.coinRebate > 0 ? ' (+' + results.coinRebate + 'c Rebate)' : ''}${topItem && topItem.name ? ' - ' + topItem.name : ''}`;
+
+      const record = {
+        id: 'pval_rec_' + Date.now(),
+        title: autoTitle,
+        chestCost: results.chestCost,
+        coinRebate: results.coinRebate,
+        targetMarginPct: results.targetMarginPct,
+        mode: results.mode,
+        items: this.valItems.map(it => ({ ...it })),
+        summary: {
+          totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
+          netOutlay: results.netOutlay,
+          totalAskingFused: results.totalAskingFused,
+          totalNetDiamonds: results.totalNetDiamonds,
+          overallProfit: results.overallProfit,
+          roiPercent: results.roiPercent
+        },
+        savedAt: new Date().toLocaleString('en-US', {
+          month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        })
+      };
+
+      this.valHistory.unshift(record);
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify(this.valHistory));
+      } catch (e) {}
+
+      this.renderValuationHistory();
+      this.showToast(`Saved "${autoTitle}" to history!`);
+    }
+
+    renderValuationHistory() {
+      if (!this.valHistoryList) return;
+      this.valHistoryList.innerHTML = '';
+
+      let list = Array.isArray(this.valHistory) ? this.valHistory : [];
+      const totalCount = list.length;
+
+      if (this.valHistorySearchQuery) {
+        const q = this.valHistorySearchQuery.toLowerCase().trim();
+        list = list.filter(h => {
+          const matchTitle = (h.title || '').toLowerCase().includes(q);
+          const matchCost = String(h.chestCost || '').includes(q);
+          const matchItems = Array.isArray(h.items) && h.items.some(it => 
+            (it.name || '').toLowerCase().includes(q) || String(it.faceValue || '').includes(q)
+          );
+          return matchTitle || matchCost || matchItems;
+        });
+      }
+
+      if (this.valHistoryCountLabel) {
+        if (this.valHistorySearchQuery) {
+          this.valHistoryCountLabel.textContent = `Showing ${list.length} of ${totalCount} saved runs`;
+        } else {
+          this.valHistoryCountLabel.textContent = `${totalCount} saved run${totalCount === 1 ? '' : 's'}`;
+        }
+      }
+
+      if (list.length === 0) {
+        const empty = document.createElement('div');
+        empty.className = 'val-history-empty';
+        empty.innerHTML = this.valHistorySearchQuery
+          ? `No saved calculations match "<strong>${this.escapeHtml(this.valHistorySearchQuery)}</strong>".`
+          : 'No saved runs yet. Configure your drop pool above and click <strong>"Save to History"</strong>.';
+        this.valHistoryList.appendChild(empty);
+        return;
+      }
+
+      list.forEach(rec => {
+        const card = document.createElement('div');
+        card.className = 'val-history-card';
+        card.dataset.id = rec.id;
+
+        const isProfit = (rec.summary?.overallProfit ?? 0) >= 0;
+        const profitSign = isProfit ? '+' : '';
+        const profitClass = isProfit ? 'val-margin-profit' : 'val-margin-loss';
+
+        const dropTagsHtml = (rec.items || []).map(it => {
+          const label = it.name ? `${it.name} (${it.faceValue}c x${it.quantity})` : `${it.faceValue}c x${it.quantity}`;
+          return `<span class="val-drop-tag">${this.escapeHtml(label)}</span>`;
+        }).join('');
+
+        card.innerHTML = `
+          <div class="val-history-card-header">
+            <div>
+              <h4 class="val-history-title">${this.escapeHtml(rec.title)}</h4>
+              <span class="val-history-date">${rec.savedAt || 'Recently saved'}</span>
+            </div>
+            <div class="val-history-badges">
+              <span class="val-history-chip">Outlay: <strong>${this.formatNumber(rec.summary?.netOutlay ?? rec.chestCost)} c</strong></span>
+              <span class="val-history-chip ${profitClass}">Return: <strong>${profitSign}${this.formatNumber(rec.summary?.overallProfit ?? 0)} D</strong> (${profitSign}${rec.summary?.roiPercent ?? 0}%)</span>
+            </div>
+          </div>
+
+          <div class="val-history-drops">
+            ${dropTagsHtml}
+          </div>
+
+          <div class="val-history-footer">
+            <div class="val-history-stats">
+              Asking: <strong style="color: #38bdf8;">${this.formatNumber(rec.summary?.totalAskingFused ?? 0)} Fused</strong> &rarr; Net: <strong style="color: #c084fc;">${this.formatNumber(rec.summary?.totalNetDiamonds ?? 0)} D</strong>
+            </div>
+            <div class="val-history-actions">
+              <button type="button" class="btn-primary" data-history-action="load" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Load this run into the calculator">
+                🔄 Load
+              </button>
+              <button type="button" class="btn-secondary" data-history-action="copy" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Copy trading post text to clipboard">
+                📋 Copy
+              </button>
+              <button type="button" class="btn-secondary" data-history-action="delete" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);" title="Delete this history record">
+                🗑️
+              </button>
+            </div>
+          </div>
+        `;
+
+        this.valHistoryList.appendChild(card);
+      });
+    }
+
+    loadValuationFromHistory(id) {
+      const record = this.valHistory.find(r => r.id === id);
+      if (!record) return;
+
+      if (this.valChestCost) this.valChestCost.value = record.chestCost || 4000;
+      if (this.valCoinRebate) this.valCoinRebate.value = record.coinRebate || 0;
+      if (this.valTargetMargin) this.valTargetMargin.value = Math.round((record.targetMarginPct || 0.20) * 100);
+      if (this.valModeSelect) this.valModeSelect.value = record.mode || 'voiceroom';
+
+      this.valItems = Array.isArray(record.items) ? record.items.map(it => ({ ...it })) : [];
+      this.syncChestPresetButtons();
+      this.renderValuationItemsList();
+      this.recalculateAndRenderValuation();
+
+      if (this.valStudioCard) {
+        this.valStudioCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+      this.showToast(`Loaded "${record.title}" into calculator!`);
+    }
+
+    deleteValuationHistory(id) {
+      const record = this.valHistory.find(r => r.id === id);
+      const title = record ? record.title : 'Record';
+      this.valHistory = this.valHistory.filter(r => r.id !== id);
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify(this.valHistory));
+      } catch (e) {}
+      this.renderValuationHistory();
+      this.showToast(`Deleted "${title}" from history.`);
+    }
+
+    clearAllValuationHistory() {
+      if (!this.valHistory || this.valHistory.length === 0) return;
+      if (!confirm('Are you sure you want to clear all saved calculation history?')) return;
+      this.valHistory = [];
+      try {
+        localStorage.setItem(this.valStorageKey, JSON.stringify([]));
+      } catch (e) {}
+      this.renderValuationHistory();
+      this.showToast('Calculation history cleared.');
+    }
+
+    copyTradePost(historyId = null) {
+      let chestCost = 0;
+      let coinRebate = 0;
+      let items = [];
+      let summary = null;
+
+      if (historyId) {
+        const record = this.valHistory.find(r => r.id === historyId);
+        if (record) {
+          chestCost = record.chestCost;
+          coinRebate = record.coinRebate || 0;
+          items = record.items || [];
+          summary = record.summary;
+        }
+      }
+
+      if (!summary) {
+        const results = this.calculateValuation();
+        if (!results) return;
+        chestCost = results.chestCost;
+        coinRebate = results.coinRebate;
+        items = results.items;
+        summary = {
+          totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
+          netOutlay: results.netOutlay,
+          totalAskingFused: results.totalAskingFused,
+          totalNetDiamonds: results.totalNetDiamonds,
+          overallProfit: results.overallProfit,
+          roiPercent: results.roiPercent
+        };
+      }
+
+      const rebateText = coinRebate > 0 ? ` (Rebate: +${this.formatNumber(coinRebate)}c)` : '';
+      const postLines = [
+        `✨ CHEST / VOICEROOM TRADE LIST ✨`,
+        `📦 Milestone Spend: ${this.formatNumber(chestCost)} Coins${rebateText}`,
+        `💎 Cashout Guarantee: 0.602x Net Diamonds (14% Inst + 42% Del + 4.2% Bonus)`,
+        '',
+        `🎯 ASKING PRICES (Clean Flat Denominations):`
+      ];
+
+      items.forEach((it, i) => {
+        const rankIcon = (it.rank === 1 || i === 0) ? '👑' : (it.rank === 2 || i === 1) ? '⭐' : '🔹';
+        const nameStr = it.name ? it.name : `Drop #${it.rank || (i + 1)}`;
+        const unitFused = it.snappedUnitFused || Math.ceil((it.faceValue || 100) * 2 / 100) * 100;
+        const qty = it.quantity || it.qty || 1;
+        const totalFused = unitFused * qty;
+        const totalStr = qty > 1 ? ` (${this.formatNumber(totalFused)} total)` : '';
+        const payCombo = it.paymentSuggestion || this.getPaymentBreakdown(unitFused);
+        const scrapNote = it.isScrap ? ' [SCRAP]' : '';
+
+        postLines.push(`• ${rankIcon} ${nameStr} (${it.faceValue || it.faceVal}c) x${qty} ➔ ${this.formatNumber(unitFused)} Fused each${totalStr}${scrapNote} | Pay: ${payCombo}`);
+      });
+
+      const isProfit = (summary.overallProfit ?? 0) >= 0;
+      const profitSign = isProfit ? '+' : '';
+
+      postLines.push('');
+      postLines.push(`📊 EXPECTED RECOVERY:`);
+      postLines.push(`• Total Drops: ${summary.totalDrops || items.length} units`);
+      postLines.push(`• Total Asking: ${this.formatNumber(summary.totalAskingFused)} Fused Coins`);
+      postLines.push(`• Net Diamond Return: ${this.formatNumber(summary.totalNetDiamonds)} Diamonds`);
+      postLines.push(`• Net Margin: ${profitSign}${this.formatNumber(summary.overallProfit)} D (${profitSign}${summary.roiPercent}%)`);
+      postLines.push('');
+      postLines.push(`Verified via HelloTalk Database & Valuation Studio`);
+
+      const text = postLines.join('\n');
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(() => {
+          this.showToast('📋 Copied formatted trade post to clipboard!');
+        }).catch(() => {
+          this.fallbackCopyText(text);
+        });
+      } else {
+        this.fallbackCopyText(text);
+      }
+    }
+
+    fallbackCopyText(text) {
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.opacity = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      try {
+        document.execCommand('copy');
+        this.showToast('📋 Copied formatted trade post to clipboard!');
+      } catch (e) {
+        this.showToast('Could not auto-copy. Please copy manually.');
+      }
+      document.body.removeChild(ta);
     }
 
     setupDraggableList(container, itemSelector, onReorder) {
