@@ -31348,12 +31348,9 @@
     initValuationDefaults(force = false) {
       if (force || !this.valItems || this.valItems.length === 0) {
         this.valItems = [
-          { id: 'vrow_1', name: 'Halloween', faceValue: 399, quantity: 1 },
-          { id: 'vrow_2', name: 'Pumpkin', faceValue: 99, quantity: 2 },
-          { id: 'vrow_3', name: 'Cannoli', faceValue: 30, quantity: 2 },
-          { id: 'vrow_4', name: 'Casper', faceValue: 29, quantity: 3 }
+          { id: 'vrow_' + Date.now(), name: '', faceValue: '', quantity: 1 }
         ];
-        if (this.valChestCost) this.valChestCost.value = '8000';
+        if (this.valChestCost) this.valChestCost.value = '';
         if (this.valTargetMargin) this.valTargetMargin.value = '20';
         if (this.valStrategySelect) this.valStrategySelect.value = 'standard';
       }
@@ -31361,7 +31358,7 @@
       this.recalculateAndRenderValuation();
     }
 
-    addValuationItemRow(name = '', faceValue = 99, quantity = 1) {
+    addValuationItemRow(name = '', faceValue = '', quantity = 1) {
       const newId = 'vrow_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
       this.valItems.push({ id: newId, name, faceValue, quantity });
       this.renderValuationItemsList();
@@ -31370,10 +31367,10 @@
 
     deleteValuationItemRow(rowId) {
       if (this.valItems.length <= 1) {
-        this.showToast('Drop pool must have at least 1 item.');
-        return;
+        this.valItems = [{ id: 'vrow_' + Date.now(), name: '', faceValue: '', quantity: 1 }];
+      } else {
+        this.valItems = this.valItems.filter(r => r.id !== rowId);
       }
-      this.valItems = this.valItems.filter(r => r.id !== rowId);
       this.renderValuationItemsList();
       this.recalculateAndRenderValuation();
     }
@@ -31419,6 +31416,9 @@
           ? '<span class="tier-badge tier-featured" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#3</span>'
           : `<span class="tier-badge tier-standard" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#${rank}</span>`;
 
+        const faceValDisplay = (item.faceValue !== '' && item.faceValue != null) ? item.faceValue : '';
+        const qtyDisplay = (item.quantity !== '' && item.quantity != null) ? item.quantity : 1;
+
         row.innerHTML = `
           <div style="display: flex; align-items: center; justify-content: center;" title="Rank #${rank}">
             ${rankBadgeHtml}
@@ -31427,10 +31427,10 @@
             <input type="text" class="form-input val-item-name-input" placeholder="Gift Name" value="${this.escapeHtml(item.name || '')}" autocomplete="off" spellcheck="false" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div>
-            <input type="number" class="form-input tabular val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}" style="font-size: 12px; padding: 6px 10px;">
+            <input type="number" class="form-input tabular val-item-coins-input" placeholder="Coins" min="1" step="1" value="${faceValDisplay}" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div>
-            <input type="number" class="form-input tabular val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}" style="font-size: 12px; padding: 6px 10px;">
+            <input type="number" class="form-input tabular val-item-qty-input" placeholder="Qty" min="1" step="1" value="${qtyDisplay}" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div style="display: flex; align-items: center; justify-content: center;">
             <button type="button" class="val-row-del-btn" title="Remove this drop">&times;</button>
@@ -31447,12 +31447,14 @@
         });
 
         coinsInput.addEventListener('input', () => {
-          item.faceValue = Math.max(1, parseInt(coinsInput.value) || 1);
+          const raw = coinsInput.value.trim();
+          item.faceValue = raw === '' ? '' : Math.max(1, parseInt(raw) || 1);
           this.recalculateAndRenderValuation();
         });
 
         qtyInput.addEventListener('input', () => {
-          item.quantity = Math.max(1, parseInt(qtyInput.value) || 1);
+          const raw = qtyInput.value.trim();
+          item.quantity = raw === '' ? 1 : Math.max(1, parseInt(raw) || 1);
           this.recalculateAndRenderValuation();
         });
 
@@ -31465,6 +31467,11 @@
     }
 
     calculateValuation() {
+      const activeRows = this.valItems.filter(it => (Number(it.faceValue) || 0) > 0);
+      if (activeRows.length === 0) {
+        return null;
+      }
+
       const chestCost = Math.max(0, parseFloat(this.valChestCost ? this.valChestCost.value : 0) || 0);
       const targetMarginPct = Math.max(0, parseFloat(this.valTargetMargin ? this.valTargetMargin.value : 20) || 0) / 100;
       const strategy = this.valStrategySelect ? this.valStrategySelect.value : 'standard';
@@ -31477,7 +31484,7 @@
       const netOutlay = chestCost;
       const totalRevenueTarget = Math.ceil((netOutlay / M_EFF) * (1 + targetMarginPct));
 
-      const sortedRows = [...this.valItems].map((it, idx) => ({ ...it, originalIdx: idx }))
+      const sortedRows = [...activeRows].map((it, idx) => ({ ...it, originalIdx: idx }))
         .sort((a, b) => (Number(b.faceValue) || 0) - (Number(a.faceValue) || 0));
 
       let currentRank = 1;
@@ -31632,7 +31639,31 @@
 
     recalculateAndRenderValuation() {
       const results = this.calculateValuation();
-      if (!results) return;
+      if (!results) {
+        const rawCost = parseFloat(this.valChestCost ? this.valChestCost.value : 0) || 0;
+        if (this.valMetricNetOutlay) this.valMetricNetOutlay.textContent = `${this.formatNumber(rawCost)} c`;
+        if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = '0';
+        if (this.valMetricFloorFused) this.valMetricFloorFused.textContent = '0';
+        if (this.valMetricTotalDiamonds) this.valMetricTotalDiamonds.textContent = '0 D';
+        if (this.valMetricProfitLoss) {
+          this.valMetricProfitLoss.textContent = '0 D';
+          this.valMetricProfitLoss.className = 'metric-val';
+        }
+        if (this.valMetricRoiSub) {
+          this.valMetricRoiSub.textContent = 'ROI: 0%';
+          this.valMetricRoiSub.style.color = 'var(--text-muted)';
+        }
+        if (this.valTableBody) {
+          this.valTableBody.innerHTML = `
+            <tr>
+              <td colspan="9" style="text-align: center; color: var(--text-muted); padding: 28px 16px; font-size: 12px;">
+                No drops configured. Enter a drop above to calculate voiceroom valuation.
+              </td>
+            </tr>
+          `;
+        }
+        return;
+      }
 
       if (this.valMetricNetOutlay) this.valMetricNetOutlay.textContent = `${this.formatNumber(results.chestCost)} c`;
       if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = this.formatNumber(results.totalAskingFused);
@@ -31714,7 +31745,10 @@
 
     saveValuationToHistory() {
       const results = this.calculateValuation();
-      if (!results) return;
+      if (!results) {
+        this.showToast('Please enter at least one drop with coin value first.');
+        return;
+      }
 
       const topItem = results.items[0];
       const autoTitle = `${this.formatNumber(results.chestCost)}c Chest${results.coinRebate > 0 ? ' (+' + results.coinRebate + 'c Rebate)' : ''}${topItem && topItem.name ? ' - ' + topItem.name : ''}`;
@@ -31895,7 +31929,10 @@
 
       if (!summary) {
         const results = this.calculateValuation();
-        if (!results) return;
+        if (!results) {
+          this.showToast('Please enter at least one drop with coin value first.');
+          return;
+        }
         chestCost = results.chestCost;
         strategy = results.strategy;
         items = results.items;
