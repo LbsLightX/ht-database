@@ -1536,19 +1536,14 @@ js_logic = ''';
       // Portfolio Valuation Studio References
       // ----------------------------------------------------------------
       this.valStudioCard = document.getElementById('portfolioValuationStudio');
-      this.valModeSelect = document.getElementById('valModeSelect');
-      this.valModeDesc = document.getElementById('valModeDesc');
+      this.valStrategySelect = document.getElementById('valStrategySelect');
+      this.valStrategyDesc = document.getElementById('valStrategyDesc');
       this.valChestCost = document.getElementById('valChestCost');
-      this.valChestPresets = document.getElementById('valChestPresets');
-      this.valCoinRebate = document.getElementById('valCoinRebate');
       this.valTargetMargin = document.getElementById('valTargetMargin');
       this.valAddItemBtn = document.getElementById('valAddItemBtn');
       this.valResetItemsBtn = document.getElementById('valResetItemsBtn');
-      this.valCatalogDatalist = document.getElementById('valCatalogDatalist');
       this.valItemsList = document.getElementById('valItemsList');
       this.valMetricNetOutlay = document.getElementById('valMetricNetOutlay');
-      this.valMetricRawCost = document.getElementById('valMetricRawCost');
-      this.valMetricRebate = document.getElementById('valMetricRebate');
       this.valMetricTotalFused = document.getElementById('valMetricTotalFused');
       this.valMetricFloorFused = document.getElementById('valMetricFloorFused');
       this.valMetricTotalDiamonds = document.getElementById('valMetricTotalDiamonds');
@@ -2174,42 +2169,26 @@ js_logic = ''';
       // ----------------------------------------------------------------
       if (this.valChestCost) {
         this.valChestCost.addEventListener('input', () => {
-          this.syncChestPresetButtons();
           this.recalculateAndRenderValuation();
         });
       }
 
-      if (this.valChestPresets) {
-        this.valChestPresets.addEventListener('click', (e) => {
-          const btn = e.target.closest('.preset-btn, .val-preset-chip');
-          if (!btn || !btn.dataset.cost) return;
-          if (this.valChestCost) {
-            this.valChestCost.value = btn.dataset.cost;
-            this.syncChestPresetButtons();
-            this.recalculateAndRenderValuation();
+      if (this.valStrategySelect) {
+        this.valStrategySelect.addEventListener('change', () => {
+          if (this.valStrategyDesc) {
+            const v = this.valStrategySelect.value;
+            this.valStrategyDesc.textContent = v === 'quick'
+              ? 'High turnover mode: #1 marquee drop capped at ~45% of chest cost for fast liquidation.'
+              : v === 'premium'
+              ? 'Hot room / competitive mode: #1 marquee drop capped at ~75% of chest cost.'
+              : 'Balanced sweet spot: #1 marquee drop capped at ~60% of chest cost to prevent buyer resistance.';
           }
-        });
-      }
-
-      if (this.valCoinRebate) {
-        this.valCoinRebate.addEventListener('input', () => {
           this.recalculateAndRenderValuation();
         });
       }
 
       if (this.valTargetMargin) {
         this.valTargetMargin.addEventListener('input', () => {
-          this.recalculateAndRenderValuation();
-        });
-      }
-
-      if (this.valModeSelect) {
-        this.valModeSelect.addEventListener('change', () => {
-          if (this.valModeDesc) {
-            this.valModeDesc.textContent = this.valModeSelect.value === 'solo'
-              ? 'Volume clearance mode: rewards priced directly off the 0.602 conversion floor for quick turnover.'
-              : 'Dynamic scarcity mode: bottleneck items (1-of-1) carry premiums while volume items sell at discount.';
-          }
           this.recalculateAndRenderValuation();
         });
       }
@@ -3745,32 +3724,22 @@ js_logic = ''';
     initValuationDefaults(force = false) {
       if (force || !this.valItems || this.valItems.length === 0) {
         this.valItems = [
-          { id: 'vrow_1', name: 'Mischievous Black Cat', faceValue: 399, quantity: 1, isScrap: false },
-          { id: 'vrow_2', name: 'Storybook Town', faceValue: 299, quantity: 2, isScrap: false },
-          { id: 'vrow_3', name: 'Heartfelt Ghost', faceValue: 19, quantity: 3, isScrap: false }
+          { id: 'vrow_1', name: 'Halloween', faceValue: 399, quantity: 1 },
+          { id: 'vrow_2', name: 'Pumpkin', faceValue: 99, quantity: 2 },
+          { id: 'vrow_3', name: 'Cannoli', faceValue: 30, quantity: 2 },
+          { id: 'vrow_4', name: 'Casper', faceValue: 29, quantity: 3 }
         ];
-        if (this.valChestCost) this.valChestCost.value = '4000';
-        if (this.valCoinRebate) this.valCoinRebate.value = '0';
+        if (this.valChestCost) this.valChestCost.value = '8000';
         if (this.valTargetMargin) this.valTargetMargin.value = '20';
-        if (this.valModeSelect) this.valModeSelect.value = 'voiceroom';
+        if (this.valStrategySelect) this.valStrategySelect.value = 'standard';
       }
-      this.syncChestPresetButtons();
       this.renderValuationItemsList();
       this.recalculateAndRenderValuation();
     }
 
-    syncChestPresetButtons() {
-      if (!this.valChestPresets || !this.valChestCost) return;
-      const currentCost = String(this.valChestCost.value).trim();
-      const chips = this.valChestPresets.querySelectorAll('.preset-btn, .val-preset-chip');
-      chips.forEach(chip => {
-        chip.classList.toggle('active', chip.dataset.cost === currentCost);
-      });
-    }
-
-    addValuationItemRow(name = '', faceValue = 99, quantity = 1, isScrap = false) {
+    addValuationItemRow(name = '', faceValue = 99, quantity = 1) {
       const newId = 'vrow_' + Date.now() + '_' + Math.random().toString(36).substr(2, 5);
-      this.valItems.push({ id: newId, name, faceValue, quantity, isScrap });
+      this.valItems.push({ id: newId, name, faceValue, quantity });
       this.renderValuationItemsList();
       this.recalculateAndRenderValuation();
     }
@@ -3786,18 +3755,6 @@ js_logic = ''';
     }
 
     renderPortfolioValuationStudio() {
-      if (this.valCatalogDatalist && this.state && this.state.data && Array.isArray(this.state.data.items)) {
-        const unique = new Map();
-        this.state.data.items.forEach(it => {
-          if (it.name && !unique.has(it.name)) {
-            unique.set(it.name, it.baseValue || 0);
-          }
-        });
-        this.valCatalogDatalist.innerHTML = Array.from(unique.entries())
-          .map(([name, coins]) => `<option value="${this.escapeHtml(name)}" data-coins="${coins}">${this.escapeHtml(name)} (${coins}c)</option>`)
-          .join('');
-      }
-
       if (!this.valItems || this.valItems.length === 0) {
         this.initValuationDefaults();
       } else {
@@ -3839,11 +3796,11 @@ js_logic = ''';
           : `<span class="tier-badge tier-standard" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#${rank}</span>`;
 
         row.innerHTML = `
-          <div style="display: flex; align-items: center; justify-content: center;" title="Rank #${rank} (Auto-ranked by coin value)">
+          <div style="display: flex; align-items: center; justify-content: center;" title="Rank #${rank}">
             ${rankBadgeHtml}
           </div>
           <div>
-            <input type="text" class="form-input val-item-name-input" list="valCatalogDatalist" placeholder="Gift Name (Catalog or Custom)" value="${this.escapeHtml(item.name || '')}" autocomplete="off" style="font-size: 12px; padding: 6px 10px;">
+            <input type="text" class="form-input val-item-name-input" placeholder="Gift Name" value="${this.escapeHtml(item.name || '')}" autocomplete="off" spellcheck="false" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div>
             <input type="number" class="form-input tabular val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}" style="font-size: 12px; padding: 6px 10px;">
@@ -3851,33 +3808,18 @@ js_logic = ''';
           <div>
             <input type="number" class="form-input tabular val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}" style="font-size: 12px; padding: 6px 10px;">
           </div>
-          <div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 4px;">
-            <label class="form-checkbox-label" style="font-size: 11px; cursor: pointer; gap: 6px;" title="Micro-Scrap: exclude from premium scarcity allocation">
-              <input type="checkbox" class="form-checkbox val-item-scrap-check" ${item.isScrap ? 'checked' : ''} style="accent-color: #f59e0b; width: 14px; height: 14px;">
-              <span style="color: var(--text-muted);">Scrap</span>
-            </label>
-          </div>
-          <div>
-            <button type="button" class="val-row-del-btn" title="Remove this gift drop">&times;</button>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <button type="button" class="val-row-del-btn" title="Remove this drop">&times;</button>
           </div>
         `;
 
         const nameInput = row.querySelector('.val-item-name-input');
         const coinsInput = row.querySelector('.val-item-coins-input');
         const qtyInput = row.querySelector('.val-item-qty-input');
-        const scrapCheck = row.querySelector('.val-item-scrap-check');
         const delBtn = row.querySelector('.val-row-del-btn');
 
         nameInput.addEventListener('input', () => {
           item.name = nameInput.value;
-          if (this.state && this.state.data && Array.isArray(this.state.data.items)) {
-            const match = this.state.data.items.find(it => it.name && it.name.toLowerCase() === item.name.toLowerCase());
-            if (match && match.baseValue) {
-              item.faceValue = match.baseValue;
-              coinsInput.value = match.baseValue;
-            }
-          }
-          this.recalculateAndRenderValuation();
         });
 
         coinsInput.addEventListener('input', () => {
@@ -3887,11 +3829,6 @@ js_logic = ''';
 
         qtyInput.addEventListener('input', () => {
           item.quantity = Math.max(1, parseInt(qtyInput.value) || 1);
-          this.recalculateAndRenderValuation();
-        });
-
-        scrapCheck.addEventListener('change', () => {
-          item.isScrap = scrapCheck.checked;
           this.recalculateAndRenderValuation();
         });
 
@@ -3905,12 +3842,15 @@ js_logic = ''';
 
     calculateValuation() {
       const chestCost = Math.max(0, parseFloat(this.valChestCost ? this.valChestCost.value : 0) || 0);
-      const coinRebate = Math.max(0, parseFloat(this.valCoinRebate ? this.valCoinRebate.value : 0) || 0);
       const targetMarginPct = Math.max(0, parseFloat(this.valTargetMargin ? this.valTargetMargin.value : 20) || 0) / 100;
-      const mode = this.valModeSelect ? this.valModeSelect.value : 'voiceroom';
+      const strategy = this.valStrategySelect ? this.valStrategySelect.value : 'standard';
       const M_EFF = 0.602;
 
-      const netOutlay = Math.max(0, chestCost - coinRebate);
+      // Strategy cap ceiling for the #1 marquee drop (fraction of chest cost)
+      const capFraction = strategy === 'quick' ? 0.45 : strategy === 'premium' ? 0.75 : 0.60;
+      const topCapFloor = Math.max(100, Math.floor((chestCost * capFraction) / 100) * 100);
+
+      const netOutlay = chestCost;
       const totalRevenueTarget = Math.ceil((netOutlay / M_EFF) * (1 + targetMarginPct));
 
       const sortedRows = [...this.valItems].map((it, idx) => ({ ...it, originalIdx: idx }))
@@ -3924,16 +3864,34 @@ js_logic = ''';
         row.autoRank = currentRank;
       });
 
-      const activeItems = sortedRows.filter(it => !it.isScrap);
       let totalWeight = 0;
-      activeItems.forEach(it => {
+      sortedRows.forEach(it => {
         const faceVal = Math.max(1, Number(it.faceValue) || 1);
         const qty = Math.max(1, parseInt(it.quantity) || 1);
         it.weight = (faceVal / Math.sqrt(qty)) * qty;
         totalWeight += it.weight;
       });
 
-      const calculatedItems = sortedRows.map(it => {
+      // Ceiling and rebalancing engine
+      let topItemCapped = false;
+      let excessRevenueToDistribute = 0;
+      let remainingWeight = 0;
+
+      if (sortedRows.length > 1 && totalWeight > 0) {
+        const topRow = sortedRows[0];
+        const topQty = Math.max(1, parseInt(topRow.quantity) || 1);
+        const topRawShare = totalRevenueTarget * (topRow.weight / totalWeight);
+        const topRawUnit = Math.ceil(topRawShare / topQty);
+
+        if (topRawUnit > topCapFloor) {
+          topItemCapped = true;
+          const cappedTotalRevenue = topCapFloor * topQty;
+          excessRevenueToDistribute = Math.max(0, topRawShare - cappedTotalRevenue);
+          remainingWeight = totalWeight - topRow.weight;
+        }
+      }
+
+      const calculatedItems = sortedRows.map((it, index) => {
         const faceVal = Math.max(1, Number(it.faceValue) || 1);
         const qty = Math.max(1, parseInt(it.quantity) || 1);
         const rank = it.autoRank;
@@ -3941,21 +3899,24 @@ js_logic = ''';
 
         let rawUnitFused = unitBreakevenFloor;
 
-        if (it.isScrap) {
-          rawUnitFused = 100;
-        } else if (mode === 'voiceroom') {
-          if (totalWeight > 0) {
-            const itemRevenueShare = totalRevenueTarget * (it.weight / totalWeight);
-            rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil(itemRevenueShare / qty));
+        if (sortedRows.length === 1) {
+          rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil(totalRevenueTarget / qty));
+        } else if (totalWeight > 0) {
+          if (index === 0 && topItemCapped) {
+            rawUnitFused = Math.max(unitBreakevenFloor, topCapFloor);
           } else {
-            rawUnitFused = Math.max(unitBreakevenFloor, faceVal * 2.0);
+            const baseShare = totalRevenueTarget * (it.weight / totalWeight);
+            const excessShare = (topItemCapped && remainingWeight > 0)
+              ? excessRevenueToDistribute * (it.weight / remainingWeight)
+              : 0;
+            rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil((baseShare + excessShare) / qty));
           }
         } else {
-          rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil((faceVal / M_EFF) * (1 + targetMarginPct)));
+          rawUnitFused = Math.max(unitBreakevenFloor, faceVal * 2.0);
         }
 
         let snappedUnitFused = Math.max(100, Math.ceil(rawUnitFused / 100) * 100);
-        if (snappedUnitFused < unitBreakevenFloor && !it.isScrap) {
+        if (snappedUnitFused < unitBreakevenFloor) {
           snappedUnitFused = Math.ceil(unitBreakevenFloor / 100) * 100;
         }
 
@@ -3988,14 +3949,13 @@ js_logic = ''';
       const totalAskingFused = calculatedItems.reduce((acc, it) => acc + it.totalItemFused, 0);
       const totalFloorFused = calculatedItems.reduce((acc, it) => acc + (it.unitBreakevenFloor * it.qty), 0);
       const totalNetDiamonds = calculatedItems.reduce((acc, it) => acc + it.totalItemDiamonds, 0);
-      const overallProfit = (totalNetDiamonds + coinRebate) - chestCost;
-      const roiPercent = netOutlay > 0 ? ((overallProfit / netOutlay) * 100).toFixed(1) : '0';
+      const overallProfit = totalNetDiamonds - chestCost;
+      const roiPercent = chestCost > 0 ? ((overallProfit / chestCost) * 100).toFixed(1) : '0';
 
       return {
         chestCost,
-        coinRebate,
-        netOutlay,
-        mode,
+        netOutlay: chestCost,
+        strategy,
         targetMarginPct,
         items: calculatedItems,
         totalAskingFused,
@@ -4010,9 +3970,7 @@ js_logic = ''';
       const results = this.calculateValuation();
       if (!results) return;
 
-      if (this.valMetricNetOutlay) this.valMetricNetOutlay.textContent = `${this.formatNumber(results.netOutlay)} c`;
-      if (this.valMetricRawCost) this.valMetricRawCost.textContent = this.formatNumber(results.chestCost);
-      if (this.valMetricRebate) this.valMetricRebate.textContent = this.formatNumber(results.coinRebate);
+      if (this.valMetricNetOutlay) this.valMetricNetOutlay.textContent = `${this.formatNumber(results.chestCost)} c`;
       if (this.valMetricTotalFused) this.valMetricTotalFused.textContent = this.formatNumber(results.totalAskingFused);
       if (this.valMetricFloorFused) this.valMetricFloorFused.textContent = this.formatNumber(results.totalFloorFused);
       if (this.valMetricTotalDiamonds) this.valMetricTotalDiamonds.textContent = `${this.formatNumber(results.totalNetDiamonds)} D`;
@@ -4025,7 +3983,7 @@ js_logic = ''';
 
       if (this.valMetricRoiSub) {
         const sign = results.overallProfit >= 0 ? '+' : '';
-        this.valMetricRoiSub.textContent = `ROI vs Net Spend: ${sign}${results.roiPercent}%`;
+        this.valMetricRoiSub.textContent = `ROI: ${sign}${results.roiPercent}%`;
         this.valMetricRoiSub.style.color = results.overallProfit >= 0 ? '#34d399' : '#f87171';
       }
 
@@ -4043,13 +4001,10 @@ js_logic = ''';
           const displayName = it.name ? this.escapeHtml(it.name) : `Drop #${it.rank}`;
           const marginSign = it.unitMargin >= 0 ? '+' : '';
           const marginClass = it.unitMargin >= 0 ? 'val-margin-profit' : 'val-margin-loss';
-          const scrapBadge = it.isScrap ? '<span class="gh-chip gh-chip-sync" style="font-size: 9px; padding: 1px 5px; margin-left: 6px;">Scrap</span>' : '';
 
           tr.innerHTML = `
-            <td>
-              ${rankBadgeHtml}
-              <strong>${displayName}</strong>${scrapBadge}
-            </td>
+            <td>${rankBadgeHtml}</td>
+            <td><strong>${displayName}</strong></td>
             <td class="tabular">${this.formatNumber(it.faceVal)} c</td>
             <td class="tabular">${it.qty}x</td>
             <td class="tabular" style="font-weight: 700; color: #38bdf8;">${this.formatNumber(it.snappedUnitFused)} Fused</td>
@@ -4104,9 +4059,8 @@ js_logic = ''';
         id: 'pval_rec_' + Date.now(),
         title: autoTitle,
         chestCost: results.chestCost,
-        coinRebate: results.coinRebate,
         targetMarginPct: results.targetMarginPct,
-        mode: results.mode,
+        strategy: results.strategy,
         items: this.valItems.map(it => ({ ...it })),
         summary: {
           totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
@@ -4203,13 +4157,13 @@ js_logic = ''';
             </div>
             <div style="display: flex; gap: 5px;">
               <button type="button" class="btn-primary" data-history-action="load" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Load this run into the calculator">
-                🔄 Load
+                Load
               </button>
-              <button type="button" class="btn-secondary" data-history-action="copy" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Copy trading post text to clipboard">
-                📋 Copy
+              <button type="button" class="btn-secondary" data-history-action="copy" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Copy trading list text to clipboard">
+                Copy
               </button>
               <button type="button" class="btn-secondary" data-history-action="delete" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);" title="Delete this history record">
-                🗑️
+                Delete
               </button>
             </div>
           </div>
@@ -4223,13 +4177,11 @@ js_logic = ''';
       const record = this.valHistory.find(r => r.id === id);
       if (!record) return;
 
-      if (this.valChestCost) this.valChestCost.value = record.chestCost || 4000;
-      if (this.valCoinRebate) this.valCoinRebate.value = record.coinRebate || 0;
+      if (this.valChestCost) this.valChestCost.value = record.chestCost || 8000;
       if (this.valTargetMargin) this.valTargetMargin.value = Math.round((record.targetMarginPct || 0.20) * 100);
-      if (this.valModeSelect) this.valModeSelect.value = record.mode || 'voiceroom';
+      if (this.valStrategySelect) this.valStrategySelect.value = record.strategy || 'standard';
 
       this.valItems = Array.isArray(record.items) ? record.items.map(it => ({ ...it })) : [];
-      this.syncChestPresetButtons();
       this.renderValuationItemsList();
       this.recalculateAndRenderValuation();
 
@@ -4263,7 +4215,7 @@ js_logic = ''';
 
     copyTradePost(historyId = null) {
       let chestCost = 0;
-      let coinRebate = 0;
+      let strategy = 'standard';
       let items = [];
       let summary = null;
 
@@ -4271,7 +4223,7 @@ js_logic = ''';
         const record = this.valHistory.find(r => r.id === historyId);
         if (record) {
           chestCost = record.chestCost;
-          coinRebate = record.coinRebate || 0;
+          strategy = record.strategy || 'standard';
           items = record.items || [];
           summary = record.summary;
         }
@@ -4281,7 +4233,7 @@ js_logic = ''';
         const results = this.calculateValuation();
         if (!results) return;
         chestCost = results.chestCost;
-        coinRebate = results.coinRebate;
+        strategy = results.strategy;
         items = results.items;
         summary = {
           totalDrops: results.items.reduce((acc, it) => acc + it.qty, 0),
@@ -4293,45 +4245,48 @@ js_logic = ''';
         };
       }
 
-      const rebateText = coinRebate > 0 ? ` (Rebate: +${this.formatNumber(coinRebate)}c)` : '';
+      const strategyLabel = strategy === 'quick' ? 'Quick Flip (High Turnover ~45% Cap)'
+        : strategy === 'premium' ? 'Realistic Premium (Hot Room ~75% Cap)'
+        : 'Standard (Balanced ~60% Cap)';
+
       const postLines = [
-        `✨ CHEST / VOICEROOM TRADE LIST ✨`,
-        `📦 Milestone Spend: ${this.formatNumber(chestCost)} Coins${rebateText}`,
-        `💎 Cashout Guarantee: 0.602x Net Diamonds (14% Inst + 42% Del + 4.2% Bonus)`,
+        'CHEST / VOICEROOM TRADE LIST',
+        `Chest Cost: ${this.formatNumber(chestCost)} Coins`,
+        `Strategy: ${strategyLabel}`,
+        'Cashout Rate: 0.602x Net Diamonds',
         '',
-        `🎯 ASKING PRICES (Clean Flat Denominations):`
+        'ASKING PRICES (FLAT DENOMINATIONS):'
       ];
 
       items.forEach((it, i) => {
-        const rankIcon = (it.rank === 1 || i === 0) ? '👑' : (it.rank === 2 || i === 1) ? '⭐' : '🔹';
-        const nameStr = it.name ? it.name : `Drop #${it.rank || (i + 1)}`;
+        const rankNum = it.rank || (i + 1);
+        const nameStr = it.name ? it.name : `Drop #${rankNum}`;
         const unitFused = it.snappedUnitFused || Math.ceil((it.faceValue || 100) * 2 / 100) * 100;
         const qty = it.quantity || it.qty || 1;
         const totalFused = unitFused * qty;
         const totalStr = qty > 1 ? ` (${this.formatNumber(totalFused)} total)` : '';
         const payCombo = it.paymentSuggestion || this.getPaymentBreakdown(unitFused);
-        const scrapNote = it.isScrap ? ' [SCRAP]' : '';
 
-        postLines.push(`• ${rankIcon} ${nameStr} (${it.faceValue || it.faceVal}c) x${qty} ➔ ${this.formatNumber(unitFused)} Fused each${totalStr}${scrapNote} | Pay: ${payCombo}`);
+        postLines.push(`• [#${rankNum}] ${nameStr} (${it.faceValue || it.faceVal}c) x${qty} -> ${this.formatNumber(unitFused)} Fused each${totalStr} | Pay: ${payCombo}`);
       });
 
       const isProfit = (summary.overallProfit ?? 0) >= 0;
       const profitSign = isProfit ? '+' : '';
 
       postLines.push('');
-      postLines.push(`📊 EXPECTED RECOVERY:`);
+      postLines.push('EXPECTED RECOVERY:');
       postLines.push(`• Total Drops: ${summary.totalDrops || items.length} units`);
       postLines.push(`• Total Asking: ${this.formatNumber(summary.totalAskingFused)} Fused Coins`);
       postLines.push(`• Net Diamond Return: ${this.formatNumber(summary.totalNetDiamonds)} Diamonds`);
       postLines.push(`• Net Margin: ${profitSign}${this.formatNumber(summary.overallProfit)} D (${profitSign}${summary.roiPercent}%)`);
       postLines.push('');
-      postLines.push(`Verified via HelloTalk Database & Valuation Studio`);
+      postLines.push('Verified via HelloTalk Database & Valuation Studio');
 
       const text = postLines.join('\\n');
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(text).then(() => {
-          this.showToast('📋 Copied formatted trade post to clipboard!');
+          this.showToast('Copied trade list to clipboard!');
         }).catch(() => {
           this.fallbackCopyText(text);
         });
@@ -4349,7 +4304,7 @@ js_logic = ''';
       ta.select();
       try {
         document.execCommand('copy');
-        this.showToast('📋 Copied formatted trade post to clipboard!');
+        this.showToast('Copied trade list to clipboard!');
       } catch (e) {
         this.showToast('Could not auto-copy. Please copy manually.');
       }

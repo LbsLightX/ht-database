@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#0f1115">
   <meta name="description" content="HelloTalk Database - Master Series Catalog, Wall Checklist &amp; Backpack Inventory">
   <title>HelloTalk Database // Master Catalog &amp; Valuation</title>
-  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1793321014">
+  <link rel="stylesheet" href="styles.css?v=1.0.4&t=1793328835">
 </head>
 <body>
 
@@ -443,7 +443,7 @@
         <div style="padding: 14px 16px; border-bottom: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px;">
           <div>
             <h2 style="font-size: 14px; font-weight: 800; color: var(--text-primary); margin: 0 0 2px 0;">Chest ROI &amp; Fused Valuation Studio</h2>
-            <span style="font-size: 11px; color: var(--text-muted);">Milestone Gating • 0.602 Diamond Loop • Dynamic Scarcity Engine</span>
+            <span style="font-size: 11px; color: var(--text-muted);">Chest Cost Baseline • 0.602 Diamond Loop • Capped Scarcity Engine</span>
           </div>
           <div style="display: flex; align-items: center; gap: 6px;">
             <span class="status-badge status-online">0.602x Loop</span>
@@ -453,41 +453,27 @@
 
         <div style="padding: 16px;">
           <!-- Controls Grid -->
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-bottom: 16px;">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; margin-bottom: 16px;">
             <div class="form-group" style="margin-bottom: 0;">
-              <label for="valModeSelect">Trading Scenario Mode</label>
-              <select id="valModeSelect" class="form-select" style="font-size: 12px; padding: 7px 10px;">
-                <option value="voiceroom" selected>Public Voiceroom (Split Spend &amp; Scarcity)</option>
-                <option value="solo">Solo Run (Closed-Loop Arbitrage)</option>
+              <label for="valStrategySelect">Pricing Strategy</label>
+              <select id="valStrategySelect" class="form-select" style="font-size: 12px; padding: 7px 10px;">
+                <option value="standard" selected>Standard (Balanced ~60% Cap)</option>
+                <option value="quick">Quick Flip (High Turnover ~45% Cap)</option>
+                <option value="premium">Realistic Premium (Hot Room ~75% Cap)</option>
               </select>
-              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;" id="valModeDesc">Dynamic pricing (FaceVal / √Qty) to monetize bottleneck drops and discount volume drops.</span>
+              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;" id="valStrategyDesc">Balanced sweet spot: #1 marquee drop capped at ~60% of chest cost to prevent buyer resistance.</span>
             </div>
 
             <div class="form-group" style="margin-bottom: 0;">
-              <label for="valChestCost">Chest Unlock / Milestone Cost (Coins)</label>
-              <input type="number" id="valChestCost" class="form-input tabular" placeholder="e.g. 4000" min="0" step="1" value="4000" style="font-size: 12px; padding: 7px 10px;">
-              <div class="preset-buttons-row" id="valChestPresets" style="margin-top: 6px;">
-                <button type="button" class="preset-btn" data-cost="2999">2,999</button>
-                <button type="button" class="preset-btn" data-cost="3999">3,999</button>
-                <button type="button" class="preset-btn active" data-cost="4000">4,000</button>
-                <button type="button" class="preset-btn" data-cost="4999">4,999</button>
-                <button type="button" class="preset-btn" data-cost="6000">6,000</button>
-                <button type="button" class="preset-btn" data-cost="8000">8,000</button>
-                <button type="button" class="preset-btn" data-cost="30000">30k</button>
-                <button type="button" class="preset-btn" data-cost="40000">40k</button>
-              </div>
-            </div>
-
-            <div class="form-group" style="margin-bottom: 0;">
-              <label for="valCoinRebate">Direct Coin Rebate (Coins)</label>
-              <input type="number" id="valCoinRebate" class="form-input tabular" value="0" min="0" step="1" placeholder="e.g. 100" style="font-size: 12px; padding: 7px 10px;">
-              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;">Milestone direct coin drops (100% face value, offsets spend directly).</span>
+              <label for="valChestCost">Chest Unlock Cost (Coins)</label>
+              <input type="number" id="valChestCost" class="form-input tabular" placeholder="e.g. 8000" min="0" step="1" value="8000" style="font-size: 12px; padding: 7px 10px;">
+              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;">Full chest unlock or milestone spend outlay.</span>
             </div>
 
             <div class="form-group" style="margin-bottom: 0;">
               <label for="valTargetMargin">Target Profit Margin (%)</label>
               <input type="number" id="valTargetMargin" class="form-input tabular" value="20" min="0" max="200" step="1" style="font-size: 12px; padding: 7px 10px;">
-              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;">Target return over net spend outlay (e.g. 20% = +20% net diamonds).</span>
+              <span style="font-size: 10px; color: var(--text-muted); margin-top: 4px; line-height: 1.35;">Target net return over chest outlay (e.g. 20% = +20% net diamonds).</span>
             </div>
           </div>
 
@@ -496,15 +482,13 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
               <div>
                 <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin: 0 0 2px 0;">Chest Drop Pool Items</h4>
-                <span style="font-size: 11px; color: var(--text-muted);">Auto-ranked by face value • Scarcity weighted (FaceVal / √Qty)</span>
+                <span style="font-size: 11px; color: var(--text-muted);">Auto-ranked by coin value • Scarcity weighted (FaceVal / √Qty)</span>
               </div>
               <div style="display: flex; gap: 6px;">
                 <button type="button" id="valAddItemBtn" class="btn-primary" style="font-size: 11px; padding: 5px 12px;">+ Add Drop</button>
-                <button type="button" id="valResetItemsBtn" class="btn-secondary" style="font-size: 11px; padding: 5px 12px;">↺ Reset</button>
+                <button type="button" id="valResetItemsBtn" class="btn-secondary" style="font-size: 11px; padding: 5px 12px;">Reset</button>
               </div>
             </div>
-
-            <datalist id="valCatalogDatalist"></datalist>
 
             <div class="val-items-list" id="valItemsList" style="display: flex; flex-direction: column; gap: 6px;">
               <!-- Injected rows -->
@@ -515,9 +499,9 @@
           <div style="margin-top: 16px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
             <div class="summary-hero-row" style="margin-bottom: 14px;">
               <div class="summary-metric-card">
-                <div class="metric-label">Net Chest Outlay</div>
-                <div class="metric-val tabular" id="valMetricNetOutlay">4,000 c</div>
-                <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Cost: <span id="valMetricRawCost" class="tabular">4,000</span> - <span id="valMetricRebate" class="tabular">0</span></div>
+                <div class="metric-label">Chest Outlay</div>
+                <div class="metric-val tabular" id="valMetricNetOutlay">8,000 c</div>
+                <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Milestone spend outlay</div>
               </div>
               <div class="summary-metric-card">
                 <div class="metric-label">Total Asking (Fused)</div>
@@ -527,7 +511,7 @@
               <div class="summary-metric-card">
                 <div class="metric-label">Net Diamonds (0.602x)</div>
                 <div class="metric-val tabular" id="valMetricTotalDiamonds" style="color: #c084fc;">0 D</div>
-                <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Floor per gift enforced</div>
+                <div style="font-size: 10px; color: var(--text-muted); margin-top: 3px;">Platform cashout loop</div>
               </div>
               <div class="summary-metric-card">
                 <div class="metric-label">Net Spread / Profit</div>
@@ -541,7 +525,8 @@
               <table class="clean-table" style="margin: 0;">
                 <thead>
                   <tr>
-                    <th>Rank &amp; Drop</th>
+                    <th>Rank</th>
+                    <th>Drop Name</th>
                     <th>Base Coins</th>
                     <th>Qty</th>
                     <th>Asking (Unit)</th>
@@ -558,10 +543,10 @@
             <!-- Action Buttons -->
             <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;">
               <button type="button" id="valCopyTradeBtn" class="btn-primary" style="font-size: 11px; padding: 7px 14px; display: inline-flex; align-items: center; gap: 6px;">
-                <span>📋</span> <span>Copy Voiceroom Trade Post</span>
+                Copy Trade List
               </button>
               <button type="button" id="valSaveHistoryBtn" class="btn-secondary" style="font-size: 11px; padding: 7px 14px; display: inline-flex; align-items: center; gap: 6px;">
-                <span>💾</span> <span>Save to History</span>
+                Save to History
               </button>
             </div>
           </div>
@@ -570,7 +555,7 @@
           <div style="margin-top: 16px; border-top: 1px solid var(--border-subtle); padding-top: 14px;">
             <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; flex-wrap: wrap; gap: 8px;">
               <div>
-                <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin: 0 0 2px 0;">Saved Cube Calculations</h4>
+                <h4 style="font-size: 13px; font-weight: 700; color: var(--text-primary); margin: 0 0 2px 0;">Saved Calculations</h4>
                 <span style="font-size: 11px; color: var(--text-muted);" id="valHistoryCountLabel">0 saved runs</span>
               </div>
               <button type="button" id="valClearHistoryBtn" class="btn-secondary" style="font-size: 10px; padding: 3px 8px; color: var(--danger); border-color: rgba(239, 68, 68, 0.3);">
@@ -582,7 +567,7 @@
               <svg style="position: absolute; left: 10px; color: var(--text-muted); pointer-events: none;" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
               </svg>
-              <input type="text" id="valHistorySearchInput" class="form-input" placeholder="Search saved runs by name, drop, or coins (e.g. 'Halloween', '399', '40k')..." autocomplete="off" spellcheck="false" style="padding-left: 30px; padding-right: 26px; font-size: 11.5px; height: 32px;">
+              <input type="text" id="valHistorySearchInput" class="form-input" placeholder="Search saved runs by name, drop, or coins (e.g. 'Halloween', '399', '8000')..." autocomplete="off" spellcheck="false" style="padding-left: 30px; padding-right: 26px; font-size: 11.5px; height: 32px;">
               <button id="valHistoryClearSearchBtn" type="button" title="Clear search" style="position: absolute; right: 8px; background: none; border: none; color: var(--text-muted); font-size: 14px; cursor: pointer; padding: 0 4px; line-height: 1; display: none;">&times;</button>
             </div>
 
@@ -1099,6 +1084,6 @@
   <div id="toastContainer" class="toast-container" aria-live="polite"></div>
 
   <!-- CORE SCRIPT -->
-  <script src="app.js?v=1.0.4&t=1793321014"></script>
+  <script src="app.js?v=1.0.4&t=1793328835"></script>
 </body>
 </html>
