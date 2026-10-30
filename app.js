@@ -29805,7 +29805,7 @@
 
       if (this.valChestPresets) {
         this.valChestPresets.addEventListener('click', (e) => {
-          const btn = e.target.closest('.val-preset-chip');
+          const btn = e.target.closest('.preset-btn, .val-preset-chip');
           if (!btn || !btn.dataset.cost) return;
           if (this.valChestCost) {
             this.valChestCost.value = btn.dataset.cost;
@@ -31386,7 +31386,7 @@
     syncChestPresetButtons() {
       if (!this.valChestPresets || !this.valChestCost) return;
       const currentCost = String(this.valChestCost.value).trim();
-      const chips = this.valChestPresets.querySelectorAll('.val-preset-chip');
+      const chips = this.valChestPresets.querySelectorAll('.preset-btn, .val-preset-chip');
       chips.forEach(chip => {
         chip.classList.toggle('active', chip.dataset.cost === currentCost);
       });
@@ -31454,25 +31454,31 @@
         row.className = 'val-item-row';
         row.dataset.rowId = item.id;
 
-        const rankBadgeClass = rank === 1 ? 'rank-1' : rank === 2 ? 'rank-2' : rank === 3 ? 'rank-3' : '';
+        const rankBadgeHtml = rank === 1
+          ? '<span class="tier-badge tier-luxury" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#1</span>'
+          : rank === 2
+          ? '<span class="tier-badge tier-limited" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#2</span>'
+          : rank === 3
+          ? '<span class="tier-badge tier-featured" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#3</span>'
+          : `<span class="tier-badge tier-standard" style="padding: 2px 6px; font-size: 9.5px; justify-content: center; width: 100%;">#${rank}</span>`;
 
         row.innerHTML = `
-          <div class="val-row-rank-badge ${rankBadgeClass}" title="Rank #${rank} (Auto-ranked by coin value)">
-            #${rank}
+          <div style="display: flex; align-items: center; justify-content: center;" title="Rank #${rank} (Auto-ranked by coin value)">
+            ${rankBadgeHtml}
           </div>
           <div>
-            <input type="text" class="val-item-input val-item-name-input" list="valCatalogDatalist" placeholder="Gift Name (Catalog or Custom)" value="${this.escapeHtml(item.name || '')}" autocomplete="off">
+            <input type="text" class="form-input val-item-name-input" list="valCatalogDatalist" placeholder="Gift Name (Catalog or Custom)" value="${this.escapeHtml(item.name || '')}" autocomplete="off" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div>
-            <input type="number" class="val-item-input val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}">
+            <input type="number" class="form-input tabular val-item-coins-input" placeholder="Coins" min="1" step="1" value="${item.faceValue ?? 100}" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div>
-            <input type="number" class="val-item-input val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}">
+            <input type="number" class="form-input tabular val-item-qty-input" placeholder="Qty" min="1" step="1" value="${item.quantity ?? 1}" style="font-size: 12px; padding: 6px 10px;">
           </div>
           <div style="display: flex; align-items: center; justify-content: flex-end; padding-right: 4px;">
-            <label style="display: flex; align-items: center; gap: 5px; font-size: 10.5px; color: var(--text-muted); cursor: pointer;" title="Micro-Scrap: exclude from premium scarcity allocation">
-              <input type="checkbox" class="val-item-scrap-check" ${item.isScrap ? 'checked' : ''} style="accent-color: #f59e0b;">
-              <span>Scrap</span>
+            <label class="form-checkbox-label" style="font-size: 11px; cursor: pointer; gap: 6px;" title="Micro-Scrap: exclude from premium scarcity allocation">
+              <input type="checkbox" class="form-checkbox val-item-scrap-check" ${item.isScrap ? 'checked' : ''} style="accent-color: #f59e0b; width: 14px; height: 14px;">
+              <span style="color: var(--text-muted);">Scrap</span>
             </label>
           </div>
           <div>
@@ -31651,15 +31657,21 @@
         this.valTableBody.innerHTML = '';
         results.items.forEach(it => {
           const tr = document.createElement('tr');
-          const rankPrefix = it.rank === 1 ? '👑 #1' : it.rank === 2 ? '⭐ #2' : it.rank === 3 ? '🥉 #3' : `#${it.rank}`;
+          const rankBadgeHtml = it.rank === 1
+            ? '<span class="tier-badge tier-luxury" style="padding: 1px 6px; font-size: 9px; margin-right: 6px;">#1</span>'
+            : it.rank === 2
+            ? '<span class="tier-badge tier-limited" style="padding: 1px 6px; font-size: 9px; margin-right: 6px;">#2</span>'
+            : it.rank === 3
+            ? '<span class="tier-badge tier-featured" style="padding: 1px 6px; font-size: 9px; margin-right: 6px;">#3</span>'
+            : `<span class="tier-badge tier-standard" style="padding: 1px 6px; font-size: 9px; margin-right: 6px;">#${it.rank}</span>`;
           const displayName = it.name ? this.escapeHtml(it.name) : `Drop #${it.rank}`;
           const marginSign = it.unitMargin >= 0 ? '+' : '';
           const marginClass = it.unitMargin >= 0 ? 'val-margin-profit' : 'val-margin-loss';
-          const scrapBadge = it.isScrap ? '<span style="font-size: 9.5px; padding: 1px 4px; background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-radius: 3px; margin-left: 4px;">Scrap</span>' : '';
+          const scrapBadge = it.isScrap ? '<span class="gh-chip gh-chip-sync" style="font-size: 9px; padding: 1px 5px; margin-left: 6px;">Scrap</span>' : '';
 
           tr.innerHTML = `
             <td>
-              <span style="font-weight: 700; color: ${it.rank === 1 ? '#facc15' : it.rank === 2 ? '#cbd5e1' : it.rank === 3 ? '#fb923c' : 'var(--text-secondary)'}; margin-right: 4px;">${rankPrefix}</span>
+              ${rankBadgeHtml}
               <strong>${displayName}</strong>${scrapBadge}
             </td>
             <td class="tabular">${this.formatNumber(it.faceVal)} c</td>
@@ -31668,7 +31680,7 @@
             <td class="tabular" style="font-weight: 700;">${this.formatNumber(it.totalItemFused)}</td>
             <td class="tabular">${this.formatNumber(it.unitNetDiamonds)} D <span style="font-size: 10px; color: var(--text-muted);">(${this.formatNumber(it.totalItemDiamonds)} total)</span></td>
             <td class="tabular ${marginClass}">${marginSign}${this.formatNumber(it.unitMargin)} D</td>
-            <td><code style="font-size: 11px; background: rgba(255, 255, 255, 0.05); padding: 2px 6px; border-radius: 4px; color: #a5f3fc;">${it.paymentSuggestion}</code></td>
+            <td><span class="gh-chip" style="font-size: 10px; padding: 2px 7px; color: #38bdf8; border-color: rgba(56, 189, 248, 0.35);">${it.paymentSuggestion}</span></td>
           `;
           this.valTableBody.appendChild(tr);
         });
@@ -31786,34 +31798,34 @@
 
         const isProfit = (rec.summary?.overallProfit ?? 0) >= 0;
         const profitSign = isProfit ? '+' : '';
-        const profitClass = isProfit ? 'val-margin-profit' : 'val-margin-loss';
+        const profitChipClass = isProfit ? 'gh-chip-add' : 'gh-chip-delete';
 
         const dropTagsHtml = (rec.items || []).map(it => {
           const label = it.name ? `${it.name} (${it.faceValue}c x${it.quantity})` : `${it.faceValue}c x${it.quantity}`;
-          return `<span class="val-drop-tag">${this.escapeHtml(label)}</span>`;
-        }).join('');
+          return `<span class="gh-chip" style="font-size: 9.5px; padding: 1.5px 6px; color: var(--text-muted);">${this.escapeHtml(label)}</span>`;
+        }).join(' ');
 
         card.innerHTML = `
-          <div class="val-history-card-header">
+          <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 6px; flex-wrap: wrap; gap: 6px;">
             <div>
-              <h4 class="val-history-title">${this.escapeHtml(rec.title)}</h4>
-              <span class="val-history-date">${rec.savedAt || 'Recently saved'}</span>
+              <h4 style="font-size: 12.5px; font-weight: 700; color: var(--text-primary); margin: 0 0 2px 0;">${this.escapeHtml(rec.title)}</h4>
+              <span style="font-size: 10px; color: var(--text-muted);">${rec.savedAt || 'Recently saved'}</span>
             </div>
-            <div class="val-history-badges">
-              <span class="val-history-chip">Outlay: <strong>${this.formatNumber(rec.summary?.netOutlay ?? rec.chestCost)} c</strong></span>
-              <span class="val-history-chip ${profitClass}">Return: <strong>${profitSign}${this.formatNumber(rec.summary?.overallProfit ?? 0)} D</strong> (${profitSign}${rec.summary?.roiPercent ?? 0}%)</span>
+            <div style="display: flex; flex-wrap: wrap; gap: 5px;">
+              <span class="gh-chip" style="font-size: 10px; padding: 2px 6px;">Outlay: <strong class="tabular" style="color: var(--text-primary); margin-left: 2px;">${this.formatNumber(rec.summary?.netOutlay ?? rec.chestCost)} c</strong></span>
+              <span class="gh-chip ${profitChipClass}" style="font-size: 10px; padding: 2px 6px;">Return: <strong class="tabular" style="margin-left: 2px;">${profitSign}${this.formatNumber(rec.summary?.overallProfit ?? 0)} D</strong> (${profitSign}${rec.summary?.roiPercent ?? 0}%)</span>
             </div>
           </div>
 
-          <div class="val-history-drops">
+          <div style="display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px;">
             ${dropTagsHtml}
           </div>
 
-          <div class="val-history-footer">
-            <div class="val-history-stats">
-              Asking: <strong style="color: #38bdf8;">${this.formatNumber(rec.summary?.totalAskingFused ?? 0)} Fused</strong> &rarr; Net: <strong style="color: #c084fc;">${this.formatNumber(rec.summary?.totalNetDiamonds ?? 0)} D</strong>
+          <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border-subtle); padding-top: 6px; flex-wrap: wrap; gap: 6px;">
+            <div style="font-size: 11px; color: var(--text-secondary);">
+              Asking: <strong class="tabular" style="color: #38bdf8;">${this.formatNumber(rec.summary?.totalAskingFused ?? 0)} Fused</strong> &rarr; Net: <strong class="tabular" style="color: #c084fc;">${this.formatNumber(rec.summary?.totalNetDiamonds ?? 0)} D</strong>
             </div>
-            <div class="val-history-actions">
+            <div style="display: flex; gap: 5px;">
               <button type="button" class="btn-primary" data-history-action="load" data-id="${rec.id}" style="font-size: 10.5px; padding: 3px 8px;" title="Load this run into the calculator">
                 🔄 Load
               </button>
