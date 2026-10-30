@@ -3853,12 +3853,17 @@ js_logic = ''';
       const strategy = this.valStrategySelect ? this.valStrategySelect.value : 'standard';
       const M_EFF = 0.602;
 
-      // Strategy cap ceiling for the #1 marquee drop (fraction of chest cost)
+      // Strategy adjustments
+      const stratAdj = strategy === 'quick' ? 0.85 : strategy === 'premium' ? 1.15 : 1.00;
       const capFraction = strategy === 'quick' ? 0.45 : strategy === 'premium' ? 0.75 : 0.60;
-      const topCapFloor = Math.max(100, Math.floor((chestCost * capFraction) / 100) * 100);
 
       const netOutlay = chestCost;
       const totalRevenueTarget = Math.ceil((netOutlay / M_EFF) * (1 + targetMarginPct));
+
+      // Continuous Decaying Multiplier Curve: smooth mathematical power law for any gift value
+      const mBase = (v) => {
+        return 5.8 + (23.0 / (1 + 0.085 * Math.pow(v, 0.65)));
+      };
 
       const sortedRows = [...activeRows].map((it, idx) => ({ ...it, originalIdx: idx }))
         .sort((a, b) => (Number(b.faceValue) || 0) - (Number(a.faceValue) || 0));
@@ -3871,49 +3876,41 @@ js_logic = ''';
         row.autoRank = currentRank;
       });
 
-      const stratAdj = strategy === 'quick' ? 0.85 : strategy === 'premium' ? 1.15 : 1.00;
+      const totalCatalogValue = sortedRows.reduce((sum, it) => sum + ((Number(it.faceValue) || 0) * (parseInt(it.quantity) || 1)), 0);
+      const topDrop = sortedRows[0];
+      const topDominance = totalCatalogValue > 0 ? ((Number(topDrop.faceValue) || 0) * (parseInt(topDrop.quantity) || 1)) / totalCatalogValue : 1;
 
-      // Step 1: Compute natural anchor price and hard realism ceiling for each drop
+      // Step 1: Compute continuous anchor price and realism ceiling for each drop
       const anchoredData = sortedRows.map((it, idx) => {
         const faceVal = Math.max(1, Number(it.faceValue) || 1);
         const qty = Math.max(1, parseInt(it.quantity) || 1);
         const unitBreakevenFloor = Math.ceil(faceVal / M_EFF);
 
-        // Logarithmic quantity damping
-        const scarcityFactor = 1 / (1 + 0.30 * Math.log(qty));
+        const baseMult = mBase(faceVal);
+        const qtyDamping = 1 / (1 + 0.12 * Math.log(qty));
 
-        // Base tier multiplier based on store catalog face value
-        let tierMult = 7.0;
-        let maxMultCap = 12.0;
+        // Base natural unit scaled by strategy
+        let naturalUnit = Math.max(unitBreakevenFloor, Math.round(faceVal * baseMult * qtyDamping * stratAdj));
 
-        if (faceVal >= 2000) {
-          tierMult = 7.2;
-          maxMultCap = 9.0;
-        } else if (faceVal >= 500) {
-          tierMult = 7.5;
-          maxMultCap = 9.5;
-        } else if (faceVal >= 200) {
-          tierMult = 8.0;
-          maxMultCap = 10.0;
-        } else if (faceVal >= 50) {
-          tierMult = 7.0;
-          maxMultCap = 12.0;
-        } else {
-          tierMult = 10.0;
-          maxMultCap = 18.0;
-        }
+        // Realism multiplier ceiling scales with strategy to prevent strategy freeze
+        const maxMultFactor = 1.05 + 0.30 * stratAdj;
+        const tierCeiling = Math.max(unitBreakevenFloor, Math.round(faceVal * baseMult * maxMultFactor * qtyDamping));
 
-        const naturalUnit = Math.max(unitBreakevenFloor, Math.round(faceVal * tierMult * scarcityFactor * stratAdj));
-
-        // Hard ceiling: #1 drop capped by chest cost fraction; secondary drops capped by tier realism cap and chest fraction
-        let maxCap = 0;
+        let maxCap = tierCeiling;
         if (idx === 0) {
-          maxCap = Math.max(unitBreakevenFloor, topCapFloor);
+          if (chestCost > 0) {
+            const domScale = Math.min(1.0, 0.50 + 0.50 * topDominance);
+            const topChestUnitCap = Math.max(unitBreakevenFloor, Math.floor(((chestCost * capFraction * domScale) / qty) / 100) * 100);
+            maxCap = Math.min(tierCeiling, Math.max(naturalUnit, topChestUnitCap));
+          }
         } else {
-          const tierCeiling = Math.max(unitBreakevenFloor, Math.round(faceVal * maxMultCap));
-          const secondaryChestCeiling = chestCost > 0 ? Math.max(unitBreakevenFloor, Math.floor((chestCost * 0.25) / 100) * 100) : tierCeiling;
-          maxCap = Math.min(tierCeiling, secondaryChestCeiling);
+          if (chestCost > 0) {
+            const secChestUnitCap = Math.max(unitBreakevenFloor, Math.floor(((chestCost * 0.35 * stratAdj) / qty) / 100) * 100);
+            maxCap = Math.min(tierCeiling, secChestUnitCap);
+          }
         }
+
+        naturalUnit = Math.min(naturalUnit, maxCap);
 
         return {
           ...it,
@@ -3960,19 +3957,35 @@ js_logic = ''';
           snappedUnitFused = snappedMaxCap;
         }
 
-        const totalItemFused = snappedUnitFused * it.qty;
-        const instantD = Math.floor(snappedUnitFused * 0.14);
-        const delayedD = Math.floor(snappedUnitFused * 0.42);
+        return {
+          ...it,
+          snappedUnitFused
+        };
+      });
+
+      // Step 3: Strict Monotonicity Pass - a smaller coin drop never costs more than a larger coin drop
+      for (let i = 1; i < calculatedItems.length; i++) {
+        if (calculatedItems[i].faceVal < calculatedItems[i - 1].faceVal) {
+          if (calculatedItems[i].snappedUnitFused > calculatedItems[i - 1].snappedUnitFused) {
+            calculatedItems[i].snappedUnitFused = calculatedItems[i - 1].snappedUnitFused;
+          }
+        }
+      }
+
+      // Step 4: Final diamond conversion and payment suggestion breakdown
+      const finalItems = calculatedItems.map(it => {
+        const totalItemFused = it.snappedUnitFused * it.qty;
+        const instantD = Math.floor(it.snappedUnitFused * 0.14);
+        const delayedD = Math.floor(it.snappedUnitFused * 0.42);
         const bonusD = Math.floor(delayedD * 0.10);
         const unitNetDiamonds = instantD + delayedD + bonusD;
         const totalItemDiamonds = unitNetDiamonds * it.qty;
         const unitMargin = unitNetDiamonds - it.faceVal;
         const totalItemMargin = unitMargin * it.qty;
-        const paymentSuggestion = this.getPaymentBreakdown(snappedUnitFused);
+        const paymentSuggestion = this.getPaymentBreakdown(it.snappedUnitFused);
 
         return {
           ...it,
-          snappedUnitFused,
           totalItemFused,
           unitNetDiamonds,
           totalItemDiamonds,
@@ -3982,13 +3995,12 @@ js_logic = ''';
         };
       });
 
-      const totalAskingFused = calculatedItems.reduce((acc, it) => acc + it.totalItemFused, 0);
-      const totalFloorFused = calculatedItems.reduce((acc, it) => acc + (it.unitBreakevenFloor * it.qty), 0);
-      const totalNetDiamonds = calculatedItems.reduce((acc, it) => acc + it.totalItemDiamonds, 0);
+      const totalAskingFused = finalItems.reduce((acc, it) => acc + it.totalItemFused, 0);
+      const totalFloorFused = finalItems.reduce((acc, it) => acc + (it.unitBreakevenFloor * it.qty), 0);
+      const totalNetDiamonds = finalItems.reduce((acc, it) => acc + it.totalItemDiamonds, 0);
       const overallProfit = totalNetDiamonds - chestCost;
       const roiPercent = chestCost > 0 ? ((overallProfit / chestCost) * 100).toFixed(1) : '0';
 
-      const totalCatalogValue = calculatedItems.reduce((acc, it) => acc + (it.faceVal * it.qty), 0);
       const catRatio = chestCost > 0 ? (totalCatalogValue / chestCost) : 1;
       let evQuality = 'Balanced Spread';
       if (catRatio < 0.15) {
@@ -4002,7 +4014,7 @@ js_logic = ''';
         netOutlay: chestCost,
         strategy,
         targetMarginPct,
-        items: calculatedItems,
+        items: finalItems,
         totalAskingFused,
         totalFloorFused,
         totalNetDiamonds,
