@@ -3864,78 +3864,107 @@ js_logic = ''';
         row.autoRank = currentRank;
       });
 
-      let totalWeight = 0;
-      sortedRows.forEach(it => {
+      const stratAdj = strategy === 'quick' ? 0.85 : strategy === 'premium' ? 1.15 : 1.00;
+
+      // Step 1: Compute natural anchor price and hard realism ceiling for each drop
+      const anchoredData = sortedRows.map((it, idx) => {
         const faceVal = Math.max(1, Number(it.faceValue) || 1);
         const qty = Math.max(1, parseInt(it.quantity) || 1);
-        it.weight = (faceVal / Math.sqrt(qty)) * qty;
-        totalWeight += it.weight;
-      });
-
-      // Ceiling and rebalancing engine
-      let topItemCapped = false;
-      let excessRevenueToDistribute = 0;
-      let remainingWeight = 0;
-
-      if (sortedRows.length > 1 && totalWeight > 0) {
-        const topRow = sortedRows[0];
-        const topQty = Math.max(1, parseInt(topRow.quantity) || 1);
-        const topRawShare = totalRevenueTarget * (topRow.weight / totalWeight);
-        const topRawUnit = Math.ceil(topRawShare / topQty);
-
-        if (topRawUnit > topCapFloor) {
-          topItemCapped = true;
-          const cappedTotalRevenue = topCapFloor * topQty;
-          excessRevenueToDistribute = Math.max(0, topRawShare - cappedTotalRevenue);
-          remainingWeight = totalWeight - topRow.weight;
-        }
-      }
-
-      const calculatedItems = sortedRows.map((it, index) => {
-        const faceVal = Math.max(1, Number(it.faceValue) || 1);
-        const qty = Math.max(1, parseInt(it.quantity) || 1);
-        const rank = it.autoRank;
         const unitBreakevenFloor = Math.ceil(faceVal / M_EFF);
 
-        let rawUnitFused = unitBreakevenFloor;
+        // Logarithmic quantity damping
+        const scarcityFactor = 1 / (1 + 0.30 * Math.log(qty));
 
-        if (sortedRows.length === 1) {
-          rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil(totalRevenueTarget / qty));
-        } else if (totalWeight > 0) {
-          if (index === 0 && topItemCapped) {
-            rawUnitFused = Math.max(unitBreakevenFloor, topCapFloor);
-          } else {
-            const baseShare = totalRevenueTarget * (it.weight / totalWeight);
-            const excessShare = (topItemCapped && remainingWeight > 0)
-              ? excessRevenueToDistribute * (it.weight / remainingWeight)
-              : 0;
-            rawUnitFused = Math.max(unitBreakevenFloor, Math.ceil((baseShare + excessShare) / qty));
-          }
+        // Base tier multiplier based on store catalog face value
+        let tierMult = 7.0;
+        let maxMultCap = 12.0;
+
+        if (faceVal >= 2000) {
+          tierMult = 7.2;
+          maxMultCap = 9.0;
+        } else if (faceVal >= 500) {
+          tierMult = 7.5;
+          maxMultCap = 9.5;
+        } else if (faceVal >= 200) {
+          tierMult = 8.0;
+          maxMultCap = 10.0;
+        } else if (faceVal >= 50) {
+          tierMult = 7.0;
+          maxMultCap = 12.0;
         } else {
-          rawUnitFused = Math.max(unitBreakevenFloor, faceVal * 2.0);
+          tierMult = 10.0;
+          maxMultCap = 18.0;
         }
 
-        let snappedUnitFused = Math.max(100, Math.ceil(rawUnitFused / 100) * 100);
-        if (snappedUnitFused < unitBreakevenFloor) {
-          snappedUnitFused = Math.ceil(unitBreakevenFloor / 100) * 100;
-        }
+        const naturalUnit = Math.max(unitBreakevenFloor, Math.round(faceVal * tierMult * scarcityFactor * stratAdj));
 
-        const totalItemFused = snappedUnitFused * qty;
-        const instantD = Math.floor(snappedUnitFused * 0.14);
-        const delayedD = Math.floor(snappedUnitFused * 0.42);
-        const bonusD = Math.floor(delayedD * 0.10);
-        const unitNetDiamonds = instantD + delayedD + bonusD;
-        const totalItemDiamonds = unitNetDiamonds * qty;
-        const unitMargin = unitNetDiamonds - faceVal;
-        const totalItemMargin = unitMargin * qty;
-        const paymentSuggestion = this.getPaymentBreakdown(snappedUnitFused);
+        // Hard ceiling: #1 drop capped by chest cost fraction; secondary drops capped by tier realism cap and chest fraction
+        let maxCap = 0;
+        if (idx === 0) {
+          maxCap = Math.max(unitBreakevenFloor, topCapFloor);
+        } else {
+          const tierCeiling = Math.max(unitBreakevenFloor, Math.round(faceVal * maxMultCap));
+          const secondaryChestCeiling = chestCost > 0 ? Math.max(unitBreakevenFloor, Math.floor((chestCost * 0.25) / 100) * 100) : tierCeiling;
+          maxCap = Math.min(tierCeiling, secondaryChestCeiling);
+        }
 
         return {
           ...it,
           faceVal,
           qty,
-          rank,
+          rank: it.autoRank,
           unitBreakevenFloor,
+          naturalUnit,
+          maxCap
+        };
+      });
+
+      // Step 2: Intelligent Headroom Allocation toward Revenue Target
+      const naturalTotal = anchoredData.reduce((acc, it) => acc + (it.naturalUnit * it.qty), 0);
+      let targetShortfall = Math.max(0, totalRevenueTarget - naturalTotal);
+
+      // Compute headroom available under maxCap for each item
+      anchoredData.forEach(it => {
+        it.headroomUnit = Math.max(0, it.maxCap - it.naturalUnit);
+        it.totalHeadroom = it.headroomUnit * it.qty;
+      });
+
+      const totalPoolHeadroom = anchoredData.reduce((acc, it) => acc + it.totalHeadroom, 0);
+
+      const calculatedItems = anchoredData.map(it => {
+        let allocatedUnit = it.naturalUnit;
+
+        if (targetShortfall > 0 && totalPoolHeadroom > 0 && it.totalHeadroom > 0) {
+          const share = Math.min(it.totalHeadroom, targetShortfall * (it.totalHeadroom / totalPoolHeadroom));
+          allocatedUnit += Math.ceil(share / it.qty);
+        }
+
+        // Snap to flat 100s
+        let snappedUnitFused = Math.max(100, Math.ceil(allocatedUnit / 100) * 100);
+
+        // Enforce breakeven floor
+        if (snappedUnitFused < it.unitBreakevenFloor) {
+          snappedUnitFused = Math.ceil(it.unitBreakevenFloor / 100) * 100;
+        }
+
+        // Enforce maxCap ceiling (unless breakeven floor requires higher)
+        const snappedMaxCap = Math.max(it.unitBreakevenFloor, Math.ceil(it.maxCap / 100) * 100);
+        if (snappedUnitFused > snappedMaxCap && snappedMaxCap >= it.unitBreakevenFloor) {
+          snappedUnitFused = snappedMaxCap;
+        }
+
+        const totalItemFused = snappedUnitFused * it.qty;
+        const instantD = Math.floor(snappedUnitFused * 0.14);
+        const delayedD = Math.floor(snappedUnitFused * 0.42);
+        const bonusD = Math.floor(delayedD * 0.10);
+        const unitNetDiamonds = instantD + delayedD + bonusD;
+        const totalItemDiamonds = unitNetDiamonds * it.qty;
+        const unitMargin = unitNetDiamonds - it.faceVal;
+        const totalItemMargin = unitMargin * it.qty;
+        const paymentSuggestion = this.getPaymentBreakdown(snappedUnitFused);
+
+        return {
+          ...it,
           snappedUnitFused,
           totalItemFused,
           unitNetDiamonds,
@@ -3952,6 +3981,15 @@ js_logic = ''';
       const overallProfit = totalNetDiamonds - chestCost;
       const roiPercent = chestCost > 0 ? ((overallProfit / chestCost) * 100).toFixed(1) : '0';
 
+      const totalCatalogValue = calculatedItems.reduce((acc, it) => acc + (it.faceVal * it.qty), 0);
+      const catRatio = chestCost > 0 ? (totalCatalogValue / chestCost) : 1;
+      let evQuality = 'Balanced Spread';
+      if (catRatio < 0.15) {
+        evQuality = 'Bottleneck (Heavy Marquee Concentration)';
+      } else if (catRatio >= 0.25) {
+        evQuality = 'High EV (Strong Drop Spread)';
+      }
+
       return {
         chestCost,
         netOutlay: chestCost,
@@ -3962,7 +4000,9 @@ js_logic = ''';
         totalFloorFused,
         totalNetDiamonds,
         overallProfit,
-        roiPercent
+        roiPercent,
+        totalCatalogValue,
+        evQuality
       };
     }
 
