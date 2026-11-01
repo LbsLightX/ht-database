@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1793177385994,
+  "lastExported": 1793502958323,
   "categories": [
     {
       "id": "cat-basic",
@@ -903,9 +903,169 @@
       "badge": "",
       "description": "Halloween IV Collection series under celebration.",
       "displayOrder": 105
+    },
+    {
+      "id": "ser-mvx97zij-q1ia13",
+      "categoryId": "cat-celebration",
+      "name": "Day of the Dead",
+      "badge": "",
+      "description": "Day of the Dead Collection Series under Celebration",
+      "displayOrder": 106
     }
   ],
   "items": [
+    {
+      "id": "item-mvx9cm2q-tlsf04",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Muerto Fest",
+      "baseValue": 69,
+      "marketWorth": 69,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502951363
+    },
+    {
+      "id": "item-mvx9c9kd-jgj2h7",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Pan de Muerto",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502935149
+    },
+    {
+      "id": "item-mvx9bsih-gkxzny",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Remember ME",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502913049
+    },
+    {
+      "id": "item-mvx9bbaq-m16ukg",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Tea House",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502890738
+    },
+    {
+      "id": "item-mvx9aujf-222dp1",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Magic Brew",
+      "baseValue": 100,
+      "marketWorth": 100,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502869019
+    },
+    {
+      "id": "item-mvx9a6tb-hysk10",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Marigold",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502838271
+    },
+    {
+      "id": "item-mvx99spl-uvxl25",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Warm Candle",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502819993
+    },
+    {
+      "id": "item-mvx99euw-trq69m",
+      "categoryId": "cat-celebration",
+      "seriesId": "ser-mvx97zij-q1ia13",
+      "name": "Ghost Mail",
+      "baseValue": 799,
+      "marketWorth": 799,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1793502802040
+    },
     {
       "id": "item-mvrviimd-g6i87l",
       "categoryId": "cat-celebration",
