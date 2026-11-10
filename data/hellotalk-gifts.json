@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1793502958323,
+  "lastExported": 1794312238046,
   "categories": [
     {
       "id": "cat-basic",
@@ -911,9 +911,173 @@
       "badge": "",
       "description": "Day of the Dead Collection Series under Celebration",
       "displayOrder": 106
+    },
+    {
+      "id": "ser-mwan162p-002vfl",
+      "categoryId": "cat-emotion",
+      "name": "Best Wishes",
+      "badge": "",
+      "description": "Best Wishes collection series under Emotions",
+      "displayOrder": 107
     }
   ],
   "items": [
+    {
+      "id": "item-mwan5qst-ifmf2c",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Friendship Wreath",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312218369,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      }
+    },
+    {
+      "id": "item-mwan5epo-58l4bh",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Lotus Wish",
+      "baseValue": 30,
+      "marketWorth": 30,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312190140
+    },
+    {
+      "id": "item-mwan4zsb-mr4gxs",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Warm Candle",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312170795
+    },
+    {
+      "id": "item-mwan4gfo-xfmuas",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Lucky Chinese Knot",
+      "baseValue": 499,
+      "marketWorth": 499,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312145716
+    },
+    {
+      "id": "item-mwan42ml-1rptdy",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Starry Wish",
+      "baseValue": 699,
+      "marketWorth": 699,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312127822
+    },
+    {
+      "id": "item-mwan3pu8-jzb84k",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Peace Dove",
+      "baseValue": 199,
+      "marketWorth": 199,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312111248
+    },
+    {
+      "id": "item-mwan34fn-jxgy5v",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Meteor Wish",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312083507
+    },
+    {
+      "id": "item-mwan2q2o-3hazsf",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Blessings of Gentle Rain",
+      "baseValue": 399,
+      "marketWorth": 399,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312064897
+    },
     {
       "id": "item-mvx9cm2q-tlsf04",
       "categoryId": "cat-celebration",
