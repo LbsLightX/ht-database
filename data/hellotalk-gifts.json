@@ -1,6 +1,6 @@
 {
   "version": "1.0.4",
-  "lastExported": 1794312238046,
+  "lastExported": 1795598273820,
   "categories": [
     {
       "id": "cat-basic",
@@ -919,16 +919,87 @@
       "badge": "",
       "description": "Best Wishes collection series under Emotions",
       "displayOrder": 107
+    },
+    {
+      "id": "ser-mwvw6852-gsj95r",
+      "categoryId": "cat-basic",
+      "name": "NEW YEAR 2026",
+      "badge": "",
+      "description": "",
+      "displayOrder": 108
+    },
+    {
+      "id": "ser-mwvw6ei0-n77mhv",
+      "categoryId": "cat-basic",
+      "name": "NEW YEAR 2025",
+      "badge": "",
+      "description": "",
+      "displayOrder": 109
+    },
+    {
+      "id": "ser-mwvw6ijm-iwyucw",
+      "categoryId": "cat-basic",
+      "name": "NEW YEAR 2024",
+      "badge": "",
+      "description": "",
+      "displayOrder": 110
+    },
+    {
+      "id": "ser-mwvw6oyn-q0v4y4",
+      "categoryId": "cat-basic",
+      "name": "NEW YEAR 2023",
+      "badge": "",
+      "description": "",
+      "displayOrder": 111
     }
   ],
   "items": [
     {
-      "id": "item-mwan5qst-ifmf2c",
-      "categoryId": "cat-emotion",
-      "seriesId": "ser-mwan162p-002vfl",
-      "name": "Friendship Wreath",
-      "baseValue": 10,
-      "marketWorth": 10,
+      "id": "item-mwvwbei1-unzjf5",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "Hello 2026",
+      "baseValue": 799,
+      "marketWorth": 799,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1795597376041
+    },
+    {
+      "id": "item-mwvwaqal-wxeinf",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "New Year Neon Lights",
+      "baseValue": 49,
+      "marketWorth": 49,
+      "quantity": 0,
+      "wallOwned": true,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series",
+        "wall"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1795597382269
+    },
+    {
+      "id": "item-mwvwa6z7-2jlgou",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "Cheers to 2026",
+      "baseValue": 59,
+      "marketWorth": 59,
       "quantity": 0,
       "wallOwned": false,
       "starred": false,
@@ -939,11 +1010,87 @@
       ],
       "tags": [],
       "notes": "",
-      "updatedAt": 1794312218369,
+      "updatedAt": 1795597319635
+    },
+    {
+      "id": "item-mwvw9owj-1wctw0",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "Fireworks",
+      "baseValue": 1,
+      "marketWorth": 1,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1795597296211
+    },
+    {
+      "id": "item-mwvw96t5-ulnqqw",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "Fountain Sparkler",
+      "baseValue": 239,
+      "marketWorth": 239,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1795597272761
+    },
+    {
+      "id": "item-mwvw8dzj-1ilhn7",
+      "categoryId": "cat-basic",
+      "seriesId": "ser-mwvw6852-gsj95r",
+      "name": "New Year Snuggle",
+      "baseValue": 299,
+      "marketWorth": 299,
+      "quantity": 0,
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Featured",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1795597235408
+    },
+    {
+      "id": "item-mwan5qst-ifmf2c",
+      "categoryId": "cat-emotion",
+      "seriesId": "ser-mwan162p-002vfl",
+      "name": "Friendship Wreath",
+      "baseValue": 10,
+      "marketWorth": 10,
+      "quantity": 0,
       "backpacks": {
         "lbs": 0,
         "cryptid": 0
-      }
+      },
+      "wallOwned": false,
+      "starred": false,
+      "isDistinctVariant": false,
+      "tier": "Standard",
+      "tabs": [
+        "series"
+      ],
+      "tags": [],
+      "notes": "",
+      "updatedAt": 1794312218369
     },
     {
       "id": "item-mwan5epo-58l4bh",
@@ -953,6 +1100,10 @@
       "baseValue": 30,
       "marketWorth": 30,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -972,6 +1123,10 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -991,6 +1146,10 @@
       "baseValue": 499,
       "marketWorth": 499,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1010,6 +1169,10 @@
       "baseValue": 699,
       "marketWorth": 699,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1029,6 +1192,10 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1048,6 +1215,10 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1067,6 +1238,10 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1086,6 +1261,10 @@
       "baseValue": 69,
       "marketWorth": 69,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1105,6 +1284,10 @@
       "baseValue": 49,
       "marketWorth": 49,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1124,6 +1307,10 @@
       "baseValue": 699,
       "marketWorth": 699,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1143,6 +1330,10 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1162,6 +1353,10 @@
       "baseValue": 100,
       "marketWorth": 100,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1181,6 +1376,10 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1200,6 +1399,10 @@
       "baseValue": 199,
       "marketWorth": 199,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1219,6 +1422,10 @@
       "baseValue": 799,
       "marketWorth": 799,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1238,6 +1445,10 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1257,6 +1468,10 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1276,6 +1491,10 @@
       "baseValue": 19,
       "marketWorth": 19,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1295,6 +1514,10 @@
       "baseValue": 299,
       "marketWorth": 299,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1314,6 +1537,10 @@
       "baseValue": 49,
       "marketWorth": 49,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": false,
       "starred": false,
       "isDistinctVariant": false,
@@ -1333,6 +1560,10 @@
       "baseValue": 99,
       "marketWorth": 99,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1353,6 +1584,10 @@
       "baseValue": 5,
       "marketWorth": 5,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1373,6 +1608,10 @@
       "baseValue": 19,
       "marketWorth": 19,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1393,6 +1632,10 @@
       "baseValue": 66,
       "marketWorth": 66,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1413,6 +1656,10 @@
       "baseValue": 399,
       "marketWorth": 399,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -1433,6 +1680,10 @@
       "baseValue": 88,
       "marketWorth": 88,
       "quantity": 0,
+      "backpacks": {
+        "lbs": 0,
+        "cryptid": 0
+      },
       "wallOwned": true,
       "starred": false,
       "isDistinctVariant": false,
@@ -10063,7 +10314,7 @@
       "id": "item-cosmic-galaxy-nepture-338",
       "categoryId": "cat-home",
       "seriesId": "ser-home-cosmic-galaxy",
-      "name": "Nepture",
+      "name": "Neptune",
       "baseValue": 599,
       "marketWorth": 599,
       "quantity": 0,
@@ -10084,7 +10335,7 @@
         "luxury"
       ],
       "notes": "",
-      "updatedAt": 1729000000000
+      "updatedAt": 1794406985537
     },
     {
       "id": "item-cosmic-galaxy-venus-339",
